@@ -110,16 +110,15 @@ export default function ProductDetail() {
             )}
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-               <Button size="lg" className="flex-1 bg-primary hover:bg-red-700 text-white rounded-none h-14 text-lg">
-                  <ShoppingCart className="mr-2 h-5 w-5" /> Sepete Ekle
-               </Button>
-               <Button size="lg" variant="outline" className="flex-1 border-neutral-300 hover:bg-neutral-50 rounded-none h-14 text-lg">
-                  Fiyat Teklifi Al
-               </Button>
+               <a href="https://mgpolishing.com/yetkili-saticilar/" target="_blank" rel="noopener noreferrer" className="flex-1">
+                 <Button size="lg" className="w-full bg-primary hover:bg-red-700 text-white rounded-none h-14 text-lg uppercase font-bold tracking-wide">
+                    Satıcı Bul <ChevronRight className="ml-2 h-5 w-5" />
+                 </Button>
+               </a>
             </div>
 
             <div className="prose prose-neutral max-w-none text-neutral-600">
-               {product.content?.short_description}
+               {product.content?.full_description?.slice(0, 200)}...
             </div>
           </div>
         </div>
@@ -143,6 +142,12 @@ export default function ProductDetail() {
               {/* <TabsTrigger value="downloads" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:text-primary px-0 py-4 text-base font-bold bg-transparent shadow-none">
                 Dokümanlar
               </TabsTrigger> */}
+              <TabsTrigger 
+                value="faq" 
+                className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:text-primary px-0 py-4 text-base font-bold bg-transparent shadow-none"
+              >
+                Sıkça Sorulan Sorular
+              </TabsTrigger>
             </TabsList>
             
             <TabsContent value="description" className="py-8 animate-in fade-in slide-in-from-bottom-2 duration-500">
@@ -184,6 +189,22 @@ export default function ProductDetail() {
                      )}
                   </div>
                </div>
+            </TabsContent>
+            <TabsContent value="faq" className="py-8 animate-in fade-in slide-in-from-bottom-2 duration-500">
+               {product.faq && product.faq.length > 0 ? (
+                 <Accordion type="single" collapsible className="w-full">
+                    {product.faq.map((item, index) => (
+                      <AccordionItem key={index} value={`item-${index}`}>
+                        <AccordionTrigger className="text-left font-semibold text-neutral-900">{item.question}</AccordionTrigger>
+                        <AccordionContent className="text-neutral-600 leading-relaxed">
+                          {item.answer}
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                 </Accordion>
+               ) : (
+                 <p className="text-neutral-500 italic">Bu ürün için sıkça sorulan sorular bulunmamaktadır.</p>
+               )}
             </TabsContent>
           </Tabs>
         </div>

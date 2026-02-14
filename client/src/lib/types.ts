@@ -1,8 +1,8 @@
 export interface Category {
   main_cat: string;
   sub_cat: string;
-  sub_cat_2?: string; // Kept for compatibility if some files use it
-  sub_cat2?: string;  // Added to match raw product data
+  sub_cat_2?: string;
+  sub_cat2?: string;
 }
 
 export interface Product {
@@ -29,6 +29,10 @@ export interface Product {
     voc_free?: boolean;
     filler_free?: boolean;
   };
+  faq?: {
+    question: string;
+    answer: string;
+  }[];
 }
 
 export interface ProductData {

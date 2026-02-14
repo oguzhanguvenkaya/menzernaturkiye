@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Search, ShoppingCart, Menu, X, Phone, Mail, MapPin } from "lucide-react";
+import { Search, ShoppingCart, Menu, X, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -26,8 +26,9 @@ export function Header() {
             <span className="flex items-center gap-2"><Mail size={12} /> info@menzernaturkiye.com</span>
           </div>
           <div className="flex gap-4">
-            <Link href="/contact" className="hover:text-primary transition-colors">Bayi Girişi</Link>
-            <Link href="/contact" className="hover:text-primary transition-colors">Kayıt Ol</Link>
+            <a href="https://www.mgpolishing.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-1">
+               Distribütör Web Sitesi <ArrowRight size={12} />
+            </a>
           </div>
         </div>
       </div>

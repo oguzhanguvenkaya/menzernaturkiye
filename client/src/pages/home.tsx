@@ -101,7 +101,7 @@ export default function Home() {
                     />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-                  <div className="absolute bottom-0 left-0 w-full p-8 md:p-16 lg:p-24">
+                  <div className="absolute bottom-0 left-0 w-full p-8 md:p-16 lg:p-24 pl-[32px] pr-[32px] ml-[0px] mr-[0px] pt-[60px] pb-[60px] text-center">
                     <h2 className="text-white text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
                       {slide.title}
                     </h2>
@@ -135,7 +135,6 @@ export default function Home() {
           </div>
         </Carousel>
       </section>
-
       {/* Intro Text */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6 md:px-8 max-w-4xl">
@@ -156,7 +155,6 @@ export default function Home() {
           </p>
         </div>
       </section>
-
       {/* Features Grid */}
       <section className="py-16 md:py-20 bg-neutral-50 border-y border-neutral-200">
         <div className="container mx-auto px-6 md:px-8">
@@ -181,7 +179,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* About Section - Original Style */}
       <section className="bg-white">
         <div className="flex flex-col md:flex-row">
@@ -227,7 +224,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Category Teasers */}
       <section className="py-0">
         <div className="grid grid-cols-1 md:grid-cols-3">
@@ -330,7 +326,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Dealer Network */}
       <section className="py-16 md:py-20 bg-neutral-100">
         <div className="container mx-auto px-6 md:px-8">
@@ -352,7 +347,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* News Section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6 md:px-8">
@@ -428,7 +422,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Stats Section - Original Style with border-left */}
       <section className="py-16 md:py-20 bg-neutral-100 border-t border-neutral-200">
         <div className="container mx-auto px-6 md:px-8">
@@ -468,7 +461,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Premium Quality Text + CTA */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6 md:px-8 max-w-4xl text-center">
@@ -556,7 +548,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Newsletter */}
       <section className="bg-neutral-900 text-white py-16 md:py-20 relative overflow-hidden">
         <div className="container mx-auto px-6 md:px-8 relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-12">

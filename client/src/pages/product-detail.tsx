@@ -124,27 +124,59 @@ function renderFormattedDescription(raw: string) {
   });
 }
 
+function extractProductCode(name: string): string | null {
+  const codeMatch = name.match(/\b(\d{3,4}[A-Z]*|[A-Z]\d+[A-Z]*|[A-Z]{1,3}\d+|3in1)\b/i);
+  return codeMatch ? codeMatch[1] : null;
+}
+
+function normalizeForMatch(text: string): string {
+  return text.toLowerCase()
+    .replace(/[–—\-]/g, " ")
+    .replace(/[^a-z0-9\süçöğışçöüğişÇÖÜĞİŞ]/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function findMatchingProduct(accessoryName: string, accessoryNameTr: string | undefined, allProducts: any[]): any | null {
   if (!allProducts || allProducts.length === 0) return null;
+
   const names = [accessoryName, accessoryNameTr].filter(Boolean) as string[];
+
+  const code = extractProductCode(accessoryName) || (accessoryNameTr ? extractProductCode(accessoryNameTr) : null);
+  if (code) {
+    const codeLower = code.toLowerCase();
+    const codeMatch = allProducts.find(p => {
+      const pName = (p.product_name || "").toLowerCase();
+      const codeRegex = new RegExp(`\\b${codeLower.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+      return codeRegex.test(pName);
+    });
+    if (codeMatch) return codeMatch;
+  }
+
   let bestMatch: any = null;
   let bestScore = 0;
+
   for (const name of names) {
-    const lower = name.toLowerCase().replace(/[^a-z0-9\süçöğışçöüğişÇÖÜĞİŞ]/gi, "");
-    const keywords = lower.split(/\s+/).filter(w => w.length > 2 && !["for", "the", "and", "with", "bir", "ile", "olan", "pad"].includes(w));
+    const lower = normalizeForMatch(name);
+    const keywords = lower.split(/\s+/).filter(w =>
+      w.length > 2 && !["for", "the", "and", "with", "bir", "ile", "olan", "pad", "menzerna"].includes(w)
+    );
     if (keywords.length === 0) continue;
+
     for (const p of allProducts) {
-      const pName = (p.product_name || "").toLowerCase();
+      const pName = normalizeForMatch(p.product_name || "");
       let score = 0;
       for (const kw of keywords) {
         if (pName.includes(kw)) score++;
       }
-      if (score > bestScore && score >= 2) {
+      const ratio = score / keywords.length;
+      if (score > bestScore && (score >= 2 || (score >= 1 && ratio >= 0.5))) {
         bestScore = score;
         bestMatch = p;
       }
     }
   }
+
   return bestMatch;
 }
 
@@ -596,7 +628,7 @@ export default function ProductDetail() {
             )}
 
             <div className="flex flex-col sm:flex-row gap-3 mb-8">
-              <a href="https://mgpolishing.com/yetkili-saticilar/" target="_blank" rel="noopener noreferrer" className="bg-[#e3000f] hover:bg-[#002b3d] text-white flex-1 h-14 font-black text-sm uppercase tracking-widest transition-colors duration-300 flex items-center justify-center">
+              <a href="https://mgpolishing.com/yetkili-saticilar/" target="_blank" rel="noopener noreferrer" className="bg-[#e3000f] hover:bg-[#002b3d] text-white w-full sm:w-auto sm:min-w-[280px] h-14 font-black text-sm uppercase tracking-widest transition-colors duration-300 flex items-center justify-center px-8">
                 Yetkili Satıcı Bul
               </a>
             </div>
@@ -741,9 +773,10 @@ export default function ProductDetail() {
               {relatedProducts.map((rp) => {
                 const codeUpper = (rp.code || "").toUpperCase();
                 const matched = codeUpper ? allProducts?.find((ap: any) => {
-                  const nameMatch = (ap.product_name || "").match(/Menzerna\s+(\S+)/i);
-                  return nameMatch && nameMatch[1].toUpperCase() === codeUpper;
-                }) : undefined;
+                  const pName = (ap.product_name || "").toUpperCase();
+                  const codeRegex = new RegExp(`\\b${codeUpper.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`);
+                  return codeRegex.test(pName);
+                }) || findMatchingProduct(rp.name || "", rp.name_tr, allProducts || []) : undefined;
                 if (matched) {
                   const slug = getCategorySlug(matched);
                   return (

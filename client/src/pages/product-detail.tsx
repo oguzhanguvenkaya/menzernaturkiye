@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import { useParams, Link } from "wouter";
 import { ChevronRight, CheckCircle2, HelpCircle, Droplets, Shield, Settings, Beaker } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -203,6 +203,35 @@ export default function ProductDetail() {
     setSelectedImageIndex(0);
   }, [activeSku]);
 
+  const swipeStartRef = useRef<{ x: number; y: number } | null>(null);
+  const pointerDownRef = useRef(false);
+
+  const handlePointerDown = useCallback((e: React.PointerEvent) => {
+    swipeStartRef.current = { x: e.clientX, y: e.clientY };
+    pointerDownRef.current = true;
+    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+  }, []);
+
+  const handlePointerUp = useCallback((e: React.PointerEvent) => {
+    if (!pointerDownRef.current || !swipeStartRef.current) return;
+    pointerDownRef.current = false;
+    const dx = e.clientX - swipeStartRef.current.x;
+    const dy = e.clientY - swipeStartRef.current.y;
+    swipeStartRef.current = null;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40 && galleryImages.length > 1) {
+      if (dx < 0) {
+        setSelectedImageIndex((prev) => (prev + 1) % galleryImages.length);
+      } else {
+        setSelectedImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+      }
+    }
+  }, [galleryImages.length]);
+
+  const handlePointerCancel = useCallback(() => {
+    pointerDownRef.current = false;
+    swipeStartRef.current = null;
+  }, []);
+
   const categoryTitles: Record<string, string> = {
     "car-polish": "Pasta, Cila ve Boya Korumalar",
     "marine-polish": "Marin Pasta ve Cilalar",
@@ -311,23 +340,53 @@ export default function ProductDetail() {
                 ))}
               </div>
             )}
-            <div className="bg-white p-8 lg:p-12 flex justify-center items-center relative border border-gray-200 min-h-[400px] lg:min-h-[500px] shadow-sm flex-1">
+            <div
+              className="bg-white flex justify-center items-center relative border border-gray-200 min-h-[400px] lg:min-h-[500px] shadow-sm flex-1 overflow-hidden select-none cursor-grab active:cursor-grabbing touch-pan-y"
+              onPointerDown={handlePointerDown}
+              onPointerUp={handlePointerUp}
+              onPointerCancel={handlePointerCancel}
+              data-testid="gallery-main"
+            >
               {galleryImages.length > 0 ? (
-                <img
-                  src={galleryImages[selectedImageIndex] || galleryImages[0]}
-                  alt={p.product_name}
-                  className="max-h-[500px] w-auto object-contain drop-shadow-2xl"
-                  data-testid="img-product"
-                />
+                <div className="w-full h-full flex relative">
+                  {galleryImages.map((imgUrl, idx) => (
+                    <img
+                      key={imgUrl}
+                      src={imgUrl}
+                      alt={`${p.product_name} - ${idx + 1}`}
+                      className="absolute inset-0 w-full h-full object-contain transition-all duration-500 ease-in-out"
+                      style={{
+                        transform: `translateX(${(idx - selectedImageIndex) * 100}%)`,
+                        opacity: idx === selectedImageIndex ? 1 : 0,
+                      }}
+                      draggable={false}
+                      data-testid={idx === selectedImageIndex ? "img-product" : undefined}
+                    />
+                  ))}
+                </div>
               ) : p.image_url ? (
                 <img
                   src={p.image_url}
                   alt={p.product_name}
-                  className="max-h-[500px] w-auto object-contain drop-shadow-2xl"
+                  className="w-full h-full object-contain"
                   data-testid="img-product"
                 />
               ) : (
                 <div className="text-gray-300 font-bold text-lg uppercase tracking-widest">Görsel Yok</div>
+              )}
+              {galleryImages.length > 1 && (
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                  {galleryImages.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setSelectedImageIndex(idx)}
+                      className={`w-2 h-2 transition-all ${
+                        idx === selectedImageIndex ? "bg-[#e3000f] scale-125" : "bg-gray-300 hover:bg-gray-500"
+                      }`}
+                      aria-label={`Görsel ${idx + 1}`}
+                    />
+                  ))}
+                </div>
               )}
             </div>
           </div>

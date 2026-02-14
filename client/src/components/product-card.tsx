@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo, useRef, useCallback, useEffect } from "react";
 import { Product } from "@/lib/types";
 import { ProductGroup } from "@/lib/product-utils";
 import { Link } from "wouter";
@@ -23,6 +23,48 @@ export function ProductCard({ product, categorySlug, group }: { product: Product
   });
 
   const activeProduct = hasVariants ? group.variants[activeVariantIndex]?.product || product : product;
+
+  const cardImages = useMemo(() => {
+    const images: string[] = [];
+    const mainImg = activeProduct.image_url;
+    if (mainImg) images.push(mainImg);
+    const dataSource = hasVariants ? group.primary : activeProduct;
+    const gallery = dataSource?.content?.gallery;
+    if (gallery) {
+      for (const url of gallery) {
+        if (!images.includes(url)) images.push(url);
+      }
+    }
+    return images;
+  }, [activeProduct, hasVariants, group]);
+
+  const [hoverImageIndex, setHoverImageIndex] = useState(0);
+  const hoverTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const clearHoverTimer = useCallback(() => {
+    if (hoverTimerRef.current) {
+      clearInterval(hoverTimerRef.current);
+      hoverTimerRef.current = null;
+    }
+  }, []);
+
+  useEffect(() => {
+    return () => clearHoverTimer();
+  }, [clearHoverTimer]);
+
+  const handleMouseEnter = useCallback(() => {
+    if (cardImages.length <= 1) return;
+    clearHoverTimer();
+    setHoverImageIndex(1);
+    hoverTimerRef.current = setInterval(() => {
+      setHoverImageIndex((prev) => (prev + 1) % cardImages.length);
+    }, 2000);
+  }, [cardImages.length, clearHoverTimer]);
+
+  const handleMouseLeave = useCallback(() => {
+    clearHoverTimer();
+    setHoverImageIndex(0);
+  }, [clearHoverTimer]);
 
   const cutLevel = activeProduct.template_fields?.cut_level;
   const glossLevel = activeProduct.template_fields?.finish_level;
@@ -51,12 +93,34 @@ export function ProductCard({ product, categorySlug, group }: { product: Product
 
   const displayName = hasVariants ? group.baseName : activeProduct.product_name;
   const detailSku = activeProduct.sku;
+  const hasMultipleImages = cardImages.length > 1;
 
   return (
     <div className="group h-full bg-white border border-gray-200 hover:border-[#e3000f] transition-all duration-300 hover:shadow-xl flex flex-col" data-testid={`card-product-${product.sku}`}>
       <Link href={`/category/${slug}/${detailSku}`}>
-        <div className="relative aspect-square overflow-hidden bg-gray-50 p-6 cursor-pointer">
-          {activeProduct.image_url ? (
+        <div
+          className="relative aspect-square overflow-hidden bg-gray-50 p-6 cursor-pointer"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          {hasMultipleImages ? (
+            <div className="w-full h-full relative">
+              {cardImages.map((imgUrl, idx) => (
+                <img
+                  key={imgUrl}
+                  src={imgUrl}
+                  alt={`${activeProduct.product_name} - ${idx + 1}`}
+                  className="absolute inset-0 w-full h-full object-contain mix-blend-multiply transition-all duration-500 ease-in-out"
+                  style={{
+                    transform: `translateX(${(idx - hoverImageIndex) * 100}%)`,
+                    opacity: idx === hoverImageIndex ? 1 : 0,
+                  }}
+                  loading="lazy"
+                  draggable={false}
+                />
+              ))}
+            </div>
+          ) : activeProduct.image_url ? (
             <img 
               src={activeProduct.image_url} 
               alt={activeProduct.product_name}
@@ -75,6 +139,19 @@ export function ProductCard({ product, categorySlug, group }: { product: Product
             )}
             {getTypeBadge()}
           </div>
+
+          {hasMultipleImages && (
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              {cardImages.map((_, idx) => (
+                <div
+                  key={idx}
+                  className={`w-1.5 h-1.5 transition-all ${
+                    idx === hoverImageIndex ? "bg-[#e3000f] scale-125" : "bg-gray-400"
+                  }`}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </Link>
       

@@ -20,6 +20,7 @@ export interface Product {
     when_to_use?: string;
     target_surface?: string;
     why_this_product?: string;
+    gallery?: string[];
   };
   template_fields?: {
     cut_level?: number;

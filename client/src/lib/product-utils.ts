@@ -12,18 +12,33 @@ export interface ProductGroup {
 }
 
 const sizePattern = /\s*[-–—]\s*([\d.,]+\s*(?:ml|lt|litre|liter|kg|gr|g|l|cc)\b)/i;
+const mmSizePattern = /\s*[-–—]?\s*([\d.,]+)\s*mm(?:\s*\/\s*[\d.,]+\s*inc\b|\s*\/\s*[\d.,]+'*"?)?/i;
 
 function extractBaseName(name: string): string {
-  return name.replace(sizePattern, "").trim();
+  let result = name.replace(sizePattern, "").trim();
+  result = result.replace(mmSizePattern, "").trim();
+  result = result.replace(/\s*2li\s*Paket/i, "").trim();
+  result = result.replace(/\s*Kalın\s+/i, " ").trim();
+  result = result.replace(/\s*Ara\s+Kat\s+/i, " ").trim();
+  result = result.replace(/\s*Hologram\s+/i, " ").trim();
+  result = result.replace(/\s*Orbital\s+/i, " ").trim();
+  result = result.replace(/\s+/g, " ").trim();
+  return result;
 }
 
 function extractSizeLabel(name: string): string {
-  const match = name.match(sizePattern);
-  if (!match) return "";
-  let label = match[1].trim();
-  label = label.replace(/\blitre\b|\bliter\b/i, "lt");
-  label = label.replace(/\b(\d+)\s*l\b/i, "$1 lt");
-  return label;
+  const volumeMatch = name.match(sizePattern);
+  if (volumeMatch) {
+    let label = volumeMatch[1].trim();
+    label = label.replace(/\blitre\b|\bliter\b/i, "lt");
+    label = label.replace(/\b(\d+)\s*l\b/i, "$1 lt");
+    return label;
+  }
+  const mmMatch = name.match(mmSizePattern);
+  if (mmMatch) {
+    return mmMatch[1].trim() + "mm";
+  }
+  return "";
 }
 
 function sizeToMl(label: string): number {
@@ -38,6 +53,7 @@ function sizeToMl(label: string): number {
   if (lower.includes("gr") || lower.includes("g")) return num;
   if (lower.includes("cc")) return num;
   if (lower.includes("ml")) return num;
+  if (lower.includes("mm")) return num;
   if (lower.includes("l")) return num * 1000;
   return num;
 }

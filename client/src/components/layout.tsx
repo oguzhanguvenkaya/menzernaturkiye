@@ -79,7 +79,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   <div className={`absolute top-full left-0 w-80 bg-white shadow-2xl border-t border-gray-200 transition-all duration-200 transform origin-top ${
                     activeMenu === navItem.id ? "opacity-100 scale-y-100 visible" : "opacity-0 scale-y-95 invisible"
                   }`}>
-                    <div className="w-full h-1 bg-[#002b3d]"></div>
+                    <div className="w-full h-1 bg-[#e3000f]"></div>
                     <div className="py-2 flex flex-col">
                       {navItem.subcategories.map((sub) => (
                         <Link key={sub.name} href={sub.href} className={`px-6 py-4 font-bold text-sm transition-colors flex items-center justify-between border-l-2 border-transparent hover:border-[#e3000f] ${
@@ -113,7 +113,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </div>
 
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-[#001f2c] border-t border-gray-700 max-h-[80vh] overflow-y-auto">
+          <div className="lg:hidden bg-[#202020] border-t border-gray-700 max-h-[80vh] overflow-y-auto">
             <div className="border-b border-gray-800">
               <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="block px-8 py-4 text-sm font-semibold hover:bg-white/5 transition-colors text-gray-200 hover:text-white">
                   HAKKIMIZDA

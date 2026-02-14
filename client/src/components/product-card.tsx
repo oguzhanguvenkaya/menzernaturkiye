@@ -66,8 +66,9 @@ export function ProductCard({ product, categorySlug, group }: { product: Product
     setHoverImageIndex(0);
   }, [clearHoverTimer]);
 
-  const cutLevel = activeProduct.template_fields?.cut_level;
-  const glossLevel = activeProduct.template_fields?.finish_level;
+  const isAccessory = activeProduct.category?.main_cat === "AKSESUAR" || activeProduct.category?.main_cat === "MAKİNE-EKİPMAN";
+  const cutLevel = isAccessory ? undefined : activeProduct.template_fields?.cut_level;
+  const glossLevel = isAccessory ? undefined : activeProduct.template_fields?.finish_level;
 
   const getTypeBadge = () => {
     if (activeProduct.template_sub_type === "sanding_paste") {

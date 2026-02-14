@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import { useParams, Link } from "wouter";
-import { ChevronRight, CheckCircle2, HelpCircle, Droplets, Shield, Settings, Beaker } from "lucide-react";
+import { ChevronRight, CheckCircle2, HelpCircle, Droplets, Shield, Settings, Beaker, Palette } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useProduct, useProducts } from "@/lib/data";
 import { groupProductsBySize } from "@/lib/product-utils";
@@ -264,8 +264,11 @@ export default function ProductDetail() {
   const content = d.content as any || {};
   const fields = d.template_fields as any || {};
   const faq = d.faq as any[] || [];
-  const cutLevel = fields.cut_level;
-  const glossLevel = fields.finish_level;
+  const relations = d.relations as any || {};
+  const relatedProducts = relations.related_products as { code: string; name: string; name_tr: string }[] || [];
+  const isAccessory = p.category?.main_cat === "AKSESUAR" || p.category?.main_cat === "MAKİNE-EKİPMAN";
+  const cutLevel = isAccessory ? undefined : fields.cut_level;
+  const glossLevel = isAccessory ? undefined : fields.finish_level;
 
   const features: { label: string; value: string; icon: React.ReactNode }[] = [];
   if (fields.silicone_free) features.push({ label: "Silikon", value: "İçermez", icon: <Shield className="w-5 h-5" /> });
@@ -470,6 +473,39 @@ export default function ProductDetail() {
                         <div key={i} className={`flex-1 ${i < glossLevel ? 'bg-[#009b77]' : 'bg-gray-300'}`} />
                       ))}
                     </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {(scrape.compound_type || scrape.grease_content || scrape.color || (scrape.suitable_for && scrape.suitable_for.length > 0)) && (
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+                {scrape.compound_type && (
+                  <div className="bg-gray-50 border border-gray-200 p-3 flex flex-col items-center text-center">
+                    <div className="text-[#e3000f] mb-1"><Settings className="w-5 h-5" /></div>
+                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Tip</span>
+                    <span className="text-sm font-black text-[#202020]">{scrape.compound_type}</span>
+                  </div>
+                )}
+                {scrape.grease_content && (
+                  <div className="bg-gray-50 border border-gray-200 p-3 flex flex-col items-center text-center">
+                    <div className="text-[#e3000f] mb-1"><Droplets className="w-5 h-5" /></div>
+                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Yağ İçeriği</span>
+                    <span className="text-sm font-black text-[#202020]">{scrape.grease_content}</span>
+                  </div>
+                )}
+                {scrape.color && (
+                  <div className="bg-gray-50 border border-gray-200 p-3 flex flex-col items-center text-center">
+                    <div className="text-[#e3000f] mb-1"><Palette className="w-5 h-5" /></div>
+                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Renk</span>
+                    <span className="text-sm font-black text-[#202020]">{scrape.color}</span>
+                  </div>
+                )}
+                {scrape.suitable_for && scrape.suitable_for.length > 0 && (
+                  <div className="bg-gray-50 border border-gray-200 p-3 flex flex-col items-center text-center">
+                    <div className="text-[#e3000f] mb-1"><CheckCircle2 className="w-5 h-5" /></div>
+                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Uygun Malzeme</span>
+                    <span className="text-xs font-bold text-[#202020] leading-tight">{scrape.suitable_for.join(", ")}</span>
                   </div>
                 )}
               </div>
@@ -692,6 +728,46 @@ export default function ProductDetail() {
                   ))}
                 </div>
               )}
+            </div>
+          </div>
+        )}
+
+        {relatedProducts.length > 0 && (
+          <div className="container mx-auto px-4 mt-12 mb-8">
+            <h2 className="text-xl font-black uppercase tracking-widest text-[#202020] mb-6" data-testid="related-products-title">
+              İlgili Ürünler
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              {relatedProducts.map((rp) => {
+                const codeUpper = (rp.code || "").toUpperCase();
+                const matched = codeUpper ? allProducts?.find((ap: any) => {
+                  const nameMatch = (ap.product_name || "").match(/Menzerna\s+(\S+)/i);
+                  return nameMatch && nameMatch[1].toUpperCase() === codeUpper;
+                }) : undefined;
+                if (matched) {
+                  const slug = getCategorySlug(matched);
+                  return (
+                    <Link key={rp.code} href={`/category/${slug}/${matched.sku}`}>
+                      <div className="border border-gray-200 p-3 hover:border-[#e3000f] transition-colors cursor-pointer bg-white" data-testid={`related-product-${rp.code}`}>
+                        {matched.image_url && (
+                          <div className="aspect-square bg-gray-50 mb-2 flex items-center justify-center overflow-hidden">
+                            <img src={matched.image_url} alt={rp.name_tr} className="w-full h-full object-contain" />
+                          </div>
+                        )}
+                        <p className="text-xs font-bold text-[#202020] leading-tight line-clamp-2">{rp.name_tr}</p>
+                      </div>
+                    </Link>
+                  );
+                }
+                return (
+                  <div key={rp.code || rp.name} className="border border-gray-100 p-3 bg-gray-50 opacity-60" data-testid={`related-product-${rp.code || 'unknown'}`}>
+                    <div className="aspect-square bg-gray-100 mb-2 flex items-center justify-center">
+                      <span className="text-gray-400 text-2xl font-black">{rp.code || "?"}</span>
+                    </div>
+                    <p className="text-xs font-bold text-gray-500 leading-tight line-clamp-2">{rp.name_tr || rp.name || ""}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         )}

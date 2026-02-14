@@ -33,7 +33,7 @@ export function ProductCard({ product }: { product: Product }) {
           {/* Badges */}
           <div className="absolute top-2 left-2 flex flex-col gap-1">
             {/* Green Line Badge */}
-            {product.product_name.toLowerCase().includes("green line") && (
+            {product.product_name?.toLowerCase().includes("green line") && (
               <Badge className="bg-green-600 text-white hover:bg-green-700">
                 Green Line
               </Badge>
@@ -55,7 +55,7 @@ export function ProductCard({ product }: { product: Product }) {
                   </Badge>
                 );
               }
-              if (product.template_sub_type === "one_step_polish" || product.product_name.toLowerCase().includes("3in1") || product.product_name.toLowerCase().includes("3 in 1")) {
+              if (product.template_sub_type === "one_step_polish" || product.product_name?.toLowerCase().includes("3in1") || product.product_name?.toLowerCase().includes("3 in 1")) {
                 return (
                   <Badge className="bg-blue-600 text-white hover:bg-blue-700">
                     3in1
@@ -76,7 +76,7 @@ export function ProductCard({ product }: { product: Product }) {
                   </Badge>
                 );
               }
-              if (product.template_sub_type?.includes("sealant") || product.template_sub_type?.includes("protection") || product.category.sub_cat.toLowerCase().includes("koruma")) {
+              if (product.template_sub_type?.includes("sealant") || product.template_sub_type?.includes("protection") || product.category?.sub_cat?.toLowerCase().includes("koruma")) {
                 return (
                    <Badge className="bg-cyan-500 text-white hover:bg-cyan-600">
                      Protection
@@ -90,7 +90,7 @@ export function ProductCard({ product }: { product: Product }) {
         
         <CardContent className="p-4">
           <div className="text-xs text-neutral-500 mb-2 font-medium uppercase tracking-wide truncate">
-            {product.category.sub_cat}
+            {product.category?.sub_cat}
           </div>
           <h3 className="font-bold text-neutral-800 line-clamp-2 min-h-[3rem] group-hover:text-primary transition-colors">
             {product.product_name}

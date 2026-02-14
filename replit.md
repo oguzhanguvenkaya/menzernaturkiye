@@ -100,6 +100,8 @@ Preferred communication style: Simple, everyday language.
 - HTML: added <title> and meta description tags
 - Fixed TypeScript: added `relations` property to Product interface in types.ts
 - LSP errors: all cleared
+- Product detail pages: Added "İndirmeler" (Downloads) section with PDF links (technical datasheets, flyers) scraped from menzerna.com. 55/58 products have download links stored in `content.downloads` JSONB array. Links point directly to menzerna.com/fileadmin/ PDFs.
+- Newsletter section removed from homepage
 
 ## External Dependencies
 

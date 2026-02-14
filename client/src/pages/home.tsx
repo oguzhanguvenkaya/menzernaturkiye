@@ -548,32 +548,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* Newsletter */}
-      <section className="bg-neutral-900 text-white py-16 md:py-20 relative overflow-hidden">
-        <div className="container mx-auto px-6 md:px-8 relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-12">
-          <div className="max-w-xl">
-            <span className="text-[#e3000f] font-bold uppercase tracking-widest text-sm mb-4 block">
-              Her Zaman Güncel
-            </span>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-              Kaçırmayın! Bültenimize abone olun!
-            </h2>
-            <p className="text-neutral-400 text-sm md:text-base">
-              Ücretsiz Menzerna Bültenine şimdi abone olun ve polisaj hakkında
-              ilginç gerçekler ve bilgiler edinin.
-            </p>
-          </div>
-          <div>
-            <Button
-              size="lg"
-              className="bg-[#e3000f] hover:bg-red-800 text-white rounded-none h-12 md:h-14 px-10 md:px-12 text-sm md:text-lg"
-              data-testid="button-newsletter"
-            >
-              Kayıt Ol
-            </Button>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

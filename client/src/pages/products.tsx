@@ -7,6 +7,7 @@ import { Search, SlidersHorizontal, ChevronRight, ChevronDown, Check } from "luc
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { useLocation } from "wouter";
+import { groupProductsBySize } from "@/lib/product-utils";
 
 export default function Products() {
   const { data: products, isLoading } = useProducts();
@@ -66,6 +67,10 @@ export default function Products() {
       return matchesSearch && matchesCategory;
     });
   }, [products, search, selectedCategory]);
+
+  const groupedProducts = useMemo(() => {
+    return groupProductsBySize(filteredProducts);
+  }, [filteredProducts]);
 
   const Sidebar = () => (
     <div className="space-y-6">
@@ -176,7 +181,7 @@ export default function Products() {
 
               <div className="flex items-center gap-2 w-full sm:w-auto">
                 <span className="text-sm text-neutral-500 whitespace-nowrap hidden sm:inline">
-                  {filteredProducts.length} ürün bulundu
+                  {groupedProducts.length} ürün bulundu
                 </span>
                 
                 <Sheet>
@@ -201,10 +206,10 @@ export default function Products() {
                    <div key={i} className="h-96 bg-neutral-100 animate-pulse rounded-lg" />
                  ))}
               </div>
-            ) : filteredProducts.length > 0 ? (
+            ) : groupedProducts.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredProducts.map((product) => (
-                  <ProductCard key={product.sku} product={product} />
+                {groupedProducts.map((group) => (
+                  <ProductCard key={group.primary.sku} product={group.primary} group={group} />
                 ))}
               </div>
             ) : (

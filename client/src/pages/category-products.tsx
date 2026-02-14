@@ -4,6 +4,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { ChevronRight } from "lucide-react";
 import { useProducts } from "@/lib/data";
 import { Product } from "@/lib/types";
+import { groupProductsBySize, ProductGroup } from "@/lib/product-utils";
 
 interface SectionDef {
   key: string;
@@ -130,8 +131,8 @@ const sectionColors: Record<string, string> = {
   "backing-plates": "#002b3d",
 };
 
-function CategorySection({ section, products, categorySlug }: { section: SectionDef; products: Product[]; categorySlug: string }) {
-  if (products.length === 0) return null;
+function CategorySection({ section, groups, categorySlug }: { section: SectionDef; groups: ProductGroup[]; categorySlug: string }) {
+  if (groups.length === 0) return null;
   const accentColor = sectionColors[section.key] || "#e3000f";
 
   return (
@@ -149,8 +150,8 @@ function CategorySection({ section, products, categorySlug }: { section: Section
         </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {products.map((product) => (
-          <ProductCard key={product.sku} product={product} categorySlug={categorySlug} />
+        {groups.map((group) => (
+          <ProductCard key={group.primary.sku} product={group.primary} categorySlug={categorySlug} group={group} />
         ))}
       </div>
     </section>
@@ -173,15 +174,18 @@ export default function CategoryProducts() {
   const hasSections = catInfo.sections.length > 0;
 
   const groupedSections = hasSections
-    ? catInfo.sections.map((section) => ({
-        section,
-        products: products.filter((p) => section.match(p.category as any)),
-      })).filter((g) => g.products.length > 0)
+    ? catInfo.sections.map((section) => {
+        const sectionProducts = products.filter((p) => section.match(p.category as any));
+        return { section, groups: groupProductsBySize(sectionProducts) };
+      }).filter((g) => g.groups.length > 0)
     : [];
 
-  const ungroupedProducts = hasSections
+  const ungroupedProductsList = hasSections
     ? products.filter((p) => !catInfo.sections.some((s) => s.match(p.category as any)))
     : products;
+  const ungroupedGroups = groupProductsBySize(ungroupedProductsList);
+
+  const totalGroupedCount = groupedSections.reduce((sum, g) => sum + g.groups.length, 0) + ungroupedGroups.length;
 
   return (
     <div className="min-h-screen bg-white pb-24" data-testid="page-category">
@@ -230,19 +234,19 @@ export default function CategoryProducts() {
         ) : (
           <>
             <p className="text-sm text-gray-500 mb-12 font-bold uppercase tracking-widest">
-              {products.length} ürün listeleniyor
+              {totalGroupedCount} ürün listeleniyor
             </p>
 
-            {groupedSections.map(({ section, products: sectionProducts }) => (
+            {groupedSections.map(({ section, groups }) => (
               <CategorySection
                 key={section.key}
                 section={section}
-                products={sectionProducts}
+                groups={groups}
                 categorySlug={catKey}
               />
             ))}
 
-            {ungroupedProducts.length > 0 && (
+            {ungroupedGroups.length > 0 && (
               <section className="mb-20">
                 {hasSections && (
                   <div className="mb-10">
@@ -253,8 +257,8 @@ export default function CategoryProducts() {
                   </div>
                 )}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                  {ungroupedProducts.map((product) => (
-                    <ProductCard key={product.sku} product={product} categorySlug={catKey} />
+                  {ungroupedGroups.map((group) => (
+                    <ProductCard key={group.primary.sku} product={group.primary} categorySlug={catKey} group={group} />
                   ))}
                 </div>
               </section>

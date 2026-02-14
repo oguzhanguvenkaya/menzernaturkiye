@@ -1,4 +1,5 @@
 import { Product } from "@/lib/types";
+import { ProductGroup } from "@/lib/product-utils";
 import { Link } from "wouter";
 
 function getCategorySlug(product: Product): string {
@@ -11,10 +12,11 @@ function getCategorySlug(product: Product): string {
   return "car-polish";
 }
 
-export function ProductCard({ product, categorySlug }: { product: Product; categorySlug?: string }) {
+export function ProductCard({ product, categorySlug, group }: { product: Product; categorySlug?: string; group?: ProductGroup }) {
   const slug = categorySlug || getCategorySlug(product);
   const cutLevel = product.template_fields?.cut_level;
   const glossLevel = product.template_fields?.finish_level;
+  const hasVariants = group && group.variants.length > 1;
 
   const getTypeBadge = () => {
     if (product.template_sub_type === "sanding_paste") {
@@ -38,10 +40,12 @@ export function ProductCard({ product, categorySlug }: { product: Product; categ
     return null;
   };
 
+  const displayName = hasVariants ? group.baseName : product.product_name;
+
   return (
-    <Link href={`/category/${slug}/${product.sku}`}>
-      <div className="group h-full bg-white border border-gray-200 hover:border-[#e3000f] transition-all duration-300 hover:shadow-xl cursor-pointer flex flex-col" data-testid={`card-product-${product.sku}`}>
-        <div className="relative aspect-square overflow-hidden bg-gray-50 p-6">
+    <div className="group h-full bg-white border border-gray-200 hover:border-[#e3000f] transition-all duration-300 hover:shadow-xl flex flex-col" data-testid={`card-product-${product.sku}`}>
+      <Link href={`/category/${slug}/${product.sku}`}>
+        <div className="relative aspect-square overflow-hidden bg-gray-50 p-6 cursor-pointer">
           {product.image_url ? (
             <img 
               src={product.image_url} 
@@ -62,49 +66,75 @@ export function ProductCard({ product, categorySlug }: { product: Product; categ
             {getTypeBadge()}
           </div>
         </div>
-        
-        <div className="p-5 flex-1 flex flex-col">
-          <div className="text-[10px] text-gray-400 mb-2 font-black uppercase tracking-[0.15em]">
-            {product.category?.sub_cat2 || product.category?.sub_cat || ""}
-          </div>
-          <h3 className="font-bold text-[#002b3d] text-sm leading-snug line-clamp-2 min-h-[2.5rem] group-hover:text-[#e3000f] transition-colors mb-3">
-            {product.product_name}
-          </h3>
-          
-          {(cutLevel !== undefined || glossLevel !== undefined) && (
-            <div className="mt-auto space-y-2 pt-3 border-t border-gray-100">
-              {cutLevel !== undefined && (
-                <div className="flex items-center gap-2 text-[10px]">
-                  <span className="w-8 text-gray-500 font-bold uppercase">Cut</span>
-                  <div className="flex-1 flex gap-0.5">
-                    {[...Array(10)].map((_, i) => (
-                      <div key={i} className={`flex-1 h-1.5 ${i < cutLevel ? 'bg-[#e3000f]' : 'bg-gray-200'}`} />
-                    ))}
-                  </div>
-                  <span className="w-4 text-right font-black text-gray-700">{cutLevel}</span>
-                </div>
-              )}
-              {glossLevel !== undefined && (
-                <div className="flex items-center gap-2 text-[10px]">
-                  <span className="w-8 text-gray-500 font-bold uppercase">Gloss</span>
-                  <div className="flex-1 flex gap-0.5">
-                    {[...Array(10)].map((_, i) => (
-                      <div key={i} className={`flex-1 h-1.5 ${i < glossLevel ? 'bg-[#009b77]' : 'bg-gray-200'}`} />
-                    ))}
-                  </div>
-                  <span className="w-4 text-right font-black text-gray-700">{glossLevel}</span>
-                </div>
-              )}
-            </div>
-          )}
+      </Link>
+      
+      <div className="p-5 flex-1 flex flex-col">
+        <div className="text-[10px] text-gray-400 mb-2 font-black uppercase tracking-[0.15em]">
+          {product.category?.sub_cat2 || product.category?.sub_cat || ""}
         </div>
+        <Link href={`/category/${slug}/${product.sku}`}>
+          <h3 className="font-bold text-[#002b3d] text-sm leading-snug line-clamp-2 min-h-[2.5rem] group-hover:text-[#e3000f] transition-colors mb-3 cursor-pointer">
+            {displayName}
+          </h3>
+        </Link>
 
-        <div className="px-5 pb-4">
-          <span className="text-[#e3000f] font-black text-xs uppercase tracking-widest group-hover:underline">
+        {hasVariants && (
+          <div className="flex flex-wrap gap-1.5 mb-3" data-testid="size-variants">
+            {group.variants.map((v) => {
+              const isActive = v.product.sku === product.sku;
+              return (
+                <Link key={v.product.sku} href={`/category/${slug}/${v.product.sku}`}>
+                  <span
+                    className={`inline-block px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider border cursor-pointer transition-colors ${
+                      isActive
+                        ? "bg-[#002b3d] text-white border-[#002b3d]"
+                        : "bg-white text-gray-600 border-gray-300 hover:border-[#e3000f] hover:text-[#e3000f]"
+                    }`}
+                    data-testid={`size-option-${v.product.sku}`}
+                  >
+                    {v.sizeLabel || "Standart"}
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        )}
+        
+        {(cutLevel !== undefined || glossLevel !== undefined) && (
+          <div className="mt-auto space-y-2 pt-3 border-t border-gray-100">
+            {cutLevel !== undefined && (
+              <div className="flex items-center gap-2 text-[10px]">
+                <span className="w-8 text-gray-500 font-bold uppercase">Cut</span>
+                <div className="flex-1 flex gap-0.5">
+                  {[...Array(10)].map((_, i) => (
+                    <div key={i} className={`flex-1 h-1.5 ${i < cutLevel ? 'bg-[#e3000f]' : 'bg-gray-200'}`} />
+                  ))}
+                </div>
+                <span className="w-4 text-right font-black text-gray-700">{cutLevel}</span>
+              </div>
+            )}
+            {glossLevel !== undefined && (
+              <div className="flex items-center gap-2 text-[10px]">
+                <span className="w-8 text-gray-500 font-bold uppercase">Gloss</span>
+                <div className="flex-1 flex gap-0.5">
+                  {[...Array(10)].map((_, i) => (
+                    <div key={i} className={`flex-1 h-1.5 ${i < glossLevel ? 'bg-[#009b77]' : 'bg-gray-200'}`} />
+                  ))}
+                </div>
+                <span className="w-4 text-right font-black text-gray-700">{glossLevel}</span>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
+      <div className="px-5 pb-4">
+        <Link href={`/category/${slug}/${product.sku}`}>
+          <span className="text-[#e3000f] font-black text-xs uppercase tracking-widest group-hover:underline cursor-pointer">
             Detayları Gör &rarr;
           </span>
-        </div>
+        </Link>
       </div>
-    </Link>
+    </div>
   );
 }

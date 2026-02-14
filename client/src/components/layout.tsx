@@ -2,7 +2,7 @@ import { Link, useLocation } from "wouter";
 import { ChevronDown, Menu, X, MapPin } from "lucide-react";
 import { useState } from "react";
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -44,28 +44,24 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link href="/">
-              <a className="flex items-center gap-2 cursor-pointer">
+              <div className="flex items-center gap-2 cursor-pointer">
                 <span className="text-3xl font-black tracking-tighter uppercase text-white">
                   Menzerna<span className="text-[#e3000f]">.</span>
                 </span>
                 <span className="text-xs font-bold tracking-[0.2em] text-gray-400 mt-2 uppercase border-l-2 border-gray-600 pl-2">
                   Türkiye
                 </span>
-              </a>
+              </div>
             </Link>
 
             {/* Masaüstü Mega Menü */}
             <nav className="hidden lg:flex h-full items-center">
               {/* Added Links */}
-              <Link href="/about">
-                <a className="px-6 h-full flex items-center gap-1 text-sm font-bold uppercase tracking-widest transition-colors text-gray-200 border-b-4 border-transparent hover:text-white hover:border-[#e3000f]">
+              <Link href="/about" className="px-6 h-full flex items-center gap-1 text-sm font-bold uppercase tracking-widest transition-colors text-gray-200 border-b-4 border-transparent hover:text-white hover:border-[#e3000f]">
                   HAKKIMIZDA
-                </a>
               </Link>
-              <Link href="/products">
-                <a className="px-6 h-full flex items-center gap-1 text-sm font-bold uppercase tracking-widest transition-colors text-gray-200 border-b-4 border-transparent hover:text-white hover:border-[#e3000f]">
+              <Link href="/products" className="px-6 h-full flex items-center gap-1 text-sm font-bold uppercase tracking-widest transition-colors text-gray-200 border-b-4 border-transparent hover:text-white hover:border-[#e3000f]">
                   ÜRÜNLER
-                </a>
               </Link>
 
               {navigation.map((navItem) => (
@@ -90,15 +86,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     <div className="w-full h-1 bg-[#002b3d]"></div>
                     <div className="py-2 flex flex-col">
                       {navItem.subcategories.map((sub) => (
-                        <Link key={sub.name} href={sub.href}>
-                          <a className={`px-6 py-4 font-bold text-sm transition-colors flex items-center justify-between border-l-2 border-transparent hover:border-[#e3000f] ${
+                        <Link key={sub.name} href={sub.href} className={`px-6 py-4 font-bold text-sm transition-colors flex items-center justify-between border-l-2 border-transparent hover:border-[#e3000f] ${
                             sub.isDealer ? "text-[#e3000f] hover:bg-red-50" : "text-[#002b3d] hover:bg-gray-50"
                           }`}>
                             <span className="flex items-center gap-2">
                               {sub.isDealer && <MapPin className="w-4 h-4" />}
                               {sub.name}
                             </span>
-                          </a>
                         </Link>
                       ))}
                     </div>
@@ -120,15 +114,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {isMobileMenuOpen && (
           <div className="lg:hidden bg-[#001f2c] border-t border-gray-700 max-h-[80vh] overflow-y-auto">
             <div className="border-b border-gray-800">
-              <Link href="/about">
-                <a className="px-8 py-4 text-sm font-semibold flex items-center justify-between hover:bg-white/5 transition-colors text-gray-200 hover:text-white">
+              <Link href="/about" className="block px-8 py-4 text-sm font-semibold hover:bg-white/5 transition-colors text-gray-200 hover:text-white">
                   HAKKIMIZDA
-                </a>
               </Link>
-              <Link href="/products">
-                <a className="px-8 py-4 text-sm font-semibold flex items-center justify-between hover:bg-white/5 transition-colors text-gray-200 hover:text-white">
+              <Link href="/products" className="block px-8 py-4 text-sm font-semibold hover:bg-white/5 transition-colors text-gray-200 hover:text-white">
                   ÜRÜNLER
-                </a>
               </Link>
             </div>
             {navigation.map((navItem) => (
@@ -138,8 +128,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </div>
                 <div className="flex flex-col">
                   {navItem.subcategories.map((sub) => (
-                    <Link key={sub.name} href={sub.href}>
-                      <a 
+                    <Link key={sub.name} href={sub.href}
                         onClick={() => setIsMobileMenuOpen(false)}
                         className={`px-8 py-4 text-sm font-semibold flex items-center justify-between hover:bg-white/5 transition-colors ${
                           sub.isDealer ? "text-[#e3000f]" : "text-gray-200 hover:text-white"
@@ -149,7 +138,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                           {sub.isDealer && <MapPin className="w-4 h-4" />}
                           {sub.name}
                         </span>
-                      </a>
                     </Link>
                   ))}
                 </div>

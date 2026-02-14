@@ -1,0 +1,113 @@
+[
+  {
+    "id": "accessories-foam-pads",
+    "title": "Foam Polishing Pads",
+    "description": "The Menzerna Premium Pads are optimized for the respective polishing step and the use with the Menzerna Polishing Programme. They support the effect of Menzerna high-performance auto polishes and deliver reliable, fast results.",
+    "products": [
+      {
+        "name": "Heavy Cut Foam Pad",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/8/2/csm_Heavy_Cut_Foam_Pad_01_5c5c5c5c5c.png",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/heavy-cut-foam-pad"
+      },
+      {
+        "name": "Medium Cut Foam Pad",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/7/1/csm_Medium_Cut_Foam_Pad_01_4d4d4d4d4d.png",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/medium-cut-foam-pad"
+      },
+      {
+        "name": "Soft Cut Foam Pad",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/6/0/csm_Soft_Cut_Foam_Pad_01_3e3e3e3e3e.png",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/soft-cut-foam-pad"
+      },
+      {
+        "name": "Wax Foam Pad",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/5/f/csm_Wax_Foam_Pad_01_2f2f2f2f2f.png",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/wax-foam-pad"
+      },
+      {
+        "name": "Standard Pad Hard",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/4/e/csm_Standard_Pad_Hard_01_1a1a1a1a1a.png",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/standard-pad-hard"
+      },
+      {
+        "name": "Standard Medium Pad",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/3/d/csm_Standard_Medium_Pad_01_0b0b0b0b0b.png",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/standard-medium-pad"
+      },
+      {
+        "name": "Standard Soft Pad",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/2/c/csm_Standard_Soft_Pad_01_9c9c9c9c9c.png",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/standard-soft-pad"
+      }
+    ]
+  },
+  {
+    "id": "accessories-wool-pads",
+    "title": "Wool Buffing Pads",
+    "description": "The Menzerna wool buffing pads in combination with Menzerna Heavy Cut polishes provide unbeatable cut. The high-quality lambswool pads are available in a variety of sizes.",
+    "products": [
+      {
+        "name": "Premium Lambswool Pad",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/1/b/csm_Premium_Lambswool_Pad_01_8d8d8d8d8d.png",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/premium-lambswool-pad"
+      },
+      {
+        "name": "Crater Shaped Lambswool Pad",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/0/a/csm_Crater_Shaped_Lambswool_Pad_01_7e7e7e7e7e.png",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/crater-shaped-lambswool-pad"
+      },
+      {
+        "name": "Double Sided Lambswool Pad",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/f/9/csm_Double_Sided_Lambswool_Pad_01_6f6f6f6f6f.png",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/double-sided-lambswool-pad"
+      },
+      {
+        "name": "Adapter Double Sided Lambwool Pad",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/e/8/csm_Adapter_Double_Sided_Lambwool_Pad_01_5e5e5e5e5e.png",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/adapter-double-sided-lambwool-pad"
+      },
+      {
+        "name": "Orbital Wool Pad",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/d/7/csm_Orbital_Wool_Pad_01_4d4d4d4d4d.png",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/orbital-wool-pad"
+      }
+    ]
+  },
+  {
+    "id": "accessories-tools",
+    "title": "Polishing Tools & Accessories",
+    "description": "High-quality Menzerna backing plates, microfiber cloths, and applicators to support your polishing workflow.",
+    "products": [
+      {
+        "name": "Metal Polish",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/c/6/csm_Metal_Polish_01_3c3c3c3c3c.png",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/metal-polish"
+      },
+      {
+        "name": "Premium Backing Plate",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/b/5/csm_Premium_Backing_Plate_01_2b2b2b2b2b.png",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/premium-backing-plate"
+      },
+      {
+        "name": "Premium Microfiber Cloth",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/a/4/csm_Premium_Microfiber_Cloth_01_1a1a1a1a1a.png",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/premium-microfiber-cloth"
+      },
+      {
+        "name": "Standard Microfiber Cloth",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/9/3/csm_Standard_Microfiber_Cloth_01_0a0a0a0a0a.png",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/standard-microfiber-cloth"
+      },
+      {
+        "name": "Hand Polishing Applicator",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/8/2/csm_Hand_Polishing_Applicator_01_9b9b9b9b9b.png",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/hand-polishing-applicator"
+      },
+      {
+        "name": "Polishing Adapter for Drilling Machines",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/7/1/csm_Polishing_Adapter_for_Drilling_Machines_01_8c8c8c8c8c.png",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/polishing-adapter-for-drilling-machines"
+      }
+    ]
+  }
+]

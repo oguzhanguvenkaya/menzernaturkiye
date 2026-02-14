@@ -1,0 +1,29 @@
+[
+  {
+    "id": "marine-boat-polish",
+    "title": "Boat Polish",
+    "description": "Whether boat building, repair, care or detailing: Menzerna offers polishes for all steps from a single source. Repairs with high abrasion can be carried out with the Premium Power Cut 200. Boat detailers polish the surface with the One-Step Polish before the Premium Gloss adds shine and Premium Protection shields the surface.",
+    "products": [
+      {
+        "name": "Premium Power Cut 200",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/d/5/csm_Premium_Power_Cut_200_01_7b7b7b7b7b.png",
+        "url": "https://www.menzerna.com/boat-care/boat-polish/details/premium-power-cut-200"
+      },
+      {
+        "name": "Gelcoat Premium One-Step Polish",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/c/4/csm_Gelcoat_Premium_One_Step_Polish_01_6a6a6a6a6a.png",
+        "url": "https://www.menzerna.com/boat-care/boat-polish/details/gelcoat-premium-one-step-polish"
+      },
+      {
+        "name": "Gelcoat Premium Gloss",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/b/3/csm_Gelcoat_Premium_Gloss_01_5b5b5b5b5b.png",
+        "url": "https://www.menzerna.com/boat-care/boat-polish/details/gelcoat-premium-gloss"
+      },
+      {
+        "name": "Gelcoat Premium Protection",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/a/2/csm_Gelcoat_Premium_Protection_01_4a4a4a4a4a.png",
+        "url": "https://www.menzerna.com/boat-care/boat-polish/details/gelcoat-premium-protection"
+      }
+    ]
+  }
+]

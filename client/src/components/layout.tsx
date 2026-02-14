@@ -1,20 +1,23 @@
 import { Link, useLocation } from "wouter";
-import { Search, Menu, X, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
+import { Search, Menu, X, Phone, Mail, MapPin, ArrowRight, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Input } from "@/components/ui/input";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+import { cn } from "@/lib/utils";
 
 export function Header() {
   const [location] = useLocation();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-
-  const navigation = [
-    { name: "Ana Sayfa", href: "/" },
-    { name: "Ürünler", href: "/products" },
-    { name: "Hakkımızda", href: "/about" },
-    { name: "İletişim", href: "/contact" },
-  ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white">
@@ -46,15 +49,129 @@ export function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navigation.map((item) => (
-            <Link key={item.name} href={item.href}>
-              <span className={`text-sm font-semibold uppercase tracking-wide hover:text-primary transition-colors ${location === item.href ? "text-primary border-b-2 border-primary pb-1" : "text-neutral-600"}`}>
-                {item.name}
-              </span>
-            </Link>
-          ))}
-        </nav>
+        <div className="hidden md:block">
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <Link href="/">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    ANA SAYFA
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="uppercase">Araç Bakım</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-1">
+                    <li>
+                      <Link href="/car-care/car-polish">
+                        <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Pasta, Cila ve Boya Korumalar</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Profesyonel araç bakımı için üstün performanslı ürünler.
+                          </p>
+                        </NavigationMenuLink>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/car-care/accessories">
+                        <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Sünger, Keçe ve Tabanlıklar</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                             Polisaj uygulamaları için gerekli tüm aksesuarlar.
+                          </p>
+                        </NavigationMenuLink>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/dealers">
+                        <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Yetkili Satıcılar</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Size en yakın yetkili satış noktaları.
+                          </p>
+                        </NavigationMenuLink>
+                      </Link>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="uppercase">Endüstriyel</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-1">
+                    <li>
+                      <Link href="/industrial/solid-compounds">
+                        <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Katı Pasta ve Cilalar</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Endüstriyel uygulamalar için yüksek performanslı katı bileşikler.
+                          </p>
+                        </NavigationMenuLink>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/dealers">
+                        <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Yetkili Satıcılar</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                             Endüstriyel ürün yetkili satıcıları.
+                          </p>
+                        </NavigationMenuLink>
+                      </Link>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="uppercase">Marin</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-1">
+                    <li>
+                      <Link href="/marine/boat-polish">
+                        <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Pasta ve Cilalar</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Tekne ve yat bakımı için özel geliştirilmiş ürünler.
+                          </p>
+                        </NavigationMenuLink>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/dealers">
+                        <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Yetkili Satıcılar</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Marin grubu yetkili satıcıları.
+                          </p>
+                        </NavigationMenuLink>
+                      </Link>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <Link href="/about">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    HAKKIMIZDA
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <Link href="/contact">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    İLETİŞİM
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
 
         {/* Actions */}
         <div className="flex items-center gap-2">
@@ -67,7 +184,6 @@ export function Header() {
             <Search className="h-5 w-5" />
           </Button>
 
-
           {/* Mobile Menu */}
           <Sheet>
             <SheetTrigger asChild>
@@ -75,19 +191,61 @@ export function Header() {
                 <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+            <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto">
               <div className="flex flex-col gap-6 mt-8">
                 <div className="border-b pb-4">
                   <img src="/images/logo.png" alt="Menzerna" className="h-8 mb-4" />
                 </div>
                 <nav className="flex flex-col gap-4">
-                  {navigation.map((item) => (
-                    <Link key={item.name} href={item.href}>
-                      <span className="text-lg font-medium hover:text-primary transition-colors block py-2 border-b border-neutral-100">
-                        {item.name}
-                      </span>
-                    </Link>
-                  ))}
+                  <Link href="/">
+                    <span className="text-lg font-medium hover:text-primary transition-colors block py-2 border-b border-neutral-100">Ana Sayfa</span>
+                  </Link>
+                  
+                  <div className="py-2 border-b border-neutral-100">
+                    <div className="text-lg font-medium text-neutral-800 mb-2">Araç Bakım</div>
+                    <div className="pl-4 flex flex-col gap-2">
+                      <Link href="/car-care/car-polish">
+                        <span className="text-neutral-600 hover:text-primary">Pasta, Cila ve Boya Korumalar</span>
+                      </Link>
+                      <Link href="/car-care/accessories">
+                        <span className="text-neutral-600 hover:text-primary">Sünger, Keçe ve Tabanlıklar</span>
+                      </Link>
+                      <Link href="/dealers">
+                        <span className="text-neutral-600 hover:text-primary">Yetkili Satıcılar</span>
+                      </Link>
+                    </div>
+                  </div>
+
+                  <div className="py-2 border-b border-neutral-100">
+                    <div className="text-lg font-medium text-neutral-800 mb-2">Endüstriyel</div>
+                    <div className="pl-4 flex flex-col gap-2">
+                      <Link href="/industrial/solid-compounds">
+                        <span className="text-neutral-600 hover:text-primary">Katı Pasta ve Cilalar</span>
+                      </Link>
+                      <Link href="/dealers">
+                        <span className="text-neutral-600 hover:text-primary">Yetkili Satıcılar</span>
+                      </Link>
+                    </div>
+                  </div>
+
+                  <div className="py-2 border-b border-neutral-100">
+                    <div className="text-lg font-medium text-neutral-800 mb-2">Marin</div>
+                    <div className="pl-4 flex flex-col gap-2">
+                      <Link href="/marine/boat-polish">
+                        <span className="text-neutral-600 hover:text-primary">Pasta ve Cilalar</span>
+                      </Link>
+                      <Link href="/dealers">
+                        <span className="text-neutral-600 hover:text-primary">Yetkili Satıcılar</span>
+                      </Link>
+                    </div>
+                  </div>
+
+                  <Link href="/about">
+                    <span className="text-lg font-medium hover:text-primary transition-colors block py-2 border-b border-neutral-100">Hakkımızda</span>
+                  </Link>
+                  <Link href="/contact">
+                    <span className="text-lg font-medium hover:text-primary transition-colors block py-2 border-b border-neutral-100">İletişim</span>
+                  </Link>
                 </nav>
               </div>
             </SheetContent>

@@ -1,0 +1,120 @@
+[
+  {
+    "id": "car-polish-heavy-cut",
+    "title": "Heavy Cut",
+    "description": "Achieve optimal polishing results following rough grinding with Menzerna's high-performance car polishing pastes in the heavy cut segment. Quickly, reliably, and thoroughly eliminate scratches, overspray, and severe signs of wear.",
+    "products": [
+      {
+        "name": "Super Heavy Cut Compound 300",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/9/3/csm_Super_Heavy_Cut_Compound_300_cc5b7a5e8e.png",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/super-heavy-cut-compound-300"
+      },
+      {
+        "name": "Super Heavy Cut Compound 300 GREEN LINE",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/6/f/csm_Super_Heavy_Cut_Compound_300_Green_Line_01_a9a1a8a0a9.png",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/super-heavy-cut-compound-300-green-line"
+      },
+      {
+        "name": "Heavy Cut Compound 400",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/6/4/csm_Heavy_Cut_Compound_400_01_7e9a8a8a8a.png",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-400"
+      },
+      {
+        "name": "Heavy Cut Compound 400 GREEN LINE",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/7/a/csm_Heavy_Cut_Compound_400_Green_Line_01_8a8a8a8a8a.png",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-400-green-line"
+      },
+      {
+        "name": "Cut Force Pro",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/a/b/csm_Cut_Force_Pro_01_9a9a9a9a9a.png",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/cut-force-pro"
+      },
+      {
+        "name": "Heavy Cut Compound 1000",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/5/c/csm_Heavy_Cut_Compound_1000_01_8b8b8b8b8b.png",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-1000"
+      },
+      {
+        "name": "Heavy Cut Compound 1100",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/4/d/csm_Heavy_Cut_Compound_1100_01_7c7c7c7c7c.png",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-1100"
+      }
+    ]
+  },
+  {
+    "id": "car-polish-medium-cut",
+    "title": "Medium Cut",
+    "description": "Opt for Menzerna's medium cut automotive polishes, the ultimate solution for addressing moderate scratches and signs of wear. Achieve a flawless surface with an exquisite gloss, ideal for light automotive coatings.",
+    "products": [
+      {
+        "name": "Medium Cut Polish 2000",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/3/e/csm_Medium_Cut_Polish_2000_01_6d6d6d6d6d.png",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/medium-cut-polish-2000"
+      },
+      {
+        "name": "One-Step Polish 3in1",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/2/f/csm_One_Step_Polish_3in1_01_5e5e5e5e5e.png",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/one-step-polish-3in1"
+      },
+      {
+        "name": "Medium Cut Polish 2400",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/1/a/csm_Medium_Cut_Polish_2400_01_4f4f4f4f4f.png",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/medium-cut-polish-2400"
+      },
+      {
+        "name": "Medium Cut Polish 2500",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/0/b/csm_Medium_Cut_Polish_2500_01_3a3a3a3a3a.png",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/medium-cut-polish-2500"
+      }
+    ]
+  },
+  {
+    "id": "car-polish-finish",
+    "title": "Finish",
+    "description": "Menzerna finishes provide impeccable auto polish solutions to tackle minor scratches, streaks, and clouding. Achieve an immaculate, hologram-free surface with an exclusive gloss, leading to a show car finish – even on black coatings.",
+    "products": [
+      {
+        "name": "Final Finish 3000",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/f/9/csm_Final_Finish_3000_01_2b2b2b2b2b.png",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/final-finish-3000"
+      },
+      {
+        "name": "Super Finish 3500",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/e/8/csm_Super_Finish_3500_01_1c1c1c1c1c.png",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/super-finish-3500"
+      },
+      {
+        "name": "Super Finish Plus 3800",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/d/7/csm_Super_Finish_Plus_3800_01_0d0d0d0d0d.png",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/super-finish-plus-3800"
+      }
+    ]
+  },
+  {
+    "id": "car-polish-protection",
+    "title": "Protection",
+    "description": "Menzerna sealants provide enduring protection against environmental factors. Experience a shielded, noticeably smoother surface with a stunning gloss. These sealants ensure optimal protection against dirt and superior beading properties.",
+    "products": [
+      {
+        "name": "Sealing Wax Protection",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/c/6/csm_Sealing_Wax_Protection_01_9e9e9e9e9e.png",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/sealing-wax-protection"
+      },
+      {
+        "name": "Liquid Carnauba Protection",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/b/5/csm_Liquid_Carnauba_Protection_01_8f8f8f8f8f.png",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/liquid-carnauba-protection"
+      },
+      {
+        "name": "Power Lock Ultimate Protection",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/a/4/csm_Power_Lock_Ultimate_Protection_01_7a7a7a7a7a.png",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/power-lock-ultimate-protection"
+      },
+      {
+        "name": "Ceramic Spray Sealant",
+        "image": "https://www.menzerna.com/fileadmin/_processed_/9/3/csm_Ceramic_Spray_Sealant_01_6b6b6b6b6b.png",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/ceramic-spray-sealant"
+      }
+    ]
+  }
+]

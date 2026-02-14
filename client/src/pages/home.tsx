@@ -1,4 +1,3 @@
-import { Layout } from "@/components/layout";
 import { ProductCard } from "@/components/product-card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronRight, Beaker, Factory, Award, Settings, GraduationCap, Wrench, Shield, Anchor } from "lucide-react";

@@ -1,6 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
 import { useProducts, useHierarchicalCategories } from "@/lib/data";
-import { Layout } from "@/components/layout";
 import { ProductCard } from "@/components/product-card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";

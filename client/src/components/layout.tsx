@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { ChevronDown, Menu, X, MapPin } from "lucide-react";
+import { ChevronDown, Menu, X, MapPin, Phone, Mail, Clock, ChevronRight } from "lucide-react";
 import { useState } from "react";
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -37,7 +37,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen flex flex-col font-sans bg-gray-50">
-      {/* Menzerna Kırmızı Üst Şerit */}
       <div className="bg-[#e3000f] h-1.5 w-full"></div>
 
       <header className="bg-[#002b3d] text-white sticky top-0 z-50 shadow-xl">
@@ -54,9 +53,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               </div>
             </Link>
 
-            {/* Masaüstü Mega Menü */}
             <nav className="hidden lg:flex h-full items-center">
-              {/* Added Links */}
               <Link href="/about" className="px-6 h-full flex items-center gap-1 text-sm font-bold uppercase tracking-widest transition-colors text-gray-200 border-b-4 border-transparent hover:text-white hover:border-[#e3000f]">
                   HAKKIMIZDA
               </Link>
@@ -99,6 +96,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   </div>
                 </div>
               ))}
+
+              <Link href="/contact" className={`px-6 h-full flex items-center gap-1 text-sm font-bold uppercase tracking-widest transition-colors border-b-4 ${
+                location === "/contact" ? "text-[#e3000f] border-[#e3000f]" : "text-gray-200 border-transparent hover:text-white hover:border-[#e3000f]"
+              }`}>
+                  İLETİŞİM
+              </Link>
             </nav>
 
             <button 
@@ -110,14 +113,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
 
-        {/* Mobil Menü */}
         {isMobileMenuOpen && (
           <div className="lg:hidden bg-[#001f2c] border-t border-gray-700 max-h-[80vh] overflow-y-auto">
             <div className="border-b border-gray-800">
-              <Link href="/about" className="block px-8 py-4 text-sm font-semibold hover:bg-white/5 transition-colors text-gray-200 hover:text-white">
+              <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="block px-8 py-4 text-sm font-semibold hover:bg-white/5 transition-colors text-gray-200 hover:text-white">
                   HAKKIMIZDA
               </Link>
-              <Link href="/products" className="block px-8 py-4 text-sm font-semibold hover:bg-white/5 transition-colors text-gray-200 hover:text-white">
+              <Link href="/products" onClick={() => setIsMobileMenuOpen(false)} className="block px-8 py-4 text-sm font-semibold hover:bg-white/5 transition-colors text-gray-200 hover:text-white">
                   ÜRÜNLER
               </Link>
             </div>
@@ -143,18 +145,136 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </div>
               </div>
             ))}
+            <div className="border-b border-gray-800">
+              <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block px-8 py-4 text-sm font-semibold hover:bg-white/5 transition-colors text-gray-200 hover:text-white">
+                  İLETİŞİM
+              </Link>
+            </div>
           </div>
         )}
       </header>
 
       <main className="flex-grow flex flex-col">{children}</main>
 
-      <footer className="bg-[#00151f] text-gray-400 py-12 border-t border-gray-800 mt-auto">
-        <div className="container mx-auto px-4 text-center">
-          <span className="text-2xl font-black tracking-tighter uppercase text-white opacity-50">
-            Menzerna<span className="text-[#e3000f]">.</span>
-          </span>
-          <p className="mt-4 text-sm font-medium tracking-widest uppercase">Perfection in Polishing</p>
+      <footer className="bg-[#00151f] text-gray-400 mt-auto">
+        <div className="border-t-4 border-[#e3000f]"></div>
+        <div className="container mx-auto px-4 lg:px-8 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <div>
+              <div className="mb-6">
+                <span className="text-2xl font-black tracking-tighter uppercase text-white">
+                  Menzerna<span className="text-[#e3000f]">.</span>
+                </span>
+                <span className="text-[10px] font-bold tracking-[0.2em] text-gray-500 uppercase ml-2">Türkiye</span>
+              </div>
+              <p className="text-sm leading-relaxed mb-6">
+                Menzerna, 1888'den beri profesyonel polisaj pastalarının geliştirilmesi ve üretiminde dünya standartlarını belirlemektedir.
+              </p>
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-500">Perfection in Polishing</p>
+            </div>
+
+            <div>
+              <h4 className="text-white font-black uppercase tracking-widest text-sm mb-6">Ürünler</h4>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/category/car-polish" className="text-sm hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                    <ChevronRight className="w-3 h-3" /> Pasta, Cila ve Boya Korumalar
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/category/accessories" className="text-sm hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                    <ChevronRight className="w-3 h-3" /> Sünger, Keçe ve Tabanlıklar
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/category/solid-compounds" className="text-sm hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                    <ChevronRight className="w-3 h-3" /> Katı Pasta ve Cilalar
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/category/boat-polish" className="text-sm hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                    <ChevronRight className="w-3 h-3" /> Marin Pasta ve Cilalar
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-white font-black uppercase tracking-widest text-sm mb-6">Hızlı Erişim</h4>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/" className="text-sm hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                    <ChevronRight className="w-3 h-3" /> Ana Sayfa
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/products" className="text-sm hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                    <ChevronRight className="w-3 h-3" /> Tüm Ürünler
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/about" className="text-sm hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                    <ChevronRight className="w-3 h-3" /> Hakkımızda
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="text-sm hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                    <ChevronRight className="w-3 h-3" /> İletişim
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/dealers" className="text-sm hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                    <ChevronRight className="w-3 h-3" /> Yetkili Satıcılar
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-white font-black uppercase tracking-widest text-sm mb-6">İletişim</h4>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-4 h-4 text-[#e3000f] shrink-0 mt-0.5" />
+                  <p className="text-sm leading-relaxed">
+                    MG POLİSAJ OTOMOTİV İTH. İHR. A.Ş.<br/>
+                    Ümit Mh. 1411/7 Sk. No: 4/I<br/>
+                    35060 Bornova / İZMİR
+                  </p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Phone className="w-4 h-4 text-[#e3000f] shrink-0" />
+                  <a href="tel:+905352517411" className="text-sm hover:text-white transition-colors">+90 (535) 251 74 11</a>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Mail className="w-4 h-4 text-[#e3000f] shrink-0" />
+                  <a href="mailto:info@menzernaturkiye.com" className="text-sm hover:text-white transition-colors">info@menzernaturkiye.com</a>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Clock className="w-4 h-4 text-[#e3000f] shrink-0 mt-0.5" />
+                  <p className="text-sm leading-relaxed">
+                    Pzt - Cuma: 08:30 - 18:00<br/>
+                    Cumartesi: 09:00 - 14:00
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-gray-800">
+          <div className="container mx-auto px-4 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-xs text-gray-500">
+              &copy; {new Date().getFullYear()} MG Polisaj Otomotiv - Menzerna Türkiye Yetkili Distribütörü. Tüm hakları saklıdır.
+            </p>
+            <div className="flex items-center gap-6">
+              <a href="https://www.menzerna.com" target="_blank" rel="noopener noreferrer" className="text-xs text-gray-500 hover:text-[#e3000f] transition-colors">
+                menzerna.com
+              </a>
+              <a href="https://mgpolishing.com" target="_blank" rel="noopener noreferrer" className="text-xs text-gray-500 hover:text-[#e3000f] transition-colors">
+                mgpolishing.com
+              </a>
+            </div>
+          </div>
         </div>
       </footer>
     </div>

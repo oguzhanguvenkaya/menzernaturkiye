@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Search, ShoppingCart, Menu, X, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
+import { Search, Menu, X, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -67,10 +67,6 @@ export function Header() {
             <Search className="h-5 w-5" />
           </Button>
 
-          <Button variant="ghost" size="icon" className="relative hover:text-primary">
-            <ShoppingCart className="h-5 w-5" />
-            <span className="absolute -top-1 -right-1 bg-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
-          </Button>
 
           {/* Mobile Menu */}
           <Sheet>

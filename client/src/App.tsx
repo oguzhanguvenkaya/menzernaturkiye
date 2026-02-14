@@ -9,6 +9,7 @@ import Home from "@/pages/home";
 import Products from "@/pages/products";
 import ProductDetail from "@/pages/product-detail";
 import Contact from "@/pages/contact";
+import About from "@/pages/about";
 
 function Router() {
   const [location] = useLocation();
@@ -24,7 +25,7 @@ function Router() {
       <Route path="/products" component={Products} />
       <Route path="/product/:sku" component={ProductDetail} />
       <Route path="/contact" component={Contact} />
-      <Route path="/about" component={Contact} /> {/* Reusing contact for about for now */}
+      <Route path="/about" component={About} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -15,12 +15,30 @@ function decodeHtmlEntities(text: string): string {
     .replace(/&nbsp;/g, " ");
 }
 
+const volumeLineRegex = /^[•\s]*(Hacim|Volume|İçerik|Ambalaj)\s*[:;]\s*\d+[\d.,]*\s*(ml|lt|litre|liter|kg|gr)\b.*$/i;
+const volumeParenRegex = /\s*[\(\[]\s*\d+[\d.,]*\s*(ml|lt|litre|liter|kg|gr)\s*[\)\]]/gi;
+const volumeSuffixRegex = /\s*[-–—]\s*\d+[\d.,]*\s*(ml|lt|litre|liter|kg|gr)\b/gi;
+
+function stripVolumeFromText(text: string): string {
+  const lines = text.split("\n");
+  const filtered = lines.filter(line => !volumeLineRegex.test(line.trim()));
+  return filtered.join("\n");
+}
+
+function stripVolumeFromTitle(text: string): string {
+  let result = text;
+  result = result.replace(volumeParenRegex, "");
+  result = result.replace(volumeSuffixRegex, "");
+  return result.replace(/\s+$/, "").trim();
+}
+
 function cleanDescription(raw: string): string {
   let text = raw;
   text = text.replace(/<br\s*\/?>\s*<br\s*\/?>/gi, "\n\n");
   text = text.replace(/<br\s*\/?>/gi, "\n");
   text = decodeHtmlEntities(text);
   text = text.replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+  text = stripVolumeFromText(text);
   return text;
 }
 
@@ -33,7 +51,15 @@ function renderFormattedDescription(raw: string) {
     if (!trimmed) return null;
 
     if (trimmed.startsWith("•") || trimmed.includes("\n•")) {
-      const lines = trimmed.split("\n").filter((l: string) => l.trim());
+      const lines = trimmed.split("\n").filter((l: string) => {
+        const t = l.trim();
+        if (!t) return false;
+        const content = t.replace(/^[•\s]+/, "");
+        if (volumeLineRegex.test(content)) return false;
+        if (/^(Hacim|Volume)\s*[:;]/i.test(content)) return false;
+        return true;
+      });
+      if (lines.length === 0) return null;
       return (
         <ul key={i} className="space-y-2 my-4">
           {lines.map((line: string, j: number) => {
@@ -89,11 +115,12 @@ function renderFormattedDescription(raw: string) {
       return <ol key={i} className="space-y-2 my-4">{elements}</ol>;
     }
 
-    const isBold = trimmed.length < 80 && !trimmed.includes(".");
+    const cleanedTrimmed = stripVolumeFromTitle(trimmed);
+    const isBold = cleanedTrimmed.length < 80 && !cleanedTrimmed.includes(".");
     if (isBold) {
-      return <h3 key={i} className="text-xl font-black text-[#002b3d] uppercase tracking-wide mt-8 mb-3">{trimmed}</h3>;
+      return <h3 key={i} className="text-xl font-black text-[#002b3d] uppercase tracking-wide mt-8 mb-3">{cleanedTrimmed}</h3>;
     }
-    return <p key={i} className="mb-4 text-gray-700 leading-relaxed">{trimmed}</p>;
+    return <p key={i} className="mb-4 text-gray-700 leading-relaxed">{cleanedTrimmed}</p>;
   });
 }
 
@@ -193,10 +220,7 @@ export default function ProductDetail() {
   const cutLevel = fields.cut_level;
   const glossLevel = fields.finish_level;
 
-  const activeFields = (p as any).template_fields || {};
   const features: { label: string; value: string; icon: React.ReactNode }[] = [];
-  const volumeVal = activeFields.volume_ml || fields.volume_ml;
-  if (volumeVal) features.push({ label: "Hacim", value: `${volumeVal} ml`, icon: <Droplets className="w-5 h-5" /> });
   if (fields.silicone_free) features.push({ label: "Silikon", value: "İçermez", icon: <Shield className="w-5 h-5" /> });
   if (fields.filler_free) features.push({ label: "Dolgu Maddesi", value: "İçermez", icon: <Shield className="w-5 h-5" /> });
   if (fields.voc_free) features.push({ label: "VOC", value: "İçermez", icon: <Shield className="w-5 h-5" /> });
@@ -213,7 +237,7 @@ export default function ProductDetail() {
   const scrapeSteps = scrape.steps as any[] || [];
   const scrapeOptimisedFor = scrape.optimised_for as any[] || [];
 
-  const displayName = hasVariants ? group.baseName : p.product_name;
+  const displayName = hasVariants ? group.baseName : stripVolumeFromTitle(p.product_name || "");
 
   const stepColors: Record<number, string> = { 1: "#e3000f", 2: "#eab308", 3: "#22c55e", 4: "#06b6d4" };
 

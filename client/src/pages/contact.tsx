@@ -58,10 +58,9 @@ export default function Contact() {
                     <div>
                        <h4 className="font-bold text-lg mb-1">Adres</h4>
                        <p className="text-neutral-600 leading-relaxed">
-                         MG Polisaj San. ve Tic. Ltd. Şti.<br/>
-                         İkitelli Organize Sanayi Bölgesi<br/>
-                         Metal İş Sanayi Sitesi, 14. Blok No: 12<br/>
-                         Başakşehir / İstanbul
+                         MG POLİSAJ OTOMOTİV İTH. İHR. A.Ş.<br/>
+                         Ümit Mh. 1411/7 Sk. No: 4/I<br/>
+                         35060 Bornova / İZMİR
                        </p>
                     </div>
                   </div>
@@ -73,8 +72,7 @@ export default function Contact() {
                     <div>
                        <h4 className="font-bold text-lg mb-1">Telefon</h4>
                        <p className="text-neutral-600">
-                         +90 (212) 555 00 00<br/>
-                         +90 (555) 555 00 00 (Whatsapp)
+                         +90 (535) 251 74 11
                        </p>
                     </div>
                   </div>

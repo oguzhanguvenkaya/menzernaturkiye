@@ -22,7 +22,7 @@ export function Header() {
       <div className="bg-neutral-900 text-white text-xs py-2 px-4 hidden md:block">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex gap-4">
-            <span className="flex items-center gap-2"><Phone size={12} /> +90 (212) 555 00 00</span>
+            <span className="flex items-center gap-2"><Phone size={12} /> +90 (535) 251 74 11</span>
             <span className="flex items-center gap-2"><Mail size={12} /> info@menzernaturkiye.com</span>
           </div>
           <div className="flex gap-4">
@@ -137,11 +137,11 @@ export function Footer() {
             <ul className="space-y-4 text-neutral-400 text-sm">
               <li className="flex gap-3">
                 <MapPin className="h-5 w-5 text-primary shrink-0" />
-                <span>MG Polisaj San. Tic. Ltd. Şti.<br/>İkitelli OSB, İstanbul</span>
+                <span>MG POLİSAJ OTOMOTİV İTH. İHR. A.Ş.<br/>Ümit Mh. 1411/7 Sk. No: 4/I<br/>35060 Bornova / İZMİR</span>
               </li>
               <li className="flex gap-3">
                 <Phone className="h-5 w-5 text-primary shrink-0" />
-                <span>+90 (212) 555 00 00</span>
+                <span>+90 (535) 251 74 11</span>
               </li>
               <li className="flex gap-3">
                 <Mail className="h-5 w-5 text-primary shrink-0" />

@@ -5,6 +5,131 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useProduct, useProducts } from "@/lib/data";
 import { groupProductsBySize } from "@/lib/product-utils";
 
+function decodeHtmlEntities(text: string): string {
+  return text
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&nbsp;/g, " ");
+}
+
+function cleanDescription(raw: string): string {
+  let text = raw;
+  text = text.replace(/<br\s*\/?>\s*<br\s*\/?>/gi, "\n\n");
+  text = text.replace(/<br\s*\/?>/gi, "\n");
+  text = decodeHtmlEntities(text);
+  text = text.replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+  return text;
+}
+
+function renderFormattedDescription(raw: string) {
+  const cleaned = cleanDescription(raw);
+  const paragraphs = cleaned.split(/\n\n+/);
+
+  return paragraphs.map((paragraph: string, i: number) => {
+    const trimmed = paragraph.trim();
+    if (!trimmed) return null;
+
+    if (trimmed.startsWith("•") || trimmed.includes("\n•")) {
+      const lines = trimmed.split("\n").filter((l: string) => l.trim());
+      return (
+        <ul key={i} className="space-y-2 my-4">
+          {lines.map((line: string, j: number) => {
+            const stripped = line.trim();
+            if (stripped.startsWith("o ")) {
+              return (
+                <li key={j} className="flex items-start gap-3 ml-8 p-2">
+                  <span className="text-gray-400 shrink-0 mt-0.5">○</span>
+                  <span className="text-gray-700">{stripped.replace(/^o\s+/, "")}</span>
+                </li>
+              );
+            }
+            return (
+              <li key={j} className="flex items-start gap-3 bg-gray-50 p-3 border-l-4 border-[#e3000f]">
+                <CheckCircle2 className="w-5 h-5 text-[#e3000f] shrink-0 mt-0.5" />
+                <span className="font-medium">{stripped.replace(/^[•\s]+/, "")}</span>
+              </li>
+            );
+          })}
+        </ul>
+      );
+    }
+
+    if (/^\d+\./.test(trimmed)) {
+      const lines = trimmed.split("\n").filter((l: string) => l.trim());
+      const elements: React.ReactNode[] = [];
+      let stepNum = 0;
+      for (let j = 0; j < lines.length; j++) {
+        const line = lines[j].trim();
+        if (/^\d+[\.\)]/.test(line)) {
+          stepNum++;
+          elements.push(
+            <li key={j} className="flex items-start gap-3 bg-gray-50 p-3 border-l-4 border-[#002b3d]">
+              <span className="flex items-center justify-center w-7 h-7 bg-[#002b3d] text-white font-black shrink-0 text-sm">{stepNum}</span>
+              <span className="font-medium">{line.replace(/^\d+[\.\)]\s*/, "")}</span>
+            </li>
+          );
+        } else if (line.startsWith("o ")) {
+          elements.push(
+            <li key={j} className="flex items-start gap-3 ml-10 p-2">
+              <span className="text-gray-400 shrink-0 mt-0.5">○</span>
+              <span className="text-gray-700 text-sm">{line.replace(/^o\s+/, "")}</span>
+            </li>
+          );
+        } else {
+          elements.push(
+            <li key={j} className="flex items-start gap-3 ml-10 p-2">
+              <span className="text-gray-700 text-sm">{line}</span>
+            </li>
+          );
+        }
+      }
+      return <ol key={i} className="space-y-2 my-4">{elements}</ol>;
+    }
+
+    const isBold = trimmed.length < 80 && !trimmed.includes(".");
+    if (isBold) {
+      return <h3 key={i} className="text-xl font-black text-[#002b3d] uppercase tracking-wide mt-8 mb-3">{trimmed}</h3>;
+    }
+    return <p key={i} className="mb-4 text-gray-700 leading-relaxed">{trimmed}</p>;
+  });
+}
+
+function findMatchingProduct(accessoryName: string, accessoryNameTr: string | undefined, allProducts: any[]): any | null {
+  if (!allProducts || allProducts.length === 0) return null;
+  const names = [accessoryName, accessoryNameTr].filter(Boolean) as string[];
+  let bestMatch: any = null;
+  let bestScore = 0;
+  for (const name of names) {
+    const lower = name.toLowerCase().replace(/[^a-z0-9\süçöğışçöüğişÇÖÜĞİŞ]/gi, "");
+    const keywords = lower.split(/\s+/).filter(w => w.length > 2 && !["for", "the", "and", "with", "bir", "ile", "olan", "pad"].includes(w));
+    if (keywords.length === 0) continue;
+    for (const p of allProducts) {
+      const pName = (p.product_name || "").toLowerCase();
+      let score = 0;
+      for (const kw of keywords) {
+        if (pName.includes(kw)) score++;
+      }
+      if (score > bestScore && score >= 2) {
+        bestScore = score;
+        bestMatch = p;
+      }
+    }
+  }
+  return bestMatch;
+}
+
+function getCategorySlug(product: any): string {
+  const mainCat = (product.category?.main_cat || "").toUpperCase();
+  const subCat = (product.category?.sub_cat || "").toLowerCase();
+  if (mainCat === "AKSESUAR" || subCat.includes("ped") || subCat.includes("keçe") || subCat.includes("aksesuar")) return "accessories";
+  if (subCat.includes("marin") || subCat.includes("boat") || subCat.includes("tekne")) return "boat-polish";
+  if (subCat.includes("katı") || subCat.includes("solid")) return "solid-compounds";
+  return "car-polish";
+}
+
 export default function ProductDetail() {
   const { category, id } = useParams();
   const sku = id as string;
@@ -21,6 +146,7 @@ export default function ProductDetail() {
   const hasVariants = group && group.variants.length > 1;
 
   const [activeSku, setActiveSku] = useState(sku);
+  const [activeTab, setActiveTab] = useState<'description' | 'usage' | 'faq'>('description');
 
   useEffect(() => {
     setActiveSku(sku);
@@ -86,6 +212,18 @@ export default function ProductDetail() {
 
   const stepColors: Record<number, string> = { 1: "#e3000f", 2: "#eab308", 3: "#22c55e", 4: "#06b6d4" };
 
+  const hasDescription = !!content.full_description;
+  const hasUsage = !!(content.how_to_use || content.why_this_product || content.when_to_use || content.target_surface);
+  const hasFaq = faq && faq.length > 0;
+
+  const tabs = [
+    ...(hasDescription ? [{ key: 'description' as const, label: 'Ürün Açıklaması', testId: 'tab-description' }] : []),
+    ...(hasUsage ? [{ key: 'usage' as const, label: 'Kullanım Talimatları', testId: 'tab-usage' }] : []),
+    ...(hasFaq ? [{ key: 'faq' as const, label: 'Sıkça Sorulan Sorular', testId: 'tab-faq' }] : []),
+  ];
+
+  const effectiveTab = tabs.find(t => t.key === activeTab) ? activeTab : tabs[0]?.key || 'description';
+
   return (
     <div className="bg-white min-h-screen pb-24" data-testid="page-product-detail">
       <div className="bg-gray-50 py-4 border-b border-gray-200">
@@ -120,7 +258,7 @@ export default function ProductDetail() {
               {p.category?.sub_cat2 || p.category?.sub_cat || ""} &bull; SKU: {p.sku}
             </div>
 
-            <h1 className="text-3xl lg:text-4xl font-black text-[#002b3d] mb-4 tracking-tight uppercase leading-tight" data-testid="text-product-name">
+            <h1 className="text-xl lg:text-2xl font-black text-[#002b3d] mb-4 tracking-tight uppercase leading-tight" data-testid="text-product-name">
               {displayName}
             </h1>
             <div className="w-16 h-1.5 bg-[#e3000f] mb-6"></div>
@@ -169,14 +307,14 @@ export default function ProductDetail() {
             )}
 
             {(cutLevel !== undefined || glossLevel !== undefined) && (
-              <div className="grid grid-cols-1 gap-6 p-6 bg-[#f8f9fa] border border-gray-200 mb-8">
+              <div className="grid grid-cols-2 gap-4 p-4 bg-[#f8f9fa] border border-gray-200 mb-8">
                 {cutLevel !== undefined && (
                   <div>
-                    <div className="flex justify-between items-end mb-3">
+                    <div className="flex justify-between items-end mb-2">
                       <span className="font-black text-[#002b3d] uppercase tracking-widest text-sm">Kesicilik (Cut)</span>
-                      <span className="font-black text-3xl text-[#e3000f] leading-none">{cutLevel}<span className="text-base text-gray-400 ml-1">/10</span></span>
+                      <span className="font-black text-xl text-[#e3000f] leading-none">{cutLevel}<span className="text-base text-gray-400 ml-1">/10</span></span>
                     </div>
-                    <div className="flex gap-1.5 h-3 w-full">
+                    <div className="flex gap-1.5 h-2 w-full">
                       {[...Array(10)].map((_, i) => (
                         <div key={i} className={`flex-1 ${i < cutLevel ? 'bg-[#e3000f]' : 'bg-gray-300'}`} />
                       ))}
@@ -185,11 +323,11 @@ export default function ProductDetail() {
                 )}
                 {glossLevel !== undefined && (
                   <div>
-                    <div className="flex justify-between items-end mb-3">
+                    <div className="flex justify-between items-end mb-2">
                       <span className="font-black text-[#002b3d] uppercase tracking-widest text-sm">Parlaklık (Gloss)</span>
-                      <span className="font-black text-3xl text-[#009b77] leading-none">{glossLevel}<span className="text-base text-gray-400 ml-1">/10</span></span>
+                      <span className="font-black text-xl text-[#009b77] leading-none">{glossLevel}<span className="text-base text-gray-400 ml-1">/10</span></span>
                     </div>
-                    <div className="flex gap-1.5 h-3 w-full">
+                    <div className="flex gap-1.5 h-2 w-full">
                       {[...Array(10)].map((_, i) => (
                         <div key={i} className={`flex-1 ${i < glossLevel ? 'bg-[#009b77]' : 'bg-gray-300'}`} />
                       ))}
@@ -295,122 +433,127 @@ export default function ProductDetail() {
           <div className="mt-12 border-t border-gray-200 pt-12" data-testid="section-optimised-accessories">
             <h2 className="text-2xl font-black text-[#002b3d] uppercase tracking-widest mb-8">Önerilen Aksesuarlar</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-              {scrapeOptimisedFor.map((item: any, i: number) => (
-                <div key={i} className="bg-gray-50 border border-gray-200 p-4 flex flex-col items-center text-center hover:border-[#e3000f] transition-colors" data-testid={`accessory-${i}`}>
-                  <div className="w-16 h-16 bg-gray-200 flex items-center justify-center mb-3">
-                    <Settings className="w-8 h-8 text-gray-400" />
+              {scrapeOptimisedFor.map((item: any, i: number) => {
+                const matchedProduct = findMatchingProduct(item.name, item.name_tr, allProducts || []);
+                const card = (
+                  <div className="bg-gray-50 border border-gray-200 p-4 flex flex-col items-center text-center hover:border-[#e3000f] transition-colors" data-testid={`accessory-${i}`}>
+                    {matchedProduct?.image_url ? (
+                      <div className="w-16 h-16 flex items-center justify-center mb-3">
+                        <img src={matchedProduct.image_url} alt={item.name_tr || item.name} className="max-w-full max-h-full object-contain" />
+                      </div>
+                    ) : (
+                      <div className="w-16 h-16 bg-gray-200 flex items-center justify-center mb-3">
+                        <Settings className="w-8 h-8 text-gray-400" />
+                      </div>
+                    )}
+                    <span className="text-xs font-bold text-[#002b3d] leading-tight" data-testid={`text-accessory-name-${i}`}>
+                      {item.name_tr || item.name}
+                    </span>
                   </div>
-                  <span className="text-xs font-bold text-[#002b3d] leading-tight" data-testid={`text-accessory-name-${i}`}>
-                    {item.name_tr || item.name}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+                );
 
-        {content.full_description && (
-          <div className="mt-16 border-t border-gray-200 pt-12">
-            <h2 className="text-2xl font-black text-[#002b3d] uppercase tracking-widest mb-8">Ürün Açıklaması</h2>
-            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-              {content.full_description.split(/\n\n+/).map((paragraph: string, i: number) => {
-                const trimmed = paragraph.trim();
-                if (!trimmed) return null;
-                if (trimmed.startsWith("•")) {
-                  const items = trimmed.split("\n").filter((l: string) => l.trim());
+                if (matchedProduct) {
+                  const matchedCategory = getCategorySlug(matchedProduct);
                   return (
-                    <ul key={i} className="space-y-2 my-4">
-                      {items.map((item: string, j: number) => (
-                        <li key={j} className="flex items-start gap-3 bg-gray-50 p-3 border-l-4 border-[#e3000f]">
-                          <CheckCircle2 className="w-5 h-5 text-[#e3000f] shrink-0 mt-0.5" />
-                          <span className="font-medium">{item.replace(/^[•\s]+/, "")}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <Link key={i} href={`/category/${matchedCategory}/${matchedProduct.sku}`}>
+                      {card}
+                    </Link>
                   );
                 }
-                if (/^\d+\./.test(trimmed)) {
-                  const items = trimmed.split("\n").filter((l: string) => l.trim());
-                  return (
-                    <ol key={i} className="space-y-2 my-4">
-                      {items.map((item: string, j: number) => (
-                        <li key={j} className="flex items-start gap-3 bg-gray-50 p-4 border-l-4 border-[#002b3d]">
-                          <span className="flex items-center justify-center w-8 h-8 bg-[#002b3d] text-white font-black shrink-0 text-sm">{j + 1}</span>
-                          <span className="font-medium">{item.replace(/^\d+[\.\)]\s*/, "")}</span>
-                        </li>
-                      ))}
-                    </ol>
-                  );
-                }
-                const isBold = trimmed.length < 80 && !trimmed.includes(".");
-                if (isBold) {
-                  return <h3 key={i} className="text-xl font-black text-[#002b3d] uppercase tracking-wide mt-8 mb-3">{trimmed}</h3>;
-                }
-                return <p key={i} className="mb-4">{trimmed}</p>;
+                return <div key={i}>{card}</div>;
               })}
             </div>
           </div>
         )}
 
-        {content.how_to_use && (
-          <div className="mt-12 border-t border-gray-200 pt-12">
-            <h2 className="text-2xl font-black text-[#002b3d] uppercase tracking-widest mb-8">Kullanım Talimatları</h2>
-            <div className="space-y-3">
-              {content.how_to_use.split("\n").filter((l: string) => l.trim()).map((step: string, i: number) => (
-                <div key={i} className="flex items-start gap-4 p-5 bg-gray-50 border border-gray-100 border-l-4 border-l-[#002b3d]">
-                  <span className="flex items-center justify-center w-10 h-10 bg-[#002b3d] text-white font-black shrink-0 text-lg">{i + 1}</span>
-                  <span className="font-medium text-gray-800 text-base leading-relaxed">{step.replace(/^\d+[\.\)]\s*/, "")}</span>
-                </div>
+        {tabs.length > 0 && (
+          <div className="mt-16 border-t border-gray-200 pt-12">
+            <div className="flex">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.key}
+                  onClick={() => setActiveTab(tab.key)}
+                  data-testid={tab.testId}
+                  className={`px-6 py-4 text-sm font-black uppercase tracking-wider transition-colors ${
+                    effectiveTab === tab.key
+                      ? "bg-[#002b3d] text-white border-t-4 border-[#e3000f]"
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200 border-t-4 border-transparent"
+                  }`}
+                >
+                  {tab.label}
+                </button>
               ))}
             </div>
-          </div>
-        )}
 
-        {content.why_this_product && (
-          <div className="mt-12 border-t border-gray-200 pt-12">
-            <h2 className="text-2xl font-black text-[#002b3d] uppercase tracking-widest mb-8">Neden Bu Ürün?</h2>
-            <div className="space-y-3">
-              {content.why_this_product.split("\n").filter((l: string) => l.trim()).map((point: string, i: number) => (
-                <div key={i} className="flex items-start gap-4 bg-gray-50 p-4 border border-gray-100">
-                  <CheckCircle2 className="w-6 h-6 text-[#e3000f] shrink-0 mt-0.5" />
-                  <span className="font-medium text-gray-800">{point.replace(/^[•\s]+/, "")}</span>
+            <div className="border border-gray-200 border-t-0 p-8" data-testid="tab-content">
+              {effectiveTab === 'description' && hasDescription && (
+                <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                  {renderFormattedDescription(content.full_description)}
                 </div>
-              ))}
-            </div>
-          </div>
-        )}
+              )}
 
-        {content.when_to_use && (
-          <div className="mt-12 border-t border-gray-200 pt-12">
-            <h2 className="text-2xl font-black text-[#002b3d] uppercase tracking-widest mb-8">Ne Zaman Kullanılır?</h2>
-            <div className="bg-[#002b3d] text-white p-8">
-              <p className="leading-relaxed text-gray-200">{content.when_to_use}</p>
-            </div>
-          </div>
-        )}
+              {effectiveTab === 'usage' && hasUsage && (
+                <div className="space-y-8">
+                  {content.how_to_use && (
+                    <div>
+                      <div className="space-y-2">
+                        {content.how_to_use.split("\n").filter((l: string) => l.trim()).map((step: string, i: number) => (
+                          <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 border border-gray-100 border-l-4 border-l-[#002b3d]">
+                            <span className="flex items-center justify-center w-8 h-8 bg-[#002b3d] text-white font-black shrink-0 text-sm">{i + 1}</span>
+                            <span className="font-medium text-gray-800 text-sm leading-relaxed">{step.replace(/^\d+[\.\)]\s*/, "")}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
-        {content.target_surface && (
-          <div className="mt-12 border-t border-gray-200 pt-12">
-            <h2 className="text-2xl font-black text-[#002b3d] uppercase tracking-widest mb-8">Hedef Yüzey</h2>
-            <div className="bg-gray-50 border border-gray-200 p-6">
-              <p className="font-medium text-gray-700">{content.target_surface}</p>
-            </div>
-          </div>
-        )}
+                  {content.why_this_product && (
+                    <div>
+                      <h3 className="text-lg font-bold text-[#002b3d] mb-4">Neden Bu Ürün?</h3>
+                      <div className="space-y-2">
+                        {content.why_this_product.split("\n").filter((l: string) => l.trim()).map((point: string, i: number) => (
+                          <div key={i} className="flex items-start gap-3 bg-gray-50 p-3 border border-gray-100">
+                            <CheckCircle2 className="w-5 h-5 text-[#e3000f] shrink-0 mt-0.5" />
+                            <span className="font-medium text-gray-800 text-sm">{point.replace(/^[•\s]+/, "")}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
-        {faq && faq.length > 0 && (
-          <div className="mt-12 border-t border-gray-200 pt-12">
-            <h2 className="text-2xl font-black text-[#002b3d] uppercase tracking-widest mb-8">Sıkça Sorulan Sorular</h2>
-            <div className="space-y-4">
-              {faq.map((item: any, i: number) => (
-                <div key={i} className="border border-gray-200 p-6">
-                  <div className="flex items-start gap-3 mb-3">
-                    <HelpCircle className="w-5 h-5 text-[#e3000f] shrink-0 mt-0.5" />
-                    <h3 className="font-black text-[#002b3d] text-base">{item.question}</h3>
-                  </div>
-                  <p className="text-gray-600 leading-relaxed ml-8">{item.answer}</p>
+                  {content.when_to_use && (
+                    <div>
+                      <h3 className="text-lg font-bold text-[#002b3d] mb-4">Ne Zaman Kullanılır?</h3>
+                      <div className="bg-[#002b3d] text-white p-6">
+                        <p className="leading-relaxed text-gray-200 text-sm">{content.when_to_use}</p>
+                      </div>
+                    </div>
+                  )}
+
+                  {content.target_surface && (
+                    <div>
+                      <h3 className="text-lg font-bold text-[#002b3d] mb-4">Hedef Yüzey</h3>
+                      <div className="bg-gray-50 border border-gray-200 p-4">
+                        <p className="font-medium text-gray-700 text-sm">{content.target_surface}</p>
+                      </div>
+                    </div>
+                  )}
                 </div>
-              ))}
+              )}
+
+              {effectiveTab === 'faq' && hasFaq && (
+                <div className="space-y-3">
+                  {faq.map((item: any, i: number) => (
+                    <div key={i} className="border border-gray-200 p-5">
+                      <div className="flex items-start gap-3 mb-2">
+                        <HelpCircle className="w-5 h-5 text-[#e3000f] shrink-0 mt-0.5" />
+                        <h3 className="font-black text-[#002b3d] text-sm">{item.question}</h3>
+                      </div>
+                      <p className="text-gray-600 leading-relaxed ml-8 text-sm">{item.answer}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         )}

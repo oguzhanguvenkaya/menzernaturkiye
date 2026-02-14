@@ -80,9 +80,10 @@ export default function ProductDetail() {
               SKU: {product.sku}
             </div>
 
-            <div className="text-3xl font-bold text-primary mb-8">
+            {/* Price removed as requested */}
+            {/* <div className="text-3xl font-bold text-primary mb-8">
               {formattedPrice}
-            </div>
+            </div> */}
 
             {/* Performance Metrics */}
             {product.template_fields?.cut_level !== undefined && (

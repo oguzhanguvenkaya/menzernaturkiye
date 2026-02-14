@@ -6,12 +6,6 @@ import { Badge } from "@/components/ui/badge";
 import { ShoppingCart, Eye } from "lucide-react";
 
 export function ProductCard({ product }: { product: Product }) {
-  // Safe price formatting
-  const formattedPrice = new Intl.NumberFormat("tr-TR", {
-    style: "currency",
-    currency: "TRY",
-  }).format(product.price);
-
   return (
     <Link href={`/product/${product.sku}`}>
       <Card className="group h-full overflow-hidden border-neutral-200 hover:border-primary/50 transition-all hover:shadow-lg cursor-pointer bg-white">
@@ -78,8 +72,7 @@ export function ProductCard({ product }: { product: Product }) {
         </CardContent>
 
         <CardFooter className="p-4 pt-0 flex justify-between items-center">
-          <span className="text-lg font-bold text-neutral-900">{formattedPrice}</span>
-          <Button size="sm" variant="ghost" className="text-primary hover:text-primary hover:bg-red-50 p-0 h-auto font-semibold">
+          <Button size="sm" variant="ghost" className="text-primary hover:text-primary hover:bg-red-50 p-0 h-auto font-semibold ml-auto">
             İncele
           </Button>
         </CardFooter>

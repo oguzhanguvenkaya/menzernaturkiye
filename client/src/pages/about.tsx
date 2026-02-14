@@ -10,9 +10,7 @@ export default function About() {
           <img src="/images/hero-car.png" alt="Background" className="w-full h-full object-cover" />
         </div>
         <div className="container mx-auto px-6 md:px-8 relative z-10">
-          <span className="text-[#e3000f] font-bold uppercase tracking-widest text-sm mb-4 block">
-            MG Polisaj & MTS Kimya
-          </span>
+          <span className="text-[#e3000f] font-bold uppercase tracking-widest text-sm mb-4 block">MG Polisaj</span>
           <h1 className="text-3xl md:text-5xl font-black uppercase tracking-wider mb-6" data-testid="text-about-title">
             Hakkımızda
           </h1>

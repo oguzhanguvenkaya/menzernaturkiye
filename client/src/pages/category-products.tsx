@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams, Link } from "wouter";
-import ProductCard from "@/components/product-card";
+import { ProductCard } from "@/components/product-card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ChevronRight } from "lucide-react";
 
@@ -54,7 +54,7 @@ export default function CategoryProducts() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {products?.map((product: any, idx: number) => (
-              <ProductCard key={idx} product={product} categorySlug={category || 'car-polish'} />
+              <ProductCard key={idx} product={product} />
             ))}
           </div>
         )}

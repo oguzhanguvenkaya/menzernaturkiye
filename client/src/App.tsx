@@ -6,7 +6,7 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import CategoryProducts from "@/pages/category-products";
 import ProductDetail from "@/pages/product-detail";
-import Layout from "@/components/layout";
+import { Layout } from "@/components/layout";
 import Products from "@/pages/products";
 import Contact from "@/pages/contact";
 import About from "@/pages/about";

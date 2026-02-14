@@ -42,7 +42,7 @@ export default function About() {
             </p>
             <div className="flex items-center gap-3">
               <Award className="w-6 h-6 text-[#e3000f]" />
-              <span className="font-bold text-neutral-900 uppercase tracking-wider text-sm">Sektörde 15+ Yıl</span>
+              <span className="font-bold text-neutral-900 uppercase tracking-wider text-sm">Sektörde 17+ Yıl</span>
             </div>
           </div>
         </div>

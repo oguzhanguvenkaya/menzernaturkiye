@@ -327,7 +327,7 @@ export default function Home() {
         </div>
       </section>
       {/* Dealer Network */}
-      <section className="py-16 md:py-20 bg-neutral-100">
+      <section className="py-16 md:py-20 pt-[40px] pb-[40px] bg-[#e0e0e0]">
         <div className="container mx-auto px-6 md:px-8">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>

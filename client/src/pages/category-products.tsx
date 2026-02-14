@@ -231,10 +231,6 @@ export default function CategoryProducts() {
           </div>
         ) : (
           <>
-            <p className="text-sm text-gray-500 mb-12 font-bold uppercase tracking-widest">
-              {totalGroupedCount} ürün listeleniyor
-            </p>
-
             {groupedSections.map(({ section, groups }) => (
               <CategorySection
                 key={section.key}

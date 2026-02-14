@@ -31,11 +31,51 @@ export function ProductCard({ product }: { product: Product }) {
           </div>
 
           {/* Badges */}
-          {product.template_fields?.cut_level && product.template_fields.cut_level > 8 && (
-            <Badge className="absolute top-2 left-2 bg-primary text-white hover:bg-primary/90">
-              Heavy Cut
-            </Badge>
-          )}
+          <div className="absolute top-2 left-2 flex flex-col gap-1">
+            {/* Green Line Badge */}
+            {product.product_name.toLowerCase().includes("green line") && (
+              <Badge className="bg-green-600 text-white hover:bg-green-700">
+                Green Line
+              </Badge>
+            )}
+
+            {/* Product Type Badges */}
+            {(product.template_sub_type === "heavy_cut_compound" || (product.template_fields?.cut_level && product.template_fields.cut_level > 8)) && (
+              <Badge className="bg-red-600 text-white hover:bg-red-700">
+                Heavy Cut
+              </Badge>
+            )}
+
+            {(product.template_sub_type === "polish" || product.template_sub_type === "medium_cut_polish" || (product.template_fields?.cut_level && product.template_fields.cut_level >= 5 && product.template_fields.cut_level <= 8)) && (
+              <Badge className="bg-yellow-500 text-black hover:bg-yellow-600 border-none">
+                Medium Cut
+              </Badge>
+            )}
+
+            {(product.template_sub_type === "finish" || (product.template_fields?.cut_level && product.template_fields.cut_level < 5 && product.template_fields.finish_level && product.template_fields.finish_level > 8)) && (
+              <Badge className="bg-green-500 text-white hover:bg-green-600">
+                Finish
+              </Badge>
+            )}
+
+            {(product.template_sub_type === "one_step_polish" || product.product_name.toLowerCase().includes("3in1") || product.product_name.toLowerCase().includes("3 in 1")) && (
+              <Badge className="bg-blue-600 text-white hover:bg-blue-700">
+                3in1
+              </Badge>
+            )}
+
+            {(product.template_sub_type?.includes("sealant") || product.template_sub_type?.includes("protection") || product.category.sub_cat.toLowerCase().includes("koruma")) && (
+               <Badge className="bg-cyan-500 text-white hover:bg-cyan-600">
+                 Protection
+               </Badge>
+            )}
+             
+            {(product.template_sub_type === "sanding_paste") && (
+               <Badge className="bg-neutral-800 text-white hover:bg-neutral-900">
+                 Sanding
+               </Badge>
+            )}
+          </div>
         </div>
         
         <CardContent className="p-4">

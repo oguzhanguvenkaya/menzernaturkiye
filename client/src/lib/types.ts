@@ -11,6 +11,8 @@ export interface Product {
   price: number;
   image_url?: string;
   category: Category;
+  template_group?: string;
+  template_sub_type?: string;
   content?: {
     short_description?: string;
     full_description?: string;

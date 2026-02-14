@@ -29,20 +29,6 @@ export function useProduct(sku: string) {
   });
 }
 
-export function useCategories() {
-  return useQuery({
-    queryKey: ["categories"],
-    queryFn: async () => {
-      const products = await fetchProducts();
-      const categories = new Set<string>();
-      products.forEach(p => {
-        if (p.category.main_cat) categories.add(p.category.main_cat);
-      });
-      return Array.from(categories);
-    }
-  });
-}
-
 export interface CategoryNode {
   name: string;
   subCategories: {
@@ -61,7 +47,8 @@ export function useHierarchicalCategories() {
       products.forEach((p) => {
         const main = p.category.main_cat;
         const sub = p.category.sub_cat || "Diğer";
-        const sub2 = p.category.sub_cat_2 || ""; // Can be empty string
+        // Handle both possible keys for sub-category 2
+        const sub2 = p.category.sub_cat2 || p.category.sub_cat_2 || "";
 
         if (!categoryMap.has(main)) {
           categoryMap.set(main, new Map());
@@ -80,7 +67,7 @@ export function useHierarchicalCategories() {
       // Convert to array structure
       const result: CategoryNode[] = [];
       
-      // Sort main categories alphabetically or custom order
+      // Sort main categories alphabetically
       const sortedMainCats = Array.from(categoryMap.keys()).sort();
 
       sortedMainCats.forEach(mainCat => {

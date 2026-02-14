@@ -1,7 +1,8 @@
 export interface Category {
   main_cat: string;
   sub_cat: string;
-  sub_cat_2?: string;
+  sub_cat_2?: string; // Kept for compatibility if some files use it
+  sub_cat2?: string;  // Added to match raw product data
 }
 
 export interface Product {

@@ -1,10 +1,10 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useProducts, useHierarchicalCategories } from "@/lib/data";
 import { Layout } from "@/components/layout";
 import { ProductCard } from "@/components/product-card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, SlidersHorizontal, ChevronRight, ChevronDown } from "lucide-react";
+import { Search, SlidersHorizontal, ChevronRight, ChevronDown, Check } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { useLocation } from "wouter";
@@ -14,11 +14,35 @@ export default function Products() {
   const { data: categories } = useHierarchicalCategories();
   const [location] = useLocation();
   const urlParams = new URLSearchParams(window.location.search);
-  const initialCategory = urlParams.get("category"); // Can be main, sub, or sub2
+  const initialCategory = urlParams.get("category");
   
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(initialCategory);
-  const [openCategories, setOpenCategories] = useState<string[]>(initialCategory ? [initialCategory] : []);
+  const [openCategories, setOpenCategories] = useState<string[]>([]);
+
+  // Initialize open categories based on selected category or initial load
+  useEffect(() => {
+    if (categories && initialCategory) {
+      // Find which main category contains the selected category (if it's a sub or sub-sub)
+      for (const main of categories) {
+        if (main.name === initialCategory) {
+          if (!openCategories.includes(main.name)) setOpenCategories(prev => [...prev, main.name]);
+          break;
+        }
+        for (const sub of main.subCategories) {
+          if (sub.name === initialCategory) {
+            if (!openCategories.includes(main.name)) setOpenCategories(prev => [...prev, main.name]);
+            break;
+          }
+          if (sub.subSubCategories.includes(initialCategory)) {
+            if (!openCategories.includes(main.name)) setOpenCategories(prev => [...prev, main.name]);
+            break;
+          }
+        }
+      }
+    }
+  }, [categories, initialCategory]);
+
 
   const toggleCategory = (catName: string) => {
     setOpenCategories(prev => 
@@ -36,6 +60,7 @@ export default function Products() {
       if (selectedCategory) {
         matchesCategory = product.category.main_cat === selectedCategory ||
                           product.category.sub_cat === selectedCategory ||
+                          product.category.sub_cat2 === selectedCategory || 
                           product.category.sub_cat_2 === selectedCategory;
       }
       
@@ -50,7 +75,7 @@ export default function Products() {
         <div className="space-y-1">
           <Button 
             variant={selectedCategory === null ? "default" : "ghost"} 
-            className={`w-full justify-start font-bold ${selectedCategory === null ? "bg-primary text-white" : "hover:text-primary text-neutral-700"}`}
+            className={`w-full justify-start font-bold mb-2 ${selectedCategory === null ? "bg-primary text-white" : "hover:text-primary text-neutral-700"}`}
             onClick={() => setSelectedCategory(null)}
           >
             Tüm Ürünler
@@ -61,16 +86,17 @@ export default function Products() {
               key={mainCat.name} 
               open={openCategories.includes(mainCat.name)}
               onOpenChange={() => toggleCategory(mainCat.name)}
+              className="border-b border-neutral-100 last:border-0 pb-2"
             >
-              <div className="flex items-center w-full">
+              <div className="flex items-center w-full group">
                  <CollapsibleTrigger asChild>
-                    <Button variant="ghost" size="sm" className="p-2 h-8 w-8 shrink-0 hover:bg-neutral-100">
+                    <Button variant="ghost" size="sm" className="p-2 h-8 w-8 shrink-0 text-neutral-400 group-hover:text-primary">
                       {openCategories.includes(mainCat.name) ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
                     </Button>
                  </CollapsibleTrigger>
                  <Button
                     variant="ghost"
-                    className={`w-full justify-start pl-2 font-semibold ${selectedCategory === mainCat.name ? "text-primary" : "text-neutral-700"}`}
+                    className={`w-full justify-start pl-2 font-bold text-sm ${selectedCategory === mainCat.name ? "text-primary" : "text-neutral-800"}`}
                     onClick={() => {
                         setSelectedCategory(mainCat.name);
                         if (!openCategories.includes(mainCat.name)) toggleCategory(mainCat.name);
@@ -80,30 +106,31 @@ export default function Products() {
                  </Button>
               </div>
 
-              <CollapsibleContent className="pl-6 space-y-1 mt-1">
+              <CollapsibleContent className="pl-2 space-y-1 mt-1 animate-in slide-in-from-top-2 duration-200">
                 {mainCat.subCategories.map((subCat) => (
-                  <div key={subCat.name}>
+                  <div key={subCat.name} className="relative">
                     <Button
                       variant="ghost"
                       size="sm"
-                      className={`w-full justify-start text-sm h-8 ${selectedCategory === subCat.name ? "text-primary font-medium bg-red-50" : "text-neutral-600"}`}
+                      className={`w-full justify-start text-sm h-auto py-1.5 pl-8 whitespace-normal text-left ${selectedCategory === subCat.name ? "text-primary font-medium" : "text-neutral-600 hover:text-neutral-900"}`}
                       onClick={() => setSelectedCategory(subCat.name)}
                     >
+                      {selectedCategory === subCat.name && <Check className="h-3 w-3 absolute left-3 text-primary" />}
                       {subCat.name}
                     </Button>
                     
                     {/* Sub-sub categories */}
                     {subCat.subSubCategories.length > 0 && (
-                        <div className="pl-4 border-l border-neutral-200 ml-2 mt-1 space-y-1">
+                        <div className="pl-6 border-l-2 border-neutral-100 ml-5 my-1 space-y-1">
                            {subCat.subSubCategories.map(subSub => (
                                <Button
                                key={subSub}
                                variant="ghost"
                                size="sm"
-                               className={`w-full justify-start text-xs h-7 ${selectedCategory === subSub ? "text-primary font-medium" : "text-neutral-500"}`}
+                               className={`w-full justify-start text-xs h-auto py-1 whitespace-normal text-left ${selectedCategory === subSub ? "text-primary font-medium bg-red-50/50" : "text-neutral-500 hover:text-neutral-900"}`}
                                onClick={() => setSelectedCategory(subSub)}
                              >
-                               - {subSub}
+                               {subSub}
                              </Button>
                            ))}
                         </div>

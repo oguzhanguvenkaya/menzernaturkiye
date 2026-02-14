@@ -189,7 +189,7 @@ export default function CategoryProducts() {
 
   return (
     <div className="min-h-screen bg-white pb-24" data-testid="page-category">
-      <div className="pt-20 pb-16 relative overflow-hidden border-t-4 border-[#e3000f] text-[16px] bg-[202020]">
+      <div className="pt-20 pb-16 relative overflow-hidden border-t-4 border-[#e3000f] text-[16px] bg-[#202020]">
         <div className="container mx-auto px-4 relative z-10">
           <p className="text-xs font-black uppercase tracking-[0.25em] text-[#e3000f] mb-3">
             Ürün Yelpazesini Keşfedin

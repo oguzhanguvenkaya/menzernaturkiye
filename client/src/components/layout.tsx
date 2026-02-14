@@ -38,8 +38,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col font-sans bg-gray-50">
       <div className="bg-[#e3000f] h-1.5 w-full"></div>
-
-      <header className="bg-[#002b3d] text-white sticky top-0 z-50 shadow-xl">
+      <header className="text-white sticky top-0 z-50 shadow-xl bg-[#202020]">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link href="/">
@@ -153,9 +152,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </div>
         )}
       </header>
-
       <main className="flex-grow flex flex-col">{children}</main>
-
       <footer className="bg-[#00151f] text-gray-400 mt-auto">
         <div className="border-t-4 border-[#e3000f]"></div>
         <div className="container mx-auto px-4 lg:px-8 py-16">

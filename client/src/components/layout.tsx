@@ -53,9 +53,17 @@ export function Header() {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <Link href="/">
+                <Link href="/about">
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    ANA SAYFA
+                    HAKKIMIZDA
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <Link href="/products">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    ÜRÜNLER
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
@@ -152,14 +160,6 @@ export function Header() {
                     </li>
                   </ul>
                 </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <Link href="/about">
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    HAKKIMIZDA
-                  </NavigationMenuLink>
-                </Link>
               </NavigationMenuItem>
 
               <NavigationMenuItem>

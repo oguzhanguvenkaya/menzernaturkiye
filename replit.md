@@ -90,6 +90,17 @@ Preferred communication style: Simple, everyday language.
 ### Known Issues
 - Runtime error in ProductCard: `Cannot read properties of undefined (reading 'toLowerCase')` — likely from accessing `product.product_name` or `product.template_sub_type` when the product object has missing/undefined fields. Guard against undefined values in product card rendering.
 
+### Recent Changes (Feb 2026)
+- All pages redesigned to match sharp-corner German industrial aesthetic (rounded-none everywhere)
+- About page: removed placeholder boxes, split-layout with factory image, industrial color scheme
+- Contact page: sharp-edged forms and icon containers, consistent header styling
+- Products page: removed rounded corners from filter bar, loaders, and empty states
+- Mobile: category teaser cards reduced to h-[300px] on mobile (from h-[400px])
+- Dealers page redirects to mgpolishing.com/yetkili-saticilar
+- HTML: added <title> and meta description tags
+- Fixed TypeScript: added `relations` property to Product interface in types.ts
+- LSP errors: all cleared
+
 ## External Dependencies
 
 ### Database

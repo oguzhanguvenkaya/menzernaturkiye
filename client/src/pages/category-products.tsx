@@ -189,7 +189,7 @@ export default function CategoryProducts() {
 
   return (
     <div className="min-h-screen bg-white pb-24" data-testid="page-category">
-      <div className="bg-[#002b3d] pt-20 pb-16 relative overflow-hidden border-t-4 border-[#e3000f]">
+      <div className="pt-20 pb-16 relative overflow-hidden border-t-4 border-[#e3000f] text-[16px] bg-[202020]">
         <div className="container mx-auto px-4 relative z-10">
           <p className="text-xs font-black uppercase tracking-[0.25em] text-[#e3000f] mb-3">
             Ürün Yelpazesini Keşfedin
@@ -203,7 +203,6 @@ export default function CategoryProducts() {
           </p>
         </div>
       </div>
-
       <div className="border-b border-gray-200 py-4 mb-12 bg-gray-50">
         <div className="container mx-auto px-4 flex items-center text-xs font-bold uppercase tracking-widest text-gray-500 flex-wrap gap-y-2">
           <Link href="/"><span className="hover:text-[#e3000f] cursor-pointer transition-colors">Ana Sayfa</span></Link>
@@ -211,7 +210,6 @@ export default function CategoryProducts() {
           <span className="text-[#002b3d] uppercase">{catInfo.title}</span>
         </div>
       </div>
-
       <div className="container mx-auto px-4">
         {isLoading ? (
           <div className="space-y-16">

@@ -153,7 +153,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         )}
       </header>
       <main className="flex-grow flex flex-col">{children}</main>
-      <footer className="bg-[#00151f] text-gray-400 mt-auto">
+      <footer className="text-gray-400 mt-auto bg-[#202020]">
         <div className="border-t-4 border-[#e3000f]"></div>
         <div className="container mx-auto px-4 lg:px-8 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">

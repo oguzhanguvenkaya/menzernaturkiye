@@ -1,0 +1,398 @@
+{
+  "brand": "Menzerna",
+  "total_products": 58,
+  "total_categories": 12,
+  "summary": {
+    "main_cat_count": 5,
+    "sub_cat_count": 5,
+    "sub_cat_2_count": 8
+  },
+  "categories": [
+    {
+      "main_cat": "AKSESUAR",
+      "sub_cat": "Polisaj Pedleri ve Keçeler",
+      "sub_cat_2": "Keçeler",
+      "product_count": 4,
+      "products": [
+        {
+          "sku": "26.906.099.001",
+          "product_name": "MENZERNA Krater Kuzu Yünü Polisaj Keçesi 230mm/9 inc",
+          "price": "72000"
+        },
+        {
+          "sku": "26.913.099.001",
+          "product_name": "MENZERNA Premium Kuzu Yünü Polisaj Keçesi 90 mm/3,5\"",
+          "price": "25000"
+        },
+        {
+          "sku": "26.914.099.001",
+          "product_name": "MENZERNA Premium Orbital Kuzu Yünü Polisaj Keçesi 140 mm/5,5\"",
+          "price": "35000"
+        },
+        {
+          "sku": "26.915.099.001",
+          "product_name": "MENZERNA Premium Orbital Kuzu Yünü Polisaj Keçesi 165mm/6,5\"",
+          "price": "40000"
+        }
+      ]
+    },
+    {
+      "main_cat": "AKSESUAR",
+      "sub_cat": "Polisaj Pedleri ve Keçeler",
+      "sub_cat_2": "Orbital Süngerler",
+      "product_count": 3,
+      "products": [
+        {
+          "sku": "26.900.224.010",
+          "product_name": "MENZERNA Ağır Kesim Pasta Süngeri (Kırmızı) - 150mm",
+          "price": "90000"
+        },
+        {
+          "sku": "26.900.224.012",
+          "product_name": "MENZERNA Hare Giderici Cila Süngeri (Yeşil) - 150mm",
+          "price": "90000"
+        },
+        {
+          "sku": "26.900.224.011",
+          "product_name": "MENZERNA İnce Kesim Pasta Süngeri (Sarı) - 150mm",
+          "price": "90000"
+        }
+      ]
+    },
+    {
+      "main_cat": "AKSESUAR",
+      "sub_cat": "Polisaj Pedleri ve Keçeler",
+      "sub_cat_2": "Rotary Süngerler",
+      "product_count": 4,
+      "products": [
+        {
+          "sku": "26.907.099.001",
+          "product_name": "MENZERNA Ağır Kesim Kalın Pasta Süngeri 2li Paket (Kırmızı) - 95mm",
+          "price": "90000"
+        },
+        {
+          "sku": "26.909.099.001",
+          "product_name": "MENZERNA Hare Hologram Giderici Cila Süngeri 2li Paket (Yeşil) - 95mm",
+          "price": "90000"
+        },
+        {
+          "sku": "26.900.223.003",
+          "product_name": "MENZERNA P150M Hare Giderici Cila Süngeri (Sarı) - 150mm",
+          "price": "30000"
+        },
+        {
+          "sku": "26.908.099.001",
+          "product_name": "MENZERNA İnce Kesim Ara Kat Pasta Süngeri 2li Paket (Sarı) - 95mm",
+          "price": "90000"
+        }
+      ]
+    },
+    {
+      "main_cat": "DIŞ YÜZEY",
+      "sub_cat": "Boya Koruma Ürünleri",
+      "sub_cat_2": "Boya Korumalar",
+      "product_count": 5,
+      "products": [
+        {
+          "sku": "26.919.271.001",
+          "product_name": "MENZERNA Ceramic Spray Sealant Seramik İçerikli Sprey Boya Koruyucu Cila - 500 ml",
+          "price": "120000"
+        },
+        {
+          "sku": "22.070.261.001",
+          "product_name": "MENZERNA Power Lock Üstün Boya Koruma Cila/Wax - 1 lt",
+          "price": "270000"
+        },
+        {
+          "sku": "22.070.281.001",
+          "product_name": "MENZERNA Power Lock Üstün Boya Koruma Cila/Wax - 250 ml",
+          "price": "85000"
+        },
+        {
+          "sku": "22.870.261.001",
+          "product_name": "MENZERNA Sealing Wax Boya Koruma Cilası - 1 lt",
+          "price": "120000"
+        },
+        {
+          "sku": "22.870.281.001",
+          "product_name": "MENZERNA Sealing Wax Boya Koruma Cilası - 250 ml",
+          "price": "47000"
+        }
+      ]
+    },
+    {
+      "main_cat": "DIŞ YÜZEY",
+      "sub_cat": "Boya Koruma Ürünleri",
+      "sub_cat_2": "Wax ve Sprey Cilalar",
+      "product_count": 1,
+      "products": [
+        {
+          "sku": "22.747.251.001",
+          "product_name": "MENZERNA Endless Shine Yenileyici Ve Koruyucu Sprey Cila -5 Litre",
+          "price": "550000"
+        }
+      ]
+    },
+    {
+      "main_cat": "DIŞ YÜZEY",
+      "sub_cat": "Metal ve Krom Parlatıcılar",
+      "sub_cat_2": "",
+      "product_count": 1,
+      "products": [
+        {
+          "sku": "23.003.391.001",
+          "product_name": "MENZERNA Metal Polish Metal Krom, Çelik Parlatıcı - 125 gr",
+          "price": "38000"
+        }
+      ]
+    },
+    {
+      "main_cat": "DIŞ YÜZEY",
+      "sub_cat": "Pasta Cila Ürünleri",
+      "sub_cat_2": "Hare Gidericiler",
+      "product_count": 6,
+      "products": [
+        {
+          "sku": "22.029.261.001",
+          "product_name": "MENZERNA 3000 Standart Hare Giderici Cila - 1 lt",
+          "price": "125000"
+        },
+        {
+          "sku": "22.029.281.001",
+          "product_name": "MENZERNA 3000 Standart Hare Giderici Cila - 250 ml",
+          "price": "48000"
+        },
+        {
+          "sku": "22.911.261.001",
+          "product_name": "MENZERNA 3500 Premium Hare Giderici Cila - 1 lt",
+          "price": "230000"
+        },
+        {
+          "sku": "22.992.261.001",
+          "product_name": "MENZERNA 3800 Süper Hare Giderici Cila - 1 lt",
+          "price": "180000"
+        },
+        {
+          "sku": "22.992.281.001",
+          "product_name": "MENZERNA 3800 Süper Hare Giderici Cila - 250 ml",
+          "price": "67000"
+        },
+        {
+          "sku": "22.992.251.001",
+          "product_name": "MENZERNA 3800 Süper Hare Giderici Cila - 5 lt",
+          "price": "770000"
+        }
+      ]
+    },
+    {
+      "main_cat": "DIŞ YÜZEY",
+      "sub_cat": "Pasta Cila Ürünleri",
+      "sub_cat_2": "Kalın Pastalar",
+      "product_count": 13,
+      "products": [
+        {
+          "sku": "22.984.260.001",
+          "product_name": "MENZERNA 1000 Çizik Giderici Kalın Pasta - 1 kg",
+          "price": "80000"
+        },
+        {
+          "sku": "22.984.281.001",
+          "product_name": "MENZERNA 1000 Çizik Giderici Kalın Pasta - 250 ml",
+          "price": "45000"
+        },
+        {
+          "sku": "22.746.281.001",
+          "product_name": "MENZERNA 300 Süper Ağır Çizik Giderici Kalın Pasta - 250 ml",
+          "price": "85000"
+        },
+        {
+          "sku": "22.200.261.001",
+          "product_name": "MENZERNA 400 Yeşil Seri Ağır Çizik Giderici Kalın Pasta - 1 lt",
+          "price": "250000"
+        },
+        {
+          "sku": "22.200.281.001",
+          "product_name": "MENZERNA 400 Yeşil Seri Ağır Çizik Giderici Kalın Pasta - 250 ml",
+          "price": "110000"
+        },
+        {
+          "sku": "14.992.203.001",
+          "product_name": "MENZERNA AS 30 Ağır Çizik Giderici Krem Kalın Pasta - 1 kg",
+          "price": "70000"
+        },
+        {
+          "sku": "22.203.261.001",
+          "product_name": "MENZERNA Cut Force Pro Altın Seri Ağır Çizik Giderici Kalın Pasta - 1 lt",
+          "price": "275000"
+        },
+        {
+          "sku": "22.203.281.001",
+          "product_name": "MENZERNA Cut Force Pro Altın Seri Ağır Çizik Giderici Kalın Pasta - 250 ml",
+          "price": "99000"
+        },
+        {
+          "sku": "20.144.261.001",
+          "product_name": "MENZERNA Likit Matlaştırıcı Pasta - 1 lt",
+          "price": "122000"
+        },
+        {
+          "sku": "22.202.260.001",
+          "product_name": "MENZERNA YENİ 400 Ağır Çizik Giderici Kalın Pasta - 1 Kg",
+          "price": "190000"
+        },
+        {
+          "sku": "22.202.281.001",
+          "product_name": "MENZERNA YENİ 400 Ağır Çizik Giderici Kalın Pasta - 250 ml",
+          "price": "70000"
+        },
+        {
+          "sku": "22.202.251.001",
+          "product_name": "MENZERNA YENİ 400 Ağır Çizik Giderici Kalın Pasta - 5 litre",
+          "price": "950000"
+        },
+        {
+          "sku": "22.930.261.001",
+          "product_name": "Menzerna 1100 Keçe Uyumlu Kalın Pasta Agresif Çizik Giderici – 1 Lt",
+          "price": "150000"
+        }
+      ]
+    },
+    {
+      "main_cat": "DIŞ YÜZEY",
+      "sub_cat": "Pasta Cila Ürünleri",
+      "sub_cat_2": "İnce Pastalar",
+      "product_count": 6,
+      "products": [
+        {
+          "sku": "22.771.261.001",
+          "product_name": "MENZERNA 2200 İnce Çizik Giderici Pasta - 1 lt",
+          "price": "190000"
+        },
+        {
+          "sku": "22.828.261.001",
+          "product_name": "MENZERNA 2500 İnce Çizik Giderici Pasta - 1 lt",
+          "price": "170000"
+        },
+        {
+          "sku": "22.828.281.001",
+          "product_name": "MENZERNA 2500 İnce Çizik Giderici Pasta - 250 ml",
+          "price": "60000"
+        },
+        {
+          "sku": "22.828.251.001",
+          "product_name": "MENZERNA 2500 İnce Çizik Giderici Pasta - 5 lt",
+          "price": "780000"
+        },
+        {
+          "sku": "22.748.261.001",
+          "product_name": "MENZERNA One-Step Polish 3in1 Tek Adım Pasta Cila Koruma - 1 lt",
+          "price": "210000"
+        },
+        {
+          "sku": "22.748.281.001",
+          "product_name": "MENZERNA One-Step Polish 3in1 Tek Adım Pasta Cila Koruma - 250 ml",
+          "price": "72000"
+        }
+      ]
+    },
+    {
+      "main_cat": "ENDÜSTRİYEL",
+      "sub_cat": "",
+      "sub_cat_2": "",
+      "product_count": 11,
+      "products": [
+        {
+          "sku": "6.008.056.001",
+          "product_name": "Menzerna 113GZ Kesici Katı Cila Kahverengi Pirinç Zamak Alüminyum Parlatıcı – 1100 Gr",
+          "price": "49000"
+        },
+        {
+          "sku": "7.001.056.001",
+          "product_name": "Menzerna 439T Kesici Katı Cila Yeşil Paslanmaz Çelik Alüminyum Pirinç Parlatıcı – 1100 Gr",
+          "price": "74900"
+        },
+        {
+          "sku": "7.008.056.001",
+          "product_name": "Menzerna 480W Parlatıcı Katı Cila Bej Pirinç Krom Zamak Alüminyum Kompozit Parlatıcı – 1200 Gr",
+          "price": "61000"
+        },
+        {
+          "sku": "7.006.056.001",
+          "product_name": "Menzerna 495P Parlatıcı Katı Cila Beyaz Plastik Kompozit Değerli Metaller Boyalı Yüzey Parlatıcı – 1250 Gr",
+          "price": "82000"
+        },
+        {
+          "sku": "12.002.056.001",
+          "product_name": "Menzerna GW16 Parlatıcı Katı Cila Bej Plastik Kompozit Boyalı Yüzey Parlatıcı – 1200 Gr",
+          "price": "60000"
+        },
+        {
+          "sku": "12.001.056.001",
+          "product_name": "Menzerna GW18 Kesici Katı Cila Bej Plastik Kompozit Boyalı Yüzey Parlatıcı – 1150 Gr",
+          "price": "60000"
+        },
+        {
+          "sku": "7.933.056.001",
+          "product_name": "Menzerna M5 Süper Parlatıcı Katı Cila Beyaz Değerli Metaller Paslanmaz Çelik Boyalı Yüzey Parlatıcı – 1300 Gr",
+          "price": "279900"
+        },
+        {
+          "sku": "7.201.056.001",
+          "product_name": "Menzerna P126 Parlatıcı Katı Cila Pembe Paslanmaz Çelik Değerli Metal Parlatıcı – 1300 Gr",
+          "price": "68000"
+        },
+        {
+          "sku": "7.163.056.001",
+          "product_name": "Menzerna P14F Orta Kesici Katı Cila Beyaz Alüminyum Pirinç Paslanmaz Tek Adım Parlatıcı – 1300 Gr",
+          "price": "82000"
+        },
+        {
+          "sku": "7.945.056.001",
+          "product_name": "Menzerna P164 Orta Kesici Katı Cila Mavi Çok Amaçlı Yüzey Parlatıcı – 1250 Gr",
+          "price": "73900"
+        },
+        {
+          "sku": "7.984.056.001",
+          "product_name": "Menzerna P175 Süper Parlatıcı Katı Cila Sarı Çok Amaçlı Yüzey Parlatıcı – 1300 Gr",
+          "price": "254900"
+        }
+      ]
+    },
+    {
+      "main_cat": "MAKİNE-EKİPMAN",
+      "sub_cat": "Ped Destek Diskleri Tabanlıklar",
+      "sub_cat_2": "",
+      "product_count": 3,
+      "products": [
+        {
+          "sku": "26.931.099.001",
+          "product_name": "MENZERNA Polisaj Dayanıklı Tabanlığı (Kırmızı) - 123mm",
+          "price": "56000"
+        },
+        {
+          "sku": "26.934.099.001",
+          "product_name": "MENZERNA Rotary Polisaj Makineleri Matkap için Dayanıklı Ped Destek Disk Tabanlık - 75mm",
+          "price": "28000"
+        },
+        {
+          "sku": "26.935.099.001",
+          "product_name": "MENZERNA Rotary Polisaj Makineleri için Esnek ve Dayanıklı Ped Destek Disk Tabanlık - 148mm",
+          "price": "72000"
+        }
+      ]
+    },
+    {
+      "main_cat": "MARİN",
+      "sub_cat": "Pasta Cila Ürünleri",
+      "sub_cat_2": "",
+      "product_count": 1,
+      "products": [
+        {
+          "sku": "24.011.261.080",
+          "product_name": "MENZERNA Marin, Tekne Gelcoat Boya 3in1 Tek Adım Pasta Cila Koruma - 1 lt",
+          "price": "290000"
+        }
+      ]
+    }
+  ]
+}

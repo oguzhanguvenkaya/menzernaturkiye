@@ -146,7 +146,7 @@ export default function Products() {
   );
 
   return (
-    <Layout>
+    <>
       <div className="bg-neutral-100 py-12 mb-8">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold text-neutral-900 mb-2">Ürünlerimiz</h1>
@@ -223,6 +223,6 @@ export default function Products() {
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   );
 }

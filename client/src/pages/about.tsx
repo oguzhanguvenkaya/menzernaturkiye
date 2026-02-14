@@ -5,7 +5,7 @@ import { CheckCircle, Users, Award, Globe, BookOpen, Lightbulb } from "lucide-re
 
 export default function About() {
   return (
-    <Layout>
+    <>
       {/* Hero Banner */}
       <div className="bg-neutral-900 text-white py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
@@ -126,6 +126,6 @@ export default function About() {
         </div>
 
       </div>
-    </Layout>
+    </>
   );
 }

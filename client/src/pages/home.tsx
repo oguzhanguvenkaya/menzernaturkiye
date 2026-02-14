@@ -12,7 +12,7 @@ export default function Home() {
   const carCareProducts = products?.filter(p => p.category.main_cat === "DIŞ YÜZEY").slice(0, 4) || [];
 
   return (
-    <Layout>
+    <>
       {/* Hero Section - Split Layout */}
       <section className="flex flex-col md:flex-row h-[calc(100vh-80px)] min-h-[600px]">
         {/* Left Side: Industrial */}
@@ -341,6 +341,6 @@ export default function Home() {
            </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 }

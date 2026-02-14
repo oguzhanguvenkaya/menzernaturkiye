@@ -156,6 +156,8 @@ export default function ProductDetail() {
     ? group.variants.find((v) => v.product.sku === activeSku)?.product || product
     : product;
 
+  const dataSource = hasVariants ? group.primary : product;
+
   const categoryTitles: Record<string, string> = {
     "car-polish": "Pasta, Cila ve Boya Korumalar",
     "marine-polish": "Marin Pasta ve Cilalar",
@@ -184,14 +186,17 @@ export default function ProductDetail() {
   }
 
   const p = activeVariant || product;
-  const content = p.content as any || {};
-  const fields = p.template_fields as any || {};
-  const faq = p.faq as any[] || [];
+  const d = dataSource || product;
+  const content = d.content as any || {};
+  const fields = d.template_fields as any || {};
+  const faq = d.faq as any[] || [];
   const cutLevel = fields.cut_level;
   const glossLevel = fields.finish_level;
 
+  const activeFields = (p as any).template_fields || {};
   const features: { label: string; value: string; icon: React.ReactNode }[] = [];
-  if (fields.volume_ml) features.push({ label: "Hacim", value: `${fields.volume_ml} ml`, icon: <Droplets className="w-5 h-5" /> });
+  const volumeVal = activeFields.volume_ml || fields.volume_ml;
+  if (volumeVal) features.push({ label: "Hacim", value: `${volumeVal} ml`, icon: <Droplets className="w-5 h-5" /> });
   if (fields.silicone_free) features.push({ label: "Silikon", value: "İçermez", icon: <Shield className="w-5 h-5" /> });
   if (fields.filler_free) features.push({ label: "Dolgu Maddesi", value: "İçermez", icon: <Shield className="w-5 h-5" /> });
   if (fields.voc_free) features.push({ label: "VOC", value: "İçermez", icon: <Shield className="w-5 h-5" /> });
@@ -240,7 +245,7 @@ export default function ProductDetail() {
 
       <div className="container mx-auto px-4 py-12 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          <div className="bg-white p-8 lg:p-12 flex justify-center items-center relative border border-gray-200 min-h-[400px] lg:min-h-[500px] shadow-sm sticky top-24">
+          <div className="bg-white p-8 lg:p-12 flex justify-center items-center relative border border-gray-200 min-h-[400px] lg:min-h-[500px] shadow-sm">
             {p.image_url ? (
               <img 
                 src={p.image_url} 

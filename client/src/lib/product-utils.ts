@@ -72,11 +72,35 @@ export function groupProductsBySize(products: Product[]): ProductGroup[] {
 
     let primary = variants[0].product;
     if (variants.length > 1) {
-      const preferred = variants.find((v: ProductVariant) => {
-        const ml = sizeToMl(v.sizeLabel);
-        return ml >= 200 && ml <= 300;
-      });
-      if (preferred) primary = preferred.product;
+      let bestScore = -1;
+      for (const v of variants) {
+        const p = v.product;
+        const content = (p as any).content || {};
+        const fields = (p as any).template_fields || {};
+        const scrape = content.menzerna_scrape || {};
+        let score = 0;
+        if (fields.cut_level != null) score += 10;
+        if (fields.finish_level != null) score += 10;
+        if (fields.silicone_free) score += 3;
+        if (fields.filler_free) score += 3;
+        if (fields.voc_free) score += 3;
+        if (fields.machine_compatibility) score += 3;
+        if (content.full_description) score += Math.min(content.full_description.length / 100, 20);
+        if (content.how_to_use) score += 5;
+        if (content.why_this_product) score += 5;
+        if (content.when_to_use) score += 3;
+        if (content.target_surface) score += 3;
+        if (scrape.subtitle || scrape.subtitle_en) score += 3;
+        if (scrape.description || scrape.description_en) score += 5;
+        if (Array.isArray(scrape.steps) && scrape.steps.length > 0) score += 5;
+        if (Array.isArray(scrape.optimised_for) && scrape.optimised_for.length > 0) score += 5;
+        if (scrape.processing) score += 5;
+        if (Array.isArray((p as any).faq) && (p as any).faq.length > 0) score += 5;
+        if (score > bestScore || (score === bestScore && sizeToMl(v.sizeLabel) > 0 && sizeToMl(v.sizeLabel) <= 300)) {
+          bestScore = score;
+          primary = p;
+        }
+      }
     }
 
     result.push({ baseName, primary, variants });

@@ -194,7 +194,7 @@ export default function CategoryProducts() {
           <p className="text-xs font-black uppercase tracking-[0.25em] text-[#e3000f] mb-3">
             Ürün Yelpazesini Keşfedin
           </p>
-          <h1 className="text-4xl md:text-5xl font-black text-white uppercase tracking-widest mb-4" data-testid="text-category-title">
+          <h1 className="md:text-5xl font-black text-white uppercase tracking-widest mb-4 text-[36px] bg-[transparent]" data-testid="text-category-title">
             {catInfo.title}
           </h1>
           <div className="w-16 h-1.5 bg-[#e3000f] mb-6"></div>

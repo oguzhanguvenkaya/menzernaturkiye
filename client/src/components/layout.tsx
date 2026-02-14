@@ -1,342 +1,174 @@
 import { Link, useLocation } from "wouter";
-import { Search, Menu, X, Phone, Mail, MapPin, ArrowRight, ChevronDown } from "lucide-react";
+import { ChevronDown, Menu, X, MapPin } from "lucide-react";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Input } from "@/components/ui/input";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
 
-export function Header() {
+export default function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
+
+  const navigation = [
+    {
+      id: "car-care",
+      title: "Araç Bakım",
+      subcategories: [
+        { name: "Pasta, Cila ve Boya Korumalar", href: "/category/car-polish" },
+        { name: "Sünger, Keçe ve Tabanlıklar", href: "/category/accessories" },
+        { name: "Yetkili Satıcılar", href: "/dealers", isDealer: true }
+      ]
+    },
+    {
+      id: "industrial",
+      title: "Endüstriyel",
+      subcategories: [
+        { name: "Katı Pasta ve Cilalar", href: "/category/solid-compounds" },
+        { name: "Yetkili Satıcılar", href: "/dealers", isDealer: true }
+      ]
+    },
+    {
+      id: "marine",
+      title: "Marin",
+      subcategories: [
+        { name: "Pasta ve Cilalar", href: "/category/boat-polish" },
+        { name: "Yetkili Satıcılar", href: "/dealers", isDealer: true }
+      ]
+    }
+  ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white">
-      {/* Top Bar */}
-      <div className="bg-neutral-900 text-white text-xs py-2 px-4 hidden md:block">
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="flex gap-4">
-            <span className="flex items-center gap-2"><Phone size={12} /> +90 (535) 251 74 11</span>
-            <span className="flex items-center gap-2"><Mail size={12} /> info@menzernaturkiye.com</span>
-          </div>
-          <div className="flex gap-4">
-            <a href="https://www.mgpolishing.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-1">
-               Distribütör Web Sitesi <ArrowRight size={12} />
-            </a>
-          </div>
-        </div>
-      </div>
+    <div className="min-h-screen flex flex-col font-sans bg-gray-50">
+      {/* Menzerna Kırmızı Üst Şerit */}
+      <div className="bg-[#e3000f] h-1.5 w-full"></div>
 
-      <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/">
-          <div className="flex items-center gap-2 cursor-pointer">
-            <img src="/images/logo.png" alt="Menzerna Logo" className="h-10 w-auto" />
-            <div className="hidden lg:block border-l pl-3 ml-3 border-neutral-300">
-              <span className="block text-sm font-bold text-neutral-800">TÜRKİYE</span>
-              <span className="block text-xs text-neutral-500 tracking-wider">RESMİ DİSTRİBÜTÖRÜ</span>
-            </div>
-          </div>
-        </Link>
+      <header className="bg-[#002b3d] text-white sticky top-0 z-50 shadow-xl">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            <Link href="/">
+              <a className="flex items-center gap-2 cursor-pointer">
+                <span className="text-3xl font-black tracking-tighter uppercase text-white">
+                  Menzerna<span className="text-[#e3000f]">.</span>
+                </span>
+                <span className="text-xs font-bold tracking-[0.2em] text-gray-400 mt-2 uppercase border-l-2 border-gray-600 pl-2">
+                  Türkiye
+                </span>
+              </a>
+            </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:block">
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <Link href="/about">
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    HAKKIMIZDA
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
+            {/* Masaüstü Mega Menü */}
+            <nav className="hidden lg:flex h-full items-center">
+              {/* Added Links */}
+              <Link href="/about">
+                <a className="px-6 h-full flex items-center gap-1 text-sm font-bold uppercase tracking-widest transition-colors text-gray-200 border-b-4 border-transparent hover:text-white hover:border-[#e3000f]">
+                  HAKKIMIZDA
+                </a>
+              </Link>
+              <Link href="/products">
+                <a className="px-6 h-full flex items-center gap-1 text-sm font-bold uppercase tracking-widest transition-colors text-gray-200 border-b-4 border-transparent hover:text-white hover:border-[#e3000f]">
+                  ÜRÜNLER
+                </a>
+              </Link>
 
-              <NavigationMenuItem>
-                <Link href="/products">
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    ÜRÜNLER
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
+              {navigation.map((navItem) => (
+                <div 
+                  key={navItem.id} 
+                  className="group h-full flex items-center relative"
+                  onMouseEnter={() => setActiveMenu(navItem.id)}
+                  onMouseLeave={() => setActiveMenu(null)}
+                >
+                  <button className={`px-6 h-full flex items-center gap-1 text-sm font-bold uppercase tracking-widest transition-colors border-b-4 ${
+                    activeMenu === navItem.id || location.includes(navItem.id) 
+                    ? "text-[#e3000f] border-[#e3000f]" 
+                    : "text-gray-200 border-transparent hover:text-white"
+                  }`}>
+                    {navItem.title}
+                    <ChevronDown className={`w-4 h-4 ml-1 transition-transform duration-300 ${activeMenu === navItem.id ? "rotate-180" : ""}`} />
+                  </button>
 
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="uppercase">Araç Bakım</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-1">
-                    <li>
-                      <Link href="/car-care/car-polish">
-                        <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Pasta, Cila ve Boya Korumalar</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Profesyonel araç bakımı için üstün performanslı ürünler.
-                          </p>
-                        </NavigationMenuLink>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/car-care/accessories">
-                        <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Sünger, Keçe ve Tabanlıklar</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                             Polisaj uygulamaları için gerekli tüm aksesuarlar.
-                          </p>
-                        </NavigationMenuLink>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/dealers">
-                        <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Yetkili Satıcılar</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Size en yakın yetkili satış noktaları.
-                          </p>
-                        </NavigationMenuLink>
-                      </Link>
-                    </li>
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="uppercase">Endüstriyel</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-1">
-                    <li>
-                      <Link href="/industrial/solid-compounds">
-                        <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Katı Pasta ve Cilalar</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Endüstriyel uygulamalar için yüksek performanslı katı bileşikler.
-                          </p>
-                        </NavigationMenuLink>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/dealers">
-                        <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Yetkili Satıcılar</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                             Endüstriyel ürün yetkili satıcıları.
-                          </p>
-                        </NavigationMenuLink>
-                      </Link>
-                    </li>
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="uppercase">Marin</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-1">
-                    <li>
-                      <Link href="/marine/boat-polish">
-                        <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Pasta ve Cilalar</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Tekne ve yat bakımı için özel geliştirilmiş ürünler.
-                          </p>
-                        </NavigationMenuLink>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/dealers">
-                        <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Yetkili Satıcılar</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Marin grubu yetkili satıcıları.
-                          </p>
-                        </NavigationMenuLink>
-                      </Link>
-                    </li>
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <Link href="/contact">
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    İLETİŞİM
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
-        </div>
-
-        {/* Actions */}
-        <div className="flex items-center gap-2">
-          <div className="relative hidden md:block w-64">
-             <Input placeholder="Ürün ara..." className="h-9 pr-8 bg-neutral-50 border-neutral-200 focus:border-primary focus:ring-primary/20" />
-             <Search className="absolute right-2 top-2.5 h-4 w-4 text-neutral-400" />
-          </div>
-          
-          <Button variant="ghost" size="icon" className="md:hidden">
-            <Search className="h-5 w-5" />
-          </Button>
-
-          {/* Mobile Menu */}
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
-                <Menu className="h-6 w-6" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto">
-              <div className="flex flex-col gap-6 mt-8">
-                <div className="border-b pb-4">
-                  <img src="/images/logo.png" alt="Menzerna" className="h-8 mb-4" />
+                  <div className={`absolute top-full left-0 w-80 bg-white shadow-2xl border-t border-gray-200 transition-all duration-200 transform origin-top ${
+                    activeMenu === navItem.id ? "opacity-100 scale-y-100 visible" : "opacity-0 scale-y-95 invisible"
+                  }`}>
+                    <div className="w-full h-1 bg-[#002b3d]"></div>
+                    <div className="py-2 flex flex-col">
+                      {navItem.subcategories.map((sub) => (
+                        <Link key={sub.name} href={sub.href}>
+                          <a className={`px-6 py-4 font-bold text-sm transition-colors flex items-center justify-between border-l-2 border-transparent hover:border-[#e3000f] ${
+                            sub.isDealer ? "text-[#e3000f] hover:bg-red-50" : "text-[#002b3d] hover:bg-gray-50"
+                          }`}>
+                            <span className="flex items-center gap-2">
+                              {sub.isDealer && <MapPin className="w-4 h-4" />}
+                              {sub.name}
+                            </span>
+                          </a>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <nav className="flex flex-col gap-4">
-                  <Link href="/">
-                    <span className="text-lg font-medium hover:text-primary transition-colors block py-2 border-b border-neutral-100">Ana Sayfa</span>
-                  </Link>
-                  
-                  <div className="py-2 border-b border-neutral-100">
-                    <div className="text-lg font-medium text-neutral-800 mb-2">Araç Bakım</div>
-                    <div className="pl-4 flex flex-col gap-2">
-                      <Link href="/car-care/car-polish">
-                        <span className="text-neutral-600 hover:text-primary">Pasta, Cila ve Boya Korumalar</span>
-                      </Link>
-                      <Link href="/car-care/accessories">
-                        <span className="text-neutral-600 hover:text-primary">Sünger, Keçe ve Tabanlıklar</span>
-                      </Link>
-                      <Link href="/dealers">
-                        <span className="text-neutral-600 hover:text-primary">Yetkili Satıcılar</span>
-                      </Link>
-                    </div>
-                  </div>
+              ))}
+            </nav>
 
-                  <div className="py-2 border-b border-neutral-100">
-                    <div className="text-lg font-medium text-neutral-800 mb-2">Endüstriyel</div>
-                    <div className="pl-4 flex flex-col gap-2">
-                      <Link href="/industrial/solid-compounds">
-                        <span className="text-neutral-600 hover:text-primary">Katı Pasta ve Cilalar</span>
-                      </Link>
-                      <Link href="/dealers">
-                        <span className="text-neutral-600 hover:text-primary">Yetkili Satıcılar</span>
-                      </Link>
-                    </div>
-                  </div>
+            <button 
+              className="lg:hidden text-white p-2 hover:text-[#e3000f] transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
+            </button>
+          </div>
+        </div>
 
-                  <div className="py-2 border-b border-neutral-100">
-                    <div className="text-lg font-medium text-neutral-800 mb-2">Marin</div>
-                    <div className="pl-4 flex flex-col gap-2">
-                      <Link href="/marine/boat-polish">
-                        <span className="text-neutral-600 hover:text-primary">Pasta ve Cilalar</span>
-                      </Link>
-                      <Link href="/dealers">
-                        <span className="text-neutral-600 hover:text-primary">Yetkili Satıcılar</span>
-                      </Link>
-                    </div>
-                  </div>
-
-                  <Link href="/about">
-                    <span className="text-lg font-medium hover:text-primary transition-colors block py-2 border-b border-neutral-100">Hakkımızda</span>
-                  </Link>
-                  <Link href="/contact">
-                    <span className="text-lg font-medium hover:text-primary transition-colors block py-2 border-b border-neutral-100">İletişim</span>
-                  </Link>
-                </nav>
+        {/* Mobil Menü */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden bg-[#001f2c] border-t border-gray-700 max-h-[80vh] overflow-y-auto">
+            <div className="border-b border-gray-800">
+              <Link href="/about">
+                <a className="px-8 py-4 text-sm font-semibold flex items-center justify-between hover:bg-white/5 transition-colors text-gray-200 hover:text-white">
+                  HAKKIMIZDA
+                </a>
+              </Link>
+              <Link href="/products">
+                <a className="px-8 py-4 text-sm font-semibold flex items-center justify-between hover:bg-white/5 transition-colors text-gray-200 hover:text-white">
+                  ÜRÜNLER
+                </a>
+              </Link>
+            </div>
+            {navigation.map((navItem) => (
+              <div key={navItem.title} className="border-b border-gray-800">
+                <div className="px-6 py-4 font-black text-gray-400 uppercase tracking-widest text-xs bg-black/20">
+                  {navItem.title}
+                </div>
+                <div className="flex flex-col">
+                  {navItem.subcategories.map((sub) => (
+                    <Link key={sub.name} href={sub.href}>
+                      <a 
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className={`px-8 py-4 text-sm font-semibold flex items-center justify-between hover:bg-white/5 transition-colors ${
+                          sub.isDealer ? "text-[#e3000f]" : "text-gray-200 hover:text-white"
+                        }`}
+                      >
+                        <span className="flex items-center gap-2">
+                          {sub.isDealer && <MapPin className="w-4 h-4" />}
+                          {sub.name}
+                        </span>
+                      </a>
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </SheetContent>
-          </Sheet>
+            ))}
+          </div>
+        )}
+      </header>
+
+      <main className="flex-grow flex flex-col">{children}</main>
+
+      <footer className="bg-[#00151f] text-gray-400 py-12 border-t border-gray-800 mt-auto">
+        <div className="container mx-auto px-4 text-center">
+          <span className="text-2xl font-black tracking-tighter uppercase text-white opacity-50">
+            Menzerna<span className="text-[#e3000f]">.</span>
+          </span>
+          <p className="mt-4 text-sm font-medium tracking-widest uppercase">Perfection in Polishing</p>
         </div>
-      </div>
-    </header>
-  );
-}
-
-export function Footer() {
-  return (
-    <footer className="bg-neutral-900 text-white pt-16 pb-8">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          {/* Brand */}
-          <div className="space-y-4">
-            <img src="/images/logo.png" alt="Menzerna Footer Logo" className="h-8 brightness-0 invert opacity-80" />
-            <p className="text-neutral-400 text-sm leading-relaxed">
-              Menzerna, endüstriyel polisaj ve otomotiv bakım ürünlerinde dünya lideri. MG Polisaj güvencesiyle Türkiye'de.
-            </p>
-            <div className="flex gap-4 pt-4">
-              {/* Social Placeholders */}
-              <div className="w-8 h-8 bg-neutral-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">FB</div>
-              <div className="w-8 h-8 bg-neutral-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">IG</div>
-              <div className="w-8 h-8 bg-neutral-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">LN</div>
-            </div>
-          </div>
-
-          {/* Links */}
-          <div>
-            <h4 className="font-bold text-lg mb-6 text-primary">Hızlı Erişim</h4>
-            <ul className="space-y-3 text-neutral-400 text-sm">
-              <li><Link href="/products" className="hover:text-white transition-colors">Tüm Ürünler</Link></li>
-              <li><Link href="/products?category=DIŞ YÜZEY" className="hover:text-white transition-colors">Oto Bakım</Link></li>
-              <li><Link href="/products?category=MARİN" className="hover:text-white transition-colors">Marin Grubu</Link></li>
-              <li><Link href="/products?category=ENDÜSTRİYEL" className="hover:text-white transition-colors">Endüstriyel</Link></li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="font-bold text-lg mb-6 text-primary">İletişim</h4>
-            <ul className="space-y-4 text-neutral-400 text-sm">
-              <li className="flex gap-3">
-                <MapPin className="h-5 w-5 text-primary shrink-0" />
-                <span>MG POLİSAJ OTOMOTİV İTH. İHR. A.Ş.<br/>Ümit Mh. 1411/7 Sk. No: 4/I<br/>35060 Bornova / İZMİR</span>
-              </li>
-              <li className="flex gap-3">
-                <Phone className="h-5 w-5 text-primary shrink-0" />
-                <span>+90 (535) 251 74 11</span>
-              </li>
-              <li className="flex gap-3">
-                <Mail className="h-5 w-5 text-primary shrink-0" />
-                <span>info@menzernaturkiye.com</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div>
-            <h4 className="font-bold text-lg mb-6 text-primary">Bülten</h4>
-            <p className="text-neutral-400 text-sm mb-4">Yeni ürünler ve kampanyalardan haberdar olun.</p>
-            <div className="flex gap-2">
-              <Input placeholder="E-posta adresiniz" className="bg-neutral-800 border-neutral-700 text-white focus:border-primary" />
-              <Button className="bg-primary hover:bg-red-700 text-white">Kayıt</Button>
-            </div>
-          </div>
-        </div>
-
-        <div className="border-t border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-500">
-          <p>&copy; 2026 MG Polisaj. Tüm hakları saklıdır. Menzerna Türkiye Resmi Distribütörü.</p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <span className="hover:text-white cursor-pointer">Gizlilik Politikası</span>
-            <span className="hover:text-white cursor-pointer">Kullanım Şartları</span>
-            <span className="hover:text-white cursor-pointer">KVKK</span>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
-export function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="min-h-screen flex flex-col font-sans bg-neutral-50">
-      <Header />
-      <main className="flex-1">
-        {children}
-      </main>
-      <Footer />
+      </footer>
     </div>
   );
 }

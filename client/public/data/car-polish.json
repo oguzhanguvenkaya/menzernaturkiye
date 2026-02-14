@@ -1,120 +1,38 @@
 [
   {
-    "id": "car-polish-heavy-cut",
-    "title": "Heavy Cut",
-    "description": "Achieve optimal polishing results following rough grinding with Menzerna's high-performance car polishing pastes in the heavy cut segment. Quickly, reliably, and thoroughly eliminate scratches, overspray, and severe signs of wear.",
-    "products": [
-      {
-        "name": "Super Heavy Cut Compound 300",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/b/e/csm_Thumbnail-300-IF_49c6150a11.jpg",
-        "url": "https://www.menzerna.com/car-care/car-polish/products/details/super-heavy-cut-compound-300"
-      },
-      {
-        "name": "Super Heavy Cut Compound 300 GREEN LINE",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/8/0/csm_menzerna_SHCC300_GreenLine_696x396_f5694a5a89.jpg",
-        "url": "https://www.menzerna.com/car-care/car-polish/products/details/super-heavy-cut-compound-300-green-line"
-      },
-      {
-        "name": "Heavy Cut Compound 400",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/4/1/csm_menzerna_HCC_400_696x396_92b3ed9ab7.jpg",
-        "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-400"
-      },
-      {
-        "name": "Heavy Cut Compound 400 GREEN LINE",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/a/3/csm_menzerna_HCC_400_GreenLine_V1_696x396_0c3e022af8.jpg",
-        "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-400-green-line"
-      },
-      {
-        "name": "Cut Force Pro",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/b/d/csm_menzerna-Thumbnail-mit-Auto-CFP_Teaser-EN_0a94b6b282.jpg",
-        "url": "https://www.menzerna.com/car-care/car-polish/products/details/cut-force-pro"
-      },
-      {
-        "name": "Heavy Cut Compound 1000",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/e/2/csm_menzerna_HCC_1000_V1_696x396_d973ebe559.jpg",
-        "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-1000"
-      },
-      {
-        "name": "Heavy Cut Compound 1100",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/e/4/csm_menzerna_HCC_1100_696x396_59769083be.jpg",
-        "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-1100"
-      }
-    ]
+    "id": "heavy-cut-compound-400",
+    "name": "Heavy Cut Compound 400",
+    "step": "1",
+    "image": "https://www.menzerna.com/fileadmin/_processed_/9/5/csm_Heavy_Cut_Compound_400_250ml_1000ml_3a0c7bb0b5.png",
+    "description": "Tek adımda çizik giderme ve parlatma. Otomotiv boyalarındaki zımpara izlerini rekor sürede yok eder.",
+    "cut": 8,
+    "gloss": 8,
+    "benefits": ["Tek adımda çizik giderme ve parlaklık", "Zaman tasarrufu sağlar", "Yüksek verimlilik", "Silikon içermez"],
+    "processing": ["Yüzeyi temizleyin.", "Heavy Cut Sünger Pede az miktarda uygulayın.", "Rotary veya Orbital makine ile uygulayın.", "Kalıntıları mikrofiber bez ile silin."],
+    "originalUrl": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-400"
   },
   {
-    "id": "car-polish-medium-cut",
-    "title": "Medium Cut",
-    "description": "Opt for Menzerna's medium cut automotive polishes, the ultimate solution for addressing moderate scratches and signs of wear. Achieve a flawless surface with an exquisite gloss, ideal for light automotive coatings.",
-    "products": [
-      {
-        "name": "Medium Cut Polish 2000",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/4/f/csm_menzerna_MCP_2000_V1_696x396_e87fadb973.jpg",
-        "url": "https://www.menzerna.com/car-care/car-polish/products/details/medium-cut-polish-2000"
-      },
-      {
-        "name": "One-Step Polish 3in1",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/e/0/csm_menzerna_3in1_V1_696x396_32b45b4bf5.jpg",
-        "url": "https://www.menzerna.com/car-care/car-polish/products/details/one-step-polish-3in1"
-      },
-      {
-        "name": "Medium Cut Polish 2400",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/8/4/csm_menzerna_MCP_2400_V1_696x396_ccdc686300.jpg",
-        "url": "https://www.menzerna.com/car-care/car-polish/products/details/medium-cut-polish-2400"
-      },
-      {
-        "name": "Medium Cut Polish 2500",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/9/1/csm_menzerna_MCP_2500_V1_696x396_02a9d551b8.jpg",
-        "url": "https://www.menzerna.com/car-care/car-polish/products/details/medium-cut-polish-2500"
-      }
-    ]
+    "id": "medium-cut-polish-2500",
+    "name": "Medium Cut Polish 2500",
+    "step": "2",
+    "image": "https://www.menzerna.com/fileadmin/_processed_/5/a/csm_Medium_Cut_Polish_2500_250ml_10b543c9ba.png",
+    "description": "Otomotiv vernikleri için klasik orta kesici pasta. Yıkama çiziklerini giderir ve parlaklığı artırır.",
+    "cut": 5,
+    "gloss": 7,
+    "benefits": ["Eşit polisaj deseni", "Olağanüstü parlaklık", "Silikon içermez"],
+    "processing": ["Yüzeyi temizleyin.", "Medium Cut Pad (Sarı) ile uygulayın.", "Kalıntıları temiz mikrofiber bezle alın."],
+    "originalUrl": "https://www.menzerna.com/car-care/car-polish/products/details/medium-cut-polish-2500"
   },
   {
-    "id": "car-polish-finish",
-    "title": "Finish",
-    "description": "Menzerna finishes provide impeccable auto polish solutions to tackle minor scratches, streaks, and clouding. Achieve an immaculate, hologram-free surface with an exclusive gloss, leading to a show car finish – even on black coatings.",
-    "products": [
-      {
-        "name": "Final Finish 3000",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/7/8/csm_menzerna_FF3000_696x396_144885d739.jpg",
-        "url": "https://www.menzerna.com/car-care/car-polish/products/details/final-finish-3000"
-      },
-      {
-        "name": "Super Finish 3500",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/5/b/csm_menzerna_SF3500_V1_696x396_3698a93d4c.jpg",
-        "url": "https://www.menzerna.com/car-care/car-polish/products/details/super-finish-3500"
-      },
-      {
-        "name": "Super Finish Plus 3800",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/b/d/csm_menzerna_SFP3800_V1_696x396_c7b61c1e20.jpg",
-        "url": "https://www.menzerna.com/car-care/car-polish/products/details/super-finish-plus-3800"
-      }
-    ]
-  },
-  {
-    "id": "car-polish-protection",
-    "title": "Protection",
-    "description": "Menzerna sealants provide enduring protection against environmental factors. Experience a shielded, noticeably smoother surface with a stunning gloss. These sealants ensure optimal protection against dirt and superior beading properties.",
-    "products": [
-      {
-        "name": "Sealing Wax Protection",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/3/0/csm_menzerna_SWP4_V1_696x396_0ba9b0c5bb.jpg",
-        "url": "https://www.menzerna.com/car-care/car-polish/products/details/sealing-wax-protection"
-      },
-      {
-        "name": "Liquid Carnauba Protection",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/d/e/csm_menzerna_Liquid_Carnuba_V1_696x396_47db1b3f71.jpg",
-        "url": "https://www.menzerna.com/car-care/car-polish/products/details/liquid-carnauba-protection"
-      },
-      {
-        "name": "Power Lock Ultimate Protection",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/9/a/csm_menzerna_PLUP_4_V1_696x396_13471e3238.jpg",
-        "url": "https://www.menzerna.com/car-care/car-polish/products/details/power-lock-ultimate-protection"
-      },
-      {
-        "name": "Ceramic Spray Sealant",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/2/c/csm_Scene-CeramicSpray_ba7acbd926.jpg",
-        "url": "https://www.menzerna.com/car-care/car-polish/products/details/ceramic-spray-sealant"
-      }
-    ]
+    "id": "super-finish-3500",
+    "name": "Super Finish 3500",
+    "step": "3",
+    "image": "https://www.menzerna.com/fileadmin/_processed_/b/4/csm_Super_Finish_3500_250ml_1000ml_f1eb8d7b88.png",
+    "description": "Kusursuz ayna parlaklığı (Show Car Finish). Hologramları ve hareleri tamamen yok eder.",
+    "cut": 3,
+    "gloss": 10,
+    "benefits": ["Kusursuz ayna parlaklığı", "Hologram ve mikro çizikleri yok eder", "Koyu renk araçlar için mükemmel", "Silikon içermez"],
+    "processing": ["Soft Cut (Yumuşak) ped kullanın.", "Makineyi düşük devirde, baskı uygulamadan çalıştırın.", "Ürün şeffaflaşana kadar uygulamaya devam edin."],
+    "originalUrl": "https://www.menzerna.com/car-care/car-polish/products/details/super-finish-3500"
   }
 ]

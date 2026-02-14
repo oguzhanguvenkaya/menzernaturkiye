@@ -1,116 +1,64 @@
-import { useEffect, useState } from "react";
-import { Layout } from "@/components/layout";
-import { Button } from "@/components/ui/button";
-import { ArrowUpRight } from "lucide-react";
-import { useLocation } from "wouter";
+import { useQuery } from "@tanstack/react-query";
+import { useParams, Link } from "wouter";
+import ProductCard from "@/components/product-card";
+import { Skeleton } from "@/components/ui/skeleton";
+import { ChevronRight } from "lucide-react";
 
-interface Product {
-  name: string;
-  image: string;
-  url: string;
-}
+export default function CategoryProducts() {
+  const { category } = useParams();
+  
+  const categoryTitles: Record<string, string> = {
+    "car-polish": "Araç Bakım - Pasta, Cila ve Boya Korumalar",
+    "marine-polish": "Marin - Tekne Bakım Ürünleri",
+    "solid-compounds": "Endüstriyel - Katı Pasta ve Cilalar",
+    "boat-polish": "Marin Pasta ve Cilalar",
+    "accessories": "Sünger, Keçe ve Aksesuarlar"
+  };
 
-interface Section {
-  id: string;
-  title: string;
-  description: string;
-  products: Product[];
-}
+  const title = categoryTitles[category as string] || category?.replace('-', ' ');
 
-interface CategoryProductsProps {
-  categoryType: 'car-polish' | 'accessories' | 'solid-compounds' | 'marine-polish';
-  title: string;
-  description: string;
-}
-
-export default function CategoryProducts({ categoryType, title, description }: CategoryProductsProps) {
-  const [sections, setSections] = useState<Section[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`/data/${categoryType}.json`);
-        if (!response.ok) {
-          throw new Error(`Failed to fetch data for ${categoryType}`);
-        }
-        const data = await response.json();
-        setSections(data);
-      } catch (error) {
-        console.error("Error fetching category data:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [categoryType]);
+  const { data: products, isLoading } = useQuery({
+    queryKey: [`/data/${category}.json`],
+    queryFn: () => fetch(`/data/${category}.json`).then((res) => res.json()),
+  });
 
   return (
-    <Layout>
-      <div className="bg-neutral-900 py-16 mb-12">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
-          <p className="text-xl text-neutral-400 max-w-2xl">{description}</p>
+    <div className="min-h-screen bg-white pb-24">
+      <div className="bg-[#002b3d] pt-20 pb-16 relative overflow-hidden border-t-4 border-[#e3000f]">
+        <div className="container mx-auto px-4 relative z-10">
+          <h1 className="text-4xl md:text-5xl font-black text-white uppercase tracking-widest mb-4">
+            {title}
+          </h1>
+          <div className="w-16 h-1.5 bg-[#e3000f] mb-6"></div>
+          <p className="text-gray-300 text-lg max-w-3xl font-light leading-relaxed">
+            Menzerna'nın endüstri standartlarını belirleyen, kusursuz yüzeyler için tasarlanmış yenilikçi teknolojilerini keşfedin.
+          </p>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 mb-24 space-y-20">
+      <div className="border-b border-gray-200 py-4 mb-12 bg-gray-50">
+        <div className="container mx-auto px-4 flex items-center text-xs font-bold uppercase tracking-widest text-gray-500 flex-wrap gap-y-2">
+          <Link href="/"><span className="hover:text-[#e3000f] cursor-pointer transition-colors">Ana Sayfa</span></Link>
+          <ChevronRight className="w-3 h-3 mx-2" />
+          <span className="text-[#002b3d] uppercase">{title}</span>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4">
         {isLoading ? (
-          <div className="space-y-12">
-            {[1, 2].map((i) => (
-              <div key={i} className="space-y-4">
-                <div className="h-8 bg-neutral-100 w-1/3 rounded animate-pulse" />
-                <div className="h-4 bg-neutral-100 w-2/3 rounded animate-pulse" />
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-                  {[1, 2, 3, 4].map((j) => (
-                    <div key={j} className="h-64 bg-neutral-100 rounded animate-pulse" />
-                  ))}
-                </div>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {[1, 2, 3, 4].map((i) => (
+              <Skeleton key={i} className="h-[480px] w-full rounded-none bg-gray-200" />
             ))}
           </div>
         ) : (
-          sections.map((section) => (
-            <div key={section.id} id={section.id} className="scroll-mt-24">
-              <div className="mb-8 border-b border-neutral-200 pb-4">
-                <h2 className="text-3xl font-bold text-neutral-900 mb-2">{section.title}</h2>
-                <p className="text-neutral-600 text-lg">{section.description}</p>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {section.products.map((product) => (
-                  <a 
-                    key={product.name} 
-                    href={product.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="group flex flex-col h-full bg-white border border-neutral-200 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300"
-                  >
-                    <div className="relative aspect-square p-6 bg-white flex items-center justify-center">
-                      <img 
-                        src={product.image} 
-                        alt={product.name} 
-                        className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    
-                    <div className="p-4 flex flex-col flex-1 border-t border-neutral-100 bg-neutral-50 group-hover:bg-white transition-colors">
-                      <h3 className="font-bold text-neutral-900 mb-2 line-clamp-2 group-hover:text-primary transition-colors">
-                        {product.name}
-                      </h3>
-                      <div className="mt-auto flex items-center text-primary font-medium text-sm">
-                        <span>Ürünü İncele</span>
-                        <ArrowUpRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                      </div>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
-          ))
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {products?.map((product: any, idx: number) => (
+              <ProductCard key={idx} product={product} categorySlug={category || 'car-polish'} />
+            ))}
+          </div>
         )}
       </div>
-    </Layout>
+    </div>
   );
 }

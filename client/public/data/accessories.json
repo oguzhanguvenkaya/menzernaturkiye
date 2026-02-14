@@ -1,113 +1,26 @@
 [
   {
-    "id": "accessories-foam-pads",
-    "title": "Foam Polishing Pads",
-    "description": "The Menzerna Premium Pads are optimized for the respective polishing step and the use with the Menzerna Polishing Programme. They support the effect of Menzerna high-performance auto polishes and deliver reliable, fast results.",
-    "products": [
-      {
-        "name": "Heavy Cut Foam Pad",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/2/5/csm_Menzerna_Polierpad_Rotes_Pad_696x396_f75a8e605f.jpg",
-        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/heavy-cut-foam-pad"
-      },
-      {
-        "name": "Medium Cut Foam Pad",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/9/6/csm_Menzerna_Polierpad_Gelbes_Pad_696x396_97416171c7.jpg",
-        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/medium-cut-foam-pad"
-      },
-      {
-        "name": "Soft Cut Foam Pad",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/1/b/csm_Menzerna_Polierpad_Gruenes_Pad_696x396_f2cae55114.jpg",
-        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/soft-cut-foam-pad"
-      },
-      {
-        "name": "Wax Foam Pad",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/e/0/csm_Menzerna_Polierpad_Blaues_Pad_696x396_6541393439.jpg",
-        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/wax-foam-pad"
-      },
-      {
-        "name": "Standard Pad Hard",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/f/9/csm_menzerna_pad_hard_696x396_9cc1607431.jpg",
-        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/standard-pad-hard"
-      },
-      {
-        "name": "Standard Medium Pad",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/2/2/csm_menzerna_pad_mittelhard_696x396_8a8a437cb4.jpg",
-        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/standard-medium-pad"
-      },
-      {
-        "name": "Standard Soft Pad",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/5/0/csm_menzerna_pad_weich_696x396_4af4853112.jpg",
-        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/standard-soft-pad"
-      }
-    ]
+    "id": "heavy-cut-foam-pad",
+    "name": "Heavy Cut Foam Pad",
+    "step": "1",
+    "image": "https://www.menzerna.com/fileadmin/_processed_/9/b/csm_Heavy_Cut_Foam_Pad_150mm_2_bfb8e0e292.png",
+    "description": "Derin çizikleri gidermek için sert yapılı, yüksek performanslı kırmızı polisaj süngeri.",
+    "cut": 10,
+    "gloss": 2,
+    "benefits": ["Uzun ömürlü sünger yapısı", "Yüksek sıcaklık direnci", "Menzerna HCC 400 ile mükemmel uyum"],
+    "processing": ["Heavy Cut pastaları ile kullanın.", "Kullanım sonrası ılık su ile yıkayın."],
+    "originalUrl": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/heavy-cut-foam-pad"
   },
   {
-    "id": "accessories-wool-pads",
-    "title": "Wool Buffing Pads",
-    "description": "The Menzerna wool buffing pads in combination with Menzerna Heavy Cut polishes provide unbeatable cut. The high-quality lambswool pads are available in a variety of sizes.",
-    "products": [
-      {
-        "name": "Premium Lambswool Pad",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/1/1/csm_Menzerna_Lammfell_Polierpad_125mm_696x396_0c73c936ee.jpg",
-        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/premium-lambswool-pad"
-      },
-      {
-        "name": "Crater Shaped Lambswool Pad",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/2/f/csm_Menzerna_Polierpad_Lammwolle_Krater_230mm_696x396_5df834b1f4.jpg",
-        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/crater-shaped-lambswool-pad"
-      },
-      {
-        "name": "Double Sided Lambswool Pad",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/3/8/csm_Menzerna_Polierpad_Lammwolle_Doppelseitig_230mm_696x396_7078f6d87d.jpg",
-        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/double-sided-lambswool-pad"
-      },
-      {
-        "name": "Adapter Double Sided Lambwool Pad",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/9/5/csm_Menzerna_Adapter_Lammwolle_Teller_230mm_696x396_47fe9c20f4.jpg",
-        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/adapter-double-sided-lambwool-pad"
-      },
-      {
-        "name": "Orbital Wool Pad",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/e/1/csm_Menzerna_Polierpad_Lammfell_Exzentrisch_696x396_84258238b9.jpg",
-        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/orbital-wool-pad"
-      }
-    ]
-  },
-  {
-    "id": "accessories-tools",
-    "title": "Polishing Tools & Accessories",
-    "description": "High-quality Menzerna backing plates, microfiber cloths, and applicators to support your polishing workflow.",
-    "products": [
-      {
-        "name": "Metal Polish",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/9/8/csm_menzerna_Metallpolitur_Metal_Polish_696x396_c869842e1f.jpg",
-        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/metal-polish"
-      },
-      {
-        "name": "Premium Backing Plate",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/5/4/csm_Menzerna_Poliertelle_Stuetzteller_696x396_49e81825bf.jpg",
-        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/premium-backing-plate"
-      },
-      {
-        "name": "Premium Microfiber Cloth",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/c/0/csm_Menzerna_Premium_Mikrofasertuch_696x396_f4bb8c57ef.jpg",
-        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/premium-microfiber-cloth"
-      },
-      {
-        "name": "Standard Microfiber Cloth",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/7/7/csm_Menzerna_Mikrofasertuch_Polierreste_696x396_1c9e8fb528.jpg",
-        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/standard-microfiber-cloth"
-      },
-      {
-        "name": "Hand Polishing Applicator",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/7/a/csm_Menzerna_Polieren_mit_Hand_Puk_696x396_7f0b9c24e9.jpg",
-        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/hand-polishing-applicator"
-      },
-      {
-        "name": "Polishing Adapter for Drilling Machines",
-        "image": "https://www.menzerna.com/fileadmin/_processed_/b/7/csm_Menzerna_Adapter_Polieren_mit_der_Bohrmaschine_Akuschrauber_696x396_da82979b78.jpg",
-        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/polishing-adapter-for-drilling-machines"
-      }
-    ]
+    "id": "premium-microfiber-cloth",
+    "name": "Premium Mikrofiber Bez",
+    "step": "Aksesuar",
+    "image": "https://www.menzerna.com/fileadmin/_processed_/6/c/csm_Premium_Microfiber_Cloth_613271bc97.png",
+    "description": "Kalıntıları çizik oluşturmadan temizlemek için dikişsiz, lazer kesim premium mikrofiber bez.",
+    "cut": 0,
+    "gloss": 0,
+    "benefits": ["Lazer kesim kenarlar", "Yüksek emicilik", "Çizilmez yapı"],
+    "processing": ["Boya koruma veya pasta silimi sonrası kuru olarak kullanın."],
+    "originalUrl": "https://www.menzerna.com/car-care/accessories/cleaning-accessories/details/premium-microfiber-cloth"
   }
 ]

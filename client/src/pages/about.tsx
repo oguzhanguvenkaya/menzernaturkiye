@@ -22,7 +22,6 @@ export default function About() {
           </p>
         </div>
       </div>
-
       <section className="bg-white">
         <div className="flex flex-col md:flex-row">
           <div className="md:w-1/2">
@@ -52,7 +51,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
       <section className="py-16 md:py-20 bg-neutral-50 border-y border-neutral-200">
         <div className="container mx-auto px-6 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -88,7 +86,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6 md:px-8">
           <div className="max-w-3xl mx-auto text-center mb-12">
@@ -107,7 +104,7 @@ export default function About() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="flex items-center gap-3 p-4 bg-neutral-50 border border-neutral-200">
               <CheckCircle className="w-5 h-5 text-[#e3000f] shrink-0" />
-              <span className="font-bold text-sm text-neutral-900">80+ İş Ortağı</span>
+              <span className="font-bold text-sm text-neutral-900">120+ İş Ortağı</span>
             </div>
             <div className="flex items-center gap-3 p-4 bg-neutral-50 border border-neutral-200">
               <CheckCircle className="w-5 h-5 text-[#e3000f] shrink-0" />
@@ -124,7 +121,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
       <section className="py-16 md:py-20 bg-neutral-50 border-t border-neutral-200">
         <div className="container mx-auto px-6 md:px-8">
           <div className="bg-white p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border border-neutral-200">

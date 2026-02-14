@@ -318,6 +318,7 @@ export default function ProductDetail() {
   const scrapeProcessing = scrape.processing || null;
   const scrapeSteps = scrape.steps as any[] || [];
   const scrapeOptimisedFor = scrape.optimised_for as any[] || [];
+  const downloads = content.downloads as { label: string; url: string; size: string }[] || [];
 
   const displayName = hasVariants ? group.baseName : stripVolumeFromTitle(p.product_name || "");
 
@@ -761,6 +762,39 @@ export default function ProductDetail() {
                 </div>
               )}
             </div>
+          </div>
+        )}
+
+        {downloads.length > 0 && (
+          <div className="container mx-auto px-4 mt-12 mb-8" data-testid="section-downloads">
+            <h2 className="text-xl font-black uppercase tracking-widest text-[#202020] mb-6">
+              İndirmeler
+            </h2>
+            <ul className="divide-y divide-gray-200 border border-gray-200">
+              {downloads.map((dl, i) => (
+                <li key={i}>
+                  <a
+                    href={dl.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition-colors group"
+                    data-testid={`download-item-${i}`}
+                  >
+                    <span className="text-sm font-bold text-[#002b3d] group-hover:text-[#e3000f] transition-colors">
+                      {dl.label}
+                    </span>
+                    <span className="flex items-center gap-3 text-gray-500 shrink-0 ml-4">
+                      {dl.size && (
+                        <span className="text-xs hidden sm:inline">{dl.size}</span>
+                      )}
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="18" height="18" className="fill-current text-[#e3000f]">
+                        <path d="M2.82 32h26.36v-3.76H2.82zm26.36-20.71h-7.53V0h-11.3v11.29H2.82L16 24.48z" />
+                      </svg>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         )}
 

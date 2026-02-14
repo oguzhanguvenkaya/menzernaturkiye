@@ -1,0 +1,171 @@
+<div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-xl-8">
+          <div class="product-listing-title">
+           		<div class="sub-headline"><p>Abrasive polishes from Menzerna</p></div><h2 class="head">Heavy Cut</h2>
+<p>Achieve optimal polishing results following rough grinding with Menzerna's high-performance car polishing pastes in the heavy cut segment. Quickly, reliably, and thoroughly eliminate scratches, overspray, and severe signs of wear.</p>
+          </div>
+        </div>
+      </div>
+      
+              
+                <!-- Product category wise -->
+                <div class="product-listing-block">
+                  <div class="row result-8-2975-ajax">
+                    
+                        
+                          
+                          
+                            
+  <div class="col-sm-6 col-md-4 col-xl-3">
+      	<a class="product-teaser" href="/car-care/car-polish/products/details/super-heavy-cut-compound-300">
+        <div class="product-teaser__img">
+	        
+                
+              <picture>
+                  <source srcset="/fileadmin/_processed_/b/e/csm_Thumbnail-300-IF_49c6150a11.jpg" media="(min-width: 1200px)">
+                  <source srcset="/fileadmin/_processed_/b/e/csm_Thumbnail-300-IF_ea78612199.jpg" media="(min-width: 768px)">
+                  <img class="lozad" src="data:," srcset="/fileadmin/_processed_/b/e/csm_Thumbnail-300-IF_9ceda7473a.jpg" data-loaded="true">
+              </picture>
+            
+        </div>
+        <div class="product-teaser__content">
+            <p>Super Heavy Cut Compound 300</p>
+        </div>
+        </a>
+    </div>
+
+                          
+                            
+  <div class="col-sm-6 col-md-4 col-xl-3">
+      	<a class="product-teaser" href="/car-care/car-polish/products/details/super-heavy-cut-compound-300-green-line">
+        <div class="product-teaser__img">
+	        
+                
+              <picture>
+                  <source srcset="/fileadmin/_processed_/8/0/csm_menzerna_SHCC300_GreenLine_696x396_f5694a5a89.jpg" media="(min-width: 1200px)">
+                  <source srcset="/fileadmin/_processed_/8/0/csm_menzerna_SHCC300_GreenLine_696x396_77326a9687.jpg" media="(min-width: 768px)">
+                  <img class="lozad" src="data:," alt="Polishing Set Super Heavy Cut Compound 300 GREEN LINE" srcset="/fileadmin/_processed_/8/0/csm_menzerna_SHCC300_GreenLine_696x396_855e7dbb19.jpg" data-loaded="true">
+              </picture>
+            
+        </div>
+        <div class="product-teaser__content">
+            <p>Super Heavy Cut Compound 300 GREEN LINE</p>
+        </div>
+        </a>
+    </div>
+
+                          
+                            
+  <div class="col-sm-6 col-md-4 col-xl-3">
+      	<a class="product-teaser" href="/car-care/car-polish/products/details/heavy-cut-compound-400">
+        <div class="product-teaser__img">
+	        
+                
+              <picture>
+                  <source srcset="/fileadmin/_processed_/4/1/csm_menzerna_HCC_400_696x396_92b3ed9ab7.jpg" media="(min-width: 1200px)">
+                  <source srcset="/fileadmin/_processed_/4/1/csm_menzerna_HCC_400_696x396_e0cc07b631.jpg" media="(min-width: 768px)">
+                  <img class="lozad" src="data:," alt=" Polishing Set Heavy Cut Compound 400 Menzerna" srcset="/fileadmin/_processed_/4/1/csm_menzerna_HCC_400_696x396_201519e8d2.jpg" data-loaded="true">
+              </picture>
+            
+        </div>
+        <div class="product-teaser__content">
+            <p>Heavy Cut Compound 400</p>
+        </div>
+        </a>
+    </div>
+
+                          
+                            
+  <div class="col-sm-6 col-md-4 col-xl-3">
+      	<a class="product-teaser" href="/car-care/car-polish/products/details/heavy-cut-compound-400-green-line">
+        <div class="product-teaser__img">
+	        
+                
+              <picture>
+                  <source srcset="/fileadmin/_processed_/a/3/csm_menzerna_HCC_400_GreenLine_V1_696x396_0c3e022af8.jpg" media="(min-width: 1200px)">
+                  <source srcset="/fileadmin/_processed_/a/3/csm_menzerna_HCC_400_GreenLine_V1_696x396_f828ffee02.jpg" media="(min-width: 768px)">
+                  <img class="lozad" src="data:," alt="Polishing Set HCC 400 GREEN LINE" srcset="/fileadmin/_processed_/a/3/csm_menzerna_HCC_400_GreenLine_V1_696x396_65eb81e954.jpg" data-loaded="true">
+              </picture>
+            
+        </div>
+        <div class="product-teaser__content">
+            <p>Heavy Cut Compound 400 GREEN LINE</p>
+        </div>
+        </a>
+    </div>
+
+                          
+                            
+  <div class="col-sm-6 col-md-4 col-xl-3">
+      	<a class="product-teaser" href="/car-care/car-polish/products/details/cut-force-pro">
+        <div class="product-teaser__img">
+	        
+                
+              <picture>
+                  <source srcset="/fileadmin/_processed_/b/d/csm_menzerna-Thumbnail-mit-Auto-CFP_Teaser-EN_0a94b6b282.jpg" media="(min-width: 1200px)">
+                  <source srcset="/fileadmin/_processed_/b/d/csm_menzerna-Thumbnail-mit-Auto-CFP_Teaser-EN_d52bdc8a89.jpg" media="(min-width: 768px)">
+                  <img class="lozad" src="data:," srcset="/fileadmin/_processed_/b/d/csm_menzerna-Thumbnail-mit-Auto-CFP_Teaser-EN_c6f47b0010.jpg" data-loaded="true">
+              </picture>
+            
+        </div>
+        <div class="product-teaser__content">
+            <p>Cut Force Pro</p>
+        </div>
+        </a>
+    </div>
+
+                          
+                            
+  <div class="col-sm-6 col-md-4 col-xl-3">
+      	<a class="product-teaser" href="/car-care/car-polish/products/details/heavy-cut-compound-1000">
+        <div class="product-teaser__img">
+	        
+                
+              <picture>
+                  <source srcset="/fileadmin/_processed_/e/2/csm_menzerna_HCC_1000_V1_696x396_d973ebe559.jpg" media="(min-width: 1200px)">
+                  <source srcset="/fileadmin/_processed_/e/2/csm_menzerna_HCC_1000_V1_696x396_61bffc1ced.jpg" media="(min-width: 768px)">
+                  <img class="lozad" src="data:," alt="Polishing Set Heavy Cut Compound 1000" srcset="/fileadmin/_processed_/e/2/csm_menzerna_HCC_1000_V1_696x396_8be36df0fc.jpg" data-loaded="true">
+              </picture>
+            
+        </div>
+        <div class="product-teaser__content">
+            <p>Heavy Cut Compound 1000</p>
+        </div>
+        </a>
+    </div>
+
+                          
+                            
+  <div class="col-sm-6 col-md-4 col-xl-3">
+      	<a class="product-teaser" href="/car-care/car-polish/products/details/heavy-cut-compound-1100">
+        <div class="product-teaser__img">
+	        
+                
+              <picture>
+                  <source srcset="/fileadmin/_processed_/e/4/csm_menzerna_HCC_1100_696x396_59769083be.jpg" media="(min-width: 1200px)">
+                  <source srcset="/fileadmin/_processed_/e/4/csm_menzerna_HCC_1100_696x396_d3e51b564d.jpg" media="(min-width: 768px)">
+                  <img class="lozad" src="data:," srcset="/fileadmin/_processed_/e/4/csm_menzerna_HCC_1100_696x396_b37178dbc8.jpg" data-loaded="true">
+              </picture>
+            
+        </div>
+        <div class="product-teaser__content">
+            <p>Heavy Cut Compound 1100</p>
+        </div>
+        </a>
+    </div>
+
+                          
+                          <div class="col-12 product-listing-load-more d-flex justify-content-center" id="section-8-2975-load">
+    
+</div>
+
+
+                        
+                      
+                  </div>
+                </div>
+                <!-- End Product category wise -->
+              
+          
+    </div>

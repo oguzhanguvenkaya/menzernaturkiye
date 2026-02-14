@@ -66,48 +66,48 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-center">
             <div className="flex flex-col items-center">
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-md mb-6 text-primary border border-neutral-100">
-                <Beaker className="w-10 h-10" />
+              <div className="w-20 h-20 flex items-center justify-center mb-6">
+                <img src="/icons/menzerna/research.svg" alt="Ar-Ge" className="w-16 h-16" />
               </div>
               <h3 className="text-xl font-bold mb-3">Araştırma ve Geliştirme</h3>
               <p className="text-neutral-600 max-w-xs">Uzmanlar, son teknoloji laboratuvarlarda yüksek performanslı formüller geliştirir.</p>
             </div>
             
             <div className="flex flex-col items-center">
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-md mb-6 text-primary border border-neutral-100">
-                <Award className="w-10 h-10" />
+              <div className="w-20 h-20 flex items-center justify-center mb-6">
+                <img src="/icons/menzerna/formulas.svg" alt="Özel Formüller" className="w-16 h-16" />
               </div>
               <h3 className="text-xl font-bold mb-3">Özel Formüller</h3>
               <p className="text-neutral-600 max-w-xs">Yüzlerce özel geliştirilmiş formülle, her görev ve yüzey için özel ürünler sunuyoruz.</p>
             </div>
 
             <div className="flex flex-col items-center">
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-md mb-6 text-primary border border-neutral-100">
-                <Factory className="w-10 h-10" />
+              <div className="w-20 h-20 flex items-center justify-center mb-6">
+                <img src="/icons/menzerna/production.svg" alt="Üretim" className="w-16 h-16" />
               </div>
               <h3 className="text-xl font-bold mb-3">Büyük Ölçekli Üretim</h3>
               <p className="text-neutral-600 max-w-xs">Derin süreç mühendisliği bilgisine dayalı, üstün kalite ve dakiklikle karmaşık parti üretimi.</p>
             </div>
 
             <div className="flex flex-col items-center">
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-md mb-6 text-primary border border-neutral-100">
-                <Settings className="w-10 h-10" />
+              <div className="w-20 h-20 flex items-center justify-center mb-6">
+                <img src="/icons/menzerna/industry.svg" alt="Endüstri" className="w-16 h-16" />
               </div>
               <h3 className="text-xl font-bold mb-3">Endüstri Uzmanlığı</h3>
               <p className="text-neutral-600 max-w-xs">Endüstriyel polisaj söz konusu olduğunda, finisaj kalitesinin yanı sıra maliyet etkinliği de merkezdredir.</p>
             </div>
 
             <div className="flex flex-col items-center">
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-md mb-6 text-primary border border-neutral-100">
-                <Wrench className="w-10 h-10" />
+              <div className="w-20 h-20 flex items-center justify-center mb-6">
+                <img src="/icons/menzerna/automotive.svg" alt="Otomotiv" className="w-16 h-16" />
               </div>
               <h3 className="text-xl font-bold mb-3">Otomotiv Uzmanlığı</h3>
               <p className="text-neutral-600 max-w-xs">Otomobil üreticileri, otomotiv ticareti, detaycılar ve otomobil meraklıları için profesyonel araç cilaları sunuyoruz.</p>
             </div>
 
             <div className="flex flex-col items-center">
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-md mb-6 text-primary border border-neutral-100">
-                <GraduationCap className="w-10 h-10" />
+              <div className="w-20 h-20 flex items-center justify-center mb-6">
+                <img src="/icons/menzerna/training.svg" alt="Eğitim" className="w-16 h-16" />
               </div>
               <h3 className="text-xl font-bold mb-3">Süreç Geliştirme & Eğitim</h3>
               <p className="text-neutral-600 max-w-xs">Polisaj süreçlerinizi iyileştirmenizde sizi destekliyor ve yoğun polisaj eğitimleri sunuyoruz.</p>

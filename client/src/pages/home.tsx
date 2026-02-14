@@ -1,4 +1,4 @@
-import { useProducts, useCategories } from "@/lib/data";
+import { useProducts } from "@/lib/data";
 import { Layout } from "@/components/layout";
 import { ProductCard } from "@/components/product-card";
 import { Button } from "@/components/ui/button";
@@ -7,7 +7,6 @@ import { Link } from "wouter";
 
 export default function Home() {
   const { data: products, isLoading } = useProducts();
-  const { data: categories } = useCategories();
 
   const featuredProducts = products?.slice(0, 4) || [];
   const bestSellers = products?.slice(4, 8) || [];

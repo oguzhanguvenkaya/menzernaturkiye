@@ -174,6 +174,7 @@ export default function ProductDetail() {
 
   const [activeSku, setActiveSku] = useState(sku);
   const [activeTab, setActiveTab] = useState<'description' | 'usage' | 'faq'>('description');
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   useEffect(() => {
     setActiveSku(sku);
@@ -184,6 +185,23 @@ export default function ProductDetail() {
     : product;
 
   const dataSource = hasVariants ? group.primary : product;
+
+  const galleryImages = useMemo(() => {
+    const images: string[] = [];
+    const mainImg = activeVariant?.image_url;
+    if (mainImg) images.push(mainImg);
+    const gallery = (dataSource as any)?.content?.gallery as string[] | undefined;
+    if (gallery) {
+      for (const url of gallery) {
+        if (!images.includes(url)) images.push(url);
+      }
+    }
+    return images;
+  }, [activeVariant, dataSource]);
+
+  useEffect(() => {
+    setSelectedImageIndex(0);
+  }, [activeSku]);
 
   const categoryTitles: Record<string, string> = {
     "car-polish": "Pasta, Cila ve Boya Korumalar",
@@ -269,17 +287,49 @@ export default function ProductDetail() {
 
       <div className="container mx-auto px-4 py-12 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          <div className="bg-white p-8 lg:p-12 flex justify-center items-center relative border border-gray-200 min-h-[400px] lg:min-h-[500px] shadow-sm">
-            {p.image_url ? (
-              <img 
-                src={p.image_url} 
-                alt={p.product_name}
-                className="max-h-[500px] w-auto object-contain drop-shadow-2xl"
-                data-testid="img-product"
-              />
-            ) : (
-              <div className="text-gray-300 font-bold text-lg uppercase tracking-widest">Görsel Yok</div>
+          <div className="flex gap-3">
+            {galleryImages.length > 1 && (
+              <div className="flex flex-col gap-2 shrink-0" data-testid="gallery-thumbnails">
+                {galleryImages.map((imgUrl, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setSelectedImageIndex(idx)}
+                    className={`w-16 h-16 lg:w-20 lg:h-20 border-2 p-1 bg-white flex items-center justify-center transition-all ${
+                      idx === selectedImageIndex
+                        ? "border-[#e3000f] shadow-md"
+                        : "border-gray-200 hover:border-gray-400"
+                    }`}
+                    data-testid={`btn-thumbnail-${idx}`}
+                  >
+                    <img
+                      src={imgUrl}
+                      alt={`${p.product_name} - ${idx + 1}`}
+                      className="max-w-full max-h-full object-contain"
+                      loading="lazy"
+                    />
+                  </button>
+                ))}
+              </div>
             )}
+            <div className="bg-white p-8 lg:p-12 flex justify-center items-center relative border border-gray-200 min-h-[400px] lg:min-h-[500px] shadow-sm flex-1">
+              {galleryImages.length > 0 ? (
+                <img
+                  src={galleryImages[selectedImageIndex] || galleryImages[0]}
+                  alt={p.product_name}
+                  className="max-h-[500px] w-auto object-contain drop-shadow-2xl"
+                  data-testid="img-product"
+                />
+              ) : p.image_url ? (
+                <img
+                  src={p.image_url}
+                  alt={p.product_name}
+                  className="max-h-[500px] w-auto object-contain drop-shadow-2xl"
+                  data-testid="img-product"
+                />
+              ) : (
+                <div className="text-gray-300 font-bold text-lg uppercase tracking-widest">Görsel Yok</div>
+              )}
+            </div>
           </div>
 
           <div className="flex flex-col">

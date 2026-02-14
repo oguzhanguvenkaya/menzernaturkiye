@@ -32,6 +32,14 @@ export interface Product {
     voc_free?: boolean;
     filler_free?: boolean;
   };
+  relations?: {
+    related_products?: { code: string; name: string; name_tr: string }[];
+    use_before?: string[];
+    use_after?: string[];
+    use_with?: string[];
+    accessories?: string[];
+    alternatives?: string[];
+  };
   faq?: {
     question: string;
     answer: string;

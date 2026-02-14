@@ -168,7 +168,7 @@ export default function Products() {
           {/* Main Content */}
           <div className="flex-1">
             {/* Filters Bar */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-between items-center bg-white p-4 border rounded-lg shadow-sm">
+            <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-between items-center bg-white p-4 border border-neutral-200">
               <div className="relative w-full sm:w-72">
                 <Search className="absolute left-3 top-2.5 h-4 w-4 text-neutral-400" />
                 <Input 
@@ -203,7 +203,7 @@ export default function Products() {
             {isLoading ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                  {[1,2,3,4,5,6].map(i => (
-                   <div key={i} className="h-96 bg-neutral-100 animate-pulse rounded-lg" />
+                   <div key={i} className="h-96 bg-neutral-100 animate-pulse" />
                  ))}
               </div>
             ) : groupedProducts.length > 0 ? (
@@ -213,7 +213,7 @@ export default function Products() {
                 ))}
               </div>
             ) : (
-              <div className="text-center py-20 bg-neutral-50 rounded-lg border border-dashed">
+              <div className="text-center py-20 bg-neutral-50 border border-dashed">
                 <p className="text-neutral-500 text-lg">Aradığınız kriterlere uygun ürün bulunamadı.</p>
                 <Button 
                   variant="link" 

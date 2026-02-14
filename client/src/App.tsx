@@ -25,7 +25,10 @@ function Router() {
         <Route path="/category/:category/:id" component={ProductDetail} />
         
         {/* Dealer Route Placeholder from Layout */}
-        <Route path="/dealers" component={() => <div className="container mx-auto py-20 text-center"><h1 className="text-3xl font-bold mb-4">Yetkili Satıcılar</h1><p>Bu sayfa yapım aşamasındadır.</p></div>} />
+        <Route path="/dealers" component={() => {
+          window.location.href = "https://mgpolishing.com/yetkili-saticilar";
+          return <div className="container mx-auto py-20 text-center"><h1 className="text-3xl font-bold mb-4">Yönlendiriliyorsunuz...</h1><p>Yetkili satıcılar sayfasına yönlendiriliyorsunuz.</p></div>;
+        }} />
 
         <Route component={NotFound} />
       </Switch>

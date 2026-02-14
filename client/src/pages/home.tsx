@@ -124,7 +124,7 @@ export default function Home() {
               <button
                 key={i}
                 onClick={() => scrollTo(i)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`w-3 h-3 transition-all duration-300 ${
                   current === i
                     ? "bg-white scale-110"
                     : "bg-white/40 hover:bg-white/60"
@@ -163,7 +163,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
             {features.map((f, i) => (
               <div key={i} className="flex flex-col items-start">
-                <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center mb-4 md:mb-6 border border-neutral-300 rounded-full">
+                <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center mb-4 md:mb-6 border border-neutral-300">
                   <img
                     src={f.icon}
                     alt={f.title}
@@ -231,7 +231,7 @@ export default function Home() {
       {/* Category Teasers */}
       <section className="py-0">
         <div className="grid grid-cols-1 md:grid-cols-3">
-          <div className="group relative bg-neutral-100 h-[400px] md:h-[600px] overflow-hidden border-r border-white">
+          <div className="group relative bg-neutral-100 h-[300px] md:h-[600px] overflow-hidden border-r border-white">
             <div className="absolute inset-0">
               <img
                 src="/images/hero-industrial.jpg"
@@ -264,7 +264,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="group relative bg-neutral-100 h-[400px] md:h-[600px] overflow-hidden border-r border-white">
+          <div className="group relative bg-neutral-100 h-[300px] md:h-[600px] overflow-hidden border-r border-white">
             <div className="absolute inset-0">
               <img
                 src="/images/hero-car.png"
@@ -296,7 +296,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="group relative bg-neutral-100 h-[400px] md:h-[600px] overflow-hidden">
+          <div className="group relative bg-neutral-100 h-[300px] md:h-[600px] overflow-hidden">
             <div className="absolute inset-0">
               <img
                 src="/images/hero-marine.jpg"

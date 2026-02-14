@@ -1,0 +1,2136 @@
+{
+  "super_heavy_cut_300": {
+    "url": "https://www.menzerna.com/car-care/car-polish/products/details/super-heavy-cut-compound-300",
+    "description_subtitle": "The ultimate abrasive polish for maximum sanding removal further improved",
+    "description_subtitle_en": "The ultimate abrasive polish for maximum sanding removal further improved",
+    "description_text": "Tthe ultimate sanding polish for modern automotive clear coats with maximum sanding effect and the latest technology. SHCC 300 iF removes P1200 grit sanding marks and signs of usage in the shortest time possible without damaging the surface. Without aggressive solvents.",
+    "description_text_en": "Tthe ultimate sanding polish for modern automotive clear coats with maximum sanding effect and the latest technology. SHCC 300 iF removes P1200 grit sanding marks and signs of usage in the shortest time possible without damaging the surface. Without aggressive solvents.",
+    "processing": null,
+    "steps": [
+      {
+        "number": 1,
+        "label": "Heavy Cut",
+        "label_tr": "Ağır Kesim",
+        "isActive": true,
+        "isHalfActive": false
+      },
+      {
+        "number": 2,
+        "label": "Medium Cut",
+        "label_tr": "Orta Kesim",
+        "isActive": true,
+        "isHalfActive": false
+      },
+      {
+        "number": 3,
+        "label": "Finish",
+        "label_tr": "Cila/Parlatma",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 4,
+        "label": "Protection",
+        "label_tr": "Koruma",
+        "isActive": false,
+        "isHalfActive": false
+      }
+    ],
+    "optimised_for": [
+      {
+        "name": "Premium Lambswool Pad",
+        "name_tr": "Premium Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/premium-lambswool-pad"
+      },
+      {
+        "name": "Crater Shaped Lambswool Pad",
+        "name_tr": "Krater Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/crater-shaped-lambswool-pad"
+      },
+      {
+        "name": "Double Sided Lambswool Pad",
+        "name_tr": "Çift Taraflı Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/double-sided-lambswool-pad"
+      },
+      {
+        "name": "Orbital Wool Pad",
+        "name_tr": "Orbital Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/orbital-wool-pad"
+      },
+      {
+        "name": "Heavy Cut Foam Pad",
+        "name_tr": "Ağır Kesim Pasta Süngeri",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/heavy-cut-foam-pad"
+      }
+    ],
+    "benefits": [
+      "Extremely high abrasion",
+      "Exceptionally quick removal of sanding marks",
+      "Reliable removal of very deep scratches",
+      "Premium polishing materials",
+      "Toz birikmesi yok",
+      "Easy to use",
+      "Silikonsuz",
+      "A little goes a long way"
+    ],
+    "benefits_en": [
+      "Extremely high abrasion",
+      "Exceptionally quick removal of sanding marks",
+      "Reliable removal of very deep scratches",
+      "Premium polishing materials",
+      "No buildup of dust",
+      "Easy to use",
+      "Silicone-free",
+      "A little goes a long way"
+    ],
+    "recommended_usage": [],
+    "recommended_usage_en": []
+  },
+  "heavy_cut_400_green": {
+    "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-400-green-line",
+    "description_subtitle": "An innovative automotive polish that removes scratches and creates gloss without hazardous solvents",
+    "description_subtitle_en": "An innovative automotive polish that removes scratches and creates gloss without hazardous solvents",
+    "description_text": "This VOC-free automotive polish removes sanding marks and leaves behind a glossy finish, all in a single step. It quickly removes scratches in the car paint and ensures optimum polishing results, without any annoying odors. This automotive polish is VOC-free pursuant to DIN EN ISO 11890-2 and does not contain any hazardous volatile solvents. The diminishing abrasives enable pleasant working, all the way through to the finish.",
+    "description_text_en": "This VOC-free automotive polish removes sanding marks and leaves behind a glossy finish, all in a single step. It quickly removes scratches in the car paint and ensures optimum polishing results, without any annoying odors. This automotive polish is VOC-free pursuant to DIN EN ISO 11890-2 and does not contain any hazardous volatile solvents. The diminishing abrasives enable pleasant working, all the way through to the finish.",
+    "processing": {
+      "rotary": {
+        "start": "800 – 1,500 rpm",
+        "end": "1,800 – 2,000 rpm"
+      },
+      "orbital": "Lower to upper rotational speed range"
+    },
+    "steps": [
+      {
+        "number": 1,
+        "label": "Heavy Cut",
+        "label_tr": "Ağır Kesim",
+        "isActive": true,
+        "isHalfActive": false
+      },
+      {
+        "number": 2,
+        "label": "Medium Cut",
+        "label_tr": "Orta Kesim",
+        "isActive": true,
+        "isHalfActive": false
+      },
+      {
+        "number": 3,
+        "label": "Finish",
+        "label_tr": "Cila/Parlatma",
+        "isActive": false,
+        "isHalfActive": true
+      },
+      {
+        "number": 4,
+        "label": "Protection",
+        "label_tr": "Koruma",
+        "isActive": false,
+        "isHalfActive": false
+      }
+    ],
+    "optimised_for": [
+      {
+        "name": "Premium Lambswool Pad",
+        "name_tr": "Premium Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/premium-lambswool-pad"
+      },
+      {
+        "name": "Crater Shaped Lambswool Pad",
+        "name_tr": "Krater Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/crater-shaped-lambswool-pad"
+      },
+      {
+        "name": "Double Sided Lambswool Pad",
+        "name_tr": "Çift Taraflı Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/double-sided-lambswool-pad"
+      },
+      {
+        "name": "Orbital Wool Pad",
+        "name_tr": "Orbital Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/orbital-wool-pad"
+      },
+      {
+        "name": "Heavy Cut Foam Pad",
+        "name_tr": "Ağır Kesim Pasta Süngeri",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/heavy-cut-foam-pad"
+      }
+    ],
+    "benefits": [
+      "Son derece etkili",
+      "Olağanüstü parlaklık",
+      "A little goes a long way",
+      "Derin araba boyası çiziklerinin hızlı giderimi",
+      "Toz birikmesi yok",
+      "Easy to use",
+      "Silikonsuz",
+      "VOC-free pursuant to DIN EN ISO 11890-2",
+      "Without solvent odor"
+    ],
+    "benefits_en": [
+      "Highly effective",
+      "Outstanding gloss",
+      "A little goes a long way",
+      "Speedy removal of deep car paint scratches",
+      "No buildup of dust",
+      "Easy to use",
+      "Silicone-free",
+      "VOC-free pursuant to DIN EN ISO 11890-2",
+      "Without solvent odor"
+    ],
+    "recommended_usage": [
+      "Yüzeyi iyice temizleyin.",
+      "Şişeyi çalkalayın ve pastayı polisaj süngeri/keçesine uygulayın.",
+      "Use either a rotary or an orbital polishing machine and use the cross-coating method.",
+      "Start by polishing at a low rotational speed while exerting strong pressure. Take away the pressure in the final cycles and increase the speed of the polishing machine.",
+      "Başlangıçta pasta biraz sütümsü görünecek ve yalnızca hafif şeffaf/yağlı bir film görünene kadar çalışılmalıdır.",
+      "Polisajı bitirdikten sonra kalan kalıntıları Premium mikrofiber bez ile temizleyin.",
+      "Depending on the demands of the surface, a second stage may be performed. Here, you have the option of reapplying Menzerna HCC 400 Green Line or using a Menzerna Finish polish."
+    ],
+    "recommended_usage_en": [
+      "Clean the surface thoroughly.",
+      "Shake the bottle and apply the polish to the polishing pad.",
+      "Use either a rotary or an orbital polishing machine and use the cross-coating method.",
+      "Start by polishing at a low rotational speed while exerting strong pressure. Take away the pressure in the final cycles and increase the speed of the polishing machine.",
+      "At first, the polish will seem a little milky and should be worked in until only a slightly transparent/oily film is visible.",
+      "Once you have finished polishing, remove any residue with the Premium microfiber cloth.",
+      "Depending on the demands of the surface, a second stage may be performed. Here, you have the option of reapplying Menzerna HCC 400 Green Line or using a Menzerna Finish polish."
+    ]
+  },
+  "heavy_cut_400": {
+    "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-400",
+    "description_subtitle": "Tek adımda çizikleri giderir ve parlaklık oluşturan yenilikçi bir otomotiv cilası",
+    "description_subtitle_en": "An innovative automotive polish that removes scratches and creates gloss in a single step",
+    "description_text": "Otomotiv şeffaf katları için profesyonel pasta – yeni ve geliştirilmiş formülü ile – her zaman pırıl pırıl bir izlenim bırakır. Detaycıların favori pastası olarak, rekor sürede zımpara izlerini giderir, araçtaki çizikleri hızla temizler ve cilaya kadar parlaklık oluşturur. Azalan aşındırıcılarla son teknoloji polisaj teknolojisi sayesinde.",
+    "description_text_en": "The professional polish for automotive clear coats – with a new and improved formula – always leaves a glistening impression. As the detailers’ favorite polish, it eliminates sanding marks in record time, quickly removes scratches on the car, and generates gloss all the way to the finish. Thanks to cutting-edge polishing technology with diminishing abrasives.",
+    "processing": {
+      "rotary": {
+        "start": "800–1,500 rpm",
+        "end": "1,800–2,000 rpm"
+      },
+      "orbital": "Lower to upper rotational speed range"
+    },
+    "steps": [
+      {
+        "number": 1,
+        "label": "Heavy Cut",
+        "label_tr": "Ağır Kesim",
+        "isActive": true,
+        "isHalfActive": false
+      },
+      {
+        "number": 2,
+        "label": "Medium Cut",
+        "label_tr": "Orta Kesim",
+        "isActive": true,
+        "isHalfActive": false
+      },
+      {
+        "number": 3,
+        "label": "Finish",
+        "label_tr": "Cila/Parlatma",
+        "isActive": false,
+        "isHalfActive": true
+      },
+      {
+        "number": 4,
+        "label": "Protection",
+        "label_tr": "Koruma",
+        "isActive": false,
+        "isHalfActive": false
+      }
+    ],
+    "optimised_for": [
+      {
+        "name": "Premium Lambswool Pad",
+        "name_tr": "Premium Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/premium-lambswool-pad"
+      },
+      {
+        "name": "Crater Shaped Lambswool Pad",
+        "name_tr": "Krater Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/crater-shaped-lambswool-pad"
+      },
+      {
+        "name": "Double Sided Lambswool Pad",
+        "name_tr": "Çift Taraflı Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/double-sided-lambswool-pad"
+      },
+      {
+        "name": "Orbital Wool Pad",
+        "name_tr": "Orbital Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/orbital-wool-pad"
+      },
+      {
+        "name": "Heavy Cut Foam Pad",
+        "name_tr": "Ağır Kesim Pasta Süngeri",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/heavy-cut-foam-pad"
+      }
+    ],
+    "benefits": [
+      "Geliştirilmiş formül",
+      "Tek adımda parlatır ve parlaklık oluşturur",
+      "Tek aşamalı çalışma sayesinde zaman kazandırır (kesimden cilaya)",
+      "Derin araba boyası çiziklerinin hızlı giderimi",
+      "Kolayca silinebilir",
+      "Son derece etkili",
+      "Olağanüstü parlaklık",
+      "Silikonsuz",
+      "Toz birikmesi yok"
+    ],
+    "benefits_en": [
+      "Improved formula",
+      "Polishes and generates gloss in a single step",
+      "Saves time thanks to single-stage working (cut to finish)",
+      "Speedy removal of deep car paint scratches",
+      "Easy to wipe away",
+      "Highly effective",
+      "Outstanding gloss",
+      "Silicone-free",
+      "No buildup of dust"
+    ],
+    "recommended_usage": [
+      "Yüzeyi iyice temizleyin.",
+      "Şişeyi çalkalayın ve pastayı polisaj süngeri/keçesine uygulayın.",
+      "Rotary veya orbital polisaj makinesi kullanın ve çapraz kaplama yöntemini uygulayın. Güçlü baskı yaparak düşük devir hızında polisaja başlayın.",
+      "Son turlarda baskıyı azaltın ve polisaj makinesinin hızını artırın.",
+      "Başlangıçta pasta biraz sütümsü görünecek ve yalnızca hafif şeffaf/yağlı bir film görünene kadar çalışılmalıdır.",
+      "Polisajı bitirdikten sonra kalan kalıntıları Premium mikrofiber bez ile temizleyin.",
+      "Yüzeyin durumuna bağlı olarak ikinci bir aşama uygulanabilir. Burada Menzerna HCC 400'ü yeniden uygulama veya Menzerna Finish cilası kullanma seçeneğiniz vardır."
+    ],
+    "recommended_usage_en": [
+      "Clean the surface thoroughly.",
+      "Shake the bottle and apply the polish to the polishing pad.",
+      "Use either a rotary or an orbital polishing machine and use the cross-coating method. Start by polishing at a low rotational speed while exerting strong pressure.",
+      "Take away the pressure in the final cycles and increase the speed of the polishing machine.",
+      "At first, the polish will seem a little milky and should be worked in until only a slightly transparent/oily film is visible.",
+      "Once you have finished polishing, remove any residue with the Premium microfiber cloth.",
+      "Depending on the demands of the surface, a second stage may be performed. Here, you have the option of reapplying Menzerna HCC 400 or using a Menzerna Finish polish."
+    ]
+  },
+  "as30": {
+    "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-400",
+    "description_subtitle": "Tek adımda çizikleri giderir ve parlaklık oluşturan yenilikçi bir otomotiv cilası",
+    "description_subtitle_en": "An innovative automotive polish that removes scratches and creates gloss in a single step",
+    "description_text": "Otomotiv şeffaf katları için profesyonel pasta – yeni ve geliştirilmiş formülü ile – her zaman pırıl pırıl bir izlenim bırakır. Detaycıların favori pastası olarak, rekor sürede zımpara izlerini giderir, araçtaki çizikleri hızla temizler ve cilaya kadar parlaklık oluşturur. Azalan aşındırıcılarla son teknoloji polisaj teknolojisi sayesinde.",
+    "description_text_en": "The professional polish for automotive clear coats – with a new and improved formula – always leaves a glistening impression. As the detailers’ favorite polish, it eliminates sanding marks in record time, quickly removes scratches on the car, and generates gloss all the way to the finish. Thanks to cutting-edge polishing technology with diminishing abrasives.",
+    "processing": {
+      "rotary": {
+        "start": "800–1,500 rpm",
+        "end": "1,800–2,000 rpm"
+      },
+      "orbital": "Lower to upper rotational speed range"
+    },
+    "steps": [
+      {
+        "number": 1,
+        "label": "Heavy Cut",
+        "label_tr": "Ağır Kesim",
+        "isActive": true,
+        "isHalfActive": false
+      },
+      {
+        "number": 2,
+        "label": "Medium Cut",
+        "label_tr": "Orta Kesim",
+        "isActive": true,
+        "isHalfActive": false
+      },
+      {
+        "number": 3,
+        "label": "Finish",
+        "label_tr": "Cila/Parlatma",
+        "isActive": false,
+        "isHalfActive": true
+      },
+      {
+        "number": 4,
+        "label": "Protection",
+        "label_tr": "Koruma",
+        "isActive": false,
+        "isHalfActive": false
+      }
+    ],
+    "optimised_for": [
+      {
+        "name": "Premium Lambswool Pad",
+        "name_tr": "Premium Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/premium-lambswool-pad"
+      },
+      {
+        "name": "Crater Shaped Lambswool Pad",
+        "name_tr": "Krater Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/crater-shaped-lambswool-pad"
+      },
+      {
+        "name": "Double Sided Lambswool Pad",
+        "name_tr": "Çift Taraflı Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/double-sided-lambswool-pad"
+      },
+      {
+        "name": "Orbital Wool Pad",
+        "name_tr": "Orbital Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/orbital-wool-pad"
+      },
+      {
+        "name": "Heavy Cut Foam Pad",
+        "name_tr": "Ağır Kesim Pasta Süngeri",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/heavy-cut-foam-pad"
+      }
+    ],
+    "benefits": [
+      "Geliştirilmiş formül",
+      "Tek adımda parlatır ve parlaklık oluşturur",
+      "Tek aşamalı çalışma sayesinde zaman kazandırır (kesimden cilaya)",
+      "Derin araba boyası çiziklerinin hızlı giderimi",
+      "Kolayca silinebilir",
+      "Son derece etkili",
+      "Olağanüstü parlaklık",
+      "Silikonsuz",
+      "Toz birikmesi yok"
+    ],
+    "benefits_en": [
+      "Improved formula",
+      "Polishes and generates gloss in a single step",
+      "Saves time thanks to single-stage working (cut to finish)",
+      "Speedy removal of deep car paint scratches",
+      "Easy to wipe away",
+      "Highly effective",
+      "Outstanding gloss",
+      "Silicone-free",
+      "No buildup of dust"
+    ],
+    "recommended_usage": [
+      "Yüzeyi iyice temizleyin.",
+      "Şişeyi çalkalayın ve pastayı polisaj süngeri/keçesine uygulayın.",
+      "Rotary veya orbital polisaj makinesi kullanın ve çapraz kaplama yöntemini uygulayın. Güçlü baskı yaparak düşük devir hızında polisaja başlayın.",
+      "Son turlarda baskıyı azaltın ve polisaj makinesinin hızını artırın.",
+      "Başlangıçta pasta biraz sütümsü görünecek ve yalnızca hafif şeffaf/yağlı bir film görünene kadar çalışılmalıdır.",
+      "Polisajı bitirdikten sonra kalan kalıntıları Premium mikrofiber bez ile temizleyin.",
+      "Yüzeyin durumuna bağlı olarak ikinci bir aşama uygulanabilir. Burada Menzerna HCC 400'ü yeniden uygulama veya Menzerna Finish cilası kullanma seçeneğiniz vardır."
+    ],
+    "recommended_usage_en": [
+      "Clean the surface thoroughly.",
+      "Shake the bottle and apply the polish to the polishing pad.",
+      "Use either a rotary or an orbital polishing machine and use the cross-coating method. Start by polishing at a low rotational speed while exerting strong pressure.",
+      "Take away the pressure in the final cycles and increase the speed of the polishing machine.",
+      "At first, the polish will seem a little milky and should be worked in until only a slightly transparent/oily film is visible.",
+      "Once you have finished polishing, remove any residue with the Premium microfiber cloth.",
+      "Depending on the demands of the surface, a second stage may be performed. Here, you have the option of reapplying Menzerna HCC 400 or using a Menzerna Finish polish."
+    ]
+  },
+  "liquid_matting": {
+    "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-400",
+    "description_subtitle": "Tek adımda çizikleri giderir ve parlaklık oluşturan yenilikçi bir otomotiv cilası",
+    "description_subtitle_en": "An innovative automotive polish that removes scratches and creates gloss in a single step",
+    "description_text": "Otomotiv şeffaf katları için profesyonel pasta – yeni ve geliştirilmiş formülü ile – her zaman pırıl pırıl bir izlenim bırakır. Detaycıların favori pastası olarak, rekor sürede zımpara izlerini giderir, araçtaki çizikleri hızla temizler ve cilaya kadar parlaklık oluşturur. Azalan aşındırıcılarla son teknoloji polisaj teknolojisi sayesinde.",
+    "description_text_en": "The professional polish for automotive clear coats – with a new and improved formula – always leaves a glistening impression. As the detailers’ favorite polish, it eliminates sanding marks in record time, quickly removes scratches on the car, and generates gloss all the way to the finish. Thanks to cutting-edge polishing technology with diminishing abrasives.",
+    "processing": {
+      "rotary": {
+        "start": "800–1,500 rpm",
+        "end": "1,800–2,000 rpm"
+      },
+      "orbital": "Lower to upper rotational speed range"
+    },
+    "steps": [
+      {
+        "number": 1,
+        "label": "Heavy Cut",
+        "label_tr": "Ağır Kesim",
+        "isActive": true,
+        "isHalfActive": false
+      },
+      {
+        "number": 2,
+        "label": "Medium Cut",
+        "label_tr": "Orta Kesim",
+        "isActive": true,
+        "isHalfActive": false
+      },
+      {
+        "number": 3,
+        "label": "Finish",
+        "label_tr": "Cila/Parlatma",
+        "isActive": false,
+        "isHalfActive": true
+      },
+      {
+        "number": 4,
+        "label": "Protection",
+        "label_tr": "Koruma",
+        "isActive": false,
+        "isHalfActive": false
+      }
+    ],
+    "optimised_for": [
+      {
+        "name": "Premium Lambswool Pad",
+        "name_tr": "Premium Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/premium-lambswool-pad"
+      },
+      {
+        "name": "Crater Shaped Lambswool Pad",
+        "name_tr": "Krater Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/crater-shaped-lambswool-pad"
+      },
+      {
+        "name": "Double Sided Lambswool Pad",
+        "name_tr": "Çift Taraflı Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/double-sided-lambswool-pad"
+      },
+      {
+        "name": "Orbital Wool Pad",
+        "name_tr": "Orbital Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/orbital-wool-pad"
+      },
+      {
+        "name": "Heavy Cut Foam Pad",
+        "name_tr": "Ağır Kesim Pasta Süngeri",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/heavy-cut-foam-pad"
+      }
+    ],
+    "benefits": [
+      "Geliştirilmiş formül",
+      "Tek adımda parlatır ve parlaklık oluşturur",
+      "Tek aşamalı çalışma sayesinde zaman kazandırır (kesimden cilaya)",
+      "Derin araba boyası çiziklerinin hızlı giderimi",
+      "Kolayca silinebilir",
+      "Son derece etkili",
+      "Olağanüstü parlaklık",
+      "Silikonsuz",
+      "Toz birikmesi yok"
+    ],
+    "benefits_en": [
+      "Improved formula",
+      "Polishes and generates gloss in a single step",
+      "Saves time thanks to single-stage working (cut to finish)",
+      "Speedy removal of deep car paint scratches",
+      "Easy to wipe away",
+      "Highly effective",
+      "Outstanding gloss",
+      "Silicone-free",
+      "No buildup of dust"
+    ],
+    "recommended_usage": [
+      "Yüzeyi iyice temizleyin.",
+      "Şişeyi çalkalayın ve pastayı polisaj süngeri/keçesine uygulayın.",
+      "Rotary veya orbital polisaj makinesi kullanın ve çapraz kaplama yöntemini uygulayın. Güçlü baskı yaparak düşük devir hızında polisaja başlayın.",
+      "Son turlarda baskıyı azaltın ve polisaj makinesinin hızını artırın.",
+      "Başlangıçta pasta biraz sütümsü görünecek ve yalnızca hafif şeffaf/yağlı bir film görünene kadar çalışılmalıdır.",
+      "Polisajı bitirdikten sonra kalan kalıntıları Premium mikrofiber bez ile temizleyin.",
+      "Yüzeyin durumuna bağlı olarak ikinci bir aşama uygulanabilir. Burada Menzerna HCC 400'ü yeniden uygulama veya Menzerna Finish cilası kullanma seçeneğiniz vardır."
+    ],
+    "recommended_usage_en": [
+      "Clean the surface thoroughly.",
+      "Shake the bottle and apply the polish to the polishing pad.",
+      "Use either a rotary or an orbital polishing machine and use the cross-coating method. Start by polishing at a low rotational speed while exerting strong pressure.",
+      "Take away the pressure in the final cycles and increase the speed of the polishing machine.",
+      "At first, the polish will seem a little milky and should be worked in until only a slightly transparent/oily film is visible.",
+      "Once you have finished polishing, remove any residue with the Premium microfiber cloth.",
+      "Depending on the demands of the surface, a second stage may be performed. Here, you have the option of reapplying Menzerna HCC 400 or using a Menzerna Finish polish."
+    ]
+  },
+  "cut_force_pro": {
+    "url": "https://www.menzerna.com/car-care/car-polish/products/details/cut-force-pro",
+    "description_subtitle": "The Gold Standard in Paint Repair",
+    "description_subtitle_en": "The Gold Standard in Paint Repair",
+    "description_text": "The high-performance polish in a class of its own. Powerfully removes scratches, sanding and wear marks at top speed. Innovative polishing technology from the Menzerna laboratory ensures maximum removal while maintaining excellent gloss. The polish takes paint repair to a new level, restores the shine to heavily used clear coats and creates a noble deep gloss.",
+    "description_text_en": "The high-performance polish in a class of its own. Powerfully removes scratches, sanding and wear marks at top speed. Innovative polishing technology from the Menzerna laboratory ensures maximum removal while maintaining excellent gloss. The polish takes paint repair to a new level, restores the shine to heavily used clear coats and creates a noble deep gloss.",
+    "processing": {
+      "rotary": {
+        "start": "800-1500 rpm",
+        "end": "1800-2000 rpm"
+      },
+      "orbital": "Start: Lower rotational speed range -> End: higher rotational speed range"
+    },
+    "steps": [
+      {
+        "number": 1,
+        "label": "Heavy Cut",
+        "label_tr": "Ağır Kesim",
+        "isActive": true,
+        "isHalfActive": false
+      },
+      {
+        "number": 2,
+        "label": "Medium Cut",
+        "label_tr": "Orta Kesim",
+        "isActive": true,
+        "isHalfActive": false
+      },
+      {
+        "number": 3,
+        "label": "Finish",
+        "label_tr": "Cila/Parlatma",
+        "isActive": true,
+        "isHalfActive": false
+      },
+      {
+        "number": 4,
+        "label": "Protection",
+        "label_tr": "Koruma",
+        "isActive": false,
+        "isHalfActive": false
+      }
+    ],
+    "optimised_for": [
+      {
+        "name": "Premium Lambswool Pad",
+        "name_tr": "Premium Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/premium-lambswool-pad"
+      },
+      {
+        "name": "Crater Shaped Lambswool Pad",
+        "name_tr": "Krater Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/crater-shaped-lambswool-pad"
+      },
+      {
+        "name": "Double Sided Lambswool Pad",
+        "name_tr": "Çift Taraflı Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/double-sided-lambswool-pad"
+      },
+      {
+        "name": "Orbital Wool Pad",
+        "name_tr": "Orbital Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/orbital-wool-pad"
+      },
+      {
+        "name": "Heavy Cut Foam Pad",
+        "name_tr": "Ağır Kesim Pasta Süngeri",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/heavy-cut-foam-pad"
+      },
+      {
+        "name": "Standard Pad Hard",
+        "name_tr": "Standard Pad Hard",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/standard-pad-hard"
+      }
+    ],
+    "benefits": [
+      "quickly gives brilliant shine",
+      "powerfully removes scratches",
+      "ensures maximum removal",
+      "restores the shine to even heavily stressed clear coats"
+    ],
+    "benefits_en": [
+      "quickly gives brilliant shine",
+      "powerfully removes scratches",
+      "ensures maximum removal",
+      "restores the shine to even heavily stressed clear coats"
+    ],
+    "recommended_usage": [
+      "Clean surface thoroughly",
+      "Shake bottle and apply 3 (ø95 mm) - 7 (ø180 mm) pea-sized drops of polish to the polishing pad or lambskin, depending on pad size.",
+      "Use either a rotary or eccentric polishing machine and use the cross-coating method.",
+      "While polishing, apply strong, even pressure and run the product out at a consistent low speed.",
+      "Başlangıçta pasta biraz sütümsü görünecek ve yalnızca hafif şeffaf/yağlı bir film görünene kadar çalışılmalıdır.",
+      "After polishing, remove polish residues with the premium microfiber cloth.",
+      "Depending on the demands of the surface, a second stage may be performed to achieve a high-gloss surface. Here, you have the option of reapplying the Menzerna Cut Force Pro or a Menzerna Finish. In both cases in combination with the Menzerna Soft Cut Foam Pad"
+    ],
+    "recommended_usage_en": [
+      "Clean surface thoroughly",
+      "Shake bottle and apply 3 (ø95 mm) - 7 (ø180 mm) pea-sized drops of polish to the polishing pad or lambskin, depending on pad size.",
+      "Use either a rotary or eccentric polishing machine and use the cross-coating method.",
+      "While polishing, apply strong, even pressure and run the product out at a consistent low speed.",
+      "At first, the polish will seem a little milky and should be worked in until only a slightly transparent/oily film is visible.",
+      "After polishing, remove polish residues with the premium microfiber cloth.",
+      "Depending on the demands of the surface, a second stage may be performed to achieve a high-gloss surface. Here, you have the option of reapplying the Menzerna Cut Force Pro or a Menzerna Finish. In both cases in combination with the Menzerna Soft Cut Foam Pad"
+    ]
+  },
+  "heavy_cut_1000": {
+    "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-1000",
+    "description_subtitle": "Car polish for the speedy removal of deep scratches using foam polishing pads",
+    "description_subtitle_en": "Car polish for the speedy removal of deep scratches using foam polishing pads",
+    "description_text": "This powerful polish quickly and thoroughly removes scratches in car paint, scrapes, spray, and heavy signs of use. The Menzerna automotive polish for the speedy removal of sanding marks. Optimized for use with foam polishing pads. Guaranteed best value in the Heavy Cut segment. The new, improved formulation now provides even more cut and quicker results!",
+    "description_text_en": "This powerful polish quickly and thoroughly removes scratches in car paint, scrapes, spray, and heavy signs of use. The Menzerna automotive polish for the speedy removal of sanding marks. Optimized for use with foam polishing pads. Guaranteed best value in the Heavy Cut segment. The new, improved formulation now provides even more cut and quicker results!",
+    "processing": {
+      "rotary": {
+        "start": "",
+        "end": ""
+      },
+      "orbital": "Lower rotational speed range"
+    },
+    "steps": [
+      {
+        "number": 1,
+        "label": "Heavy Cut",
+        "label_tr": "Ağır Kesim",
+        "isActive": true,
+        "isHalfActive": false
+      },
+      {
+        "number": 2,
+        "label": "Medium Cut",
+        "label_tr": "Orta Kesim",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 3,
+        "label": "Finish",
+        "label_tr": "Cila/Parlatma",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 4,
+        "label": "Protection",
+        "label_tr": "Koruma",
+        "isActive": false,
+        "isHalfActive": false
+      }
+    ],
+    "optimised_for": [
+      {
+        "name": "Heavy Cut Foam Pad",
+        "name_tr": "Ağır Kesim Pasta Süngeri",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/heavy-cut-foam-pad"
+      }
+    ],
+    "benefits": [
+      "Fast removal of sanding marks",
+      "Even sanding pattern",
+      "Reliable removal of deep scratches",
+      "Toz birikmesi yok",
+      "A little goes a long way"
+    ],
+    "benefits_en": [
+      "Fast removal of sanding marks",
+      "Even sanding pattern",
+      "Reliable removal of deep scratches",
+      "No buildup of dust",
+      "A little goes a long way"
+    ],
+    "recommended_usage": [
+      "Yüzeyi iyice temizleyin.",
+      "Shake the bottle and apply the polish to the Menzerna Heavy Cut Foam Pad.",
+      "Use either a rotary or an orbital polishing machine and use the cross-coating method.",
+      "Exert strong and even pressure while polishing and apply the product with a consistently low rotational speed.",
+      "Başlangıçta pasta biraz sütümsü görünecek ve yalnızca hafif şeffaf/yağlı bir film görünene kadar çalışılmalıdır.",
+      "Polisajı bitirdikten sonra kalan kalıntıları Premium mikrofiber bez ile temizleyin.",
+      "Any signs of sanding and use have now been removed. For an exceptionally glossy finish, now apply a Menzerna Medium Cut polish and a Menzerna Finish polish."
+    ],
+    "recommended_usage_en": [
+      "Clean the surface thoroughly.",
+      "Shake the bottle and apply the polish to the Menzerna Heavy Cut Foam Pad.",
+      "Use either a rotary or an orbital polishing machine and use the cross-coating method.",
+      "Exert strong and even pressure while polishing and apply the product with a consistently low rotational speed.",
+      "At first, the polish will seem a little milky and should be worked in until only a slightly transparent/oily film is visible.",
+      "Once you have finished polishing, remove any residue with the Premium microfiber cloth.",
+      "Any signs of sanding and use have now been removed. For an exceptionally glossy finish, now apply a Menzerna Medium Cut polish and a Menzerna Finish polish."
+    ]
+  },
+  "heavy_cut_1100": {
+    "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-1100",
+    "description_subtitle": "Car polish for the speedy removal of deep scratches using lambswool polishing pads",
+    "description_subtitle_en": "Car polish for the speedy removal of deep scratches using lambswool polishing pads",
+    "description_text": "A gentle yet powerful secret weapon in the fight against scratches and heavy signs of use. This abrasive polish removes car paint scratches quickly and permanently. Optimized for use with lambswool polishing pads.",
+    "description_text_en": "A gentle yet powerful secret weapon in the fight against scratches and heavy signs of use. This abrasive polish removes car paint scratches quickly and permanently. Optimized for use with lambswool polishing pads.",
+    "processing": {
+      "rotary": {
+        "start": "",
+        "end": ""
+      },
+      "orbital": "Lower rotational speed range"
+    },
+    "steps": [
+      {
+        "number": 1,
+        "label": "Heavy Cut",
+        "label_tr": "Ağır Kesim",
+        "isActive": true,
+        "isHalfActive": false
+      },
+      {
+        "number": 2,
+        "label": "Medium Cut",
+        "label_tr": "Orta Kesim",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 3,
+        "label": "Finish",
+        "label_tr": "Cila/Parlatma",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 4,
+        "label": "Protection",
+        "label_tr": "Koruma",
+        "isActive": false,
+        "isHalfActive": false
+      }
+    ],
+    "optimised_for": [
+      {
+        "name": "Premium Lambswool Pad",
+        "name_tr": "Premium Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/premium-lambswool-pad"
+      },
+      {
+        "name": "Crater Shaped Lambswool Pad",
+        "name_tr": "Krater Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/crater-shaped-lambswool-pad"
+      },
+      {
+        "name": "Double Sided Lambswool Pad",
+        "name_tr": "Çift Taraflı Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/double-sided-lambswool-pad"
+      },
+      {
+        "name": "Orbital Wool Pad",
+        "name_tr": "Orbital Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/orbital-wool-pad"
+      },
+      {
+        "name": "Heavy Cut Foam Pad",
+        "name_tr": "Ağır Kesim Pasta Süngeri",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/heavy-cut-foam-pad"
+      }
+    ],
+    "benefits": [
+      "Fast removal of sanding marks",
+      "Optimized formula for use with lambswool",
+      "Even sanding pattern",
+      "Reliable removal of deep scratches",
+      "Toz birikmesi yok",
+      "A little goes a long way"
+    ],
+    "benefits_en": [
+      "Fast removal of sanding marks",
+      "Optimized formula for use with lambswool",
+      "Even sanding pattern",
+      "Reliable removal of deep scratches",
+      "No buildup of dust",
+      "A little goes a long way"
+    ],
+    "recommended_usage": [
+      "Yüzeyi iyice temizleyin.",
+      "Shake the bottle and apply the polish to a Menzerna lambswool polishing pad.",
+      "Use either a rotary or an orbital polishing machine and use the cross-coating method.",
+      "Exert strong and even pressure while polishing and apply the product with a consistently low rotational speed.",
+      "Başlangıçta pasta biraz sütümsü görünecek ve yalnızca hafif şeffaf/yağlı bir film görünene kadar çalışılmalıdır.",
+      "Once you have finished polishing, remove any residue with a Premium microfiber cloth, without applying any pressure.",
+      "Any signs of sanding and use have now been removed. For an exceptionally glossy finish, now apply a Menzerna Medium Cut polish and a Menzerna Finish polish."
+    ],
+    "recommended_usage_en": [
+      "Clean the surface thoroughly.",
+      "Shake the bottle and apply the polish to a Menzerna lambswool polishing pad.",
+      "Use either a rotary or an orbital polishing machine and use the cross-coating method.",
+      "Exert strong and even pressure while polishing and apply the product with a consistently low rotational speed.",
+      "At first, the polish will seem a little milky and should be worked in until only a slightly transparent/oily film is visible.",
+      "Once you have finished polishing, remove any residue with a Premium microfiber cloth, without applying any pressure.",
+      "Any signs of sanding and use have now been removed. For an exceptionally glossy finish, now apply a Menzerna Medium Cut polish and a Menzerna Finish polish."
+    ]
+  },
+  "medium_cut_2500": {
+    "url": "https://www.menzerna.com/car-care/car-polish/products/details/medium-cut-polish-2500",
+    "description_subtitle": "A glossy fine abrasive polish for the removal of moderately deep scratches",
+    "description_subtitle_en": "A glossy fine abrasive polish for the removal of moderately deep scratches",
+    "description_text": "This Medium Cut polish offers the ideal combination of sanding mark removal and gloss on automotive clear coats. Ideally suited for the polishing of moderately deep scratches and the removal of signs of use. Exceptional gloss as standard.",
+    "description_text_en": "This Medium Cut polish offers the ideal combination of sanding mark removal and gloss on automotive clear coats. Ideally suited for the polishing of moderately deep scratches and the removal of signs of use. Exceptional gloss as standard.",
+    "processing": {
+      "rotary": {
+        "start": "",
+        "end": ""
+      },
+      "orbital": "Medium rotational speed range"
+    },
+    "steps": [
+      {
+        "number": 1,
+        "label": "Heavy Cut",
+        "label_tr": "Ağır Kesim",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 2,
+        "label": "Medium Cut",
+        "label_tr": "Orta Kesim",
+        "isActive": true,
+        "isHalfActive": false
+      },
+      {
+        "number": 3,
+        "label": "Finish",
+        "label_tr": "Cila/Parlatma",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 4,
+        "label": "Protection",
+        "label_tr": "Koruma",
+        "isActive": false,
+        "isHalfActive": false
+      }
+    ],
+    "optimised_for": [
+      {
+        "name": "Medium Cut Foam Pad",
+        "name_tr": "Orta Kesim Pasta Süngeri",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/medium-cut-foam-pad"
+      }
+    ],
+    "benefits": [
+      "Even sanding pattern",
+      "Exceptional gloss",
+      "Silikonsuz",
+      "Reliable removal of moderately deep paint scratches and signs of use"
+    ],
+    "benefits_en": [
+      "Even sanding pattern",
+      "Exceptional gloss",
+      "Silicone-free",
+      "Reliable removal of moderately deep paint scratches and signs of use"
+    ],
+    "recommended_usage": [
+      "Yüzeyi iyice temizleyin.",
+      "Shake the bottle and apply the polish to the Medium Cut Foam Pad.",
+      "Use either a rotary or an orbital polishing machine and use the cross-coating method.",
+      "Exert moderate and even pressure while polishing and apply the product with a consistently moderate rotational speed.",
+      "Başlangıçta pasta biraz sütümsü görünecek ve yalnızca hafif şeffaf/yağlı bir film görünene kadar çalışılmalıdır.",
+      "Polisajı bitirdikten sonra kalan kalıntıları Premium mikrofiber bez ile temizleyin.",
+      "Scratches, sanding marks and signs of use/washing have now been removed. Now use a Menzerna Finish polish to remove any holograms."
+    ],
+    "recommended_usage_en": [
+      "Clean the surface thoroughly.",
+      "Shake the bottle and apply the polish to the Medium Cut Foam Pad.",
+      "Use either a rotary or an orbital polishing machine and use the cross-coating method.",
+      "Exert moderate and even pressure while polishing and apply the product with a consistently moderate rotational speed.",
+      "At first, the polish will seem a little milky and should be worked in until only a slightly transparent/oily film is visible.",
+      "Once you have finished polishing, remove any residue with the Premium microfiber cloth.",
+      "Scratches, sanding marks and signs of use/washing have now been removed. Now use a Menzerna Finish polish to remove any holograms."
+    ]
+  },
+  "medium_cut_2200": {
+    "url": "https://www.menzerna.com/car-care/car-polish/products/details/medium-cut-polish-2400",
+    "description_subtitle": "A liquid fine abrasive polish for the removal of moderately deep scratches",
+    "description_subtitle_en": "A liquid fine abrasive polish for the removal of moderately deep scratches",
+    "description_text": "The best Medium Cut polish for fluid working on older dry paint systems or extremely soft coats (“sticky paint”). Car wash scratches, as well as moderately deep and fine scratches in the car paint, are swiftly taken care of. Improved agility ensures ease of use and glistening results.",
+    "description_text_en": "The best Medium Cut polish for fluid working on older dry paint systems or extremely soft coats (“sticky paint”). Car wash scratches, as well as moderately deep and fine scratches in the car paint, are swiftly taken care of. Improved agility ensures ease of use and glistening results.",
+    "processing": {
+      "rotary": {
+        "start": "",
+        "end": ""
+      },
+      "orbital": "Medium rotational speed range"
+    },
+    "steps": [
+      {
+        "number": 1,
+        "label": "Heavy Cut",
+        "label_tr": "Ağır Kesim",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 2,
+        "label": "Medium Cut",
+        "label_tr": "Orta Kesim",
+        "isActive": true,
+        "isHalfActive": false
+      },
+      {
+        "number": 3,
+        "label": "Finish",
+        "label_tr": "Cila/Parlatma",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 4,
+        "label": "Protection",
+        "label_tr": "Koruma",
+        "isActive": false,
+        "isHalfActive": false
+      }
+    ],
+    "optimised_for": [
+      {
+        "name": "Medium Cut Foam Pad",
+        "name_tr": "Orta Kesim Pasta Süngeri",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/medium-cut-foam-pad"
+      }
+    ],
+    "benefits": [
+      "Liquid formula facilitates ease of use on older dry finishes.",
+      "Silikonsuz",
+      "Suitable for dry, hard, and older coats (classic cars)",
+      "Well suited for “sticky paint”",
+      "Reliable removal of moderately deep paint scratches and signs of use"
+    ],
+    "benefits_en": [
+      "Liquid formula facilitates ease of use on older dry finishes.",
+      "Silicone-free",
+      "Suitable for dry, hard, and older coats (classic cars)",
+      "Well suited for “sticky paint”",
+      "Reliable removal of moderately deep paint scratches and signs of use"
+    ],
+    "recommended_usage": [
+      "Yüzeyi iyice temizleyin.",
+      "Shake the bottle and apply the polish to the Medium Cut Foam Pad.",
+      "Use either a rotary or an orbital polishing machine and use the cross-coating method. The polish can also be applied by hand using the Hand Polishing Applicator.",
+      "Exert moderate and even pressure while polishing and apply the product with a consistently moderate rotational speed.",
+      "Başlangıçta pasta biraz sütümsü görünecek ve yalnızca hafif şeffaf/yağlı bir film görünene kadar çalışılmalıdır.",
+      "Polisajı bitirdikten sonra kalan kalıntıları Premium mikrofiber bez ile temizleyin.",
+      "Scratches, sanding marks and signs of use/washing have now been removed. Now use a Menzerna Finish polish to remove any holograms."
+    ],
+    "recommended_usage_en": [
+      "Clean the surface thoroughly.",
+      "Shake the bottle and apply the polish to the Medium Cut Foam Pad.",
+      "Use either a rotary or an orbital polishing machine and use the cross-coating method. The polish can also be applied by hand using the Hand Polishing Applicator.",
+      "Exert moderate and even pressure while polishing and apply the product with a consistently moderate rotational speed.",
+      "At first, the polish will seem a little milky and should be worked in until only a slightly transparent/oily film is visible.",
+      "Once you have finished polishing, remove any residue with the Premium microfiber cloth.",
+      "Scratches, sanding marks and signs of use/washing have now been removed. Now use a Menzerna Finish polish to remove any holograms."
+    ]
+  },
+  "super_finish_3500": {
+    "url": "https://www.menzerna.com/car-care/car-polish/products/details/super-finish-3500",
+    "description_subtitle": "High-gloss polish for a perfect mirror finish",
+    "description_subtitle_en": "High-gloss polish for a perfect mirror finish",
+    "description_text": "This world-beating polish removes polishing marks, micro scratches, and holograms to ensure a flawless mirror finish. On account of its dark color, this high-gloss polish is particularly ideal for polishing black and other dark car coats.",
+    "description_text_en": "This world-beating polish removes polishing marks, micro scratches, and holograms to ensure a flawless mirror finish. On account of its dark color, this high-gloss polish is particularly ideal for polishing black and other dark car coats.",
+    "processing": {
+      "orbital": "Upper rotational speed range"
+    },
+    "steps": [
+      {
+        "number": 1,
+        "label": "Heavy Cut",
+        "label_tr": "Ağır Kesim",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 2,
+        "label": "Medium Cut",
+        "label_tr": "Orta Kesim",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 3,
+        "label": "Finish",
+        "label_tr": "Cila/Parlatma",
+        "isActive": true,
+        "isHalfActive": false
+      },
+      {
+        "number": 4,
+        "label": "Protection",
+        "label_tr": "Koruma",
+        "isActive": false,
+        "isHalfActive": false
+      }
+    ],
+    "optimised_for": [
+      {
+        "name": "Premium Microfiber Cloth",
+        "name_tr": "Premium Mikrofiber Bez",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/premium-microfiber-cloth"
+      },
+      {
+        "name": "Hand Polishing Applicator",
+        "name_tr": "Hand Polishing Applicator",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/hand-polishing-applicator"
+      },
+      {
+        "name": "Soft Cut Foam Pad",
+        "name_tr": "İnce Kesim Cila Süngeri",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/soft-cut-foam-pad"
+      }
+    ],
+    "benefits": [
+      "Anti-hologram polish for the removal of gray smears and holograms",
+      "Brilliant deep shine",
+      "Silikonsuz"
+    ],
+    "benefits_en": [
+      "Anti-hologram polish for the removal of gray smears and holograms",
+      "Brilliant deep shine",
+      "Silicone-free"
+    ],
+    "recommended_usage": [
+      "Yüzeyi iyice temizleyin.",
+      "Shake the bottle and apply the polish to the Soft Cut Foam Pad.",
+      "We recommend an orbital polishing machine and the cross-coating method to achieve a perfect finish. The polish can also be applied by hand using the Hand Polishing Applicator.",
+      "Exert light and even pressure while polishing and apply the product with a consistently high rotational speed.",
+      "Başlangıçta pasta biraz sütümsü görünecek ve yalnızca hafif şeffaf/yağlı bir film görünene kadar çalışılmalıdır.",
+      "Polisajı bitirdikten sonra kalan kalıntıları Premium mikrofiber bez ile temizleyin.",
+      "Fine scratches, shading, smears and holograms have now been removed. The car coat can now be sealed with a Menzerna Protection product."
+    ],
+    "recommended_usage_en": [
+      "Clean the surface thoroughly.",
+      "Shake the bottle and apply the polish to the Soft Cut Foam Pad.",
+      "We recommend an orbital polishing machine and the cross-coating method to achieve a perfect finish. The polish can also be applied by hand using the Hand Polishing Applicator.",
+      "Exert light and even pressure while polishing and apply the product with a consistently high rotational speed.",
+      "At first, the polish will seem a little milky and should be worked in until only a slightly transparent/oily film is visible.",
+      "Once you have finished polishing, remove any residue with the Premium microfiber cloth.",
+      "Fine scratches, shading, smears and holograms have now been removed. The car coat can now be sealed with a Menzerna Protection product."
+    ]
+  },
+  "super_finish_3800": {
+    "url": "https://www.menzerna.com/car-care/car-polish/products/details/super-finish-plus-3800",
+    "description_subtitle": "High-gloss polish for maximum deep shine",
+    "description_subtitle_en": "High-gloss polish for maximum deep shine",
+    "description_text": "This automotive polish boasts genuine star quality and polishes micro scratches and holograms for sparkling performance. It is the perfect choice when it comes to achieving maximum high gloss for black/dark coats.",
+    "description_text_en": "This automotive polish boasts genuine star quality and polishes micro scratches and holograms for sparkling performance. It is the perfect choice when it comes to achieving maximum high gloss for black/dark coats.",
+    "processing": {
+      "orbital": "Upper rotational speed range"
+    },
+    "steps": [
+      {
+        "number": 1,
+        "label": "Heavy Cut",
+        "label_tr": "Ağır Kesim",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 2,
+        "label": "Medium Cut",
+        "label_tr": "Orta Kesim",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 3,
+        "label": "Finish",
+        "label_tr": "Cila/Parlatma",
+        "isActive": true,
+        "isHalfActive": false
+      },
+      {
+        "number": 4,
+        "label": "Protection",
+        "label_tr": "Koruma",
+        "isActive": false,
+        "isHalfActive": false
+      }
+    ],
+    "optimised_for": [
+      {
+        "name": "Premium Microfiber Cloth",
+        "name_tr": "Premium Mikrofiber Bez",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/premium-microfiber-cloth"
+      },
+      {
+        "name": "Hand Polishing Applicator",
+        "name_tr": "Hand Polishing Applicator",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/hand-polishing-applicator"
+      },
+      {
+        "name": "Soft Cut Foam Pad",
+        "name_tr": "İnce Kesim Cila Süngeri",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/soft-cut-foam-pad"
+      }
+    ],
+    "benefits": [
+      "Anti-hologram polish for the removal of gray smears and holograms",
+      "Show-car finish",
+      "Silikonsuz"
+    ],
+    "benefits_en": [
+      "Anti-hologram polish for the removal of gray smears and holograms",
+      "Show-car finish",
+      "Silicone-free"
+    ],
+    "recommended_usage": [
+      "Yüzeyi iyice temizleyin.",
+      "Shake the bottle and apply the polish to the Soft Cut Foam Pad.",
+      "We recommend an orbital polishing machine and the cross-coating method to achieve a perfect finish. The polish can also be applied by hand using the Hand Polishing Applicator.",
+      "Exert light and even pressure while polishing and apply the product with a consistently high rotational speed.",
+      "Başlangıçta pasta biraz sütümsü görünecek ve yalnızca hafif şeffaf/yağlı bir film görünene kadar çalışılmalıdır.",
+      "Polisajı bitirdikten sonra kalan kalıntıları Premium mikrofiber bez ile temizleyin.",
+      "Fine scratches, shading, smears and holograms have now been removed. The car coat can now be sealed with a Menzerna Protection product."
+    ],
+    "recommended_usage_en": [
+      "Clean the surface thoroughly.",
+      "Shake the bottle and apply the polish to the Soft Cut Foam Pad.",
+      "We recommend an orbital polishing machine and the cross-coating method to achieve a perfect finish. The polish can also be applied by hand using the Hand Polishing Applicator.",
+      "Exert light and even pressure while polishing and apply the product with a consistently high rotational speed.",
+      "At first, the polish will seem a little milky and should be worked in until only a slightly transparent/oily film is visible.",
+      "Once you have finished polishing, remove any residue with the Premium microfiber cloth.",
+      "Fine scratches, shading, smears and holograms have now been removed. The car coat can now be sealed with a Menzerna Protection product."
+    ]
+  },
+  "final_finish_3000": {
+    "url": "https://www.menzerna.com/car-care/car-polish/products/details/final-finish-3000",
+    "description_subtitle": "Classic high-gloss polish for a brilliant finish",
+    "description_subtitle_en": "Classic high-gloss polish for a brilliant finish",
+    "description_text": "This standard high-gloss polish removes swirls and car wash scratches with the utmost reliability and paves the way for exceptional automotive gloss.",
+    "description_text_en": "This standard high-gloss polish removes swirls and car wash scratches with the utmost reliability and paves the way for exceptional automotive gloss.",
+    "processing": {
+      "orbital": "Upper rotational speed range"
+    },
+    "steps": [
+      {
+        "number": 1,
+        "label": "Heavy Cut",
+        "label_tr": "Ağır Kesim",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 2,
+        "label": "Medium Cut",
+        "label_tr": "Orta Kesim",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 3,
+        "label": "Finish",
+        "label_tr": "Cila/Parlatma",
+        "isActive": true,
+        "isHalfActive": false
+      },
+      {
+        "number": 4,
+        "label": "Protection",
+        "label_tr": "Koruma",
+        "isActive": false,
+        "isHalfActive": false
+      }
+    ],
+    "optimised_for": [
+      {
+        "name": "Standard Microfiber Cloth",
+        "name_tr": "Standard Microfiber Cloth",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/standard-microfiber-cloth"
+      },
+      {
+        "name": "Hand Polishing Applicator",
+        "name_tr": "Hand Polishing Applicator",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/hand-polishing-applicator"
+      },
+      {
+        "name": "Soft Cut Foam Pad",
+        "name_tr": "İnce Kesim Cila Süngeri",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/soft-cut-foam-pad"
+      }
+    ],
+    "benefits": [
+      "Anti-hologram polish for the removal of gray smears and holograms",
+      "Exceptional gloss",
+      "Silikonsuz"
+    ],
+    "benefits_en": [
+      "Anti-hologram polish for the removal of gray smears and holograms",
+      "Exceptional gloss",
+      "Silicone-free"
+    ],
+    "recommended_usage": [
+      "Yüzeyi iyice temizleyin.",
+      "Shake the bottle and apply the polish to the Soft Cut Foam Pad.",
+      "We recommend an orbital polishing machine and the cross-coating method to achieve a perfect finish. The polish can also be applied by hand using the Hand Polishing Applicator.",
+      "Exert light and even pressure while polishing and apply the product with a consistently high rotational speed.",
+      "Başlangıçta pasta biraz sütümsü görünecek ve yalnızca hafif şeffaf/yağlı bir film görünene kadar çalışılmalıdır.",
+      "Polisajı bitirdikten sonra kalan kalıntıları Premium mikrofiber bez ile temizleyin.",
+      "Fine scratches, shading, smears and holograms have now been removed. The car coat can now be sealed with a Menzerna Protection product."
+    ],
+    "recommended_usage_en": [
+      "Clean the surface thoroughly.",
+      "Shake the bottle and apply the polish to the Soft Cut Foam Pad.",
+      "We recommend an orbital polishing machine and the cross-coating method to achieve a perfect finish. The polish can also be applied by hand using the Hand Polishing Applicator.",
+      "Exert light and even pressure while polishing and apply the product with a consistently high rotational speed.",
+      "At first, the polish will seem a little milky and should be worked in until only a slightly transparent/oily film is visible.",
+      "Once you have finished polishing, remove any residue with the Premium microfiber cloth.",
+      "Fine scratches, shading, smears and holograms have now been removed. The car coat can now be sealed with a Menzerna Protection product."
+    ]
+  },
+  "one_step_3in1": {
+    "url": "https://www.menzerna.com/car-care/car-polish/products/details/one-step-polish-3in1",
+    "description_subtitle": "Medium Cut polish – high-gloss finish and seal in one",
+    "description_subtitle_en": "Medium Cut polish – high-gloss finish and seal in one",
+    "description_text": "An unbeatable all-arounder. Polish out sanding marks caused by 3000 grit, reliably remove smears, swirls, and shadows, and protect the high-gloss finish – all with a single product. This one-step polish combines speed and simplicity, making it ideal for novice polishers and the detailing of used and year-old vehicles.",
+    "description_text_en": "An unbeatable all-arounder. Polish out sanding marks caused by 3000 grit, reliably remove smears, swirls, and shadows, and protect the high-gloss finish – all with a single product. This one-step polish combines speed and simplicity, making it ideal for novice polishers and the detailing of used and year-old vehicles.",
+    "processing": {
+      "rotary": {
+        "start": "1,250–1,500 rpm",
+        "end": "500–800 rpm"
+      },
+      "orbital": "Medium to lower rotational speed range"
+    },
+    "steps": [
+      {
+        "number": 1,
+        "label": "Heavy Cut",
+        "label_tr": "Ağır Kesim",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 2,
+        "label": "Medium Cut",
+        "label_tr": "Orta Kesim",
+        "isActive": true,
+        "isHalfActive": false
+      },
+      {
+        "number": 3,
+        "label": "Finish",
+        "label_tr": "Cila/Parlatma",
+        "isActive": true,
+        "isHalfActive": false
+      },
+      {
+        "number": 4,
+        "label": "Protection",
+        "label_tr": "Koruma",
+        "isActive": true,
+        "isHalfActive": false
+      }
+    ],
+    "optimised_for": [
+      {
+        "name": "Premium Microfiber Cloth",
+        "name_tr": "Premium Mikrofiber Bez",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/premium-microfiber-cloth"
+      },
+      {
+        "name": "Hand Polishing Applicator",
+        "name_tr": "Hand Polishing Applicator",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/hand-polishing-applicator"
+      },
+      {
+        "name": "Medium Cut Foam Pad",
+        "name_tr": "Orta Kesim Pasta Süngeri",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/medium-cut-foam-pad"
+      },
+      {
+        "name": "Soft Cut Foam Pad",
+        "name_tr": "İnce Kesim Cila Süngeri",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/soft-cut-foam-pad"
+      },
+      {
+        "name": "Wax Foam Pad",
+        "name_tr": "Wax/Cila Süngeri",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/wax-foam-pad"
+      }
+    ],
+    "benefits": [
+      "One-step polish: Polish, finish, and seal",
+      "Removal of sanding marks (3000 grit)",
+      "Speedy high-gloss finish",
+      "Noticeably smoother finish",
+      "Can be overpainted",
+      "Silikonsuz"
+    ],
+    "benefits_en": [
+      "One-step polish: Polish, finish, and seal",
+      "Removal of sanding marks (3000 grit)",
+      "Speedy high-gloss finish",
+      "Noticeably smoother finish",
+      "Can be overpainted",
+      "Silicone-free"
+    ],
+    "recommended_usage": [
+      "Yüzeyi iyice temizleyin.",
+      "Shake the bottle before use and apply the polish to the Medium Cut Foam Pad.",
+      "We recommend a rotary or orbital polishing machine and the cross-coating method to achieve a perfect result. The polish can also be applied by hand using the Hand Polishing Applicator.",
+      "While polishing, exert moderately strong pressure to begin with, using the medium rotational speed range of the polishing machine. Reduce the pressure and the rotational speed during the final cycles.",
+      "At first, the polish will seem a little greasy and should be worked in until only a slightly transparent/oily film is visible.",
+      "Following application: Leave OSP 3in1 to dry for 5 to 10 minutes and remove any residual polish with the Premium microfiber cloth, without applying any pressure.",
+      "Depending on the demands of the surface, the 3in1 product can be reapplied using the Wax Foam Pad in order to achieve an even better finish."
+    ],
+    "recommended_usage_en": [
+      "Clean the surface thoroughly.",
+      "Shake the bottle before use and apply the polish to the Medium Cut Foam Pad.",
+      "We recommend a rotary or orbital polishing machine and the cross-coating method to achieve a perfect result. The polish can also be applied by hand using the Hand Polishing Applicator.",
+      "While polishing, exert moderately strong pressure to begin with, using the medium rotational speed range of the polishing machine. Reduce the pressure and the rotational speed during the final cycles.",
+      "At first, the polish will seem a little greasy and should be worked in until only a slightly transparent/oily film is visible.",
+      "Following application: Leave OSP 3in1 to dry for 5 to 10 minutes and remove any residual polish with the Premium microfiber cloth, without applying any pressure.",
+      "Depending on the demands of the surface, the 3in1 product can be reapplied using the Wax Foam Pad in order to achieve an even better finish."
+    ]
+  },
+  "metal_polish": {
+    "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/metal-polish",
+    "description_subtitle": "Versatile Metal Polish: gloss for metal surfaces",
+    "description_subtitle_en": "Versatile Metal Polish: gloss for metal surfaces",
+    "description_text": "Metal Polish is suitable for all metallic surfaces. It is particularly ideal for polishing chrome. However, it also restores the luster of stainless steel, aluminum, copper, silver, and plastic. Menzerna Metal Polish is ideal when it comes to achieving a high-gloss finish for automotive accessories, household items, jewelry, and musical instruments. Quickly and easily removes deposits, tarnishes, and signs of use.",
+    "description_text_en": "Metal Polish is suitable for all metallic surfaces. It is particularly ideal for polishing chrome. However, it also restores the luster of stainless steel, aluminum, copper, silver, and plastic. Menzerna Metal Polish is ideal when it comes to achieving a high-gloss finish for automotive accessories, household items, jewelry, and musical instruments. Quickly and easily removes deposits, tarnishes, and signs of use.",
+    "processing": null,
+    "steps": [],
+    "optimised_for": [
+      {
+        "name": "Standard Microfiber Cloth",
+        "name_tr": "Standard Microfiber Cloth",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/standard-microfiber-cloth"
+      },
+      {
+        "name": "Premium Microfiber Cloth",
+        "name_tr": "Premium Mikrofiber Bez",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/premium-microfiber-cloth"
+      },
+      {
+        "name": "Crater Shaped Lambswool Pad",
+        "name_tr": "Krater Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/crater-shaped-lambswool-pad"
+      },
+      {
+        "name": "Double Sided Lambswool Pad",
+        "name_tr": "Çift Taraflı Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/double-sided-lambswool-pad"
+      },
+      {
+        "name": "Orbital Wool Pad",
+        "name_tr": "Orbital Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/orbital-wool-pad"
+      }
+    ],
+    "benefits": [
+      "Easy to use",
+      "Economical",
+      "Reliable results",
+      "Versatile range of applications at work, at home, and in leisure activities",
+      "Silikonsuz"
+    ],
+    "benefits_en": [
+      "Easy to use",
+      "Economical",
+      "Reliable results",
+      "Versatile range of applications at work, at home, and in leisure activities",
+      "Silicone-free"
+    ],
+    "recommended_usage": [
+      "Metal Polish is used to clean and polish all metallic surfaces.",
+      "Clean the surface in question with Menzerna Control Cleaner.",
+      "Apply Metal Polish to a microfiber cloth or polishing pad and polish with circular motions.",
+      "Remove any residue with a clean, soft microfiber cloth."
+    ],
+    "recommended_usage_en": [
+      "Metal Polish is used to clean and polish all metallic surfaces.",
+      "Clean the surface in question with Menzerna Control Cleaner.",
+      "Apply Metal Polish to a microfiber cloth or polishing pad and polish with circular motions.",
+      "Remove any residue with a clean, soft microfiber cloth."
+    ]
+  },
+  "gw18": {
+    "url": "https://www.menzerna.com/industrial-polishing/polishing-compounds/solid-compounds/product-overview/details/gw18",
+    "description_subtitle": "Speedy removal of scratches – without excessive buildup of heat – when polishing plastics",
+    "description_subtitle_en": "Speedy removal of scratches – without excessive buildup of heat – when polishing plastics",
+    "description_text": "GW18 quickly removes scratches and surface imperfections. Thanks to special grease binding, excess buildup of heat on plastic/painted surfaces is prevented.",
+    "description_text_en": "GW18 quickly removes scratches and surface imperfections. Thanks to special grease binding, excess buildup of heat on plastic/painted surfaces is prevented.",
+    "processing": null,
+    "steps": [],
+    "optimised_for": [],
+    "benefits": [],
+    "benefits_en": [],
+    "recommended_usage": [],
+    "recommended_usage_en": []
+  },
+  "p164": {
+    "url": "https://www.menzerna.com/industrial-polishing/polishing-compounds/solid-compounds/product-overview/details/p164",
+    "description_subtitle": "Medium Cut polish for an exceptionally even finish",
+    "description_subtitle_en": "Medium Cut polish for an exceptionally even finish",
+    "description_text": "P164 is a universal polishing compound. It combines high gloss with an excellent cut. Results in an exceptionally even finish.",
+    "description_text_en": "P164 is a universal polishing compound. It combines high gloss with an excellent cut. Results in an exceptionally even finish.",
+    "processing": null,
+    "steps": [],
+    "optimised_for": [],
+    "benefits": [],
+    "benefits_en": [],
+    "recommended_usage": [],
+    "recommended_usage_en": []
+  },
+  "p14f": {
+    "url": "https://www.menzerna.com/industrial-polishing/polishing-compounds/solid-compounds/product-overview/details/p14f",
+    "description_subtitle": "Fast polishing results and a broad range of applications",
+    "description_subtitle_en": "Fast polishing results and a broad range of applications",
+    "description_text": "P14F is a fast-acting polishing compound with excellent cut and a broad range of applications. It also ensures brilliant shine, all in a single stage.",
+    "description_text_en": "P14F is a fast-acting polishing compound with excellent cut and a broad range of applications. It also ensures brilliant shine, all in a single stage.",
+    "processing": null,
+    "steps": [],
+    "optimised_for": [],
+    "benefits": [],
+    "benefits_en": [],
+    "recommended_usage": [],
+    "recommended_usage_en": []
+  },
+  "gw16": {
+    "url": "https://www.menzerna.com/industrial-polishing/polishing-compounds/solid-compounds/product-overview/details/gw16",
+    "description_subtitle": "The flagship of the Menzerna solid polishing compounds",
+    "description_subtitle_en": "The flagship of the Menzerna solid polishing compounds",
+    "description_text": "GW16 is the flagship of the Menzerna solid polishing compound range. A one-step product that offers unbeatable abrasion and shine.",
+    "description_text_en": "GW16 is the flagship of the Menzerna solid polishing compound range. A one-step product that offers unbeatable abrasion and shine.",
+    "processing": null,
+    "steps": [],
+    "optimised_for": [],
+    "benefits": [],
+    "benefits_en": [],
+    "recommended_usage": [],
+    "recommended_usage_en": []
+  },
+  "480w": {
+    "url": "https://www.menzerna.com/industrial-polishing/polishing-compounds/solid-compounds/product-overview/details/480w",
+    "description_subtitle": "A brilliant shine for brass surfaces",
+    "description_subtitle_en": "A brilliant shine for brass surfaces",
+    "description_text": "480W is a fast-acting finishing compound with specially adapted grease bonding that offers a brilliant shine on brass surfaces.",
+    "description_text_en": "480W is a fast-acting finishing compound with specially adapted grease bonding that offers a brilliant shine on brass surfaces.",
+    "processing": null,
+    "steps": [],
+    "optimised_for": [],
+    "benefits": [],
+    "benefits_en": [],
+    "recommended_usage": [],
+    "recommended_usage_en": []
+  },
+  "495p": {
+    "url": "https://www.menzerna.com/industrial-polishing/polishing-compounds/solid-compounds/product-overview/details/495p",
+    "description_subtitle": "Unbeatable luster for plastic, stainless steel, and paint",
+    "description_subtitle_en": "Unbeatable luster for plastic, stainless steel, and paint",
+    "description_text": "495 P is a universal Finish compound. It generates superb luster on plastic. And is equally suited to nonferrous metals and painted surfaces.",
+    "description_text_en": "495 P is a universal Finish compound. It generates superb luster on plastic. And is equally suited to nonferrous metals and painted surfaces.",
+    "processing": null,
+    "steps": [],
+    "optimised_for": [],
+    "benefits": [],
+    "benefits_en": [],
+    "recommended_usage": [],
+    "recommended_usage_en": []
+  },
+  "p126": {
+    "url": "https://www.menzerna.com/industrial-polishing/polishing-compounds/solid-compounds/product-overview/details/p126",
+    "description_subtitle": "A polish that delivers impeccable gloss in next to no time",
+    "description_subtitle_en": "A polish that delivers impeccable gloss in next to no time",
+    "description_text": "P126 is a Finish compound especially developed for stainless steel. It generates impeccable gloss in next to no time.",
+    "description_text_en": "P126 is a Finish compound especially developed for stainless steel. It generates impeccable gloss in next to no time.",
+    "processing": null,
+    "steps": [],
+    "optimised_for": [],
+    "benefits": [],
+    "benefits_en": [],
+    "recommended_usage": [],
+    "recommended_usage_en": []
+  },
+  "p175": {
+    "url": "https://www.menzerna.com/industrial-polishing/polishing-compounds/solid-compounds/product-overview/details/p175",
+    "description_subtitle": "Versatile polish for deep-gloss finishes",
+    "description_subtitle_en": "Versatile polish for deep-gloss finishes",
+    "description_text": "P175 is an ultra fine and versatile high-gloss compound. This polish generates a deep-gloss mirror finish.",
+    "description_text_en": "P175 is an ultra fine and versatile high-gloss compound. This polish generates a deep-gloss mirror finish.",
+    "processing": null,
+    "steps": [],
+    "optimised_for": [],
+    "benefits": [],
+    "benefits_en": [],
+    "recommended_usage": [],
+    "recommended_usage_en": []
+  },
+  "m5": {
+    "url": "https://www.menzerna.com/industrial-polishing/polishing-compounds/solid-compounds/product-overview/details/m5",
+    "description_subtitle": "Premium polishing results with this Super Finish polish",
+    "description_subtitle_en": "Premium polishing results with this Super Finish polish",
+    "description_text": "M5 is a Premium Super Finish compound. Top-class polishing materials result in premium polishing results with outstanding shine.",
+    "description_text_en": "M5 is a Premium Super Finish compound. Top-class polishing materials result in premium polishing results with outstanding shine.",
+    "processing": null,
+    "steps": [],
+    "optimised_for": [],
+    "benefits": [],
+    "benefits_en": [],
+    "recommended_usage": [],
+    "recommended_usage_en": []
+  },
+  "heavy_cut_foam_pad": {
+    "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/heavy-cut-foam-pad",
+    "description_subtitle": "Premium polishing pad for abrasive polishes",
+    "description_subtitle_en": "Premium polishing pad for abrasive polishes",
+    "description_text": "Polishing pad for use with highly abrasive polishes. Removes scratches, sanding marks, and surface imperfections in combination with Menzerna Heavy Cut polishes. The unique structure of the polishing foam, with powerful abrasion, supports the effect of high-performance Menzerna polishes to deliver reliable and ultra fast results.",
+    "description_text_en": "Polishing pad for use with highly abrasive polishes. Removes scratches, sanding marks, and surface imperfections in combination with Menzerna Heavy Cut polishes. The unique structure of the polishing foam, with powerful abrasion, supports the effect of high-performance Menzerna polishes to deliver reliable and ultra fast results.",
+    "processing": null,
+    "steps": [],
+    "optimised_for": [
+      {
+        "name": "Heavy Cut Compound 1000",
+        "name_tr": "Heavy Cut Compound 1000",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-1000"
+      },
+      {
+        "name": "Heavy Cut Compound 400",
+        "name_tr": "Heavy Cut Compound 400",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-400"
+      },
+      {
+        "name": "Heavy Cut Compound 400 GREEN LINE",
+        "name_tr": "Heavy Cut Compound 400 GREEN LINE",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-400-green-line"
+      }
+    ],
+    "benefits": [
+      "Tailored to Menzerna Heavy Cut polishes",
+      "Polishing pad is washable",
+      "Durable, long-lasting foam (approx. 20 vehicles can be polished)",
+      "Safety edge",
+      "High-quality velcro",
+      "Straightforward application"
+    ],
+    "benefits_en": [
+      "Tailored to Menzerna Heavy Cut polishes",
+      "Polishing pad is washable",
+      "Durable, long-lasting foam (approx. 20 vehicles can be polished)",
+      "Safety edge",
+      "High-quality velcro",
+      "Straightforward application"
+    ],
+    "recommended_usage": [],
+    "recommended_usage_en": []
+  },
+  "medium_cut_foam_pad": {
+    "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/medium-cut-foam-pad",
+    "description_subtitle": "Premium polishing pad for fine abrasive polishes",
+    "description_subtitle_en": "Premium polishing pad for fine abrasive polishes",
+    "description_text": "Foam Pad for use with medium cut abrasive polishes. Removes slight scratches, holograms, and surface imperfections in combination with Menzerna Medium Cut polishes. The unique foam formulation delivers perfect cut and generates shine.",
+    "description_text_en": "Foam Pad for use with medium cut abrasive polishes. Removes slight scratches, holograms, and surface imperfections in combination with Menzerna Medium Cut polishes. The unique foam formulation delivers perfect cut and generates shine.",
+    "processing": null,
+    "steps": [],
+    "optimised_for": [
+      {
+        "name": "Medium Cut Polish 2000",
+        "name_tr": "Medium Cut Polish 2000",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/medium-cut-polish-2000"
+      },
+      {
+        "name": "Medium Cut Polish 2400",
+        "name_tr": "Medium Cut Polish 2400",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/medium-cut-polish-2400"
+      },
+      {
+        "name": "Medium Cut Polish 2500",
+        "name_tr": "Medium Cut Polish 2500",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/medium-cut-polish-2500"
+      },
+      {
+        "name": "One-Step Polish 3in1",
+        "name_tr": "One-Step Polish 3in1",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/one-step-polish-3in1"
+      }
+    ],
+    "benefits": [
+      "Tailored to Menzerna Medium Cut polishes",
+      "Polishing pad is washable",
+      "Durable, long-lasting foam (approx. 20 vehicles can be polished)",
+      "Safety edge",
+      "High-quality velcro",
+      "Straightforward application"
+    ],
+    "benefits_en": [
+      "Tailored to Menzerna Medium Cut polishes",
+      "Polishing pad is washable",
+      "Durable, long-lasting foam (approx. 20 vehicles can be polished)",
+      "Safety edge",
+      "High-quality velcro",
+      "Straightforward application"
+    ],
+    "recommended_usage": [],
+    "recommended_usage_en": []
+  },
+  "orbital_wool": {
+    "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/orbital-wool-pad",
+    "description_subtitle": "Lambswool polishing pad for orbital polishing machines",
+    "description_subtitle_en": "Lambswool polishing pad for orbital polishing machines",
+    "description_text": "When used in combination with Menzerna Heavy Cut polishes, the Menzerna Orbital Wool Pad removes scratches, sanding marks, and deep surface imperfections in the blink of an eye. This Premium lambswool polishing pad comprises an abrasive woolen pad with a foam interface. The short-haired lambswool is ideal for removing scratches with orbital polishing machines.",
+    "description_text_en": "When used in combination with Menzerna Heavy Cut polishes, the Menzerna Orbital Wool Pad removes scratches, sanding marks, and deep surface imperfections in the blink of an eye. This Premium lambswool polishing pad comprises an abrasive woolen pad with a foam interface. The short-haired lambswool is ideal for removing scratches with orbital polishing machines.",
+    "processing": null,
+    "steps": [],
+    "optimised_for": [
+      {
+        "name": "Heavy Cut Compound 1000",
+        "name_tr": "Heavy Cut Compound 1000",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-1000"
+      },
+      {
+        "name": "Heavy Cut Compound 1100",
+        "name_tr": "Heavy Cut Compound 1100",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-1100"
+      },
+      {
+        "name": "Heavy Cut Compound 400",
+        "name_tr": "Heavy Cut Compound 400",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-400"
+      },
+      {
+        "name": "Heavy Cut Compound 400 GREEN LINE",
+        "name_tr": "Heavy Cut Compound 400 GREEN LINE",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-400-green-line"
+      }
+    ],
+    "benefits": [
+      "High abrasion, outstanding scratch removal",
+      "Especially for orbital polishing machines",
+      "Easy cleaning using a brush or compressed air",
+      "Durable, long-lasting wool",
+      "Safety edge",
+      "High-quality velcro",
+      "Straightforward application"
+    ],
+    "benefits_en": [
+      "High abrasion, outstanding scratch removal",
+      "Especially for orbital polishing machines",
+      "Easy cleaning using a brush or compressed air",
+      "Durable, long-lasting wool",
+      "Safety edge",
+      "High-quality velcro",
+      "Straightforward application"
+    ],
+    "recommended_usage": [],
+    "recommended_usage_en": []
+  },
+  "crater_lambswool": {
+    "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/crater-shaped-lambswool-pad",
+    "description_subtitle": "Crater-shaped lambswool polishing pad for rotary polishing machines",
+    "description_subtitle_en": "Crater-shaped lambswool polishing pad for rotary polishing machines",
+    "description_text": "The Crater-Shaped Lambswool Pad boasts high abrasion and is made from durable, high-quality lambswool. The polishing wool is ideal for polishing large surfaces and represents the perfect complement to Menzerna abrasive polishes. Deep scratches and imperfections are swiftly removed using rotary polishing machines.",
+    "description_text_en": "The Crater-Shaped Lambswool Pad boasts high abrasion and is made from durable, high-quality lambswool. The polishing wool is ideal for polishing large surfaces and represents the perfect complement to Menzerna abrasive polishes. Deep scratches and imperfections are swiftly removed using rotary polishing machines.",
+    "processing": null,
+    "steps": [],
+    "optimised_for": [
+      {
+        "name": "Heavy Cut Compound 1000",
+        "name_tr": "Heavy Cut Compound 1000",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-1000"
+      },
+      {
+        "name": "Heavy Cut Compound 400",
+        "name_tr": "Heavy Cut Compound 400",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-400"
+      },
+      {
+        "name": "Heavy Cut Compound 400 GREEN LINE",
+        "name_tr": "Heavy Cut Compound 400 GREEN LINE",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-400-green-line"
+      }
+    ],
+    "benefits": [
+      "High-quality abrasive lambswool",
+      "Low heat buildup",
+      "Speedy removal of deep scratches and imperfections",
+      "Easy cleaning using a brush or compressed air"
+    ],
+    "benefits_en": [
+      "High-quality abrasive lambswool",
+      "Low heat buildup",
+      "Speedy removal of deep scratches and imperfections",
+      "Easy cleaning using a brush or compressed air"
+    ],
+    "recommended_usage": [],
+    "recommended_usage_en": []
+  },
+  "premium_lambswool": {
+    "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/premium-lambswool-pad",
+    "description_subtitle": "Lambswool polishing pad for rotary polishing machines",
+    "description_subtitle_en": "Lambswool polishing pad for rotary polishing machines",
+    "description_text": "This high-quality, abrasive lambswool polishing pad is ideal for use with Menzerna abrasive polishes. Deep scratches and imperfections can be easily removed using the Menzerna Premium Lambswool Pad. This natural lambswool pad combines high abrasion with low heat buildup. Made from high-quality lambswool and suitable for rotary polishing machines.",
+    "description_text_en": "This high-quality, abrasive lambswool polishing pad is ideal for use with Menzerna abrasive polishes. Deep scratches and imperfections can be easily removed using the Menzerna Premium Lambswool Pad. This natural lambswool pad combines high abrasion with low heat buildup. Made from high-quality lambswool and suitable for rotary polishing machines.",
+    "processing": null,
+    "steps": [],
+    "optimised_for": [
+      {
+        "name": "Heavy Cut Compound 1100",
+        "name_tr": "Heavy Cut Compound 1100",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-1100"
+      },
+      {
+        "name": "Heavy Cut Compound 400",
+        "name_tr": "Heavy Cut Compound 400",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-400"
+      },
+      {
+        "name": "Heavy Cut Compound 400 GREEN LINE",
+        "name_tr": "Heavy Cut Compound 400 GREEN LINE",
+        "url": "https://www.menzerna.com/car-care/car-polish/products/details/heavy-cut-compound-400-green-line"
+      }
+    ],
+    "benefits": [
+      "High-quality abrasive lambswool",
+      "Low heat buildup",
+      "Speedy removal of deep scratches and imperfections",
+      "Easy cleaning using a brush or compressed air"
+    ],
+    "benefits_en": [
+      "High-quality abrasive lambswool",
+      "Low heat buildup",
+      "Speedy removal of deep scratches and imperfections",
+      "Easy cleaning using a brush or compressed air"
+    ],
+    "recommended_usage": [],
+    "recommended_usage_en": []
+  },
+  "ceramic_spray": {
+    "url": "https://www.menzerna.com/car-care/car-polish/products/details/ceramic-spray-sealant",
+    "description_subtitle": "Universal spray sealant for all vehicles",
+    "description_subtitle_en": "Universal spray sealant for all vehicles",
+    "description_text": "Easy and quick to apply spray sealant with very high water-repellent effect. The spray sealant protects the surface from environmental influences and deposits and is extremely dirt-repellent. An unbeatable product for every user in all areas of vehicle detailing.",
+    "description_text_en": "Easy and quick to apply spray sealant with very high water-repellent effect. The spray sealant protects the surface from environmental influences and deposits and is extremely dirt-repellent. An unbeatable product for every user in all areas of vehicle detailing.",
+    "processing": null,
+    "steps": [
+      {
+        "number": 1,
+        "label": "Heavy Cut",
+        "label_tr": "Ağır Kesim",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 2,
+        "label": "Medium Cut",
+        "label_tr": "Orta Kesim",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 3,
+        "label": "Finish",
+        "label_tr": "Cila/Parlatma",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 4,
+        "label": "Protection",
+        "label_tr": "Koruma",
+        "isActive": true,
+        "isHalfActive": false
+      }
+    ],
+    "optimised_for": [
+      {
+        "name": "Premium Microfiber Cloth",
+        "name_tr": "Premium Mikrofiber Bez",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/premium-microfiber-cloth"
+      }
+    ],
+    "benefits": [
+      "Effective, universal spray sealant for all vehicles",
+      "Easy and fast application",
+      "Very high water repellent effect (beading & sheeting)",
+      "Strong dirt repellent effect",
+      "Perfect finish"
+    ],
+    "benefits_en": [
+      "Effective, universal spray sealant for all vehicles",
+      "Easy and fast application",
+      "Very high water repellent effect (beading & sheeting)",
+      "Strong dirt repellent effect",
+      "Perfect finish"
+    ],
+    "recommended_usage": [
+      "Before sealing: Clean the already shiny surface with Menzerna Control Cleaner.",
+      "Shake bottle well before use.",
+      "Spray two to three sprays onto the Menzerna Premium Microfiber Cloth (blue).",
+      "To achieve a perfect result, spread the product with the Menzerna Premium Microfiber Cloth (blue) on the surface to be sealed.",
+      "Remove the remaining product after application on the surface with the dry side of the Menzerna Premium Microfiber Cloth (blue).",
+      "The vehicle should then be left in a dry place for 2-3 hours, away from direct sunlight."
+    ],
+    "recommended_usage_en": [
+      "Before sealing: Clean the already shiny surface with Menzerna Control Cleaner.",
+      "Shake bottle well before use.",
+      "Spray two to three sprays onto the Menzerna Premium Microfiber Cloth (blue).",
+      "To achieve a perfect result, spread the product with the Menzerna Premium Microfiber Cloth (blue) on the surface to be sealed.",
+      "Remove the remaining product after application on the surface with the dry side of the Menzerna Premium Microfiber Cloth (blue).",
+      "The vehicle should then be left in a dry place for 2-3 hours, away from direct sunlight."
+    ]
+  },
+  "power_lock": {
+    "url": "https://www.menzerna.com/car-care/car-polish/products/details/power-lock-ultimate-protection",
+    "description_subtitle": "Polymer sealant for all automotive clear coats",
+    "description_subtitle_en": "Polymer sealant for all automotive clear coats",
+    "description_text": "This specialist product with staying power not only offers a long-lasting seal, but also reliably protects against environmental influences. The polymer sealant boasts an unbeatable beading effect, not to mention peerless deep shine. Also suitable as a long-lasting coat sealant for new vehicles.",
+    "description_text_en": "This specialist product with staying power not only offers a long-lasting seal, but also reliably protects against environmental influences. The polymer sealant boasts an unbeatable beading effect, not to mention peerless deep shine. Also suitable as a long-lasting coat sealant for new vehicles.",
+    "processing": {
+      "orbital": "Low rotational speed range"
+    },
+    "steps": [
+      {
+        "number": 1,
+        "label": "Heavy Cut",
+        "label_tr": "Ağır Kesim",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 2,
+        "label": "Medium Cut",
+        "label_tr": "Orta Kesim",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 3,
+        "label": "Finish",
+        "label_tr": "Cila/Parlatma",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 4,
+        "label": "Protection",
+        "label_tr": "Koruma",
+        "isActive": true,
+        "isHalfActive": false
+      }
+    ],
+    "optimised_for": [
+      {
+        "name": "Premium Microfiber Cloth",
+        "name_tr": "Premium Mikrofiber Bez",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/premium-microfiber-cloth"
+      },
+      {
+        "name": "Hand Polishing Applicator",
+        "name_tr": "Hand Polishing Applicator",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/hand-polishing-applicator"
+      },
+      {
+        "name": "Wax Foam Pad",
+        "name_tr": "Wax/Cila Süngeri",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/wax-foam-pad"
+      }
+    ],
+    "benefits": [
+      "Cutting-edge sealant technology",
+      "Exceptionally long service life",
+      "Maximum protection against environmental influences",
+      "Premium beading effect",
+      "Vehicle value retention"
+    ],
+    "benefits_en": [
+      "Cutting-edge sealant technology",
+      "Exceptionally long service life",
+      "Maximum protection against environmental influences",
+      "Premium beading effect",
+      "Vehicle value retention"
+    ],
+    "recommended_usage": [
+      "Clean the glossy surface with Menzerna Control Cleaner.",
+      "Shake the bottle before use and apply the sealant to the Wax Foam Pad.",
+      "Apply the sealant using an orbital polishing machine (and the cross-coating method). The product can also be applied by hand using the Hand Polishing Applicator or a microfiber cloth.",
+      "Exert light and even pressure while polishing and apply the product with a consistently low rotational speed.",
+      "Leave the sealant to dry for 25 to 30 minutes and remove any residual polish with the Premium microfiber cloth, without applying any pressure. Leave the sealant to harden in a protected area for at least 3 hours.",
+      "Optionally, you can reapply PLUP after 4 hours for a longer-lasting sealing effect."
+    ],
+    "recommended_usage_en": [
+      "Clean the glossy surface with Menzerna Control Cleaner.",
+      "Shake the bottle before use and apply the sealant to the Wax Foam Pad.",
+      "Apply the sealant using an orbital polishing machine (and the cross-coating method). The product can also be applied by hand using the Hand Polishing Applicator or a microfiber cloth.",
+      "Exert light and even pressure while polishing and apply the product with a consistently low rotational speed.",
+      "Leave the sealant to dry for 25 to 30 minutes and remove any residual polish with the Premium microfiber cloth, without applying any pressure. Leave the sealant to harden in a protected area for at least 3 hours.",
+      "Optionally, you can reapply PLUP after 4 hours for a longer-lasting sealing effect."
+    ]
+  },
+  "sealing_wax": {
+    "url": "https://www.menzerna.com/car-care/car-polish/products/details/sealing-wax-protection",
+    "description_subtitle": "Standard coat sealant",
+    "description_subtitle_en": "Standard coat sealant",
+    "description_text": "This auto coat sealant creates a protective, dirt-repellent film. The polishing wax generates deep shine and brilliance on the surface of the coat. The new, improved formulation allows the product to protect and seal your surface even more effectively!",
+    "description_text_en": "This auto coat sealant creates a protective, dirt-repellent film. The polishing wax generates deep shine and brilliance on the surface of the coat. The new, improved formulation allows the product to protect and seal your surface even more effectively!",
+    "processing": {
+      "orbital": "Low rotational speed range"
+    },
+    "steps": [
+      {
+        "number": 1,
+        "label": "Heavy Cut",
+        "label_tr": "Ağır Kesim",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 2,
+        "label": "Medium Cut",
+        "label_tr": "Orta Kesim",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 3,
+        "label": "Finish",
+        "label_tr": "Cila/Parlatma",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 4,
+        "label": "Protection",
+        "label_tr": "Koruma",
+        "isActive": true,
+        "isHalfActive": false
+      }
+    ],
+    "optimised_for": [
+      {
+        "name": "Premium Microfiber Cloth",
+        "name_tr": "Premium Mikrofiber Bez",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/premium-microfiber-cloth"
+      },
+      {
+        "name": "Hand Polishing Applicator",
+        "name_tr": "Hand Polishing Applicator",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/hand-polishing-applicator"
+      },
+      {
+        "name": "Wax Foam Pad",
+        "name_tr": "Wax/Cila Süngeri",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/wax-foam-pad"
+      }
+    ],
+    "benefits": [
+      "Reliable basic protection",
+      "Based on carnauba wax",
+      "Easy to use"
+    ],
+    "benefits_en": [
+      "Reliable basic protection",
+      "Based on carnauba wax",
+      "Easy to use"
+    ],
+    "recommended_usage": [
+      "Clean the glossy surface with Menzerna Control Cleaner.",
+      "Shake the bottle and apply the polishing wax to the Wax Foam Pad.",
+      "Apply the sealant using an orbital polishing machine (and the cross-coating method). The wax can also be applied by hand using the Hand Polishing Applicator or a microfiber cloth.",
+      "Exert light and even pressure while polishing and apply the product with a consistently low rotational speed.",
+      "Following application: Leave the sealant to dry for 5 to 10 minutes and remove any residual polish with the Premium microfiber cloth, without applying any pressure."
+    ],
+    "recommended_usage_en": [
+      "Clean the glossy surface with Menzerna Control Cleaner.",
+      "Shake the bottle and apply the polishing wax to the Wax Foam Pad.",
+      "Apply the sealant using an orbital polishing machine (and the cross-coating method). The wax can also be applied by hand using the Hand Polishing Applicator or a microfiber cloth.",
+      "Exert light and even pressure while polishing and apply the product with a consistently low rotational speed.",
+      "Following application: Leave the sealant to dry for 5 to 10 minutes and remove any residual polish with the Premium microfiber cloth, without applying any pressure."
+    ]
+  },
+  "endless_shine": {
+    "url": "https://www.menzerna.com/car-care/car-polish/products/details/liquid-carnauba-protection",
+    "description_subtitle": "Natural sealing blend for enthusiasts",
+    "description_subtitle_en": "Natural sealing blend for enthusiasts",
+    "description_text": "Liquid carnauba wax for long-lasting protection, combined with a soft, natural feel and brilliant deep shine. For noticeably smoother surfaces. The high-quality carnauba wax can be easily applied, either with or without a polishing machine.",
+    "description_text_en": "Liquid carnauba wax for long-lasting protection, combined with a soft, natural feel and brilliant deep shine. For noticeably smoother surfaces. The high-quality carnauba wax can be easily applied, either with or without a polishing machine.",
+    "processing": {
+      "orbital": "Low rotational speed range"
+    },
+    "steps": [
+      {
+        "number": 1,
+        "label": "Heavy Cut",
+        "label_tr": "Ağır Kesim",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 2,
+        "label": "Medium Cut",
+        "label_tr": "Orta Kesim",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 3,
+        "label": "Finish",
+        "label_tr": "Cila/Parlatma",
+        "isActive": false,
+        "isHalfActive": false
+      },
+      {
+        "number": 4,
+        "label": "Protection",
+        "label_tr": "Koruma",
+        "isActive": true,
+        "isHalfActive": false
+      }
+    ],
+    "optimised_for": [
+      {
+        "name": "Premium Microfiber Cloth",
+        "name_tr": "Premium Mikrofiber Bez",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/premium-microfiber-cloth"
+      },
+      {
+        "name": "Hand Polishing Applicator",
+        "name_tr": "Hand Polishing Applicator",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/hand-polishing-applicator"
+      },
+      {
+        "name": "Wax Foam Pad",
+        "name_tr": "Wax/Cila Süngeri",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/wax-foam-pad"
+      }
+    ],
+    "benefits": [
+      "High-quality carnauba wax",
+      "Extremely high wax content",
+      "Generates a hydrophobic finish",
+      "Elegant beading effect",
+      "Peerless deep shine",
+      "Suitable for both manual and mechanical application"
+    ],
+    "benefits_en": [
+      "High-quality carnauba wax",
+      "Extremely high wax content",
+      "Generates a hydrophobic finish",
+      "Elegant beading effect",
+      "Peerless deep shine",
+      "Suitable for both manual and mechanical application"
+    ],
+    "recommended_usage": [
+      "Clean the glossy surface with Menzerna Control Cleaner.",
+      "Shake the bottle and apply the polishing wax to the Wax Foam Pad.",
+      "Apply the sealant using an orbital polishing machine (and the cross-coating method). The wax can also be applied by hand using the Hand Polishing Applicator or a microfiber cloth.",
+      "Exert light and even pressure while polishing and apply the product with a consistently low rotational speed.",
+      "Following application: Leave the sealant to dry for 5 to 10 minutes and remove any residual polish with the Premium microfiber cloth, without applying any pressure."
+    ],
+    "recommended_usage_en": [
+      "Clean the glossy surface with Menzerna Control Cleaner.",
+      "Shake the bottle and apply the polishing wax to the Wax Foam Pad.",
+      "Apply the sealant using an orbital polishing machine (and the cross-coating method). The wax can also be applied by hand using the Hand Polishing Applicator or a microfiber cloth.",
+      "Exert light and even pressure while polishing and apply the product with a consistently low rotational speed.",
+      "Following application: Leave the sealant to dry for 5 to 10 minutes and remove any residual polish with the Premium microfiber cloth, without applying any pressure."
+    ]
+  },
+  "premium_backing_plate": {
+    "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/premium-backing-plate",
+    "description_subtitle": "Premium Backing Plate for polishing machines",
+    "description_subtitle_en": "Premium Backing Plate for polishing machines",
+    "description_text": "The Menzerna Premium Backing Plate is a flexible, high-quality plate with a powerful hook-and-loop underside. It supports safe and comfortable working on corners, edges, and contours. Suitable for all standard polishing machines. The polishing plate is available in three different sizes to match the Menzerna polishing pads.",
+    "description_text_en": "The Menzerna Premium Backing Plate is a flexible, high-quality plate with a powerful hook-and-loop underside. It supports safe and comfortable working on corners, edges, and contours. Suitable for all standard polishing machines. The polishing plate is available in three different sizes to match the Menzerna polishing pads.",
+    "processing": null,
+    "steps": [],
+    "optimised_for": [
+      {
+        "name": "Polishing Adapter for Drilling Machines",
+        "name_tr": "Polishing Adapter for Drilling Machines",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/polishing-adapter-for-drilling-machines"
+      },
+      {
+        "name": "Orbital Wool Pad",
+        "name_tr": "Orbital Kuzu Yünü Polisaj Keçesi",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/orbital-wool-pad"
+      },
+      {
+        "name": "Heavy Cut Foam Pad",
+        "name_tr": "Ağır Kesim Pasta Süngeri",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/heavy-cut-foam-pad"
+      },
+      {
+        "name": "Medium Cut Foam Pad",
+        "name_tr": "Orta Kesim Pasta Süngeri",
+        "url": "https://www.menzerna.com/car-care/accessories/polishing-accessories/details/medium-cut-foam-pad"
+      }
+    ],
+    "benefits": [
+      "Flexible, high-quality polishing plate",
+      "Powerful and durable hook-and-loop underside",
+      "Suitable for all polishing pads with a diameter of 95 mm/3.5'', 150 mm/6'', and 180 mm/7''"
+    ],
+    "benefits_en": [
+      "Flexible, high-quality polishing plate",
+      "Powerful and durable hook-and-loop underside",
+      "Suitable for all polishing pads with a diameter of 95 mm/3.5'', 150 mm/6'', and 180 mm/7''"
+    ],
+    "recommended_usage": [],
+    "recommended_usage_en": []
+  }
+}

@@ -67,8 +67,25 @@ export function ProductCard({ product, categorySlug, group }: { product: Product
   }, [clearHoverTimer]);
 
   const isAccessory = activeProduct.category?.main_cat === "AKSESUAR" || activeProduct.category?.main_cat === "MAKİNE-EKİPMAN";
-  const cutLevel = isAccessory ? undefined : activeProduct.template_fields?.cut_level;
-  const glossLevel = isAccessory ? undefined : activeProduct.template_fields?.finish_level;
+  const isIndustrial = activeProduct.category?.main_cat === "ENDÜSTRİYEL";
+  const hideCutGloss = isAccessory || isIndustrial;
+
+  const { cutLevel, glossLevel } = useMemo(() => {
+    if (hideCutGloss) return { cutLevel: undefined, glossLevel: undefined };
+    if (hasVariants) {
+      for (const v of group.variants) {
+        const tf = v.product.template_fields;
+        if (tf?.cut_level != null || tf?.finish_level != null) {
+          return { cutLevel: tf?.cut_level, glossLevel: tf?.finish_level };
+        }
+      }
+      return { cutLevel: undefined, glossLevel: undefined };
+    }
+    return {
+      cutLevel: activeProduct.template_fields?.cut_level,
+      glossLevel: activeProduct.template_fields?.finish_level,
+    };
+  }, [hideCutGloss, hasVariants, group, activeProduct]);
 
   const getTypeBadge = () => {
     if (activeProduct.template_sub_type === "sanding_paste") {

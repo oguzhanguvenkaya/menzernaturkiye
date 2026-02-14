@@ -1,0 +1,45 @@
+# 📊 Menzerna Türkiye - Proje Analizi ve Geliştirme Raporu
+
+## 1. Proje Hakkında Bilinenler ve Genel Değerlendirme
+Projeniz modern ve hızlı bir web yığını (React, Vite, Tailwind CSS, Shadcn/UI, Wouter) kullanılarak oluşturulmuş. Mevcut durumda ürün verilerini statik JSON dosyalarından besleyecek bir yapı kurgulanmış.
+**Ana Hedef:** Sitenin tasarım dilini ve kullanıcı deneyimini (UI/UX) orijinal Menzerna global (menzerna.com) sitesinin endüstriyel, keskin ve profesyonel çizgilerine taşımak.
+
+**Marka Kimliği (Branding) Kodları:**
+- **Ana Renkler:** Koyu Lacivert (`#002b3d`), Menzerna Kırmızısı (`#e3000f`), Beyaz ve Açık Gri tonları.
+- **Tipografi:** Başlıklarda kalın (black/bold), keskin ve endüstriyel font kullanımı. Menülerde ve butonlarda geniş boşluklu (tracking-widest) büyük harfler.
+- **Görsel Dil:** Yumuşak köşeler yerine sert hatlar (`rounded-none`), ürün kartlarında teknik detayları (Kesicilik/Parlaklık - Cut/Gloss değerleri) gösteren veri çubukları.
+
+## 2. Kazınacak Sayfalar ve Kategori Haritası
+Belirtilen URL'ler doğrultusunda sitemizin ana menü ve ürün listeleme hiyerarşisi aşağıdaki gibi yapılandırılmıştır.
+
+**A. Araç Bakım (Car Care)**
+- *Pasta, Cila ve Boya Korumalar*
+  - **Kaynak URL:** `https://www.menzerna.com/car-care/car-polish/products`
+  - **Hedef Rota:** `/category/car-polish`
+- *Sünger, Keçe ve Tabanlıklar* (Polisaj ve Temizlik aksesuarları birleşimi)
+  - **Kaynak URL:** `.../accessories/polishing-accessories` + `.../accessories/cleaning-accessories`
+  - **Hedef Rota:** `/category/accessories`
+- *Yetkili Satıcılar*
+
+**B. Endüstriyel (Industrial Polishing)**
+- *Katı Pasta ve Cilalar*
+  - **Kaynak URL:** `https://www.menzerna.com/industrial-polishing/polishing-compounds/solid-compounds/product-overview`
+  - **Hedef Rota:** `/category/solid-compounds`
+- *Yetkili Satıcılar*
+
+**C. Marin (Boat Care)**
+- *Pasta ve Cilalar*
+  - **Kaynak URL:** `https://www.menzerna.com/boat-care/boat-polish`
+  - **Hedef Rota:** `/category/marine-polish`
+- *Yetkili Satıcılar*
+
+**Kazınacak Veri Noktaları (Sayfa İçerikleri):**
+- Ürün resmi, adı ve açıklama metni.
+- Menzerna orijinal URL'si (Ürüne tıklandığında gidilecek dış bağlantı).
+- Step (Uygulama Adımı) bilgisi.
+- Cut (Kesicilik) ve Gloss (Parlaklık) puanları (Mümkün olan sayfalarda).
+
+## 3. Yol Haritası ve Sonraki Adımlar
+1. **Adım 1:** Orijinal Menzerna çizgilerine ve talep ettiğiniz kırılımlara sahip **Genişleyen (Mega) Ana Menü**'nün sisteme entegre edilmesi. *(Tamamlandı)*
+2. **Adım 2:** Yukarıda belirlenen orijinal sayfalardan verilerin (isim, görsel, açıklama ve orijinal yönlendirme linkleri) JSON formatında hazırlanıp sayfaya sunulması.
+3. **Adım 3:** Kazınan bu verileri sergileyecek olan, Menzerna stili Endüstriyel Ürün Kartları'nın (`product-card.tsx`) ve Kategori Listeleme Sayfasının tasarımı.

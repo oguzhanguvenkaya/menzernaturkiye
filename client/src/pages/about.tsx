@@ -17,9 +17,7 @@ export default function About() {
             Hakkımızda
           </h1>
           <div className="w-16 h-1.5 bg-[#e3000f] mb-6"></div>
-          <p className="text-lg text-gray-300 max-w-2xl font-light leading-relaxed">
-            Sektörde 15 yılı aşkın tecrübe ile profesyonel polisaj ve araç bakım çözümleri.
-          </p>
+          <p className="text-lg text-gray-300 max-w-2xl font-light leading-relaxed">Sektörde 17 yılı aşkın tecrübe ile profesyonel polisaj ve araç bakım çözümleri.</p>
         </div>
       </div>
       <section className="bg-white">

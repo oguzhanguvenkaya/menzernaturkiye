@@ -423,7 +423,7 @@ export default function Home() {
         </div>
       </section>
       {/* Stats Section - Original Style with border-left */}
-      <section className="py-16 md:py-20 bg-neutral-100 border-t border-neutral-200">
+      <section className="py-16 md:py-20 bg-neutral-100 border-t border-neutral-200 mt-[60px] mb-[60px] pt-[60px] pb-[60px]">
         <div className="container mx-auto px-6 md:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             <div className="border-l-2 border-neutral-300 pl-4 md:pl-6">

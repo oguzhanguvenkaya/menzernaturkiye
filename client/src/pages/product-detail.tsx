@@ -480,7 +480,7 @@ export default function ProductDetail() {
             )}
 
             {(cutLevel !== undefined || glossLevel !== undefined) && (
-              <div className="grid grid-cols-2 gap-4 p-4 bg-[#f8f9fa] border border-gray-200 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 bg-[#f8f9fa] border border-gray-200 mb-8">
                 {cutLevel !== undefined && (
                   <div>
                     <div className="flex justify-between items-end mb-2">

@@ -42,18 +42,18 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className="flex justify-between items-center h-20">
             <Link href="/">
               <div className="flex items-center gap-3 cursor-pointer">
-                <img src="/images/menzerna-logo.svg" alt="Menzerna" className="h-8 md:h-9" />
-                <span className="text-xs font-bold tracking-[0.2em] text-gray-400 mt-0.5 uppercase border-l-2 border-gray-600 pl-3">
+                <img src="/images/menzerna-logo.svg" alt="Menzerna" className="h-8 md:h-9 invert" />
+                <span className="text-xs font-bold tracking-[0.2em] text-gray-400 mt-0.5 uppercase border-l-2 border-gray-300 pl-3">
                   Türkiye
                 </span>
               </div>
             </Link>
 
             <nav className="hidden lg:flex h-full items-center">
-              <Link href="/about" className="px-6 h-full flex items-center gap-1 uppercase tracking-widest transition-colors border-b-4 border-transparent hover:text-white hover:border-[#e3000f] text-[#1d1d1d] font-extrabold text-[16px]">
+              <Link href="/about" className="px-6 h-full flex items-center gap-1 uppercase tracking-widest transition-colors border-b-4 border-transparent text-[#1d1d1d] hover:text-[#e3000f] hover:border-[#e3000f] font-extrabold text-[16px]">
                   HAKKIMIZDA
               </Link>
-              <Link href="/products" className="px-6 h-full flex items-center gap-1 font-bold uppercase tracking-widest transition-colors border-b-4 border-transparent hover:text-white hover:border-[#e3000f] text-[16px] bg-[transparent] text-[#1d1d1d]">
+              <Link href="/products" className="px-6 h-full flex items-center gap-1 font-extrabold uppercase tracking-widest transition-colors border-b-4 border-transparent text-[#1d1d1d] hover:text-[#e3000f] hover:border-[#e3000f] text-[16px]">
                   ÜRÜNLER
               </Link>
 
@@ -64,7 +64,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   onMouseEnter={() => setActiveMenu(navItem.id)}
                   onMouseLeave={() => setActiveMenu(null)}
                 >
-                  <button className="px-6 h-full flex items-center gap-1 text-sm uppercase tracking-widest transition-colors border-b-4 border-[#e3000f] font-extrabold text-[#1d1d1d]">
+                  <button className="px-6 h-full flex items-center gap-1 text-sm uppercase tracking-widest transition-colors border-b-4 border-transparent hover:text-[#e3000f] hover:border-[#e3000f] font-extrabold text-[#1d1d1d]">
                     {navItem.title}
                     <ChevronDown className={`w-4 h-4 ml-1 transition-transform duration-300 ${activeMenu === navItem.id ? "rotate-180" : ""}`} />
                   </button>
@@ -88,13 +88,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </div>
               ))}
 
-              <Link href="/contact" className="px-6 h-full flex items-center gap-1 uppercase tracking-widest transition-colors border-b-4 border-transparent hover:text-white hover:border-[#e3000f] text-[#1d1d1d] text-[16px] font-extrabold">
+              <Link href="/contact" className="px-6 h-full flex items-center gap-1 uppercase tracking-widest transition-colors border-b-4 border-transparent text-[#1d1d1d] hover:text-[#e3000f] hover:border-[#e3000f] text-[16px] font-extrabold">
                   İLETİŞİM
               </Link>
             </nav>
 
             <button 
-              className="lg:hidden text-white p-2 hover:text-[#e3000f] transition-colors"
+              className="lg:hidden text-[#1d1d1d] p-2 hover:text-[#e3000f] transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
@@ -143,41 +143,41 @@ export function Layout({ children }: { children: React.ReactNode }) {
         )}
       </header>
       <main className="flex-grow flex flex-col">{children}</main>
-      <footer className="text-gray-400 mt-auto bg-[#202020]">
+      <footer className="text-gray-500 mt-auto bg-white">
         <div className="border-t-4 border-[#e3000f]"></div>
         <div className="container mx-auto px-4 lg:px-8 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             <div>
               <div className="mb-6 flex items-center gap-3">
-                <img src="/images/menzerna-logo.svg" alt="Menzerna" className="h-7" />
-                <span className="text-[10px] font-bold tracking-[0.2em] text-gray-500 uppercase border-l-2 border-gray-600 pl-3">Türkiye</span>
+                <img src="/images/menzerna-logo.svg" alt="Menzerna" className="h-7 invert" />
+                <span className="text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase border-l-2 border-gray-300 pl-3">Türkiye</span>
               </div>
-              <p className="text-sm leading-relaxed mb-6">
+              <p className="text-sm leading-relaxed mb-6 text-gray-500">
                 Menzerna, 1888'den beri profesyonel polisaj pastalarının geliştirilmesi ve üretiminde dünya standartlarını belirlemektedir.
               </p>
-              <p className="text-xs font-bold uppercase tracking-widest text-gray-500">Perfection in Polishing</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-400">Perfection in Polishing</p>
             </div>
 
             <div>
-              <h4 className="text-white font-black uppercase tracking-widest text-sm mb-6">Ürünler</h4>
+              <h4 className="text-[#1d1d1d] font-black uppercase tracking-widest text-sm mb-6">Ürünler</h4>
               <ul className="space-y-3">
                 <li>
-                  <Link href="/category/car-polish" className="text-sm hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                  <Link href="/category/car-polish" className="text-sm text-gray-500 hover:text-[#e3000f] transition-colors flex items-center gap-2">
                     <ChevronRight className="w-3 h-3" /> Pasta, Cila ve Boya Korumalar
                   </Link>
                 </li>
                 <li>
-                  <Link href="/category/accessories" className="text-sm hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                  <Link href="/category/accessories" className="text-sm text-gray-500 hover:text-[#e3000f] transition-colors flex items-center gap-2">
                     <ChevronRight className="w-3 h-3" /> Sünger, Keçe ve Tabanlıklar
                   </Link>
                 </li>
                 <li>
-                  <Link href="/category/solid-compounds" className="text-sm hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                  <Link href="/category/solid-compounds" className="text-sm text-gray-500 hover:text-[#e3000f] transition-colors flex items-center gap-2">
                     <ChevronRight className="w-3 h-3" /> Katı Pasta ve Cilalar
                   </Link>
                 </li>
                 <li>
-                  <Link href="/category/boat-polish" className="text-sm hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                  <Link href="/category/boat-polish" className="text-sm text-gray-500 hover:text-[#e3000f] transition-colors flex items-center gap-2">
                     <ChevronRight className="w-3 h-3" /> Marin Pasta ve Cilalar
                   </Link>
                 </li>
@@ -185,30 +185,30 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </div>
 
             <div>
-              <h4 className="text-white font-black uppercase tracking-widest text-sm mb-6">Hızlı Erişim</h4>
+              <h4 className="text-[#1d1d1d] font-black uppercase tracking-widest text-sm mb-6">Hızlı Erişim</h4>
               <ul className="space-y-3">
                 <li>
-                  <Link href="/" className="text-sm hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                  <Link href="/" className="text-sm text-gray-500 hover:text-[#e3000f] transition-colors flex items-center gap-2">
                     <ChevronRight className="w-3 h-3" /> Ana Sayfa
                   </Link>
                 </li>
                 <li>
-                  <Link href="/products" className="text-sm hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                  <Link href="/products" className="text-sm text-gray-500 hover:text-[#e3000f] transition-colors flex items-center gap-2">
                     <ChevronRight className="w-3 h-3" /> Tüm Ürünler
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about" className="text-sm hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                  <Link href="/about" className="text-sm text-gray-500 hover:text-[#e3000f] transition-colors flex items-center gap-2">
                     <ChevronRight className="w-3 h-3" /> Hakkımızda
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="text-sm hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                  <Link href="/contact" className="text-sm text-gray-500 hover:text-[#e3000f] transition-colors flex items-center gap-2">
                     <ChevronRight className="w-3 h-3" /> İletişim
                   </Link>
                 </li>
                 <li>
-                  <Link href="/dealers" className="text-sm hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                  <Link href="/dealers" className="text-sm text-gray-500 hover:text-[#e3000f] transition-colors flex items-center gap-2">
                     <ChevronRight className="w-3 h-3" /> Yetkili Satıcılar
                   </Link>
                 </li>
@@ -216,11 +216,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </div>
 
             <div>
-              <h4 className="text-white font-black uppercase tracking-widest text-sm mb-6">İletişim</h4>
+              <h4 className="text-[#1d1d1d] font-black uppercase tracking-widest text-sm mb-6">İletişim</h4>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <MapPin className="w-4 h-4 text-[#e3000f] shrink-0 mt-0.5" />
-                  <p className="text-sm leading-relaxed">
+                  <p className="text-sm leading-relaxed text-gray-500">
                     MG POLİSAJ OTOMOTİV İTH. İHR. A.Ş.<br/>
                     Ümit Mh. 1411/7 Sk. No: 4/I<br/>
                     35060 Bornova / İZMİR
@@ -228,15 +228,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="w-4 h-4 text-[#e3000f] shrink-0" />
-                  <a href="tel:+905352517411" className="text-sm hover:text-white transition-colors">+90 (535) 251 74 11</a>
+                  <a href="tel:+905352517411" className="text-sm text-gray-500 hover:text-[#e3000f] transition-colors">+90 (535) 251 74 11</a>
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-[#e3000f] shrink-0" />
-                  <a href="mailto:info@menzernaturkiye.com" className="text-sm hover:text-white transition-colors">info@menzernaturkiye.com</a>
+                  <a href="mailto:info@menzernaturkiye.com" className="text-sm text-gray-500 hover:text-[#e3000f] transition-colors">info@menzernaturkiye.com</a>
                 </div>
                 <div className="flex items-start gap-3">
                   <Clock className="w-4 h-4 text-[#e3000f] shrink-0 mt-0.5" />
-                  <p className="text-sm leading-relaxed">
+                  <p className="text-sm leading-relaxed text-gray-500">
                     Pzt - Cuma: 08:30 - 18:00<br/>
                     Cumartesi: 09:00 - 14:00
                   </p>
@@ -246,16 +246,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
 
-        <div className="border-t border-gray-800">
+        <div className="border-t border-gray-200">
           <div className="container mx-auto px-4 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-gray-400">
               &copy; {new Date().getFullYear()} MG Polisaj Otomotiv - Menzerna Türkiye Yetkili Distribütörü. Tüm hakları saklıdır.
             </p>
             <div className="flex items-center gap-6">
-              <a href="https://www.menzerna.com" target="_blank" rel="noopener noreferrer" className="text-xs text-gray-500 hover:text-[#e3000f] transition-colors">
+              <a href="https://www.menzerna.com" target="_blank" rel="noopener noreferrer" className="text-xs text-gray-400 hover:text-[#e3000f] transition-colors">
                 menzerna.com
               </a>
-              <a href="https://mgpolishing.com" target="_blank" rel="noopener noreferrer" className="text-xs text-gray-500 hover:text-[#e3000f] transition-colors">
+              <a href="https://mgpolishing.com" target="_blank" rel="noopener noreferrer" className="text-xs text-gray-400 hover:text-[#e3000f] transition-colors">
                 mgpolishing.com
               </a>
             </div>

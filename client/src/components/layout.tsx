@@ -64,7 +64,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   onMouseEnter={() => setActiveMenu(navItem.id)}
                   onMouseLeave={() => setActiveMenu(null)}
                 >
-                  <button className="px-6 h-full flex items-center gap-1 text-sm uppercase tracking-widest transition-colors border-b-4 border-transparent hover:text-[#e3000f] hover:border-[#e3000f] font-extrabold text-[#1d1d1d]">
+                  <button className="px-6 h-full flex items-center gap-1 uppercase tracking-widest transition-colors border-b-4 border-transparent hover:text-[#e3000f] hover:border-[#e3000f] font-extrabold text-[#1d1d1d] text-[16px]">
                     {navItem.title}
                     <ChevronDown className={`w-4 h-4 ml-1 transition-transform duration-300 ${activeMenu === navItem.id ? "rotate-180" : ""}`} />
                   </button>

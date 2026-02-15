@@ -225,7 +225,7 @@ export default function Home() {
         </div>
       </section>
       {/* Category Teasers */}
-      <section className="py-0">
+      <section className="pt-16 md:pt-24 pb-0">
         <div className="grid grid-cols-1 md:grid-cols-3">
           <div className="group relative bg-neutral-100 h-[300px] md:h-[600px] overflow-hidden border-r border-white">
             <div className="absolute inset-0">

@@ -326,6 +326,45 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* Stats Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-6 md:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+            <div className="border-l-2 border-neutral-300 pl-4 md:pl-6">
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#e3000f] mb-1">
+                1888
+              </div>
+              <div className="text-sm md:text-base font-bold text-neutral-900">
+                Kuruluş Yılı
+              </div>
+            </div>
+            <div className="border-l-2 border-neutral-300 pl-4 md:pl-6">
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#e3000f] mb-1">
+                150
+              </div>
+              <div className="text-sm md:text-base font-bold text-neutral-900">
+                Formülasyon
+              </div>
+            </div>
+            <div className="border-l-2 border-neutral-300 pl-4 md:pl-6">
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#e3000f] mb-1">
+                50
+              </div>
+              <div className="text-sm md:text-base font-bold text-neutral-900">
+                Çalışan
+              </div>
+            </div>
+            <div className="border-l-2 border-neutral-300 pl-4 md:pl-6">
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#e3000f] mb-1">
+                70
+              </div>
+              <div className="text-sm md:text-base font-bold text-neutral-900">
+                Ülke
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* News Section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6 md:px-8">
@@ -401,45 +440,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* Stats Section - Original Style with border-left */}
-      <section className="py-16 md:py-20 bg-neutral-100 border-t border-neutral-200 mt-[60px] mb-[60px] pt-[60px] pb-[60px]">
-        <div className="container mx-auto px-6 md:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-            <div className="border-l-2 border-neutral-300 pl-4 md:pl-6">
-              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#e3000f] mb-1">
-                1888
-              </div>
-              <div className="text-sm md:text-base font-bold text-neutral-900">
-                Kuruluş Yılı
-              </div>
-            </div>
-            <div className="border-l-2 border-neutral-300 pl-4 md:pl-6">
-              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#e3000f] mb-1">
-                150
-              </div>
-              <div className="text-sm md:text-base font-bold text-neutral-900">
-                Formülasyon
-              </div>
-            </div>
-            <div className="border-l-2 border-neutral-300 pl-4 md:pl-6">
-              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#e3000f] mb-1">
-                50
-              </div>
-              <div className="text-sm md:text-base font-bold text-neutral-900">
-                Çalışan
-              </div>
-            </div>
-            <div className="border-l-2 border-neutral-300 pl-4 md:pl-6">
-              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#e3000f] mb-1">
-                70
-              </div>
-              <div className="text-sm md:text-base font-bold text-neutral-900">
-                Ülke
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       {/* Premium Quality Text + CTA */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6 md:px-8 max-w-4xl text-center">
@@ -505,20 +505,20 @@ export default function Home() {
                 varsa, lütfen bizimle iletişime geçmekten çekinmeyin.
               </p>
             </div>
-            <div className="flex flex-col gap-3 w-full md:w-auto">
-              <Link href="/contact">
+            <div className="flex flex-col gap-3 w-full md:w-[220px]">
+              <Link href="/contact" className="w-full">
                 <Button
                   size="lg"
-                  className="bg-[#e3000f] hover:bg-red-800 text-white rounded-none h-12 px-8 text-sm md:text-base w-full md:w-auto"
+                  className="bg-[#e3000f] hover:bg-red-800 text-white rounded-none h-12 px-8 text-sm md:text-base w-full"
                   data-testid="button-contact-form"
                 >
                   İletişim Formu
                 </Button>
               </Link>
-              <a href="tel:+905352517411">
+              <a href="tel:+905352517411" className="w-full">
                 <Button
                   size="lg"
-                  className="bg-[#e3000f] hover:bg-red-800 text-white rounded-none h-12 px-8 text-sm md:text-base w-full md:w-auto"
+                  className="bg-[#e3000f] hover:bg-red-800 text-white rounded-none h-12 px-8 text-sm md:text-base w-full"
                 >
                   +90 (535) 251 74 11
                 </Button>

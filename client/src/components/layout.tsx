@@ -36,7 +36,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-gray-50">
+    <div className="min-h-screen flex flex-col font-sans bg-white">
       <header className="sticky top-0 z-50 shadow-xl text-[#ffffff] bg-[#ffffff]">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex justify-between items-center h-20">

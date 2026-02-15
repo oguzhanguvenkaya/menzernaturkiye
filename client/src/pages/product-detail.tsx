@@ -349,7 +349,6 @@ export default function ProductDetail() {
           <span className="text-[#002b3d] uppercase truncate max-w-[200px]">{displayName}</span>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-12 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           <div className="flex gap-3">
@@ -681,11 +680,7 @@ export default function ProductDetail() {
                   key={tab.key}
                   onClick={() => setActiveTab(tab.key)}
                   data-testid={tab.testId}
-                  className={`px-6 py-4 text-sm font-black uppercase tracking-wider transition-colors ${
-                    effectiveTab === tab.key
-                      ? "bg-[#002b3d] text-white border-t-4 border-[#e3000f]"
-                      : "bg-gray-100 text-gray-600 hover:bg-gray-200 border-t-4 border-transparent"
-                  }`}
+                  className="px-6 py-4 uppercase tracking-wider transition-colors bg-[#002b3d] text-white border-t-4 border-[#e3000f] pl-[0px] pr-[0px] pt-[0px] pb-[0px] text-[14px] font-bold"
                 >
                   {tab.label}
                 </button>

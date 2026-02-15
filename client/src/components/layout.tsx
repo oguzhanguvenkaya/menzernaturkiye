@@ -50,7 +50,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </Link>
 
             <nav className="hidden lg:flex h-full items-center">
-              <Link href="/about" className="px-6 h-full flex items-center gap-1 text-sm font-bold uppercase tracking-widest transition-colors text-gray-200 border-b-4 border-transparent hover:text-white hover:border-[#e3000f]">
+              <Link href="/about" className="px-6 h-full flex items-center gap-1 uppercase tracking-widest transition-colors border-b-4 border-transparent hover:text-white hover:border-[#e3000f] text-[#1d1d1d] font-extrabold text-[16px]">
                   HAKKIMIZDA
               </Link>
               <Link href="/products" className="px-6 h-full flex items-center gap-1 text-sm font-bold uppercase tracking-widest transition-colors text-gray-200 border-b-4 border-transparent hover:text-white hover:border-[#e3000f]">

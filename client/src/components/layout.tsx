@@ -41,11 +41,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link href="/">
-              <div className="flex items-center gap-2 cursor-pointer">
-                <span className="text-3xl font-black tracking-tighter uppercase text-white">
-                  Menzerna<span className="text-[#e3000f]">.</span>
-                </span>
-                <span className="text-xs font-bold tracking-[0.2em] text-gray-400 mt-2 uppercase border-l-2 border-gray-600 pl-2">
+              <div className="flex items-center gap-3 cursor-pointer">
+                <img src="/images/menzerna-logo.svg" alt="Menzerna" className="h-8 md:h-9" />
+                <span className="text-xs font-bold tracking-[0.2em] text-gray-400 mt-0.5 uppercase border-l-2 border-gray-600 pl-3">
                   Türkiye
                 </span>
               </div>
@@ -156,11 +154,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <div className="container mx-auto px-4 lg:px-8 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             <div>
-              <div className="mb-6">
-                <span className="text-2xl font-black tracking-tighter uppercase text-white">
-                  Menzerna<span className="text-[#e3000f]">.</span>
-                </span>
-                <span className="text-[10px] font-bold tracking-[0.2em] text-gray-500 uppercase ml-2">Türkiye</span>
+              <div className="mb-6 flex items-center gap-3">
+                <img src="/images/menzerna-logo.svg" alt="Menzerna" className="h-7" />
+                <span className="text-[10px] font-bold tracking-[0.2em] text-gray-500 uppercase border-l-2 border-gray-600 pl-3">Türkiye</span>
               </div>
               <p className="text-sm leading-relaxed mb-6">
                 Menzerna, 1888'den beri profesyonel polisaj pastalarının geliştirilmesi ve üretiminde dünya standartlarını belirlemektedir.

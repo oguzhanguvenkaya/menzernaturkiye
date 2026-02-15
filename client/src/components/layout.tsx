@@ -42,7 +42,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className="flex justify-between items-center h-20">
             <Link href="/">
               <div className="flex items-center gap-3 cursor-pointer">
-                <img src="/images/menzerna-logo.svg" alt="Menzerna" className="h-8 md:h-9" />
+                <img src="/images/menzerna-logo.svg" alt="Menzerna" className="h-8 md:h-9 pl-[2px] pr-[2px] pt-[2px] pb-[2px] mt-[0px] mb-[0px]" />
                 <span className="text-xs font-bold tracking-[0.2em] text-gray-400 mt-0.5 uppercase border-l-2 border-gray-300 pl-3">
                   Türkiye
                 </span>

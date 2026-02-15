@@ -42,7 +42,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className="flex justify-between items-center h-20">
             <Link href="/">
               <div className="flex items-center gap-3 cursor-pointer">
-                <img src="/images/menzerna-logo.svg" alt="Menzerna" className="h-8 md:h-9 invert" />
+                <img src="/images/menzerna-logo.svg" alt="Menzerna" className="h-8 md:h-9" />
                 <span className="text-xs font-bold tracking-[0.2em] text-gray-400 mt-0.5 uppercase border-l-2 border-gray-300 pl-3">
                   Türkiye
                 </span>
@@ -149,7 +149,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             <div>
               <div className="mb-6 flex items-center gap-3">
-                <img src="/images/menzerna-logo.svg" alt="Menzerna" className="h-7 invert" />
+                <img src="/images/menzerna-logo.svg" alt="Menzerna" className="h-7" />
                 <span className="text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase border-l-2 border-gray-300 pl-3">Türkiye</span>
               </div>
               <p className="text-sm leading-relaxed mb-6 text-gray-500">

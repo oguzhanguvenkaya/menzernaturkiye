@@ -88,9 +88,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </div>
               ))}
 
-              <Link href="/contact" className={`px-6 h-full flex items-center gap-1 text-sm font-bold uppercase tracking-widest transition-colors border-b-4 ${
-                location === "/contact" ? "text-[#e3000f] border-[#e3000f]" : "text-gray-200 border-transparent hover:text-white hover:border-[#e3000f]"
-              }`}>
+              <Link href="/contact" className="px-6 h-full flex items-center gap-1 uppercase tracking-widest transition-colors border-b-4 border-transparent hover:text-white hover:border-[#e3000f] text-[#1d1d1d] text-[16px] font-extrabold">
                   İLETİŞİM
               </Link>
             </nav>

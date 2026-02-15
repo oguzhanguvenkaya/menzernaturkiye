@@ -41,19 +41,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link href="/">
-              <div className="flex items-center gap-3 cursor-pointer">
-                <img src="/images/menzerna-logo.svg" alt="Menzerna" className="h-8 md:h-9 pl-[2px] pr-[2px] pt-[2px] pb-[2px] mt-[0px] mb-[0px]" />
-                <span className="text-xs font-bold tracking-[0.2em] text-gray-400 mt-0.5 uppercase border-l-2 border-gray-300 pl-3">
+              <div className="flex items-center gap-3 cursor-pointer shrink-0">
+                <img src="/images/menzerna-logo.svg" alt="Menzerna" className="h-7 lg:h-8 xl:h-9" />
+                <span className="hidden xl:inline text-xs font-bold tracking-[0.2em] text-gray-400 mt-0.5 uppercase border-l-2 border-gray-300 pl-3">
                   Türkiye
                 </span>
               </div>
             </Link>
 
             <nav className="hidden lg:flex h-full items-center">
-              <Link href="/about" className="px-6 h-full flex items-center gap-1 uppercase tracking-widest transition-colors border-b-4 border-transparent text-[#1d1d1d] hover:text-[#e3000f] hover:border-[#e3000f] font-extrabold text-[16px]">
+              <Link href="/about" className="px-3 xl:px-6 h-full flex items-center gap-1 uppercase tracking-widest transition-colors border-b-4 border-transparent text-[#1d1d1d] hover:text-[#e3000f] hover:border-[#e3000f] font-extrabold text-[13px] xl:text-[16px]">
                   HAKKIMIZDA
               </Link>
-              <Link href="/products" className="px-6 h-full flex items-center gap-1 font-extrabold uppercase tracking-widest transition-colors border-b-4 border-transparent text-[#1d1d1d] hover:text-[#e3000f] hover:border-[#e3000f] text-[16px]">
+              <Link href="/products" className="px-3 xl:px-6 h-full flex items-center gap-1 font-extrabold uppercase tracking-widest transition-colors border-b-4 border-transparent text-[#1d1d1d] hover:text-[#e3000f] hover:border-[#e3000f] text-[13px] xl:text-[16px]">
                   ÜRÜNLER
               </Link>
 
@@ -64,7 +64,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   onMouseEnter={() => setActiveMenu(navItem.id)}
                   onMouseLeave={() => setActiveMenu(null)}
                 >
-                  <button className="px-6 h-full flex items-center gap-1 uppercase tracking-widest transition-colors border-b-4 border-transparent hover:text-[#e3000f] hover:border-[#e3000f] font-extrabold text-[#1d1d1d] text-[16px]">
+                  <button className="px-3 xl:px-6 h-full flex items-center gap-1 uppercase tracking-widest transition-colors border-b-4 border-transparent hover:text-[#e3000f] hover:border-[#e3000f] font-extrabold text-[#1d1d1d] text-[13px] xl:text-[16px]">
                     {navItem.title}
                     <ChevronDown className={`w-4 h-4 ml-1 transition-transform duration-300 ${activeMenu === navItem.id ? "rotate-180" : ""}`} />
                   </button>
@@ -88,7 +88,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </div>
               ))}
 
-              <Link href="/contact" className="px-6 h-full flex items-center gap-1 uppercase tracking-widest transition-colors border-b-4 border-transparent text-[#1d1d1d] hover:text-[#e3000f] hover:border-[#e3000f] text-[16px] font-extrabold">
+              <Link href="/contact" className="px-3 xl:px-6 h-full flex items-center gap-1 uppercase tracking-widest transition-colors border-b-4 border-transparent text-[#1d1d1d] hover:text-[#e3000f] hover:border-[#e3000f] text-[13px] xl:text-[16px] font-extrabold">
                   İLETİŞİM
               </Link>
             </nav>

@@ -326,27 +326,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* Dealer Network */}
-      <section className="py-16 md:py-20 bg-[#e0e0e0] mt-[60px] mb-[60px] pt-[60px] pb-[60px]">
-        <div className="container mx-auto px-6 md:px-8">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-3">
-                Satıcı Ağımız
-              </h2>
-              <a
-                href="https://mgpolishing.com/yetkili-saticilar/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#e3000f] font-bold text-sm md:text-base flex items-center gap-2 hover:underline"
-              >
-                Tüm Menzerna bayilerini ve online mağazaları keşfedin
-                <ArrowRight className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
       {/* News Section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6 md:px-8">

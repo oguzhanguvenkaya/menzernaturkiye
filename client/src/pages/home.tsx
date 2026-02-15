@@ -156,7 +156,7 @@ export default function Home() {
         </div>
       </section>
       {/* Features Grid */}
-      <section className="py-16 md:py-20 bg-neutral-50 border-y border-neutral-200">
+      <section className="py-16 md:py-20 bg-neutral-50 border-y border-neutral-200 mt-[60px] mb-[60px]">
         <div className="container mx-auto px-6 md:px-8">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
             {features.map((f, i) => (

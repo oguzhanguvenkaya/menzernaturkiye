@@ -119,6 +119,14 @@ const categoryMap: Record<string, CategoryDef> = {
   },
 };
 
+const categoryBanners: Record<string, { image: string; darkText: boolean }> = {
+  "car-polish": { image: "/images/banner-car-polish.jpg", darkText: false },
+  "accessories": { image: "/images/banner-accessories.jpg", darkText: false },
+  "solid-compounds": { image: "/images/banner-solid-compounds.png", darkText: false },
+  "boat-polish": { image: "/images/banner-boat-polish.png", darkText: true },
+  "marine-polish": { image: "/images/banner-boat-polish.png", darkText: true },
+};
+
 const sectionColors: Record<string, string> = {
   "heavy-cut": "#ae1d1e",
   "medium-cut": "#eab308",
@@ -186,19 +194,28 @@ export default function CategoryProducts() {
   const ungroupedGroups = groupProductsBySize(ungroupedProductsList);
 
   const totalGroupedCount = groupedSections.reduce((sum, g) => sum + g.groups.length, 0) + ungroupedGroups.length;
+  const banner = categoryBanners[catKey] || { image: "/images/banner-car-polish.jpg", darkText: false };
 
   return (
     <div className="min-h-screen bg-white pb-24" data-testid="page-category">
-      <div className="pt-20 pb-16 relative overflow-hidden border-t-4 border-[#ae1d1e] text-[16px] bg-[#202020]">
-        <div className="container mx-auto px-4 relative z-10">
-          <p className="text-xs font-black uppercase tracking-[0.25em] text-[#ae1d1e] mb-3">
+      <div className="relative overflow-hidden border-t-4 border-[#ae1d1e]" data-testid="category-banner">
+        <div className="absolute inset-0">
+          <img
+            src={banner.image}
+            alt={catInfo.title}
+            className="w-full h-full object-cover"
+          />
+          <div className={`absolute inset-0 ${banner.darkText ? "bg-white/40" : "bg-black/55"}`} />
+        </div>
+        <div className="relative z-10 pt-20 pb-16 container mx-auto px-4">
+          <p className={`text-xs font-black uppercase tracking-[0.25em] mb-3 ${banner.darkText ? "text-[#ae1d1e]" : "text-[#ae1d1e]"}`}>
             Ürün Yelpazesini Keşfedin
           </p>
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-black text-white uppercase tracking-widest mb-4" data-testid="text-category-title">
+          <h1 className={`text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-widest mb-4 ${banner.darkText ? "text-[#1d1d1d]" : "text-white"}`} data-testid="text-category-title">
             {catInfo.title}
           </h1>
           <div className="w-16 h-1.5 bg-[#ae1d1e] mb-6"></div>
-          <p className="text-gray-300 text-lg max-w-3xl font-light leading-relaxed">
+          <p className={`text-lg max-w-3xl font-light leading-relaxed ${banner.darkText ? "text-[#333]" : "text-gray-200"}`}>
             {catInfo.description}
           </p>
         </div>

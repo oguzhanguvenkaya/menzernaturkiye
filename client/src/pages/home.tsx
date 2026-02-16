@@ -114,7 +114,7 @@ export default function Home() {
                     <Link href={slide.link}>
                       <Button
                         size="lg"
-                        className="bg-[#ae1d1e] hover:bg-red-800 text-white rounded-sm px-6 md:px-8 h-12 md:h-14 text-base md:text-lg"
+                        className="bg-[#ae1d1e] hover:bg-red-800 text-white rounded-none px-6 md:px-8 h-12 md:h-14 text-base md:text-lg"
                         data-testid={`hero-cta-${i}`}
                       >
                         {slide.subtitle} <ChevronRight className="ml-2" />

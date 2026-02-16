@@ -1,0 +1,171 @@
+<div class="content-teaser-slider" data-flickity="{&quot;watchCSS&quot;: true, &quot;pageDots&quot;: false, &quot;prevNextButtons&quot;: false, &quot;cellAlign&quot;: &quot;left&quot;}">
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                <div class="content-teaser-slide" style="">
+                                <div class="content-teaser ">
+                                    <div class="content-teaser__icon">
+                                        
+                                                
+                                                    <img class="content-teaser__icon-light" src="/fileadmin/ns_theme_menzerna/icons/forschung_entwicklung.svg" width="45" height="34" alt="">
+                                                
+                                                
+                                                    <img class="content-teaser__icon-dark" src="/fileadmin/ns_theme_menzerna/icons/forschung_entwicklung_white.svg" width="45" height="34" alt="">
+                                                    
+                                            
+                                    </div>
+                                    
+                                        <div class="content-teaser__content">
+                                            
+                                                <h3>Research and Development</h3>
+                                            
+                                            
+                                                <p>Specialists develop high-performance formulas using cutting-edge lab technology.</p>
+                                            
+                                            
+                                        </div>
+                                    
+                                </div>
+                            </div><div class="content-teaser-slide" style="">
+                                <div class="content-teaser ">
+                                    <div class="content-teaser__icon">
+                                        
+                                                
+                                                    <img class="content-teaser__icon-light" src="/fileadmin/ns_theme_menzerna/icons/spezialrezepturen_2_.svg" width="45" height="45" alt="">
+                                                
+                                                
+                                                    <img class="content-teaser__icon-dark" src="/fileadmin/ns_theme_menzerna/icons/spezialrezepturen_2__white.svg" width="45" height="45" alt="">
+                                                    
+                                            
+                                    </div>
+                                    
+                                        <div class="content-teaser__content">
+                                            
+                                                <h3>Special Formulas</h3>
+                                            
+                                            
+                                                <p>With hundreds of specially developed formulas, we offer tailor-made products for any  task and any surface.</p>
+                                            
+                                            
+                                        </div>
+                                    
+                                </div>
+                            </div><div class="content-teaser-slide" style="">
+                                <div class="content-teaser ">
+                                    <div class="content-teaser__icon">
+                                        
+                                                
+                                                    <img class="content-teaser__icon-light" src="/fileadmin/ns_theme_menzerna/icons/grossproduktion_2_.svg" width="45" height="45" alt="">
+                                                
+                                                
+                                                    <img class="content-teaser__icon-dark" src="/fileadmin/ns_theme_menzerna/icons/grossproduktion_2__white.svg" width="45" height="45" alt="">
+                                                    
+                                            
+                                    </div>
+                                    
+                                        <div class="content-teaser__content">
+                                            
+                                                <h3>Large-Scale Production</h3>
+                                            
+                                            
+                                                <p>Complex batch production with outstanding quality and punctuality, based on in-depth knowledge of process engineering.</p>
+                                            
+                                            
+                                        </div>
+                                    
+                                </div>
+                            </div><div class="content-teaser-slide" style="">
+                                <div class="content-teaser ">
+                                    <div class="content-teaser__icon">
+                                        
+                                                
+                                                    <img class="content-teaser__icon-light" src="/fileadmin/ns_theme_menzerna/icons/industrie-expertise_2_.svg" width="45" height="38" alt="">
+                                                
+                                                
+                                                    <img class="content-teaser__icon-dark" src="/fileadmin/ns_theme_menzerna/icons/industrie-expertise_2__white.svg" width="45" height="38" alt="">
+                                                    
+                                            
+                                    </div>
+                                    
+                                        <div class="content-teaser__content">
+                                            
+                                                <h3>Industry Expertise</h3>
+                                            
+                                            
+                                                <p>When it comes to industrial polishing, cost-effectiveness takes center stage alongside the quality of the finish.</p>
+                                            
+                                            
+                                        </div>
+                                    
+                                </div>
+                            </div><div class="content-teaser-slide" style="">
+                                <div class="content-teaser ">
+                                    <div class="content-teaser__icon">
+                                        
+                                                
+                                                    <img class="content-teaser__icon-light" src="/fileadmin/ns_theme_menzerna/icons/automobil-expertise_2_.svg" width="45" height="38" alt="">
+                                                
+                                                
+                                                    <img class="content-teaser__icon-dark" src="/fileadmin/ns_theme_menzerna/icons/automobil-expertise_2__white.svg" width="45" height="38" alt="">
+                                                    
+                                            
+                                    </div>
+                                    
+                                        <div class="content-teaser__content">
+                                            
+                                                <h3>Automotive Expertise</h3>
+                                            
+                                            
+                                                <p>We offer professional car polishes for car manufacturers, the automotive trade, detailers and car enthusiasts.</p>
+                                            
+                                            
+                                        </div>
+                                    
+                                </div>
+                            </div><div class="content-teaser-slide" style="">
+                                <div class="content-teaser ">
+                                    <div class="content-teaser__icon">
+                                        
+                                                
+                                                    <img class="content-teaser__icon-light" src="/fileadmin/ns_theme_menzerna/icons/verfahrensentwicklung_Training_2_.svg" width="45" height="38" alt="">
+                                                
+                                                
+                                                    <img class="content-teaser__icon-dark" src="/fileadmin/ns_theme_menzerna/icons/verfahrensentwicklung_Training_2__white.svg" width="45" height="38" alt="">
+                                                    
+                                            
+                                    </div>
+                                    
+                                        <div class="content-teaser__content">
+                                            
+                                                <h3>Process Development &amp; Training</h3>
+                                            
+                                            
+                                                <p>We also support you in improving your polishing processes and offer intensive polishing training.</p>
+                                            
+                                            
+                                        </div>
+                                    
+                                </div>
+                            </div></div>

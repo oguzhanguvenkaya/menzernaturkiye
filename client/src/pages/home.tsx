@@ -130,7 +130,7 @@ export default function Home() {
               <button
                 key={i}
                 onClick={() => scrollTo(i)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`w-3 h-3 transition-all duration-300 ${
                   current === i
                     ? "bg-white scale-110"
                     : "bg-white/40 hover:bg-white/60"
@@ -140,24 +140,6 @@ export default function Home() {
             ))}
           </div>
         </Carousel>
-      </section>
-      {/* Hakkımızda Banner */}
-      <section className="relative w-full h-[140px] md:h-[220px] lg:h-[280px] overflow-hidden" data-testid="about-banner">
-        <div className="absolute inset-0">
-          <img
-            src="/images/about-banner.png"
-            alt="Menzerna"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-white/25" />
-        </div>
-        <div className="relative z-10 h-full flex items-center">
-          <div className="container mx-auto px-6 md:px-8">
-            <h1 className="text-[#1d1d1d] text-[28px] md:text-[40px] lg:text-[48px] font-bold tracking-wide drop-shadow-[0_1px_2px_rgba(255,255,255,0.6)]">
-              Hakkımızda
-            </h1>
-          </div>
-        </div>
       </section>
       {/* Intro Text */}
       <section className="pt-16 md:pt-20 pb-10 md:pb-12 bg-[#f3f3f3]">
@@ -218,7 +200,7 @@ export default function Home() {
         <div className="flex flex-col md:flex-row">
           <div className="md:w-1/2">
             <img
-              src="/images/factory-new.png"
+              src="/images/factory.jpg"
               alt="Menzerna Fabrika"
               className="w-full h-[300px] md:h-full object-cover"
             />
@@ -249,7 +231,7 @@ export default function Home() {
             <Link href="/about">
               <Button
                 size="lg"
-                className="bg-[#1d1d1d] hover:bg-neutral-700 text-white rounded-sm px-8 h-[48px] text-[16px] w-fit"
+                className="bg-[#1d1d1d] hover:bg-neutral-800 text-white rounded-none px-8 h-[48px] text-[16px] w-fit"
                 data-testid="link-about-company"
               >
                 Şirket Hakkında
@@ -370,35 +352,35 @@ export default function Home() {
       <section className="py-14 md:py-16 bg-[#f3f3f3]">
         <div className="container mx-auto px-6 md:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-            <div className="border-l-[3px] border-[#ae1d1e] pl-5 md:pl-6">
-              <div className="text-[36px] md:text-[42px] lg:text-[48px] font-bold text-[#1d1d1d] mb-1 leading-[1.1]">
+            <div className="border-l-2 border-neutral-300 pl-4 md:pl-6">
+              <div className="text-[36px] md:text-[42px] lg:text-[48px] font-bold text-[#ae1d1e] mb-1 leading-[1.1]">
                 1888
               </div>
-              <div className="text-[15px] md:text-[17px] font-semibold text-[#555]">
+              <div className="text-[16px] md:text-[18px] font-bold text-[#1d1d1d]">
                 Kuruluş Yılı
               </div>
             </div>
-            <div className="border-l-[3px] border-[#ae1d1e] pl-5 md:pl-6">
-              <div className="text-[36px] md:text-[42px] lg:text-[48px] font-bold text-[#1d1d1d] mb-1 leading-[1.1]">
+            <div className="border-l-2 border-neutral-300 pl-4 md:pl-6">
+              <div className="text-[36px] md:text-[42px] lg:text-[48px] font-bold text-[#ae1d1e] mb-1 leading-[1.1]">
                 150
               </div>
-              <div className="text-[15px] md:text-[17px] font-semibold text-[#555]">
+              <div className="text-[16px] md:text-[18px] font-bold text-[#1d1d1d]">
                 Formülasyon
               </div>
             </div>
-            <div className="border-l-[3px] border-[#ae1d1e] pl-5 md:pl-6">
-              <div className="text-[36px] md:text-[42px] lg:text-[48px] font-bold text-[#1d1d1d] mb-1 leading-[1.1]">
+            <div className="border-l-2 border-neutral-300 pl-4 md:pl-6">
+              <div className="text-[36px] md:text-[42px] lg:text-[48px] font-bold text-[#ae1d1e] mb-1 leading-[1.1]">
                 50
               </div>
-              <div className="text-[15px] md:text-[17px] font-semibold text-[#555]">
+              <div className="text-[16px] md:text-[18px] font-bold text-[#1d1d1d]">
                 Çalışan
               </div>
             </div>
-            <div className="border-l-[3px] border-[#ae1d1e] pl-5 md:pl-6">
-              <div className="text-[36px] md:text-[42px] lg:text-[48px] font-bold text-[#1d1d1d] mb-1 leading-[1.1]">
+            <div className="border-l-2 border-neutral-300 pl-4 md:pl-6">
+              <div className="text-[36px] md:text-[42px] lg:text-[48px] font-bold text-[#ae1d1e] mb-1 leading-[1.1]">
                 70
               </div>
-              <div className="text-[15px] md:text-[17px] font-semibold text-[#555]">
+              <div className="text-[16px] md:text-[18px] font-bold text-[#1d1d1d]">
                 Ülke
               </div>
             </div>
@@ -535,7 +517,7 @@ export default function Home() {
             üretmektedir.
           </p>
 
-          <div className="bg-white p-8 md:p-12 rounded-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="bg-white p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="text-left">
               <h3 className="text-[20px] md:text-[24px] font-bold text-[#1d1d1d] mb-2 leading-[1.3]">
                 Size nasıl yardımcı olabiliriz?
@@ -549,7 +531,7 @@ export default function Home() {
               <Link href="/contact" className="w-full">
                 <Button
                   size="lg"
-                  className="bg-[#ae1d1e] hover:bg-red-800 text-white rounded-sm h-[48px] px-8 text-[15px] w-full"
+                  className="bg-[#ae1d1e] hover:bg-red-800 text-white rounded-none h-[48px] px-8 text-[15px] w-full"
                   data-testid="button-contact-form"
                 >
                   İletişim Formu
@@ -558,7 +540,7 @@ export default function Home() {
               <a href="tel:+905352517411" className="w-full">
                 <Button
                   size="lg"
-                  className="bg-[#ae1d1e] hover:bg-red-800 text-white rounded-sm h-[48px] px-8 text-[15px] w-full"
+                  className="bg-[#ae1d1e] hover:bg-red-800 text-white rounded-none h-[48px] px-8 text-[15px] w-full"
                 >
                   +90 (535) 251 74 11
                 </Button>

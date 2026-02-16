@@ -145,10 +145,10 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-[#f3f3f3]">
         <div className="container mx-auto px-6 md:px-8">
           <div className="max-w-[800px]">
-            <span className="text-[#ae1d1e] font-semibold tracking-widest uppercase text-[13px] md:text-[14px] mb-3 block">
+            <span className="text-[#ae1d1e] font-bold tracking-widest uppercase text-[14px] mb-3 block">
               1888'den Beri
             </span>
-            <h2 className="text-[32px] md:text-[40px] lg:text-[48px] font-light text-[#1d1d1d] mb-6 md:mb-8 leading-[1.15]">
+            <h2 className="text-[36px] font-bold text-[#1d1d1d] mb-6 md:mb-8 leading-[1.15]">
               Profesyonel polisaj bileşikleri ve cilaları
             </h2>
             <p className="text-[15px] md:text-[17px] text-[#555] leading-[1.7] font-normal">
@@ -172,7 +172,7 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 md:gap-x-12 gap-y-10 md:gap-y-14">
             {features.map((f, i) => (
               <div key={i} className="group flex flex-col items-start" data-testid={`feature-card-${i}`}>
-                <div className="w-[72px] h-[72px] md:w-[80px] md:h-[80px] rounded-full border border-neutral-300 flex items-center justify-center mb-5 md:mb-6 transition-colors duration-300 group-hover:bg-[#1d1d1d] group-hover:border-[#1d1d1d]">
+                <div className="w-[72px] h-[72px] md:w-[80px] md:h-[80px] rounded-full border border-neutral-300 flex items-center justify-center mb-5 md:mb-6 transition-colors duration-300 group-hover:bg-[#ae1d1e] group-hover:border-[#ae1d1e]">
                   <img
                     src={f.icon}
                     alt={f.title}

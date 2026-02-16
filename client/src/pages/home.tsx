@@ -30,31 +30,37 @@ const heroSlides = [
 const features = [
   {
     icon: "/icons/menzerna/research.svg",
+    iconWhite: "/icons/menzerna/research_white.svg",
     title: "Araştırma ve Geliştirme",
     desc: "Uzmanlar, son teknoloji laboratuvarlarda yüksek performanslı formüller geliştirir.",
   },
   {
     icon: "/icons/menzerna/formulas.svg",
+    iconWhite: "/icons/menzerna/formulas_white.svg",
     title: "Özel Formüller",
     desc: "Yüzlerce özel geliştirilmiş formülle, her görev ve yüzey için özel ürünler sunuyoruz.",
   },
   {
     icon: "/icons/menzerna/production.svg",
+    iconWhite: "/icons/menzerna/production_white.svg",
     title: "Büyük Ölçekli Üretim",
     desc: "Derin süreç mühendisliği bilgisine dayalı, üstün kalite ve dakiklikle karmaşık parti üretimi.",
   },
   {
     icon: "/icons/menzerna/industry.svg",
+    iconWhite: "/icons/menzerna/industry_white.svg",
     title: "Endüstri Uzmanlığı",
-    desc: "Endüstriyel polisaj söz konusu olduğunda, finisaj kalitesinin yanı sıra maliyet etkinliği de merkezdredir.",
+    desc: "Endüstriyel polisaj söz konusu olduğunda, finisaj kalitesinin yanı sıra maliyet etkinliği de merkezdedir.",
   },
   {
     icon: "/icons/menzerna/automotive.svg",
+    iconWhite: "/icons/menzerna/automotive_white.svg",
     title: "Otomotiv Uzmanlığı",
     desc: "Otomobil üreticileri, otomotiv ticareti, detaycılar ve otomobil meraklıları için profesyonel araç cilaları sunuyoruz.",
   },
   {
     icon: "/icons/menzerna/training.svg",
+    iconWhite: "/icons/menzerna/training_white.svg",
     title: "Süreç Geliştirme & Eğitim",
     desc: "Polisaj süreçlerinizi iyileştirmenizde sizi destekliyor ve yoğun polisaj eğitimleri sunuyoruz.",
   },
@@ -136,42 +142,52 @@ export default function Home() {
         </Carousel>
       </section>
       {/* Intro Text */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-6 md:px-8 max-w-4xl">
-          <span className="text-[#ae1d1e] font-bold tracking-widest uppercase text-sm mb-4 block">
-            1888'den Beri
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-6 md:mb-8 leading-tight">
-            Profesyonel polisaj bileşikleri ve cilaları
-          </h2>
-          <p className="text-base md:text-lg text-neutral-600 leading-relaxed">
-            Menzerna, 1888'den beri endüstri ve zanaat için profesyonel polisaj
-            pastalarının geliştirilmesi ve üretiminde standartları
-            belirlemektedir. Katı bileşikler, emülsiyonlar, araç cilaları veya
-            tekne cilaları – Menzerna her yüzey ve her uygulama için doğru
-            cilaya sahiptir. Yenilikçi karışımlarımız ve polisaj
-            süreçlerimizle, ilham veren ve etkileyen premium sonuçlar elde
-            etmenizi sağlıyoruz.
-          </p>
+      <section className="py-16 md:py-24 bg-[#f3f3f3]">
+        <div className="container mx-auto px-6 md:px-8">
+          <div className="max-w-[800px]">
+            <span className="text-[#ae1d1e] font-semibold tracking-widest uppercase text-[13px] md:text-[14px] mb-3 block">
+              1888'den Beri
+            </span>
+            <h2 className="text-[32px] md:text-[40px] lg:text-[48px] font-light text-[#1d1d1d] mb-6 md:mb-8 leading-[1.15]">
+              Profesyonel polisaj bileşikleri ve cilaları
+            </h2>
+            <p className="text-[15px] md:text-[17px] text-[#555] leading-[1.7] font-normal">
+              Menzerna, 1888'den beri endüstri ve zanaat için profesyonel polisaj
+              pastalarının geliştirilmesi ve üretiminde standartları
+              belirlemektedir. Katı bileşikler, emülsiyonlar, araç cilaları veya
+              tekne cilaları – Menzerna her yüzey ve her uygulama için doğru
+              cilaya sahiptir. Yenilikçi karışımlarımız ve polisaj
+              süreçlerimizle, ilham veren ve etkileyen premium sonuçlar elde
+              etmenizi sağlıyoruz. Kapsamlı formülasyon bilgi birikimi ve müşteri
+              gereksinimlerinin hassas bir şekilde anlaşılması, Menzerna'yı
+              endüstriyel polisaj bileşikleri için bir uzman ve teknoloji lideri
+              haline getirmiştir.
+            </p>
+          </div>
         </div>
       </section>
       {/* Features Grid */}
-      <section className="py-16 md:py-20 bg-neutral-50 border-y border-neutral-200 mt-[60px] mb-[60px]">
+      <section className="py-12 md:py-16 bg-[#f3f3f3]">
         <div className="container mx-auto px-6 md:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 md:gap-x-12 gap-y-10 md:gap-y-14">
             {features.map((f, i) => (
-              <div key={i} className="flex flex-col items-start">
-                <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center mb-4 md:mb-6 border border-neutral-300">
+              <div key={i} className="group flex flex-col items-start" data-testid={`feature-card-${i}`}>
+                <div className="w-[72px] h-[72px] md:w-[80px] md:h-[80px] rounded-full border border-neutral-300 flex items-center justify-center mb-5 md:mb-6 transition-colors duration-300 group-hover:bg-[#1d1d1d] group-hover:border-[#1d1d1d]">
                   <img
                     src={f.icon}
                     alt={f.title}
-                    className="w-10 h-10 md:w-14 md:h-14"
+                    className="w-[36px] h-[36px] md:w-[40px] md:h-[40px] block group-hover:hidden"
+                  />
+                  <img
+                    src={f.iconWhite}
+                    alt={f.title}
+                    className="w-[36px] h-[36px] md:w-[40px] md:h-[40px] hidden group-hover:block"
                   />
                 </div>
-                <h3 className="text-sm md:text-lg font-bold mb-2 md:mb-3 leading-tight">
+                <h3 className="text-[16px] md:text-[18px] font-bold text-[#1d1d1d] mb-2 md:mb-3 leading-tight">
                   {f.title}
                 </h3>
-                <p className="text-xs md:text-sm text-neutral-600 leading-relaxed">
+                <p className="text-[14px] md:text-[15px] text-[#555] leading-[1.65] font-normal">
                   {f.desc}
                 </p>
               </div>

@@ -142,16 +142,16 @@ export default function Home() {
         </Carousel>
       </section>
       {/* Intro Text */}
-      <section className="py-16 md:py-24 bg-[#f3f3f3]">
+      <section className="pt-16 md:pt-20 pb-10 md:pb-12 bg-[#f3f3f3]">
         <div className="container mx-auto px-6 md:px-8">
-          <div className="max-w-[800px]">
-            <span className="text-[#ae1d1e] font-bold tracking-widest uppercase text-[14px] mb-3 block">
+          <div className="max-w-[780px]">
+            <span className="text-[#ae1d1e] font-bold tracking-widest uppercase text-[14px] mb-4 block">
               1888'den Beri
             </span>
-            <h2 className="text-[36px] font-bold text-[#1d1d1d] mb-6 md:mb-8 leading-[1.15]">
+            <h2 className="text-[30px] md:text-[36px] font-bold text-[#1d1d1d] mb-6 leading-[1.2]">
               Profesyonel polisaj bileşikleri ve cilaları
             </h2>
-            <p className="text-[15px] md:text-[17px] text-[#555] leading-[1.7] font-normal">
+            <p className="text-[16px] md:text-[18px] text-[#555] leading-[1.75] font-normal">
               Menzerna, 1888'den beri endüstri ve zanaat için profesyonel polisaj
               pastalarının geliştirilmesi ve üretiminde standartları
               belirlemektedir. Katı bileşikler, emülsiyonlar, araç cilaları veya
@@ -167,7 +167,7 @@ export default function Home() {
         </div>
       </section>
       {/* Features Grid */}
-      <section className="py-12 md:py-16 bg-[#f3f3f3]">
+      <section className="pt-6 md:pt-8 pb-16 md:pb-20 bg-[#f3f3f3]">
         <div className="container mx-auto px-6 md:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 md:gap-x-12 gap-y-10 md:gap-y-14">
             {features.map((f, i) => (
@@ -184,10 +184,10 @@ export default function Home() {
                     className="w-[36px] h-[36px] md:w-[40px] md:h-[40px] hidden group-hover:block"
                   />
                 </div>
-                <h3 className="text-[16px] md:text-[18px] font-bold text-[#1d1d1d] mb-2 md:mb-3 leading-tight">
+                <h3 className="text-[18px] md:text-[20px] font-bold text-[#1d1d1d] mb-2 leading-[1.3]">
                   {f.title}
                 </h3>
-                <p className="text-[14px] md:text-[15px] text-[#555] leading-[1.65] font-normal">
+                <p className="text-[15px] md:text-[16px] text-[#555] leading-[1.7] font-normal">
                   {f.desc}
                 </p>
               </div>
@@ -195,7 +195,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* About Section - Original Style */}
+      {/* About Section */}
       <section className="bg-white">
         <div className="flex flex-col md:flex-row">
           <div className="md:w-1/2">
@@ -206,24 +206,24 @@ export default function Home() {
             />
           </div>
           <div className="md:w-1/2 p-8 md:p-16 lg:p-20 flex flex-col justify-center">
-            <span className="text-[#ae1d1e] font-bold uppercase tracking-widest text-sm mb-4 block">
+            <span className="text-[#ae1d1e] font-bold uppercase tracking-widest text-[14px] mb-4 block">
               Hakkımızda
             </span>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-neutral-900 mb-6 leading-tight">
+            <h2 className="text-[30px] md:text-[32px] lg:text-[36px] font-bold text-[#1d1d1d] mb-6 leading-[1.2]">
               Menzerna premium markalara parlaklık verir.
             </h2>
-            <p className="text-sm md:text-base text-neutral-600 leading-relaxed mb-4">
+            <p className="text-[16px] md:text-[18px] text-[#555] leading-[1.75] mb-4">
               Bir asırlık deneyimle desteklenen Menzerna, 1888'den beri yüksek
               kaliteli katı polisaj pastaları, polisaj emülsiyonları ve araç ve
               tekne cilaları geliştirip üretmektedir.
             </p>
-            <p className="text-sm md:text-base text-neutral-600 leading-relaxed mb-4">
+            <p className="text-[16px] md:text-[18px] text-[#555] leading-[1.75] mb-4">
               Mükemmellik tutkusu her Menzerna ürününe dahil edilmiştir, bu da
               nihai kalite ve ekonomik verimliliği garanti eder. 200'den fazla
               yenilikçi formülasyonla tüm endüstriyel polisaj uygulama alanları
               kapsanmaktadır.
             </p>
-            <p className="text-sm md:text-base text-neutral-600 leading-relaxed mb-8">
+            <p className="text-[16px] md:text-[18px] text-[#555] leading-[1.75] mb-8">
               Almanya Ötigheim'daki premium polisaj bileşikleri ile bir şube
               ve bayi ağı, dünya çapında endüstriye ve ticarete hizmet
               vermektedir.
@@ -231,7 +231,7 @@ export default function Home() {
             <Link href="/about">
               <Button
                 size="lg"
-                className="bg-neutral-900 hover:bg-neutral-800 text-white rounded-none px-8 h-12 md:h-14 text-sm md:text-base w-fit"
+                className="bg-[#1d1d1d] hover:bg-neutral-800 text-white rounded-none px-8 h-[48px] text-[16px] w-fit"
                 data-testid="link-about-company"
               >
                 Şirket Hakkında
@@ -241,9 +241,9 @@ export default function Home() {
         </div>
       </section>
       {/* Category Teasers */}
-      <section className="pt-16 md:pt-24 pb-0">
+      <section className="pb-0">
         <div className="grid grid-cols-1 md:grid-cols-3">
-          <div className="group relative h-[300px] md:h-[600px] overflow-hidden border-r border-white">
+          <div className="group relative h-[300px] md:h-[550px] overflow-hidden border-r border-white">
             <div className="absolute inset-0">
               <img
                 src="/images/hero-industrial-polishing.png"
@@ -252,15 +252,15 @@ export default function Home() {
             </div>
             <div className="absolute inset-0 bg-neutral-100 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20 group-hover:opacity-0 transition-opacity duration-700" />
-            <div className="relative z-10 p-8 md:p-12 h-full flex flex-col justify-between">
+            <div className="relative z-10 p-8 md:p-10 h-full flex flex-col justify-between">
               <div>
-                <span className="text-white/80 font-bold uppercase tracking-widest text-xs md:text-sm mb-3 md:mb-4 block group-hover:text-neutral-500 transition-colors">
+                <span className="text-white/80 font-bold uppercase tracking-widest text-[14px] mb-3 block group-hover:text-neutral-500 transition-colors">
                   Endüstriyel Polisaj
                 </span>
-                <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-white group-hover:text-neutral-900 transition-colors">
+                <h3 className="text-[22px] md:text-[24px] font-bold mb-4 text-white group-hover:text-[#1d1d1d] transition-colors leading-[1.3]">
                   Polisajda Mükemmellik
                 </h3>
-                <p className="text-sm md:text-base text-white/80 mb-6 md:mb-8 group-hover:text-neutral-600 transition-colors">
+                <p className="text-[15px] md:text-[17px] text-white/80 mb-6 group-hover:text-[#555] transition-colors leading-[1.7]">
                   Menzerna, birçok farklı yüzeyin endüstriyel işlenmesi için
                   polisaj pastaları ve emülsiyonları geliştirir ve üretir.
                 </p>
@@ -268,17 +268,17 @@ export default function Home() {
               <Link href="/products?category=ENDÜSTRİYEL">
                 <Button
                   variant="link"
-                  className="text-white hover:text-[#ae1d1e] p-0 text-base md:text-lg font-bold justify-start group-hover:text-[#ae1d1e]"
+                  className="text-white hover:text-[#ae1d1e] p-0 text-[16px] font-bold justify-start group-hover:text-[#ae1d1e]"
                   data-testid="link-category-industrial"
                 >
                   Bileşikler & Emülsiyonlara Git{" "}
-                  <ArrowRight className="ml-2" />
+                  <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
             </div>
           </div>
 
-          <div className="group relative h-[300px] md:h-[600px] overflow-hidden border-r border-white">
+          <div className="group relative h-[300px] md:h-[550px] overflow-hidden border-r border-white">
             <div className="absolute inset-0">
               <img
                 src="/images/hero-car-polishing.png"
@@ -287,15 +287,15 @@ export default function Home() {
             </div>
             <div className="absolute inset-0 bg-neutral-100 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20 group-hover:opacity-0 transition-opacity duration-700" />
-            <div className="relative z-10 p-8 md:p-12 h-full flex flex-col justify-between">
+            <div className="relative z-10 p-8 md:p-10 h-full flex flex-col justify-between">
               <div>
-                <span className="text-white/80 font-bold uppercase tracking-widest text-xs md:text-sm mb-3 md:mb-4 block group-hover:text-neutral-500 transition-colors">
+                <span className="text-white/80 font-bold uppercase tracking-widest text-[14px] mb-3 block group-hover:text-neutral-500 transition-colors">
                   Araç Cilası
                 </span>
-                <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-white group-hover:text-neutral-900 transition-colors">
+                <h3 className="text-[22px] md:text-[24px] font-bold mb-4 text-white group-hover:text-[#1d1d1d] transition-colors leading-[1.3]">
                   İlham Veren Araç Cilaları
                 </h3>
-                <p className="text-sm md:text-base text-white/80 mb-6 md:mb-8 group-hover:text-neutral-600 transition-colors">
+                <p className="text-[15px] md:text-[17px] text-white/80 mb-6 group-hover:text-[#555] transition-colors leading-[1.7]">
                   Yüksek parlaklıkta otomotiv cilası: Menzerna, dört yaygın
                   polisaj aşaması için otomotiv cilaları sunar.
                 </p>
@@ -303,16 +303,16 @@ export default function Home() {
               <Link href="/products">
                 <Button
                   variant="link"
-                  className="text-white hover:text-[#ae1d1e] p-0 text-base md:text-lg font-bold justify-start group-hover:text-[#ae1d1e]"
+                  className="text-white hover:text-[#ae1d1e] p-0 text-[16px] font-bold justify-start group-hover:text-[#ae1d1e]"
                   data-testid="link-category-car"
                 >
-                  Araç Bakımına Git <ArrowRight className="ml-2" />
+                  Araç Bakımına Git <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
             </div>
           </div>
 
-          <div className="group relative h-[300px] md:h-[600px] overflow-hidden">
+          <div className="group relative h-[300px] md:h-[550px] overflow-hidden">
             <div className="absolute inset-0">
               <img
                 src="/images/hero-marine.jpg"
@@ -321,15 +321,15 @@ export default function Home() {
             </div>
             <div className="absolute inset-0 bg-neutral-100 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20 group-hover:opacity-0 transition-opacity duration-700" />
-            <div className="relative z-10 p-8 md:p-12 h-full flex flex-col justify-between">
+            <div className="relative z-10 p-8 md:p-10 h-full flex flex-col justify-between">
               <div>
-                <span className="text-white/80 font-bold uppercase tracking-widest text-xs md:text-sm mb-3 md:mb-4 block group-hover:text-neutral-500 transition-colors">
+                <span className="text-white/80 font-bold uppercase tracking-widest text-[14px] mb-3 block group-hover:text-neutral-500 transition-colors">
                   Tekne Cilası
                 </span>
-                <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-white group-hover:text-neutral-900 transition-colors">
+                <h3 className="text-[22px] md:text-[24px] font-bold mb-4 text-white group-hover:text-[#1d1d1d] transition-colors leading-[1.3]">
                   İlham Veren Tekne Cilaları
                 </h3>
-                <p className="text-sm md:text-base text-white/80 mb-6 md:mb-8 group-hover:text-neutral-600 transition-colors">
+                <p className="text-[15px] md:text-[17px] text-white/80 mb-6 group-hover:text-[#555] transition-colors leading-[1.7]">
                   Menzerna, her türlü jel kaplama için profesyonel tekne
                   cilaları sunar: Yüzey hazırlığı, çizik giderme ve mat
                   lekelerin giderilmesi.
@@ -338,10 +338,10 @@ export default function Home() {
               <Link href="/products?category=MARİN">
                 <Button
                   variant="link"
-                  className="text-white hover:text-[#ae1d1e] p-0 text-base md:text-lg font-bold justify-start group-hover:text-[#ae1d1e]"
+                  className="text-white hover:text-[#ae1d1e] p-0 text-[16px] font-bold justify-start group-hover:text-[#ae1d1e]"
                   data-testid="link-category-marine"
                 >
-                  Tekne Bakımına Git <ArrowRight className="ml-2" />
+                  Tekne Bakımına Git <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
             </div>
@@ -349,38 +349,38 @@ export default function Home() {
         </div>
       </section>
       {/* Stats Section */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-14 md:py-16 bg-[#f3f3f3]">
         <div className="container mx-auto px-6 md:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             <div className="border-l-2 border-neutral-300 pl-4 md:pl-6">
-              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#ae1d1e] mb-1">
+              <div className="text-[36px] md:text-[42px] lg:text-[48px] font-bold text-[#ae1d1e] mb-1 leading-[1.1]">
                 1888
               </div>
-              <div className="text-sm md:text-base font-bold text-neutral-900">
+              <div className="text-[16px] md:text-[18px] font-bold text-[#1d1d1d]">
                 Kuruluş Yılı
               </div>
             </div>
             <div className="border-l-2 border-neutral-300 pl-4 md:pl-6">
-              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#ae1d1e] mb-1">
+              <div className="text-[36px] md:text-[42px] lg:text-[48px] font-bold text-[#ae1d1e] mb-1 leading-[1.1]">
                 150
               </div>
-              <div className="text-sm md:text-base font-bold text-neutral-900">
+              <div className="text-[16px] md:text-[18px] font-bold text-[#1d1d1d]">
                 Formülasyon
               </div>
             </div>
             <div className="border-l-2 border-neutral-300 pl-4 md:pl-6">
-              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#ae1d1e] mb-1">
+              <div className="text-[36px] md:text-[42px] lg:text-[48px] font-bold text-[#ae1d1e] mb-1 leading-[1.1]">
                 50
               </div>
-              <div className="text-sm md:text-base font-bold text-neutral-900">
+              <div className="text-[16px] md:text-[18px] font-bold text-[#1d1d1d]">
                 Çalışan
               </div>
             </div>
             <div className="border-l-2 border-neutral-300 pl-4 md:pl-6">
-              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#ae1d1e] mb-1">
+              <div className="text-[36px] md:text-[42px] lg:text-[48px] font-bold text-[#ae1d1e] mb-1 leading-[1.1]">
                 70
               </div>
-              <div className="text-sm md:text-base font-bold text-neutral-900">
+              <div className="text-[16px] md:text-[18px] font-bold text-[#1d1d1d]">
                 Ülke
               </div>
             </div>
@@ -388,74 +388,74 @@ export default function Home() {
         </div>
       </section>
       {/* News Section */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-14 md:py-20 bg-white">
         <div className="container mx-auto px-6 md:px-8">
-          <div className="mb-10 md:mb-12">
-            <span className="text-[#ae1d1e] font-bold uppercase tracking-widest text-sm mb-2 block">
+          <div className="mb-8 md:mb-10">
+            <span className="text-[#ae1d1e] font-bold uppercase tracking-widest text-[14px] mb-2 block">
               Güncel Kalın
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900">
+            <h2 className="text-[30px] md:text-[36px] font-bold text-[#1d1d1d] leading-[1.2]">
               Haberlerimiz
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="group cursor-pointer">
-              <div className="aspect-[4/3] bg-neutral-100 mb-6 overflow-hidden relative">
+              <div className="aspect-[4/3] bg-neutral-100 mb-5 overflow-hidden relative">
                 <img
                   src="https://www.menzerna.com/fileadmin/user_upload/1767948586407.png"
                   alt="News 1"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-4 right-4 bg-[#ae1d1e] text-white p-2 text-center min-w-[50px]">
-                  <span className="block text-lg font-bold leading-tight">06</span>
-                  <span className="block text-xs font-bold uppercase">ŞUB</span>
+                  <span className="block text-[18px] font-bold leading-tight">06</span>
+                  <span className="block text-[11px] font-bold uppercase">ŞUB</span>
                 </div>
               </div>
-              <h3 className="text-lg md:text-xl font-bold mb-3 group-hover:text-[#ae1d1e] transition-colors">
+              <h3 className="text-[18px] md:text-[20px] font-bold mb-3 text-[#1d1d1d] group-hover:text-[#ae1d1e] transition-colors leading-[1.3]">
                 Yeni Menzerna kurumsal filmi yayında!
               </h3>
-              <span className="text-[#ae1d1e] font-bold text-sm flex items-center gap-1">
+              <span className="text-[#ae1d1e] font-bold text-[14px] flex items-center gap-1">
                 Devamını Oku <ArrowRight className="w-4 h-4" />
               </span>
             </div>
 
             <div className="group cursor-pointer">
-              <div className="aspect-[4/3] bg-neutral-100 mb-6 overflow-hidden relative">
+              <div className="aspect-[4/3] bg-neutral-100 mb-5 overflow-hidden relative">
                 <img
                   src="https://www.menzerna.com/fileadmin/_processed_/8/5/csm_Screenshot_2025-12-08_132700_3f06b085b9.png"
                   alt="News 2"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-4 right-4 bg-[#ae1d1e] text-white p-2 text-center min-w-[50px]">
-                  <span className="block text-lg font-bold leading-tight">04</span>
-                  <span className="block text-xs font-bold uppercase">ŞUB</span>
+                  <span className="block text-[18px] font-bold leading-tight">04</span>
+                  <span className="block text-[11px] font-bold uppercase">ŞUB</span>
                 </div>
               </div>
-              <h3 className="text-lg md:text-xl font-bold mb-3 group-hover:text-[#ae1d1e] transition-colors">
+              <h3 className="text-[18px] md:text-[20px] font-bold mb-3 text-[#1d1d1d] group-hover:text-[#ae1d1e] transition-colors leading-[1.3]">
                 VDA ve ISO'ya göre Çifte Sertifikasyon!
               </h3>
-              <span className="text-[#ae1d1e] font-bold text-sm flex items-center gap-1">
+              <span className="text-[#ae1d1e] font-bold text-[14px] flex items-center gap-1">
                 Devamını Oku <ArrowRight className="w-4 h-4" />
               </span>
             </div>
 
             <div className="group cursor-pointer">
-              <div className="aspect-[4/3] bg-neutral-100 mb-6 overflow-hidden relative">
+              <div className="aspect-[4/3] bg-neutral-100 mb-5 overflow-hidden relative">
                 <img
                   src="https://www.menzerna.com/fileadmin/user_upload/Academy_1.png"
                   alt="News 3"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-4 right-4 bg-[#ae1d1e] text-white p-2 text-center min-w-[50px]">
-                  <span className="block text-lg font-bold leading-tight">08</span>
-                  <span className="block text-xs font-bold uppercase">KAS</span>
+                  <span className="block text-[18px] font-bold leading-tight">08</span>
+                  <span className="block text-[11px] font-bold uppercase">KAS</span>
                 </div>
               </div>
-              <h3 className="text-lg md:text-xl font-bold mb-3 group-hover:text-[#ae1d1e] transition-colors">
+              <h3 className="text-[18px] md:text-[20px] font-bold mb-3 text-[#1d1d1d] group-hover:text-[#ae1d1e] transition-colors leading-[1.3]">
                 Menzerna Saxdor Academy ile işbirliği yapıyor!
               </h3>
-              <span className="text-[#ae1d1e] font-bold text-sm flex items-center gap-1">
+              <span className="text-[#ae1d1e] font-bold text-[14px] flex items-center gap-1">
                 Devamını Oku <ArrowRight className="w-4 h-4" />
               </span>
             </div>
@@ -463,12 +463,12 @@ export default function Home() {
         </div>
       </section>
       {/* Premium Quality Text + CTA */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-6 md:px-8 max-w-4xl text-center">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-neutral-900 mb-6">
+      <section className="py-14 md:py-20 bg-[#f3f3f3]">
+        <div className="container mx-auto px-6 md:px-8 max-w-[900px] text-center">
+          <h2 className="text-[30px] md:text-[32px] lg:text-[36px] font-bold text-[#1d1d1d] mb-6 leading-[1.2]">
             Premium kalitede cilalar
           </h2>
-          <p className="text-sm md:text-base text-neutral-600 leading-relaxed mb-10">
+          <p className="text-[16px] md:text-[18px] text-[#555] leading-[1.75] mb-10">
             Menzerna, cila ve bileşik üreticileri arasında uzmandır. Mükemmel
             polisaj için her zaman bir adım öteye gideriz. Menzerna, neredeyse
             her yüzey için yüksek kaliteli{" "}
@@ -517,12 +517,12 @@ export default function Home() {
             üretmektedir.
           </p>
 
-          <div className="bg-neutral-50 p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="bg-white p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="text-left">
-              <h3 className="text-xl md:text-2xl font-bold text-neutral-900 mb-2">
+              <h3 className="text-[20px] md:text-[24px] font-bold text-[#1d1d1d] mb-2 leading-[1.3]">
                 Size nasıl yardımcı olabiliriz?
               </h3>
-              <p className="text-sm md:text-base text-neutral-500">
+              <p className="text-[15px] md:text-[17px] text-[#555]">
                 Ürünlerimiz ve hizmetlerimiz hakkında herhangi bir sorunuz
                 varsa, lütfen bizimle iletişime geçmekten çekinmeyin.
               </p>
@@ -531,7 +531,7 @@ export default function Home() {
               <Link href="/contact" className="w-full">
                 <Button
                   size="lg"
-                  className="bg-[#ae1d1e] hover:bg-red-800 text-white rounded-none h-12 px-8 text-sm md:text-base w-full"
+                  className="bg-[#ae1d1e] hover:bg-red-800 text-white rounded-none h-[48px] px-8 text-[15px] w-full"
                   data-testid="button-contact-form"
                 >
                   İletişim Formu
@@ -540,7 +540,7 @@ export default function Home() {
               <a href="tel:+905352517411" className="w-full">
                 <Button
                   size="lg"
-                  className="bg-[#ae1d1e] hover:bg-red-800 text-white rounded-none h-12 px-8 text-sm md:text-base w-full"
+                  className="bg-[#ae1d1e] hover:bg-red-800 text-white rounded-none h-[48px] px-8 text-[15px] w-full"
                 >
                   +90 (535) 251 74 11
                 </Button>

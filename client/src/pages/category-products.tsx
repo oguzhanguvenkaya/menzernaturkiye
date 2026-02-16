@@ -120,28 +120,28 @@ const categoryMap: Record<string, CategoryDef> = {
 };
 
 const sectionColors: Record<string, string> = {
-  "heavy-cut": "#e3000f",
+  "heavy-cut": "#ae1d1e",
   "medium-cut": "#eab308",
   "finish": "#22c55e",
   "protection": "#06b6d4",
   "metal": "#6b7280",
-  "rotary-pads": "#e3000f",
+  "rotary-pads": "#ae1d1e",
   "orbital-pads": "#eab308",
   "wool-pads": "#6b7280",
-  "backing-plates": "#002b3d",
+  "backing-plates": "#1d1d1d",
 };
 
 function CategorySection({ section, groups, categorySlug }: { section: SectionDef; groups: ProductGroup[]; categorySlug: string }) {
   if (groups.length === 0) return null;
-  const accentColor = sectionColors[section.key] || "#e3000f";
+  const accentColor = sectionColors[section.key] || "#ae1d1e";
 
   return (
     <section className="mb-20" data-testid={`section-${section.key}`}>
       <div className="mb-10">
-        <p className="text-xs font-black uppercase tracking-[0.2em] text-[#e3000f] mb-2">
+        <p className="text-xs font-black uppercase tracking-[0.2em] text-[#ae1d1e] mb-2">
           {section.label}
         </p>
-        <h2 className="text-3xl md:text-4xl font-black text-[#002b3d] uppercase tracking-wider mb-4">
+        <h2 className="text-3xl md:text-4xl font-black text-[#1d1d1d] uppercase tracking-wider mb-4">
           {section.title}
         </h2>
         <div className="w-12 h-1" style={{ backgroundColor: accentColor }} />
@@ -189,15 +189,15 @@ export default function CategoryProducts() {
 
   return (
     <div className="min-h-screen bg-white pb-24" data-testid="page-category">
-      <div className="pt-20 pb-16 relative overflow-hidden border-t-4 border-[#e3000f] text-[16px] bg-[#202020]">
+      <div className="pt-20 pb-16 relative overflow-hidden border-t-4 border-[#ae1d1e] text-[16px] bg-[#202020]">
         <div className="container mx-auto px-4 relative z-10">
-          <p className="text-xs font-black uppercase tracking-[0.25em] text-[#e3000f] mb-3">
+          <p className="text-xs font-black uppercase tracking-[0.25em] text-[#ae1d1e] mb-3">
             Ürün Yelpazesini Keşfedin
           </p>
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-black text-white uppercase tracking-widest mb-4" data-testid="text-category-title">
             {catInfo.title}
           </h1>
-          <div className="w-16 h-1.5 bg-[#e3000f] mb-6"></div>
+          <div className="w-16 h-1.5 bg-[#ae1d1e] mb-6"></div>
           <p className="text-gray-300 text-lg max-w-3xl font-light leading-relaxed">
             {catInfo.description}
           </p>
@@ -205,9 +205,9 @@ export default function CategoryProducts() {
       </div>
       <div className="border-b border-gray-200 py-4 mb-12 bg-gray-50">
         <div className="container mx-auto px-4 flex items-center text-xs font-bold uppercase tracking-widest text-gray-500 flex-wrap gap-y-2">
-          <Link href="/"><span className="hover:text-[#e3000f] cursor-pointer transition-colors">Ana Sayfa</span></Link>
+          <Link href="/"><span className="hover:text-[#ae1d1e] cursor-pointer transition-colors">Ana Sayfa</span></Link>
           <ChevronRight className="w-3 h-3 mx-2" />
-          <span className="text-[#002b3d] uppercase">{catInfo.title}</span>
+          <span className="text-[#1d1d1d] uppercase">{catInfo.title}</span>
         </div>
       </div>
       <div className="container mx-auto px-4">
@@ -244,7 +244,7 @@ export default function CategoryProducts() {
               <section className="mb-20">
                 {hasSections && (
                   <div className="mb-10">
-                    <h2 className="text-3xl font-black text-[#002b3d] uppercase tracking-wider mb-4">
+                    <h2 className="text-3xl font-black text-[#1d1d1d] uppercase tracking-wider mb-4">
                       Diğer Ürünler
                     </h2>
                     <div className="w-12 h-1 bg-gray-400" />

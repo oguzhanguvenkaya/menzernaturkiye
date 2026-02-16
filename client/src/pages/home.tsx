@@ -108,7 +108,7 @@ export default function Home() {
                     <Link href={slide.link}>
                       <Button
                         size="lg"
-                        className="bg-[#e3000f] hover:bg-red-800 text-white rounded-none px-6 md:px-8 h-12 md:h-14 text-base md:text-lg"
+                        className="bg-[#ae1d1e] hover:bg-red-800 text-white rounded-none px-6 md:px-8 h-12 md:h-14 text-base md:text-lg"
                         data-testid={`hero-cta-${i}`}
                       >
                         {slide.subtitle} <ChevronRight className="ml-2" />
@@ -138,7 +138,7 @@ export default function Home() {
       {/* Intro Text */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6 md:px-8 max-w-4xl">
-          <span className="text-[#e3000f] font-bold tracking-widest uppercase text-sm mb-4 block">
+          <span className="text-[#ae1d1e] font-bold tracking-widest uppercase text-sm mb-4 block">
             1888'den Beri
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-6 md:mb-8 leading-tight">
@@ -190,7 +190,7 @@ export default function Home() {
             />
           </div>
           <div className="md:w-1/2 p-8 md:p-16 lg:p-20 flex flex-col justify-center">
-            <span className="text-[#e3000f] font-bold uppercase tracking-widest text-sm mb-4 block">
+            <span className="text-[#ae1d1e] font-bold uppercase tracking-widest text-sm mb-4 block">
               Hakkımızda
             </span>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-neutral-900 mb-6 leading-tight">
@@ -235,7 +235,7 @@ export default function Home() {
               />
             </div>
             <div className="absolute inset-0 bg-neutral-100 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:opacity-0 transition-opacity duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20 group-hover:opacity-0 transition-opacity duration-700" />
             <div className="relative z-10 p-8 md:p-12 h-full flex flex-col justify-between">
               <div>
                 <span className="text-white/80 font-bold uppercase tracking-widest text-xs md:text-sm mb-3 md:mb-4 block group-hover:text-neutral-500 transition-colors">
@@ -252,7 +252,7 @@ export default function Home() {
               <Link href="/products?category=ENDÜSTRİYEL">
                 <Button
                   variant="link"
-                  className="text-white hover:text-[#e3000f] p-0 text-base md:text-lg font-bold justify-start group-hover:text-[#e3000f]"
+                  className="text-white hover:text-[#ae1d1e] p-0 text-base md:text-lg font-bold justify-start group-hover:text-[#ae1d1e]"
                   data-testid="link-category-industrial"
                 >
                   Bileşikler & Emülsiyonlara Git{" "}
@@ -270,7 +270,7 @@ export default function Home() {
               />
             </div>
             <div className="absolute inset-0 bg-neutral-100 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:opacity-0 transition-opacity duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20 group-hover:opacity-0 transition-opacity duration-700" />
             <div className="relative z-10 p-8 md:p-12 h-full flex flex-col justify-between">
               <div>
                 <span className="text-white/80 font-bold uppercase tracking-widest text-xs md:text-sm mb-3 md:mb-4 block group-hover:text-neutral-500 transition-colors">
@@ -287,7 +287,7 @@ export default function Home() {
               <Link href="/products">
                 <Button
                   variant="link"
-                  className="text-white hover:text-[#e3000f] p-0 text-base md:text-lg font-bold justify-start group-hover:text-[#e3000f]"
+                  className="text-white hover:text-[#ae1d1e] p-0 text-base md:text-lg font-bold justify-start group-hover:text-[#ae1d1e]"
                   data-testid="link-category-car"
                 >
                   Araç Bakımına Git <ArrowRight className="ml-2" />
@@ -304,7 +304,7 @@ export default function Home() {
               />
             </div>
             <div className="absolute inset-0 bg-neutral-100 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:opacity-0 transition-opacity duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20 group-hover:opacity-0 transition-opacity duration-700" />
             <div className="relative z-10 p-8 md:p-12 h-full flex flex-col justify-between">
               <div>
                 <span className="text-white/80 font-bold uppercase tracking-widest text-xs md:text-sm mb-3 md:mb-4 block group-hover:text-neutral-500 transition-colors">
@@ -322,7 +322,7 @@ export default function Home() {
               <Link href="/products?category=MARİN">
                 <Button
                   variant="link"
-                  className="text-white hover:text-[#e3000f] p-0 text-base md:text-lg font-bold justify-start group-hover:text-[#e3000f]"
+                  className="text-white hover:text-[#ae1d1e] p-0 text-base md:text-lg font-bold justify-start group-hover:text-[#ae1d1e]"
                   data-testid="link-category-marine"
                 >
                   Tekne Bakımına Git <ArrowRight className="ml-2" />
@@ -337,7 +337,7 @@ export default function Home() {
         <div className="container mx-auto px-6 md:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             <div className="border-l-2 border-neutral-300 pl-4 md:pl-6">
-              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#e3000f] mb-1">
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#ae1d1e] mb-1">
                 1888
               </div>
               <div className="text-sm md:text-base font-bold text-neutral-900">
@@ -345,7 +345,7 @@ export default function Home() {
               </div>
             </div>
             <div className="border-l-2 border-neutral-300 pl-4 md:pl-6">
-              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#e3000f] mb-1">
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#ae1d1e] mb-1">
                 150
               </div>
               <div className="text-sm md:text-base font-bold text-neutral-900">
@@ -353,7 +353,7 @@ export default function Home() {
               </div>
             </div>
             <div className="border-l-2 border-neutral-300 pl-4 md:pl-6">
-              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#e3000f] mb-1">
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#ae1d1e] mb-1">
                 50
               </div>
               <div className="text-sm md:text-base font-bold text-neutral-900">
@@ -361,7 +361,7 @@ export default function Home() {
               </div>
             </div>
             <div className="border-l-2 border-neutral-300 pl-4 md:pl-6">
-              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#e3000f] mb-1">
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#ae1d1e] mb-1">
                 70
               </div>
               <div className="text-sm md:text-base font-bold text-neutral-900">
@@ -375,7 +375,7 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6 md:px-8">
           <div className="mb-10 md:mb-12">
-            <span className="text-[#e3000f] font-bold uppercase tracking-widest text-sm mb-2 block">
+            <span className="text-[#ae1d1e] font-bold uppercase tracking-widest text-sm mb-2 block">
               Güncel Kalın
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-900">
@@ -391,15 +391,15 @@ export default function Home() {
                   alt="News 1"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute top-4 right-4 bg-[#e3000f] text-white p-2 text-center min-w-[50px]">
+                <div className="absolute top-4 right-4 bg-[#ae1d1e] text-white p-2 text-center min-w-[50px]">
                   <span className="block text-lg font-bold leading-tight">06</span>
                   <span className="block text-xs font-bold uppercase">ŞUB</span>
                 </div>
               </div>
-              <h3 className="text-lg md:text-xl font-bold mb-3 group-hover:text-[#e3000f] transition-colors">
+              <h3 className="text-lg md:text-xl font-bold mb-3 group-hover:text-[#ae1d1e] transition-colors">
                 Yeni Menzerna kurumsal filmi yayında!
               </h3>
-              <span className="text-[#e3000f] font-bold text-sm flex items-center gap-1">
+              <span className="text-[#ae1d1e] font-bold text-sm flex items-center gap-1">
                 Devamını Oku <ArrowRight className="w-4 h-4" />
               </span>
             </div>
@@ -411,15 +411,15 @@ export default function Home() {
                   alt="News 2"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute top-4 right-4 bg-[#e3000f] text-white p-2 text-center min-w-[50px]">
+                <div className="absolute top-4 right-4 bg-[#ae1d1e] text-white p-2 text-center min-w-[50px]">
                   <span className="block text-lg font-bold leading-tight">04</span>
                   <span className="block text-xs font-bold uppercase">ŞUB</span>
                 </div>
               </div>
-              <h3 className="text-lg md:text-xl font-bold mb-3 group-hover:text-[#e3000f] transition-colors">
+              <h3 className="text-lg md:text-xl font-bold mb-3 group-hover:text-[#ae1d1e] transition-colors">
                 VDA ve ISO'ya göre Çifte Sertifikasyon!
               </h3>
-              <span className="text-[#e3000f] font-bold text-sm flex items-center gap-1">
+              <span className="text-[#ae1d1e] font-bold text-sm flex items-center gap-1">
                 Devamını Oku <ArrowRight className="w-4 h-4" />
               </span>
             </div>
@@ -431,15 +431,15 @@ export default function Home() {
                   alt="News 3"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute top-4 right-4 bg-[#e3000f] text-white p-2 text-center min-w-[50px]">
+                <div className="absolute top-4 right-4 bg-[#ae1d1e] text-white p-2 text-center min-w-[50px]">
                   <span className="block text-lg font-bold leading-tight">08</span>
                   <span className="block text-xs font-bold uppercase">KAS</span>
                 </div>
               </div>
-              <h3 className="text-lg md:text-xl font-bold mb-3 group-hover:text-[#e3000f] transition-colors">
+              <h3 className="text-lg md:text-xl font-bold mb-3 group-hover:text-[#ae1d1e] transition-colors">
                 Menzerna Saxdor Academy ile işbirliği yapıyor!
               </h3>
-              <span className="text-[#e3000f] font-bold text-sm flex items-center gap-1">
+              <span className="text-[#ae1d1e] font-bold text-sm flex items-center gap-1">
                 Devamını Oku <ArrowRight className="w-4 h-4" />
               </span>
             </div>
@@ -456,45 +456,45 @@ export default function Home() {
             Menzerna, cila ve bileşik üreticileri arasında uzmandır. Mükemmel
             polisaj için her zaman bir adım öteye gideriz. Menzerna, neredeyse
             her yüzey için yüksek kaliteli{" "}
-            <Link href="/products" className="text-[#e3000f] hover:underline">
+            <Link href="/products" className="text-[#ae1d1e] hover:underline">
               cilalar
             </Link>
             ,{" "}
             <Link
               href="/products?category=ENDÜSTRİYEL"
-              className="text-[#e3000f] hover:underline"
+              className="text-[#ae1d1e] hover:underline"
             >
               polisaj pastaları
             </Link>{" "}
             ve{" "}
             <Link
               href="/products?category=AKSESUAR"
-              className="text-[#e3000f] hover:underline"
+              className="text-[#ae1d1e] hover:underline"
             >
               polisaj aksesuarları
             </Link>{" "}
             sunar. 1888'den beri profesyonel{" "}
-            <Link href="/products" className="text-[#e3000f] hover:underline">
+            <Link href="/products" className="text-[#ae1d1e] hover:underline">
               araç cilası
             </Link>
             ,{" "}
             <Link
               href="/products?category=MARİN"
-              className="text-[#e3000f] hover:underline"
+              className="text-[#ae1d1e] hover:underline"
             >
               tekne cilası
             </Link>
             ,{" "}
             <Link
               href="/products?category=ENDÜSTRİYEL"
-              className="text-[#e3000f] hover:underline"
+              className="text-[#ae1d1e] hover:underline"
             >
               katı polisaj pastaları
             </Link>{" "}
             ve{" "}
             <Link
               href="/products?category=ENDÜSTRİYEL"
-              className="text-[#e3000f] hover:underline"
+              className="text-[#ae1d1e] hover:underline"
             >
               polisaj emülsiyonları
             </Link>{" "}
@@ -515,7 +515,7 @@ export default function Home() {
               <Link href="/contact" className="w-full">
                 <Button
                   size="lg"
-                  className="bg-[#e3000f] hover:bg-red-800 text-white rounded-none h-12 px-8 text-sm md:text-base w-full"
+                  className="bg-[#ae1d1e] hover:bg-red-800 text-white rounded-none h-12 px-8 text-sm md:text-base w-full"
                   data-testid="button-contact-form"
                 >
                   İletişim Formu
@@ -524,7 +524,7 @@ export default function Home() {
               <a href="tel:+905352517411" className="w-full">
                 <Button
                   size="lg"
-                  className="bg-[#e3000f] hover:bg-red-800 text-white rounded-none h-12 px-8 text-sm md:text-base w-full"
+                  className="bg-[#ae1d1e] hover:bg-red-800 text-white rounded-none h-12 px-8 text-sm md:text-base w-full"
                 >
                   +90 (535) 251 74 11
                 </Button>

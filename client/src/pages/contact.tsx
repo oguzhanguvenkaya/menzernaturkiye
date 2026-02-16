@@ -29,13 +29,13 @@ export default function Contact() {
 
   return (
     <>
-      <div className="bg-[#202020] text-white py-16 md:py-20 border-t-4 border-[#e3000f]">
+      <div className="bg-[#202020] text-white py-16 md:py-20 border-t-4 border-[#ae1d1e]">
         <div className="container mx-auto px-6 md:px-8">
-          <span className="text-[#e3000f] font-bold uppercase tracking-widest text-sm mb-4 block">
+          <span className="text-[#ae1d1e] font-bold uppercase tracking-widest text-sm mb-4 block">
             Bize Ulaşın
           </span>
           <h1 className="text-3xl md:text-5xl font-black uppercase tracking-wider mb-4" data-testid="text-contact-title">İletişim</h1>
-          <div className="w-16 h-1.5 bg-[#e3000f] mb-6"></div>
+          <div className="w-16 h-1.5 bg-[#ae1d1e] mb-6"></div>
           <p className="text-gray-400 max-w-xl font-light">
             Sorularınız, teknik destek talepleriniz veya bayilik başvurularınız için bize ulaşın.
           </p>
@@ -108,7 +108,7 @@ export default function Contact() {
                 />
               </div>
               <Button
-                className="w-full bg-[#e3000f] hover:bg-red-800 text-white h-12 text-base rounded-none"
+                className="w-full bg-[#ae1d1e] hover:bg-red-800 text-white h-12 text-base rounded-none"
                 type="submit"
                 disabled={contactMutation.isPending}
                 data-testid="button-submit"
@@ -123,7 +123,7 @@ export default function Contact() {
               <h3 className="text-2xl font-bold text-neutral-900 mb-8">İletişim Bilgileri</h3>
               <div className="space-y-8">
                 <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-neutral-100 flex items-center justify-center text-[#e3000f] shrink-0">
+                  <div className="w-12 h-12 bg-neutral-100 flex items-center justify-center text-[#ae1d1e] shrink-0">
                     <MapPin className="h-6 w-6" />
                   </div>
                   <div>
@@ -137,7 +137,7 @@ export default function Contact() {
                 </div>
 
                 <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-neutral-100 flex items-center justify-center text-[#e3000f] shrink-0">
+                  <div className="w-12 h-12 bg-neutral-100 flex items-center justify-center text-[#ae1d1e] shrink-0">
                     <Phone className="h-6 w-6" />
                   </div>
                   <div>
@@ -149,7 +149,7 @@ export default function Contact() {
                 </div>
 
                 <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-neutral-100 flex items-center justify-center text-[#e3000f] shrink-0">
+                  <div className="w-12 h-12 bg-neutral-100 flex items-center justify-center text-[#ae1d1e] shrink-0">
                     <Mail className="h-6 w-6" />
                   </div>
                   <div>
@@ -162,7 +162,7 @@ export default function Contact() {
                 </div>
 
                 <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-neutral-100 flex items-center justify-center text-[#e3000f] shrink-0">
+                  <div className="w-12 h-12 bg-neutral-100 flex items-center justify-center text-[#ae1d1e] shrink-0">
                     <Clock className="h-6 w-6" />
                   </div>
                   <div>

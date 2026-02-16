@@ -92,7 +92,7 @@ export function ProductCard({ product, categorySlug, group }: { product: Product
       return <span className="bg-neutral-800 text-white text-[10px] font-black px-3 py-1 uppercase tracking-wider">Sanding</span>;
     }
     if (activeProduct.template_sub_type === "heavy_cut_compound" || (cutLevel && cutLevel > 8)) {
-      return <span className="bg-[#e3000f] text-white text-[10px] font-black px-3 py-1 uppercase tracking-wider">Heavy Cut</span>;
+      return <span className="bg-[#ae1d1e] text-white text-[10px] font-black px-3 py-1 uppercase tracking-wider">Heavy Cut</span>;
     }
     if (activeProduct.template_sub_type === "one_step_polish" || activeProduct.product_name?.toLowerCase().includes("3in1") || activeProduct.product_name?.toLowerCase().includes("3 in 1")) {
       return <span className="bg-blue-600 text-white text-[10px] font-black px-3 py-1 uppercase tracking-wider">3in1</span>;
@@ -114,7 +114,7 @@ export function ProductCard({ product, categorySlug, group }: { product: Product
   const hasMultipleImages = cardImages.length > 1;
 
   return (
-    <div className="group h-full bg-white border border-gray-200 hover:border-[#e3000f] transition-all duration-300 hover:shadow-xl flex flex-col" data-testid={`card-product-${product.sku}`}>
+    <div className="group h-full bg-white border border-gray-200 hover:border-[#ae1d1e] transition-all duration-300 hover:shadow-xl flex flex-col" data-testid={`card-product-${product.sku}`}>
       <Link href={`/category/${slug}/${detailSku}`}>
         <div
           className="relative aspect-square overflow-hidden bg-gray-50 p-6 cursor-pointer"
@@ -164,7 +164,7 @@ export function ProductCard({ product, categorySlug, group }: { product: Product
                 <div
                   key={idx}
                   className={`w-1.5 h-1.5 transition-all ${
-                    idx === hoverImageIndex ? "bg-[#e3000f] scale-125" : "bg-gray-400"
+                    idx === hoverImageIndex ? "bg-[#ae1d1e] scale-125" : "bg-gray-400"
                   }`}
                 />
               ))}
@@ -178,7 +178,7 @@ export function ProductCard({ product, categorySlug, group }: { product: Product
           {activeProduct.category?.sub_cat2 || activeProduct.category?.sub_cat || ""}
         </div>
         <Link href={`/category/${slug}/${detailSku}`}>
-          <h3 className="font-bold text-[#002b3d] text-sm leading-snug line-clamp-2 min-h-[2.5rem] group-hover:text-[#e3000f] transition-colors mb-3 cursor-pointer">
+          <h3 className="font-bold text-[#1d1d1d] text-sm leading-snug line-clamp-2 min-h-[2.5rem] group-hover:text-[#ae1d1e] transition-colors mb-3 cursor-pointer">
             {displayName}
           </h3>
         </Link>
@@ -196,8 +196,8 @@ export function ProductCard({ product, categorySlug, group }: { product: Product
                   }}
                   className={`inline-block px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider border cursor-pointer transition-colors ${
                     isActive
-                      ? "bg-[#002b3d] text-white border-[#002b3d]"
-                      : "bg-white text-gray-600 border-gray-300 hover:border-[#e3000f] hover:text-[#e3000f]"
+                      ? "bg-[#1d1d1d] text-white border-[#1d1d1d]"
+                      : "bg-white text-gray-600 border-gray-300 hover:border-[#ae1d1e] hover:text-[#ae1d1e]"
                   }`}
                   data-testid={`size-option-${v.product.sku}`}
                 >
@@ -215,7 +215,7 @@ export function ProductCard({ product, categorySlug, group }: { product: Product
                 <span className="w-8 text-gray-500 font-bold uppercase">Cut</span>
                 <div className="flex-1 flex gap-0.5">
                   {[...Array(10)].map((_, i) => (
-                    <div key={i} className={`flex-1 h-1.5 ${i < cutLevel ? 'bg-[#e3000f]' : 'bg-gray-200'}`} />
+                    <div key={i} className={`flex-1 h-1.5 ${i < cutLevel ? 'bg-[#ae1d1e]' : 'bg-gray-200'}`} />
                   ))}
                 </div>
                 <span className="w-4 text-right font-black text-gray-700">{cutLevel}</span>
@@ -238,7 +238,7 @@ export function ProductCard({ product, categorySlug, group }: { product: Product
 
       <div className="px-5 pb-4">
         <Link href={`/category/${slug}/${detailSku}`}>
-          <span className="text-[#e3000f] font-black text-xs uppercase tracking-widest group-hover:underline cursor-pointer">
+          <span className="text-[#ae1d1e] font-black text-xs uppercase tracking-widest group-hover:underline cursor-pointer">
             Detayları Gör &rarr;
           </span>
         </Link>

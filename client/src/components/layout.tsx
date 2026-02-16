@@ -50,10 +50,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </Link>
 
             <nav className="hidden lg:flex h-full items-center">
-              <Link href="/about" className="px-3 xl:px-6 h-full flex items-center gap-1 uppercase tracking-widest transition-colors border-b-4 border-transparent text-[#1d1d1d] hover:text-[#e3000f] hover:border-[#e3000f] font-extrabold text-[13px] xl:text-[16px]">
+              <Link href="/about" className="px-3 xl:px-6 h-full flex items-center gap-1 uppercase tracking-widest transition-colors border-b-4 border-transparent text-[#1d1d1d] hover:text-[#ae1d1e] hover:border-[#ae1d1e] font-extrabold text-[13px] xl:text-[16px]">
                   HAKKIMIZDA
               </Link>
-              <Link href="/products" className="px-3 xl:px-6 h-full flex items-center gap-1 font-extrabold uppercase tracking-widest transition-colors border-b-4 border-transparent text-[#1d1d1d] hover:text-[#e3000f] hover:border-[#e3000f] text-[13px] xl:text-[16px]">
+              <Link href="/products" className="px-3 xl:px-6 h-full flex items-center gap-1 font-extrabold uppercase tracking-widest transition-colors border-b-4 border-transparent text-[#1d1d1d] hover:text-[#ae1d1e] hover:border-[#ae1d1e] text-[13px] xl:text-[16px]">
                   ÜRÜNLER
               </Link>
 
@@ -64,7 +64,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   onMouseEnter={() => setActiveMenu(navItem.id)}
                   onMouseLeave={() => setActiveMenu(null)}
                 >
-                  <button className="px-3 xl:px-6 h-full flex items-center gap-1 uppercase tracking-widest transition-colors border-b-4 border-transparent hover:text-[#e3000f] hover:border-[#e3000f] font-extrabold text-[#1d1d1d] text-[13px] xl:text-[16px]">
+                  <button className="px-3 xl:px-6 h-full flex items-center gap-1 uppercase tracking-widest transition-colors border-b-4 border-transparent hover:text-[#ae1d1e] hover:border-[#ae1d1e] font-extrabold text-[#1d1d1d] text-[13px] xl:text-[16px]">
                     {navItem.title}
                     <ChevronDown className={`w-4 h-4 ml-1 transition-transform duration-300 ${activeMenu === navItem.id ? "rotate-180" : ""}`} />
                   </button>
@@ -74,8 +74,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   }`}>
                     <div className="py-2 flex flex-col">
                       {navItem.subcategories.map((sub) => (
-                        <Link key={sub.name} href={sub.href} className={`px-6 py-4 font-bold text-sm transition-colors flex items-center justify-between border-l-2 border-transparent hover:border-[#e3000f] ${
-                            sub.isDealer ? "text-[#e3000f] hover:bg-red-50" : "text-[#002b3d] hover:bg-gray-50"
+                        <Link key={sub.name} href={sub.href} className={`px-6 py-4 font-bold text-sm transition-colors flex items-center justify-between border-l-2 border-transparent hover:border-[#ae1d1e] ${
+                            sub.isDealer ? "text-[#ae1d1e] hover:bg-red-50" : "text-[#1d1d1d] hover:bg-gray-50"
                           }`}>
                             <span className="flex items-center gap-2">
                               {sub.isDealer && <MapPin className="w-4 h-4" />}
@@ -88,13 +88,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </div>
               ))}
 
-              <Link href="/contact" className="px-3 xl:px-6 h-full flex items-center gap-1 uppercase tracking-widest transition-colors border-b-4 border-transparent text-[#1d1d1d] hover:text-[#e3000f] hover:border-[#e3000f] text-[13px] xl:text-[16px] font-extrabold">
+              <Link href="/contact" className="px-3 xl:px-6 h-full flex items-center gap-1 uppercase tracking-widest transition-colors border-b-4 border-transparent text-[#1d1d1d] hover:text-[#ae1d1e] hover:border-[#ae1d1e] text-[13px] xl:text-[16px] font-extrabold">
                   İLETİŞİM
               </Link>
             </nav>
 
             <button 
-              className="lg:hidden text-[#1d1d1d] p-2 hover:text-[#e3000f] transition-colors"
+              className="lg:hidden text-[#1d1d1d] p-2 hover:text-[#ae1d1e] transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
@@ -122,7 +122,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     <Link key={sub.name} href={sub.href}
                         onClick={() => setIsMobileMenuOpen(false)}
                         className={`px-8 py-4 text-sm font-semibold flex items-center justify-between hover:bg-white/5 transition-colors ${
-                          sub.isDealer ? "text-[#e3000f]" : "text-gray-200 hover:text-white"
+                          sub.isDealer ? "text-[#ae1d1e]" : "text-gray-200 hover:text-white"
                         }`}
                       >
                         <span className="flex items-center gap-2">
@@ -144,7 +144,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </header>
       <main className="flex-grow flex flex-col">{children}</main>
       <footer className="text-gray-500 mt-auto bg-white">
-        <div className="border-t-4 border-[#e3000f]"></div>
+        <div className="border-t-4 border-[#ae1d1e]"></div>
         <div className="container mx-auto px-4 lg:px-8 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             <div>
@@ -162,22 +162,22 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <h4 className="text-[#1d1d1d] font-black uppercase tracking-widest text-sm mb-6">Ürünler</h4>
               <ul className="space-y-3">
                 <li>
-                  <Link href="/category/car-polish" className="text-sm text-gray-500 hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                  <Link href="/category/car-polish" className="text-sm text-gray-500 hover:text-[#ae1d1e] transition-colors flex items-center gap-2">
                     <ChevronRight className="w-3 h-3" /> Pasta, Cila ve Boya Korumalar
                   </Link>
                 </li>
                 <li>
-                  <Link href="/category/accessories" className="text-sm text-gray-500 hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                  <Link href="/category/accessories" className="text-sm text-gray-500 hover:text-[#ae1d1e] transition-colors flex items-center gap-2">
                     <ChevronRight className="w-3 h-3" /> Sünger, Keçe ve Tabanlıklar
                   </Link>
                 </li>
                 <li>
-                  <Link href="/category/solid-compounds" className="text-sm text-gray-500 hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                  <Link href="/category/solid-compounds" className="text-sm text-gray-500 hover:text-[#ae1d1e] transition-colors flex items-center gap-2">
                     <ChevronRight className="w-3 h-3" /> Katı Pasta ve Cilalar
                   </Link>
                 </li>
                 <li>
-                  <Link href="/category/boat-polish" className="text-sm text-gray-500 hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                  <Link href="/category/boat-polish" className="text-sm text-gray-500 hover:text-[#ae1d1e] transition-colors flex items-center gap-2">
                     <ChevronRight className="w-3 h-3" /> Marin Pasta ve Cilalar
                   </Link>
                 </li>
@@ -188,27 +188,27 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <h4 className="text-[#1d1d1d] font-black uppercase tracking-widest text-sm mb-6">Hızlı Erişim</h4>
               <ul className="space-y-3">
                 <li>
-                  <Link href="/" className="text-sm text-gray-500 hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                  <Link href="/" className="text-sm text-gray-500 hover:text-[#ae1d1e] transition-colors flex items-center gap-2">
                     <ChevronRight className="w-3 h-3" /> Ana Sayfa
                   </Link>
                 </li>
                 <li>
-                  <Link href="/products" className="text-sm text-gray-500 hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                  <Link href="/products" className="text-sm text-gray-500 hover:text-[#ae1d1e] transition-colors flex items-center gap-2">
                     <ChevronRight className="w-3 h-3" /> Tüm Ürünler
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about" className="text-sm text-gray-500 hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                  <Link href="/about" className="text-sm text-gray-500 hover:text-[#ae1d1e] transition-colors flex items-center gap-2">
                     <ChevronRight className="w-3 h-3" /> Hakkımızda
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="text-sm text-gray-500 hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                  <Link href="/contact" className="text-sm text-gray-500 hover:text-[#ae1d1e] transition-colors flex items-center gap-2">
                     <ChevronRight className="w-3 h-3" /> İletişim
                   </Link>
                 </li>
                 <li>
-                  <Link href="/dealers" className="text-sm text-gray-500 hover:text-[#e3000f] transition-colors flex items-center gap-2">
+                  <Link href="/dealers" className="text-sm text-gray-500 hover:text-[#ae1d1e] transition-colors flex items-center gap-2">
                     <ChevronRight className="w-3 h-3" /> Yetkili Satıcılar
                   </Link>
                 </li>
@@ -219,7 +219,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <h4 className="text-[#1d1d1d] font-black uppercase tracking-widest text-sm mb-6">İletişim</h4>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-4 h-4 text-[#e3000f] shrink-0 mt-0.5" />
+                  <MapPin className="w-4 h-4 text-[#ae1d1e] shrink-0 mt-0.5" />
                   <p className="text-sm leading-relaxed text-gray-500">
                     MG POLİSAJ OTOMOTİV İTH. İHR. A.Ş.<br/>
                     Ümit Mh. 1411/7 Sk. No: 4/I<br/>
@@ -227,15 +227,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-[#e3000f] shrink-0" />
-                  <a href="tel:+905352517411" className="text-sm text-gray-500 hover:text-[#e3000f] transition-colors">+90 (535) 251 74 11</a>
+                  <Phone className="w-4 h-4 text-[#ae1d1e] shrink-0" />
+                  <a href="tel:+905352517411" className="text-sm text-gray-500 hover:text-[#ae1d1e] transition-colors">+90 (535) 251 74 11</a>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-[#e3000f] shrink-0" />
-                  <a href="mailto:info@menzernaturkiye.com" className="text-sm text-gray-500 hover:text-[#e3000f] transition-colors">info@menzernaturkiye.com</a>
+                  <Mail className="w-4 h-4 text-[#ae1d1e] shrink-0" />
+                  <a href="mailto:info@menzernaturkiye.com" className="text-sm text-gray-500 hover:text-[#ae1d1e] transition-colors">info@menzernaturkiye.com</a>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Clock className="w-4 h-4 text-[#e3000f] shrink-0 mt-0.5" />
+                  <Clock className="w-4 h-4 text-[#ae1d1e] shrink-0 mt-0.5" />
                   <p className="text-sm leading-relaxed text-gray-500">
                     Pzt - Cuma: 08:30 - 18:00<br/>
                     Cumartesi: 09:00 - 14:00
@@ -252,10 +252,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
               &copy; {new Date().getFullYear()} MG Polisaj Otomotiv - Menzerna Türkiye Yetkili Distribütörü. Tüm hakları saklıdır.
             </p>
             <div className="flex items-center gap-6">
-              <a href="https://www.menzerna.com" target="_blank" rel="noopener noreferrer" className="text-xs text-gray-400 hover:text-[#e3000f] transition-colors">
+              <a href="https://www.menzerna.com" target="_blank" rel="noopener noreferrer" className="text-xs text-gray-400 hover:text-[#ae1d1e] transition-colors">
                 menzerna.com
               </a>
-              <a href="https://mgpolishing.com" target="_blank" rel="noopener noreferrer" className="text-xs text-gray-400 hover:text-[#e3000f] transition-colors">
+              <a href="https://mgpolishing.com" target="_blank" rel="noopener noreferrer" className="text-xs text-gray-400 hover:text-[#ae1d1e] transition-colors">
                 mgpolishing.com
               </a>
             </div>

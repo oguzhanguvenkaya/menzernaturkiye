@@ -27,7 +27,7 @@ Preferred communication style: Simple, everyday language.
 - **Entry point:** `client/src/main.tsx` → `client/src/App.tsx`
 
 **Key Design Rules (Brand Identity):**
-- Primary colors: Dark Industrial Navy `#002b3d` and Menzerna Red `#e3000f` (also `#AF1D1F` as brand red in CSS vars)
+- Primary colors: Brand Black `#1d1d1d` and Menzerna Red `#ae1d1e` (official brand colors from Menzerna style guide)
 - Sharp corners everywhere (`rounded-none`) — German industrial aesthetic, no rounded/oval shapes
 - Bold uppercase headers with wide letter spacing (`font-black uppercase tracking-widest`)
 - Product cards show Cut and Gloss ratings as progress bars (scale of 10)

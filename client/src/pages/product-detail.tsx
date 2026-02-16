@@ -73,8 +73,8 @@ function renderFormattedDescription(raw: string) {
               );
             }
             return (
-              <li key={j} className="flex items-start gap-3 bg-gray-50 p-3 border-l-4 border-[#e3000f]">
-                <CheckCircle2 className="w-5 h-5 text-[#e3000f] shrink-0 mt-0.5" />
+              <li key={j} className="flex items-start gap-3 bg-gray-50 p-3 border-l-4 border-[#ae1d1e]">
+                <CheckCircle2 className="w-5 h-5 text-[#ae1d1e] shrink-0 mt-0.5" />
                 <span className="font-medium">{stripped.replace(/^[•\s]+/, "")}</span>
               </li>
             );
@@ -92,8 +92,8 @@ function renderFormattedDescription(raw: string) {
         if (/^\d+[\.\)]/.test(line)) {
           stepNum++;
           elements.push(
-            <li key={j} className="flex items-start gap-3 bg-gray-50 p-3 border-l-4 border-[#002b3d]">
-              <span className="flex items-center justify-center w-7 h-7 bg-[#002b3d] text-white font-black shrink-0 text-sm">{stepNum}</span>
+            <li key={j} className="flex items-start gap-3 bg-gray-50 p-3 border-l-4 border-[#1d1d1d]">
+              <span className="flex items-center justify-center w-7 h-7 bg-[#1d1d1d] text-white font-black shrink-0 text-sm">{stepNum}</span>
               <span className="font-medium">{line.replace(/^\d+[\.\)]\s*/, "")}</span>
             </li>
           );
@@ -118,7 +118,7 @@ function renderFormattedDescription(raw: string) {
     const cleanedTrimmed = stripVolumeFromTitle(trimmed);
     const isBold = cleanedTrimmed.length < 80 && !cleanedTrimmed.includes(".");
     if (isBold) {
-      return <h3 key={i} className="text-xl font-black text-[#002b3d] uppercase tracking-wide mt-8 mb-3">{cleanedTrimmed}</h3>;
+      return <h3 key={i} className="text-xl font-black text-[#1d1d1d] uppercase tracking-wide mt-8 mb-3">{cleanedTrimmed}</h3>;
     }
     return <p key={i} className="mb-4 text-gray-700 leading-relaxed">{cleanedTrimmed}</p>;
   });
@@ -283,9 +283,9 @@ export default function ProductDetail() {
   if (!product) {
     return (
       <div className="container mx-auto py-32 text-center">
-        <h1 className="text-2xl font-black text-[#002b3d] uppercase tracking-widest">Ürün bulunamadı.</h1>
+        <h1 className="text-2xl font-black text-[#1d1d1d] uppercase tracking-widest">Ürün bulunamadı.</h1>
         <Link href={`/category/${category}`}>
-          <span className="text-[#e3000f] font-bold mt-4 inline-block cursor-pointer hover:underline">Kategoriye Dön</span>
+          <span className="text-[#ae1d1e] font-bold mt-4 inline-block cursor-pointer hover:underline">Kategoriye Dön</span>
         </Link>
       </div>
     );
@@ -322,7 +322,7 @@ export default function ProductDetail() {
 
   const displayName = hasVariants ? group.baseName : stripVolumeFromTitle(p.product_name || "");
 
-  const stepColors: Record<number, string> = { 1: "#e3000f", 2: "#eab308", 3: "#22c55e", 4: "#06b6d4" };
+  const stepColors: Record<number, string> = { 1: "#ae1d1e", 2: "#eab308", 3: "#22c55e", 4: "#06b6d4" };
 
   const hasDescription = !!content.full_description;
   const hasUsage = !!(content.how_to_use || content.why_this_product || content.when_to_use || content.target_surface);
@@ -340,13 +340,13 @@ export default function ProductDetail() {
     <div className="bg-white min-h-screen pb-24" data-testid="page-product-detail">
       <div className="bg-gray-50 py-4 border-b border-gray-200">
         <div className="container mx-auto px-4 flex items-center text-xs uppercase tracking-widest font-black text-gray-500 flex-wrap gap-y-2">
-          <Link href="/"><span className="hover:text-[#e3000f] cursor-pointer">Ana Sayfa</span></Link>
+          <Link href="/"><span className="hover:text-[#ae1d1e] cursor-pointer">Ana Sayfa</span></Link>
           <ChevronRight className="w-3 h-3 mx-2" />
           <Link href={`/category/${category}`}>
-            <span className="hover:text-[#e3000f] cursor-pointer uppercase">{categoryTitles[category as string] || category}</span>
+            <span className="hover:text-[#ae1d1e] cursor-pointer uppercase">{categoryTitles[category as string] || category}</span>
           </Link>
           <ChevronRight className="w-3 h-3 mx-2" />
-          <span className="text-[#002b3d] uppercase truncate max-w-[200px]">{displayName}</span>
+          <span className="text-[#1d1d1d] uppercase truncate max-w-[200px]">{displayName}</span>
         </div>
       </div>
       <div className="container mx-auto px-4 py-12 lg:py-16">
@@ -360,7 +360,7 @@ export default function ProductDetail() {
                     onClick={() => setSelectedImageIndex(idx)}
                     className={`w-16 h-16 lg:w-20 lg:h-20 border-2 p-1 bg-white flex items-center justify-center transition-all ${
                       idx === selectedImageIndex
-                        ? "border-[#e3000f] shadow-md"
+                        ? "border-[#ae1d1e] shadow-md"
                         : "border-gray-200 hover:border-gray-400"
                     }`}
                     data-testid={`btn-thumbnail-${idx}`}
@@ -416,7 +416,7 @@ export default function ProductDetail() {
                       key={idx}
                       onClick={() => setSelectedImageIndex(idx)}
                       className={`w-2 h-2 transition-all ${
-                        idx === selectedImageIndex ? "bg-[#e3000f] scale-125" : "bg-gray-300 hover:bg-gray-500"
+                        idx === selectedImageIndex ? "bg-[#ae1d1e] scale-125" : "bg-gray-300 hover:bg-gray-500"
                       }`}
                       aria-label={`Görsel ${idx + 1}`}
                     />
@@ -431,10 +431,10 @@ export default function ProductDetail() {
               {p.category?.sub_cat2 || p.category?.sub_cat || ""} &bull; SKU: {p.sku}
             </div>
 
-            <h1 className="text-xl lg:text-2xl font-black text-[#002b3d] mb-4 tracking-tight uppercase leading-tight" data-testid="text-product-name">
+            <h1 className="text-xl lg:text-2xl font-black text-[#1d1d1d] mb-4 tracking-tight uppercase leading-tight" data-testid="text-product-name">
               {displayName}
             </h1>
-            <div className="w-16 h-1.5 bg-[#e3000f] mb-6"></div>
+            <div className="w-16 h-1.5 bg-[#ae1d1e] mb-6"></div>
 
             {scrapeSubtitle && (
               <p className="text-gray-700 leading-relaxed mb-3 text-base font-semibold" data-testid="text-product-subtitle">
@@ -466,8 +466,8 @@ export default function ProductDetail() {
                         onClick={() => setActiveSku(v.product.sku)}
                         className={`px-4 py-2.5 text-xs font-bold uppercase tracking-wider border-2 transition-colors ${
                           isActive
-                            ? "bg-[#002b3d] text-white border-[#002b3d]"
-                            : "bg-white text-gray-600 border-gray-300 hover:border-[#e3000f] hover:text-[#e3000f]"
+                            ? "bg-[#1d1d1d] text-white border-[#1d1d1d]"
+                            : "bg-white text-gray-600 border-gray-300 hover:border-[#ae1d1e] hover:text-[#ae1d1e]"
                         }`}
                         data-testid={`detail-size-${v.product.sku}`}
                       >
@@ -484,12 +484,12 @@ export default function ProductDetail() {
                 {cutLevel !== undefined && (
                   <div>
                     <div className="flex justify-between items-end mb-2">
-                      <span className="font-black text-[#002b3d] uppercase tracking-widest text-sm">Kesicilik (Cut)</span>
-                      <span className="font-black text-xl text-[#e3000f] leading-none">{cutLevel}<span className="text-base text-gray-400 ml-1">/10</span></span>
+                      <span className="font-black text-[#1d1d1d] uppercase tracking-widest text-sm">Kesicilik (Cut)</span>
+                      <span className="font-black text-xl text-[#ae1d1e] leading-none">{cutLevel}<span className="text-base text-gray-400 ml-1">/10</span></span>
                     </div>
                     <div className="flex gap-1.5 h-2 w-full">
                       {[...Array(10)].map((_, i) => (
-                        <div key={i} className={`flex-1 ${i < cutLevel ? 'bg-[#e3000f]' : 'bg-gray-300'}`} />
+                        <div key={i} className={`flex-1 ${i < cutLevel ? 'bg-[#ae1d1e]' : 'bg-gray-300'}`} />
                       ))}
                     </div>
                   </div>
@@ -497,7 +497,7 @@ export default function ProductDetail() {
                 {glossLevel !== undefined && (
                   <div>
                     <div className="flex justify-between items-end mb-2">
-                      <span className="font-black text-[#002b3d] uppercase tracking-widest text-sm">Parlaklık (Gloss)</span>
+                      <span className="font-black text-[#1d1d1d] uppercase tracking-widest text-sm">Parlaklık (Gloss)</span>
                       <span className="font-black text-xl text-[#009b77] leading-none">{glossLevel}<span className="text-base text-gray-400 ml-1">/10</span></span>
                     </div>
                     <div className="flex gap-1.5 h-2 w-full">
@@ -514,28 +514,28 @@ export default function ProductDetail() {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
                 {scrape.compound_type && (
                   <div className="bg-gray-50 border border-gray-200 p-3 flex flex-col items-center text-center">
-                    <div className="text-[#e3000f] mb-1"><Settings className="w-5 h-5" /></div>
+                    <div className="text-[#ae1d1e] mb-1"><Settings className="w-5 h-5" /></div>
                     <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Tip</span>
                     <span className="text-sm font-black text-[#202020]">{scrape.compound_type}</span>
                   </div>
                 )}
                 {scrape.grease_content && (
                   <div className="bg-gray-50 border border-gray-200 p-3 flex flex-col items-center text-center">
-                    <div className="text-[#e3000f] mb-1"><Droplets className="w-5 h-5" /></div>
+                    <div className="text-[#ae1d1e] mb-1"><Droplets className="w-5 h-5" /></div>
                     <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Yağ İçeriği</span>
                     <span className="text-sm font-black text-[#202020]">{scrape.grease_content}</span>
                   </div>
                 )}
                 {scrape.color && (
                   <div className="bg-gray-50 border border-gray-200 p-3 flex flex-col items-center text-center">
-                    <div className="text-[#e3000f] mb-1"><Palette className="w-5 h-5" /></div>
+                    <div className="text-[#ae1d1e] mb-1"><Palette className="w-5 h-5" /></div>
                     <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Renk</span>
                     <span className="text-sm font-black text-[#202020]">{scrape.color}</span>
                   </div>
                 )}
                 {scrape.suitable_for && scrape.suitable_for.length > 0 && (
                   <div className="bg-gray-50 border border-gray-200 p-3 flex flex-col items-center text-center">
-                    <div className="text-[#e3000f] mb-1"><CheckCircle2 className="w-5 h-5" /></div>
+                    <div className="text-[#ae1d1e] mb-1"><CheckCircle2 className="w-5 h-5" /></div>
                     <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Uygun Malzeme</span>
                     <span className="text-xs font-bold text-[#202020] leading-tight">{scrape.suitable_for.join(", ")}</span>
                   </div>
@@ -547,16 +547,16 @@ export default function ProductDetail() {
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
                 {features.map((f, i) => (
                   <div key={i} className="bg-gray-50 border border-gray-200 p-3 flex flex-col items-center text-center">
-                    <div className="text-[#e3000f] mb-1">{f.icon}</div>
+                    <div className="text-[#ae1d1e] mb-1">{f.icon}</div>
                     <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">{f.label}</span>
-                    <span className="text-sm font-black text-[#002b3d]">{f.value}</span>
+                    <span className="text-sm font-black text-[#1d1d1d]">{f.value}</span>
                   </div>
                 ))}
                 {machineCompat.length > 0 && (
                   <div className="bg-gray-50 border border-gray-200 p-3 flex flex-col items-center text-center">
-                    <div className="text-[#e3000f] mb-1"><Settings className="w-5 h-5" /></div>
+                    <div className="text-[#ae1d1e] mb-1"><Settings className="w-5 h-5" /></div>
                     <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Makine</span>
-                    <span className="text-sm font-black text-[#002b3d]">{machineCompat.join(" / ")}</span>
+                    <span className="text-sm font-black text-[#1d1d1d]">{machineCompat.join(" / ")}</span>
                   </div>
                 )}
               </div>
@@ -566,13 +566,13 @@ export default function ProductDetail() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                 {scrapeProcessing && (scrapeProcessing.rotary?.start || scrapeProcessing.orbital) && (
                   <div data-testid="section-processing">
-                    <h3 className="font-black text-[#002b3d] uppercase tracking-widest text-sm mb-4">Uygulama</h3>
+                    <h3 className="font-black text-[#1d1d1d] uppercase tracking-widest text-sm mb-4">Uygulama</h3>
                     <div className="space-y-3">
                       {scrapeProcessing.rotary?.start && (
                         <div className="flex items-start gap-3">
-                          <span className="text-[#e3000f] font-black text-lg leading-none mt-0.5">&rarr;</span>
+                          <span className="text-[#ae1d1e] font-black text-lg leading-none mt-0.5">&rarr;</span>
                           <div>
-                            <span className="font-bold text-[#002b3d] text-sm">Rotary:</span>
+                            <span className="font-bold text-[#1d1d1d] text-sm">Rotary:</span>
                             <p className="text-xs text-gray-600 mt-0.5">Başlangıç: {scrapeProcessing.rotary.start}</p>
                             {scrapeProcessing.rotary.end && (
                               <p className="text-xs text-gray-600">Bitiş: {scrapeProcessing.rotary.end}</p>
@@ -582,9 +582,9 @@ export default function ProductDetail() {
                       )}
                       {scrapeProcessing.orbital && (
                         <div className="flex items-start gap-3">
-                          <span className="text-[#e3000f] font-black text-lg leading-none mt-0.5">&rarr;</span>
+                          <span className="text-[#ae1d1e] font-black text-lg leading-none mt-0.5">&rarr;</span>
                           <div>
-                            <span className="font-bold text-[#002b3d] text-sm">Orbital:</span>
+                            <span className="font-bold text-[#1d1d1d] text-sm">Orbital:</span>
                             <p className="text-xs text-gray-600 mt-0.5">{scrapeProcessing.orbital}</p>
                           </div>
                         </div>
@@ -595,7 +595,7 @@ export default function ProductDetail() {
 
                 {scrapeSteps.length > 0 && (
                   <div data-testid="section-steps">
-                    <h3 className="font-black text-[#002b3d] uppercase tracking-widest text-sm mb-4">Adımlar</h3>
+                    <h3 className="font-black text-[#1d1d1d] uppercase tracking-widest text-sm mb-4">Adımlar</h3>
                     <div className="flex flex-wrap gap-2">
                       {scrapeSteps.map((step: any) => {
                         const color = stepColors[step.number] || "#6b7280";
@@ -628,7 +628,7 @@ export default function ProductDetail() {
             )}
 
             <div className="flex flex-col sm:flex-row gap-3 mb-8">
-              <a href="https://mgpolishing.com/yetkili-saticilar/" target="_blank" rel="noopener noreferrer" className="bg-[#e3000f] hover:bg-[#002b3d] text-white w-full sm:w-auto sm:min-w-[280px] h-14 font-black text-sm uppercase tracking-widest transition-colors duration-300 flex items-center justify-center px-8">
+              <a href="https://mgpolishing.com/yetkili-saticilar/" target="_blank" rel="noopener noreferrer" className="bg-[#ae1d1e] hover:bg-[#1d1d1d] text-white w-full sm:w-auto sm:min-w-[280px] h-14 font-black text-sm uppercase tracking-widest transition-colors duration-300 flex items-center justify-center px-8">
                 Yetkili Satıcı Bul
               </a>
             </div>
@@ -637,12 +637,12 @@ export default function ProductDetail() {
 
         {scrapeOptimisedFor.length > 0 && (
           <div className="mt-12 border-t border-gray-200 pt-12" data-testid="section-optimised-accessories">
-            <h2 className="text-2xl font-black text-[#002b3d] uppercase tracking-widest mb-8">Önerilen Aksesuarlar</h2>
+            <h2 className="text-2xl font-black text-[#1d1d1d] uppercase tracking-widest mb-8">Önerilen Aksesuarlar</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
               {scrapeOptimisedFor.map((item: any, i: number) => {
                 const matchedProduct = findMatchingProduct(item.name, item.name_tr, allProducts || []);
                 const card = (
-                  <div className="bg-gray-50 border border-gray-200 p-4 flex flex-col items-center text-center hover:border-[#e3000f] transition-colors" data-testid={`accessory-${i}`}>
+                  <div className="bg-gray-50 border border-gray-200 p-4 flex flex-col items-center text-center hover:border-[#ae1d1e] transition-colors" data-testid={`accessory-${i}`}>
                     {matchedProduct?.image_url ? (
                       <div className="w-16 h-16 flex items-center justify-center mb-3">
                         <img src={matchedProduct.image_url} alt={item.name_tr || item.name} className="max-w-full max-h-full object-contain" />
@@ -652,7 +652,7 @@ export default function ProductDetail() {
                         <Settings className="w-8 h-8 text-gray-400" />
                       </div>
                     )}
-                    <span className="text-xs font-bold text-[#002b3d] leading-tight" data-testid={`text-accessory-name-${i}`}>
+                    <span className="text-xs font-bold text-[#1d1d1d] leading-tight" data-testid={`text-accessory-name-${i}`}>
                       {item.name_tr || item.name}
                     </span>
                   </div>
@@ -682,8 +682,8 @@ export default function ProductDetail() {
                   data-testid={tab.testId}
                   className={`px-4 sm:px-6 py-3 sm:py-4 uppercase tracking-wider transition-colors text-[12px] sm:text-[14px] font-bold flex-1 sm:flex-none ${
                     (activeTab === tab.key || (!activeTab && tab.key === tabs[0]?.key))
-                      ? 'bg-[#002b3d] text-white border-t-4 border-[#e3000f]'
-                      : 'bg-gray-100 text-gray-500 border-t-4 border-transparent hover:bg-gray-200 hover:text-[#002b3d]'
+                      ? 'bg-[#1d1d1d] text-white border-t-4 border-[#ae1d1e]'
+                      : 'bg-gray-100 text-gray-500 border-t-4 border-transparent hover:bg-gray-200 hover:text-[#1d1d1d]'
                   }`}
                 >
                   {tab.label}
@@ -704,8 +704,8 @@ export default function ProductDetail() {
                     <div>
                       <div className="space-y-2">
                         {content.how_to_use.split("\n").filter((l: string) => l.trim()).map((step: string, i: number) => (
-                          <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 border border-gray-100 border-l-4 border-l-[#002b3d]">
-                            <span className="flex items-center justify-center w-8 h-8 bg-[#002b3d] text-white font-black shrink-0 text-sm">{i + 1}</span>
+                          <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 border border-gray-100 border-l-4 border-l-[#1d1d1d]">
+                            <span className="flex items-center justify-center w-8 h-8 bg-[#1d1d1d] text-white font-black shrink-0 text-sm">{i + 1}</span>
                             <span className="font-medium text-gray-800 text-sm leading-relaxed">{step.replace(/^\d+[\.\)]\s*/, "")}</span>
                           </div>
                         ))}
@@ -715,11 +715,11 @@ export default function ProductDetail() {
 
                   {content.why_this_product && (
                     <div>
-                      <h3 className="text-lg font-bold text-[#002b3d] mb-4">Neden Bu Ürün?</h3>
+                      <h3 className="text-lg font-bold text-[#1d1d1d] mb-4">Neden Bu Ürün?</h3>
                       <div className="space-y-2">
                         {content.why_this_product.split("\n").filter((l: string) => l.trim()).map((point: string, i: number) => (
                           <div key={i} className="flex items-start gap-3 bg-gray-50 p-3 border border-gray-100">
-                            <CheckCircle2 className="w-5 h-5 text-[#e3000f] shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-5 h-5 text-[#ae1d1e] shrink-0 mt-0.5" />
                             <span className="font-medium text-gray-800 text-sm">{point.replace(/^[•\s]+/, "")}</span>
                           </div>
                         ))}
@@ -729,8 +729,8 @@ export default function ProductDetail() {
 
                   {content.when_to_use && (
                     <div>
-                      <h3 className="text-lg font-bold text-[#002b3d] mb-4">Ne Zaman Kullanılır?</h3>
-                      <div className="bg-[#002b3d] text-white p-6">
+                      <h3 className="text-lg font-bold text-[#1d1d1d] mb-4">Ne Zaman Kullanılır?</h3>
+                      <div className="bg-[#1d1d1d] text-white p-6">
                         <p className="leading-relaxed text-gray-200 text-sm">{content.when_to_use}</p>
                       </div>
                     </div>
@@ -738,7 +738,7 @@ export default function ProductDetail() {
 
                   {content.target_surface && (
                     <div>
-                      <h3 className="text-lg font-bold text-[#002b3d] mb-4">Hedef Yüzey</h3>
+                      <h3 className="text-lg font-bold text-[#1d1d1d] mb-4">Hedef Yüzey</h3>
                       <div className="bg-gray-50 border border-gray-200 p-4">
                         <p className="font-medium text-gray-700 text-sm">{content.target_surface}</p>
                       </div>
@@ -752,8 +752,8 @@ export default function ProductDetail() {
                   {faq.map((item: any, i: number) => (
                     <div key={i} className="border border-gray-200 p-5">
                       <div className="flex items-start gap-3 mb-2">
-                        <HelpCircle className="w-5 h-5 text-[#e3000f] shrink-0 mt-0.5" />
-                        <h3 className="font-black text-[#002b3d] text-sm">{item.question}</h3>
+                        <HelpCircle className="w-5 h-5 text-[#ae1d1e] shrink-0 mt-0.5" />
+                        <h3 className="font-black text-[#1d1d1d] text-sm">{item.question}</h3>
                       </div>
                       <p className="text-gray-600 leading-relaxed ml-8 text-sm">{item.answer}</p>
                     </div>
@@ -779,14 +779,14 @@ export default function ProductDetail() {
                     className="flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition-colors group"
                     data-testid={`download-item-${i}`}
                   >
-                    <span className="text-sm font-bold text-[#002b3d] group-hover:text-[#e3000f] transition-colors">
+                    <span className="text-sm font-bold text-[#1d1d1d] group-hover:text-[#ae1d1e] transition-colors">
                       {dl.label}
                     </span>
                     <span className="flex items-center gap-3 text-gray-500 shrink-0 ml-4">
                       {dl.size && (
                         <span className="text-xs hidden sm:inline">{dl.size}</span>
                       )}
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="18" height="18" className="fill-current text-[#e3000f]">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="18" height="18" className="fill-current text-[#ae1d1e]">
                         <path d="M2.82 32h26.36v-3.76H2.82zm26.36-20.71h-7.53V0h-11.3v11.29H2.82L16 24.48z" />
                       </svg>
                     </span>
@@ -814,7 +814,7 @@ export default function ProductDetail() {
                   const slug = getCategorySlug(matched);
                   return (
                     <Link key={rp.code} href={`/category/${slug}/${matched.sku}`}>
-                      <div className="border border-gray-200 p-3 hover:border-[#e3000f] transition-colors cursor-pointer bg-white" data-testid={`related-product-${rp.code}`}>
+                      <div className="border border-gray-200 p-3 hover:border-[#ae1d1e] transition-colors cursor-pointer bg-white" data-testid={`related-product-${rp.code}`}>
                         {matched.image_url && (
                           <div className="aspect-square bg-gray-50 mb-2 flex items-center justify-center overflow-hidden">
                             <img src={matched.image_url} alt={rp.name_tr} className="w-full h-full object-contain" />

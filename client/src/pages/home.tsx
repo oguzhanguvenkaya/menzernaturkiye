@@ -230,7 +230,7 @@ export default function Home() {
           <div className="group relative bg-neutral-100 h-[300px] md:h-[600px] overflow-hidden border-r border-white">
             <div className="absolute inset-0">
               <img
-                src="/images/hero-industrial.jpg"
+                src="/images/hero-industrial-polishing.png"
                 className="w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700"
               />
             </div>
@@ -263,7 +263,7 @@ export default function Home() {
           <div className="group relative bg-neutral-100 h-[300px] md:h-[600px] overflow-hidden border-r border-white">
             <div className="absolute inset-0">
               <img
-                src="/images/hero-car.png"
+                src="/images/hero-car-polishing.png"
                 className="w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700"
               />
             </div>

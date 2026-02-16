@@ -4,6 +4,7 @@ import { ChevronRight, CheckCircle2, HelpCircle, Droplets, Shield, Settings, Bea
 import { Skeleton } from "@/components/ui/skeleton";
 import { useProduct, useProducts } from "@/lib/data";
 import { groupProductsBySize } from "@/lib/product-utils";
+import { Product360Viewer, has360View } from "@/components/product-360-viewer";
 
 function decodeHtmlEntities(text: string): string {
   return text
@@ -761,6 +762,12 @@ export default function ProductDetail() {
                 </div>
               )}
             </div>
+          </div>
+        )}
+
+        {has360View(p.sku) && (
+          <div className="mt-12" data-testid="section-360-wrapper">
+            <Product360Viewer sku={p.sku} productName={displayName} />
           </div>
         )}
 

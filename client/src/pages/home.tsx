@@ -8,18 +8,6 @@ import type { CarouselApi } from "@/components/ui/carousel";
 
 const heroSlides = [
   {
-    image: "/images/hero-car.png",
-    title: "Menzerna Araç Cilaları",
-    subtitle: "Premium araç cilaları & aksesuarlar",
-    link: "/products",
-  },
-  {
-    image: "/images/hero-industrial.jpg",
-    title: "Endüstriyel Polisaj",
-    subtitle: "Katı cilalar & polisaj emülsiyonları",
-    link: "/products?category=ENDÜSTRİYEL",
-  },
-  {
     image: "/images/hero-marine.jpg",
     title: "Marin Polisaj",
     subtitle: "Profesyonel tekne cilaları & bakım",

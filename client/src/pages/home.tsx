@@ -25,6 +25,18 @@ const heroSlides = [
     subtitle: "Profesyonel tekne cilaları & bakım",
     link: "/products?category=MARİN",
   },
+  {
+    image: "/images/hero-car-polishing.png",
+    title: "Profesyonel Araç Bakımı",
+    subtitle: "Menzerna ile mükemmel parlaklık",
+    link: "/products",
+  },
+  {
+    image: "/images/hero-industrial-polishing.png",
+    title: "Endüstriyel Çözümler",
+    subtitle: "Katı polisaj pastaları & emülsiyonlar",
+    link: "/products?category=ENDÜSTRİYEL",
+  },
 ];
 
 const features = [
@@ -227,22 +239,24 @@ export default function Home() {
       {/* Category Teasers */}
       <section className="pt-16 md:pt-24 pb-0">
         <div className="grid grid-cols-1 md:grid-cols-3">
-          <div className="group relative bg-neutral-100 h-[300px] md:h-[600px] overflow-hidden border-r border-white">
+          <div className="group relative h-[300px] md:h-[600px] overflow-hidden border-r border-white">
             <div className="absolute inset-0">
               <img
                 src="/images/hero-industrial-polishing.png"
-                className="w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                className="w-full h-full object-cover transition-opacity duration-700 group-hover:opacity-0"
               />
             </div>
+            <div className="absolute inset-0 bg-neutral-100 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:opacity-0 transition-opacity duration-700" />
             <div className="relative z-10 p-8 md:p-12 h-full flex flex-col justify-between">
               <div>
-                <span className="text-neutral-500 font-bold uppercase tracking-widest text-xs md:text-sm mb-3 md:mb-4 block group-hover:text-white transition-colors">
+                <span className="text-white/80 font-bold uppercase tracking-widest text-xs md:text-sm mb-3 md:mb-4 block group-hover:text-neutral-500 transition-colors">
                   Endüstriyel Polisaj
                 </span>
-                <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 group-hover:text-white transition-colors">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-white group-hover:text-neutral-900 transition-colors">
                   Polisajda Mükemmellik
                 </h3>
-                <p className="text-sm md:text-base text-neutral-600 mb-6 md:mb-8 group-hover:text-neutral-200 transition-colors">
+                <p className="text-sm md:text-base text-white/80 mb-6 md:mb-8 group-hover:text-neutral-600 transition-colors">
                   Menzerna, birçok farklı yüzeyin endüstriyel işlenmesi için
                   polisaj pastaları ve emülsiyonları geliştirir ve üretir.
                 </p>
@@ -250,7 +264,7 @@ export default function Home() {
               <Link href="/products?category=ENDÜSTRİYEL">
                 <Button
                   variant="link"
-                  className="text-[#e3000f] hover:text-white p-0 text-base md:text-lg font-bold justify-start group-hover:text-white"
+                  className="text-white hover:text-[#e3000f] p-0 text-base md:text-lg font-bold justify-start group-hover:text-[#e3000f]"
                   data-testid="link-category-industrial"
                 >
                   Bileşikler & Emülsiyonlara Git{" "}
@@ -260,22 +274,24 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="group relative bg-neutral-100 h-[300px] md:h-[600px] overflow-hidden border-r border-white">
+          <div className="group relative h-[300px] md:h-[600px] overflow-hidden border-r border-white">
             <div className="absolute inset-0">
               <img
                 src="/images/hero-car-polishing.png"
-                className="w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                className="w-full h-full object-cover transition-opacity duration-700 group-hover:opacity-0"
               />
             </div>
+            <div className="absolute inset-0 bg-neutral-100 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:opacity-0 transition-opacity duration-700" />
             <div className="relative z-10 p-8 md:p-12 h-full flex flex-col justify-between">
               <div>
-                <span className="text-neutral-500 font-bold uppercase tracking-widest text-xs md:text-sm mb-3 md:mb-4 block group-hover:text-white transition-colors">
+                <span className="text-white/80 font-bold uppercase tracking-widest text-xs md:text-sm mb-3 md:mb-4 block group-hover:text-neutral-500 transition-colors">
                   Araç Cilası
                 </span>
-                <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 group-hover:text-white transition-colors">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-white group-hover:text-neutral-900 transition-colors">
                   İlham Veren Araç Cilaları
                 </h3>
-                <p className="text-sm md:text-base text-neutral-600 mb-6 md:mb-8 group-hover:text-neutral-200 transition-colors">
+                <p className="text-sm md:text-base text-white/80 mb-6 md:mb-8 group-hover:text-neutral-600 transition-colors">
                   Yüksek parlaklıkta otomotiv cilası: Menzerna, dört yaygın
                   polisaj aşaması için otomotiv cilaları sunar.
                 </p>
@@ -283,7 +299,7 @@ export default function Home() {
               <Link href="/products">
                 <Button
                   variant="link"
-                  className="text-[#e3000f] hover:text-white p-0 text-base md:text-lg font-bold justify-start group-hover:text-white"
+                  className="text-white hover:text-[#e3000f] p-0 text-base md:text-lg font-bold justify-start group-hover:text-[#e3000f]"
                   data-testid="link-category-car"
                 >
                   Araç Bakımına Git <ArrowRight className="ml-2" />
@@ -292,22 +308,24 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="group relative bg-neutral-100 h-[300px] md:h-[600px] overflow-hidden">
+          <div className="group relative h-[300px] md:h-[600px] overflow-hidden">
             <div className="absolute inset-0">
               <img
                 src="/images/hero-marine.jpg"
-                className="w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                className="w-full h-full object-cover transition-opacity duration-700 group-hover:opacity-0"
               />
             </div>
+            <div className="absolute inset-0 bg-neutral-100 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:opacity-0 transition-opacity duration-700" />
             <div className="relative z-10 p-8 md:p-12 h-full flex flex-col justify-between">
               <div>
-                <span className="text-neutral-500 font-bold uppercase tracking-widest text-xs md:text-sm mb-3 md:mb-4 block group-hover:text-white transition-colors">
+                <span className="text-white/80 font-bold uppercase tracking-widest text-xs md:text-sm mb-3 md:mb-4 block group-hover:text-neutral-500 transition-colors">
                   Tekne Cilası
                 </span>
-                <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 group-hover:text-white transition-colors">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-white group-hover:text-neutral-900 transition-colors">
                   İlham Veren Tekne Cilaları
                 </h3>
-                <p className="text-sm md:text-base text-neutral-600 mb-6 md:mb-8 group-hover:text-neutral-200 transition-colors">
+                <p className="text-sm md:text-base text-white/80 mb-6 md:mb-8 group-hover:text-neutral-600 transition-colors">
                   Menzerna, her türlü jel kaplama için profesyonel tekne
                   cilaları sunar: Yüzey hazırlığı, çizik giderme ve mat
                   lekelerin giderilmesi.
@@ -316,7 +334,7 @@ export default function Home() {
               <Link href="/products?category=MARİN">
                 <Button
                   variant="link"
-                  className="text-[#e3000f] hover:text-white p-0 text-base md:text-lg font-bold justify-start group-hover:text-white"
+                  className="text-white hover:text-[#e3000f] p-0 text-base md:text-lg font-bold justify-start group-hover:text-[#e3000f]"
                   data-testid="link-category-marine"
                 >
                   Tekne Bakımına Git <ArrowRight className="ml-2" />

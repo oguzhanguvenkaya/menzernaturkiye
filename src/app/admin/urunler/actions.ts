@@ -1,0 +1,112 @@
+"use server";
+
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+import {
+  createProduct,
+  updateProduct,
+  deleteProduct,
+} from "@/db/queries";
+
+export async function deleteProductAction(id: string) {
+  await deleteProduct(id);
+  revalidatePath("/admin/urunler");
+  revalidatePath("/urunler");
+}
+
+export async function saveProductAction(
+  _prevState: { success: boolean; error: string },
+  formData: FormData
+) {
+  const id = formData.get("id") as string | null;
+
+  const sku = formData.get("sku") as string;
+  const product_name = formData.get("product_name") as string;
+  const barcode = (formData.get("barcode") as string) || null;
+  const brand = (formData.get("brand") as string) || "MENZERNA";
+  const image_url = (formData.get("image_url") as string) || null;
+
+  // Kategori (JSONB)
+  const main_cat = formData.get("main_cat") as string;
+  const sub_cat = (formData.get("sub_cat") as string) || "";
+  const sub_cat2 = (formData.get("sub_cat2") as string) || undefined;
+  const category = {
+    main_cat,
+    sub_cat,
+    ...(sub_cat2 ? { sub_cat2 } : {}),
+  };
+
+  // Content (JSONB)
+  const short_description =
+    (formData.get("short_description") as string) || undefined;
+  const full_description =
+    (formData.get("full_description") as string) || undefined;
+  const how_to_use = (formData.get("how_to_use") as string) || undefined;
+  const content = {
+    ...(short_description ? { short_description } : {}),
+    ...(full_description ? { full_description } : {}),
+    ...(how_to_use ? { how_to_use } : {}),
+  };
+
+  // Template fields (JSONB)
+  const cut_level = formData.get("cut_level")
+    ? Number(formData.get("cut_level"))
+    : undefined;
+  const finish_level = formData.get("finish_level")
+    ? Number(formData.get("finish_level"))
+    : undefined;
+  const volume_ml = formData.get("volume_ml")
+    ? Number(formData.get("volume_ml"))
+    : undefined;
+  const silicone_free = formData.get("silicone_free") === "on";
+  const filler_free = formData.get("filler_free") === "on";
+  const template_fields = {
+    ...(cut_level !== undefined ? { cut_level } : {}),
+    ...(finish_level !== undefined ? { finish_level } : {}),
+    ...(volume_ml !== undefined ? { volume_ml } : {}),
+    silicone_free,
+    filler_free,
+  };
+
+  if (!sku || !product_name || !main_cat) {
+    return {
+      success: false,
+      error: "SKU, Urun Adi ve Ana Kategori zorunlu alanlardir.",
+    };
+  }
+
+  try {
+    if (id) {
+      await updateProduct(id, {
+        sku,
+        product_name,
+        barcode,
+        brand,
+        image_url,
+        category,
+        content,
+        template_fields,
+      });
+    } else {
+      await createProduct({
+        sku,
+        product_name,
+        barcode,
+        brand,
+        image_url,
+        category,
+        content,
+        template_fields,
+      });
+    }
+  } catch (err: any) {
+    return {
+      success: false,
+      error: err?.message || "Kaydetme sirasinda bir hata olustu.",
+    };
+  }
+
+  revalidatePath("/admin/urunler");
+  revalidatePath("/urunler");
+  redirect("/admin/urunler");
+}

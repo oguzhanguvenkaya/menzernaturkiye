@@ -8,3 +8,6 @@ vite.config.ts.*
 .env*.local
 .env.local
 .next
+attached_assets/
+*.json.bak
+tsconfig.tsbuildinfo

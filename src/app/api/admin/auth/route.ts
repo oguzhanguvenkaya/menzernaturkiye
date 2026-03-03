@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createToken, setSession, clearSession } from "@/lib/auth";
+import { createToken } from "@/lib/auth";
 
 export async function POST(request: Request) {
   const { password } = await request.json();
@@ -9,12 +9,21 @@ export async function POST(request: Request) {
   }
 
   const token = await createToken();
-  await setSession(token);
 
-  return NextResponse.json({ success: true });
+  const response = NextResponse.json({ success: true });
+  response.cookies.set("admin_token", token, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    path: "/",
+    maxAge: 60 * 60 * 24 * 7, // 7 days
+  });
+
+  return response;
 }
 
 export async function DELETE() {
-  await clearSession();
-  return NextResponse.json({ success: true });
+  const response = NextResponse.json({ success: true });
+  response.cookies.delete("admin_token");
+  return response;
 }

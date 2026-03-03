@@ -26,10 +26,11 @@ export default function AdminLoginPage() {
         router.push("/admin");
         router.refresh();
       } else {
-        setError("Geçersiz şifre");
+        const data = await res.json().catch(() => ({}));
+        setError(data.error || "Geçersiz şifre");
       }
-    } catch {
-      setError("Bir hata oluştu");
+    } catch (err) {
+      setError("Bir hata oluştu: " + String(err));
     } finally {
       setLoading(false);
     }

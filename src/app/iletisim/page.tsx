@@ -44,9 +44,9 @@ export default function IletisimPage() {
   return (
     <div>
       {/* Page Banner */}
-      <section className="bg-[#002b3d] py-16 md:py-20">
+      <section className="bg-[#1d1d1d] py-16 md:py-20">
         <div className="container mx-auto px-4 text-center">
-          <div className="w-12 h-1 bg-[#e3000f] mx-auto mb-5" />
+          <div className="w-12 h-1 bg-[#af1d1f] mx-auto mb-5" />
           <h1 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight">
             İletişim
           </h1>
@@ -64,8 +64,8 @@ export default function IletisimPage() {
             {/* Left Column — Contact Form */}
             <div className="bg-white border border-gray-200 p-8 md:p-10 shadow-sm">
               <div className="mb-7">
-                <div className="w-8 h-1 bg-[#e3000f] mb-4" />
-                <h2 className="text-2xl font-black text-[#002b3d] uppercase tracking-tight">
+                <div className="w-8 h-1 bg-[#af1d1f] mb-4" />
+                <h2 className="text-2xl font-black text-[#1d1d1d] uppercase tracking-tight">
                   Bize Yazın
                 </h2>
                 <p className="text-sm text-gray-500 mt-2">
@@ -81,8 +81,8 @@ export default function IletisimPage() {
               {/* Firma Bilgileri card */}
               <div className="bg-white border border-gray-200 p-8 md:p-10 shadow-sm">
                 <div className="mb-6">
-                  <div className="w-8 h-1 bg-[#e3000f] mb-4" />
-                  <h2 className="text-2xl font-black text-[#002b3d] uppercase tracking-tight">
+                  <div className="w-8 h-1 bg-[#af1d1f] mb-4" />
+                  <h2 className="text-2xl font-black text-[#1d1d1d] uppercase tracking-tight">
                     Firma Bilgileri
                   </h2>
                 </div>
@@ -91,7 +91,7 @@ export default function IletisimPage() {
                   {contactDetails.map(({ icon: Icon, label, value, href, target }) => (
                     <li key={label} className="flex items-start gap-4">
                       <div
-                        className="flex-shrink-0 w-10 h-10 bg-[#002b3d] flex items-center justify-center"
+                        className="flex-shrink-0 w-10 h-10 bg-[#1d1d1d] flex items-center justify-center"
                         aria-hidden="true"
                       >
                         <Icon className="w-4 h-4 text-white" />
@@ -105,12 +105,12 @@ export default function IletisimPage() {
                             href={href}
                             target={target}
                             rel={target === "_blank" ? "noopener noreferrer" : undefined}
-                            className="text-sm text-[#002b3d] font-semibold hover:text-[#e3000f] transition-colors"
+                            className="text-sm text-[#1d1d1d] font-semibold hover:text-[#af1d1f] transition-colors"
                           >
                             {value}
                           </a>
                         ) : (
-                          <p className="text-sm text-[#002b3d] font-semibold">{value}</p>
+                          <p className="text-sm text-[#1d1d1d] font-semibold">{value}</p>
                         )}
                       </div>
                     </li>
@@ -121,8 +121,8 @@ export default function IletisimPage() {
               {/* Google Maps embed */}
               <div className="bg-white border border-gray-200 shadow-sm overflow-hidden">
                 <div className="px-8 pt-8 pb-4 md:px-10">
-                  <div className="w-8 h-1 bg-[#e3000f] mb-4" />
-                  <h2 className="text-2xl font-black text-[#002b3d] uppercase tracking-tight mb-1">
+                  <div className="w-8 h-1 bg-[#af1d1f] mb-4" />
+                  <h2 className="text-2xl font-black text-[#1d1d1d] uppercase tracking-tight mb-1">
                     Konum
                   </h2>
                   <p className="text-xs text-gray-400 mb-4">

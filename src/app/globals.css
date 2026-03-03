@@ -38,11 +38,11 @@
   --color-popover-foreground: hsl(var(--popover-foreground));
 
   /* Menzerna Brand Colors */
-  --color-menzerna-red: #e3000f;
-  --color-menzerna-navy: #002b3d;
-  --color-menzerna-dark: #001f2c;
+  --color-menzerna-red: #af1d1f;
+  --color-menzerna-navy: #1d1d1d;
+  --color-menzerna-dark: #111111;
   --color-menzerna-light: #f8f9fa;
-  --color-menzerna-green: #009b77;
+  --color-menzerna-green: #006b52;
   --color-menzerna-amber: #f5a623;
 
   --font-sans: 'Source Sans 3', 'Source Sans Pro', ui-sans-serif, system-ui, sans-serif;
@@ -50,36 +50,36 @@
 
 /* Menzerna Light Mode */
 :root {
-  /* #e3000f → HSL 356 100% 45% */
-  /* #002b3d → HSL 198 100% 12% */
+  /* #af1d1f → HSL 359 72% 40% */
+  /* #1d1d1d → HSL 0 0% 11% */
 
   --background: 0 0% 100%;
-  --foreground: 198 100% 12%;
+  --foreground: 0 0% 11%;
 
   --card: 0 0% 100%;
-  --card-foreground: 198 100% 12%;
+  --card-foreground: 0 0% 11%;
 
   --popover: 0 0% 100%;
-  --popover-foreground: 198 100% 12%;
+  --popover-foreground: 0 0% 11%;
 
-  --primary: 356 100% 45%;
+  --primary: 359 72% 40%;
   --primary-foreground: 0 0% 100%;
 
   --secondary: 210 11% 97%;
-  --secondary-foreground: 198 100% 12%;
+  --secondary-foreground: 0 0% 11%;
 
   --muted: 210 11% 97%;
   --muted-foreground: 0 0% 45%;
 
   --accent: 210 11% 97%;
-  --accent-foreground: 356 100% 45%;
+  --accent-foreground: 359 72% 40%;
 
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
 
   --border: 0 0% 90%;
   --input: 0 0% 90%;
-  --ring: 356 100% 45%;
+  --ring: 359 72% 40%;
 
   --radius: 0rem;
 }

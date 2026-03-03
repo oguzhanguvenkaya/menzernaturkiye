@@ -36,7 +36,7 @@ export default async function AdminProductsPage({
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-black uppercase tracking-wider text-[#002b3d]">
+          <h1 className="text-2xl font-black uppercase tracking-wider text-[#1d1d1d]">
             Urunler
           </h1>
           <p className="text-sm text-gray-500 mt-1">
@@ -45,7 +45,7 @@ export default async function AdminProductsPage({
         </div>
         <Link
           href="/admin/urunler/yeni"
-          className="inline-flex items-center gap-2 bg-[#e3000f] hover:bg-red-700 text-white px-4 py-2.5 font-bold uppercase tracking-widest text-sm transition-colors"
+          className="inline-flex items-center gap-2 bg-[#af1d1f] hover:bg-red-700 text-white px-4 py-2.5 font-bold uppercase tracking-widest text-sm transition-colors"
         >
           <Plus className="w-4 h-4" />
           Yeni Urun Ekle
@@ -65,7 +65,7 @@ export default async function AdminProductsPage({
           {!q && (
             <Link
               href="/admin/urunler/yeni"
-              className="inline-flex items-center gap-2 mt-4 text-[#e3000f] hover:underline text-sm font-medium"
+              className="inline-flex items-center gap-2 mt-4 text-[#af1d1f] hover:underline text-sm font-medium"
             >
               <Plus className="w-4 h-4" />
               Ilk urunu ekle
@@ -114,7 +114,7 @@ export default async function AdminProductsPage({
                         </div>
                       )}
                     </TableCell>
-                    <TableCell className="font-medium text-[#002b3d]">
+                    <TableCell className="font-medium text-[#1d1d1d]">
                       {product.product_name}
                     </TableCell>
                     <TableCell className="text-gray-600 font-mono text-xs">

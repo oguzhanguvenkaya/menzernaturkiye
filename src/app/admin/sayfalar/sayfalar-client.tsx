@@ -73,7 +73,7 @@ export function SayfalarClient({ contents }: SayfalarClientProps) {
       <div className="mb-4">
         <button
           onClick={handleNew}
-          className="bg-[#e3000f] hover:bg-red-700 text-white px-4 py-2.5 font-bold uppercase tracking-widest text-xs transition-colors inline-flex items-center gap-2"
+          className="bg-[#af1d1f] hover:bg-red-700 text-white px-4 py-2.5 font-bold uppercase tracking-widest text-xs transition-colors inline-flex items-center gap-2"
         >
           <Plus className="w-4 h-4" />
           Yeni Icerik Ekle
@@ -89,7 +89,7 @@ export function SayfalarClient({ contents }: SayfalarClientProps) {
         <div className="bg-white border border-gray-200 overflow-hidden">
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-[#002b3d] text-white">
+              <tr className="bg-[#1d1d1d] text-white">
                 <th className="text-left px-4 py-3 text-xs font-bold uppercase tracking-wider">
                   Sayfa
                 </th>
@@ -116,7 +116,7 @@ export function SayfalarClient({ contents }: SayfalarClientProps) {
                   >
                     <td className="px-4 py-3">
                       {idx === 0 ? (
-                        <span className="font-bold text-[#002b3d] text-xs uppercase tracking-wider">
+                        <span className="font-bold text-[#1d1d1d] text-xs uppercase tracking-wider">
                           {slug}
                         </span>
                       ) : (
@@ -138,7 +138,7 @@ export function SayfalarClient({ contents }: SayfalarClientProps) {
                       <div className="flex items-center justify-end gap-1">
                         <button
                           onClick={() => handleEdit(item)}
-                          className="p-1.5 text-gray-400 hover:text-[#002b3d] hover:bg-gray-100 transition-colors"
+                          className="p-1.5 text-gray-400 hover:text-[#1d1d1d] hover:bg-gray-100 transition-colors"
                           title="Duzenle"
                         >
                           <Pencil className="w-4 h-4" />
@@ -150,7 +150,7 @@ export function SayfalarClient({ contents }: SayfalarClientProps) {
                         >
                           <button
                             type="submit"
-                            className="p-1.5 text-gray-400 hover:text-[#e3000f] hover:bg-red-50 transition-colors"
+                            className="p-1.5 text-gray-400 hover:text-[#af1d1f] hover:bg-red-50 transition-colors"
                             title="Sil"
                           >
                             <Trash2 className="w-4 h-4" />
@@ -172,7 +172,7 @@ export function SayfalarClient({ contents }: SayfalarClientProps) {
           <form ref={formRef} action={savePageContentAction}>
             <div className="bg-white border border-gray-200">
               <div className="p-5 border-b border-gray-100 flex items-center justify-between">
-                <h2 className="text-sm font-black text-[#002b3d] uppercase tracking-wider">
+                <h2 className="text-sm font-black text-[#1d1d1d] uppercase tracking-wider">
                   {editing.id ? "Icerigi Duzenle" : "Yeni Icerik"}
                 </h2>
                 <button
@@ -200,7 +200,7 @@ export function SayfalarClient({ contents }: SayfalarClientProps) {
                       type="text"
                       defaultValue={editing.slug}
                       required
-                      className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#e3000f] transition-colors bg-white"
+                      className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#af1d1f] transition-colors bg-white"
                       placeholder="orn: hakkimizda"
                     />
                   </div>
@@ -213,7 +213,7 @@ export function SayfalarClient({ contents }: SayfalarClientProps) {
                       type="text"
                       defaultValue={editing.section}
                       required
-                      className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#e3000f] transition-colors bg-white"
+                      className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#af1d1f] transition-colors bg-white"
                       placeholder="orn: hero"
                     />
                   </div>
@@ -227,7 +227,7 @@ export function SayfalarClient({ contents }: SayfalarClientProps) {
                     name="title"
                     type="text"
                     defaultValue={editing.title}
-                    className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#e3000f] transition-colors bg-white"
+                    className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#af1d1f] transition-colors bg-white"
                     placeholder="Icerik basligi"
                   />
                 </div>
@@ -240,7 +240,7 @@ export function SayfalarClient({ contents }: SayfalarClientProps) {
                     name="body"
                     defaultValue={editing.body}
                     rows={5}
-                    className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#e3000f] transition-colors bg-white resize-y"
+                    className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#af1d1f] transition-colors bg-white resize-y"
                     placeholder="Sayfa icerigi..."
                   />
                 </div>
@@ -254,7 +254,7 @@ export function SayfalarClient({ contents }: SayfalarClientProps) {
                       name="image_url"
                       type="text"
                       defaultValue={editing.image_url}
-                      className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#e3000f] transition-colors bg-white"
+                      className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#af1d1f] transition-colors bg-white"
                       placeholder="https://..."
                     />
                   </div>
@@ -266,7 +266,7 @@ export function SayfalarClient({ contents }: SayfalarClientProps) {
                       name="order_index"
                       type="number"
                       defaultValue={editing.order_index}
-                      className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#e3000f] transition-colors bg-white"
+                      className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#af1d1f] transition-colors bg-white"
                       placeholder="0"
                     />
                   </div>
@@ -276,7 +276,7 @@ export function SayfalarClient({ contents }: SayfalarClientProps) {
               <div className="p-5 border-t border-gray-100 flex items-center gap-3">
                 <button
                   type="submit"
-                  className="bg-[#e3000f] hover:bg-red-700 text-white px-6 py-2.5 font-bold uppercase tracking-widest text-xs transition-colors inline-flex items-center gap-2"
+                  className="bg-[#af1d1f] hover:bg-red-700 text-white px-6 py-2.5 font-bold uppercase tracking-widest text-xs transition-colors inline-flex items-center gap-2"
                 >
                   <Save className="w-4 h-4" />
                   {editing.id ? "Guncelle" : "Kaydet"}

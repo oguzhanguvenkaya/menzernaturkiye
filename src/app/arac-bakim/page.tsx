@@ -30,7 +30,7 @@ const CAR_SECTIONS = [
     subtitle: "Heavy Cut Compound",
     description:
       "Derin çizikler, rutubet izleri ve ağır kir birikimlerini etkili şekilde gidermek için tasarlanmış agresif kesim pastalar.",
-    color: "#e3000f",
+    color: "#af1d1f",
     filter: (sub_cat: string, sub_cat2: string) =>
       sub_cat2 === "Kalın Pastalar",
   },
@@ -40,7 +40,7 @@ const CAR_SECTIONS = [
     subtitle: "Fine Cut / Finish",
     description:
       "Yüzey pürüzlülüklerini gideren, parlak ve mükemmel boya finişi için formüle edilmiş bitiş pastalar.",
-    color: "#009b77",
+    color: "#006b52",
     filter: (sub_cat: string, sub_cat2: string) =>
       sub_cat2 === "İnce Pastalar",
   },
@@ -60,7 +60,7 @@ const CAR_SECTIONS = [
     subtitle: "Paint Protection",
     description:
       "Boyayı UV ışınları, kirlilik ve hava koşullarına karşı koruyan wax ve sealant ürünleri.",
-    color: "#002b3d",
+    color: "#1d1d1d",
     filter: (sub_cat: string, sub_cat2: string) =>
       sub_cat === "Boya Koruma Ürünleri",
   },
@@ -118,7 +118,7 @@ export default async function AracBakimPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Banner */}
-      <section className="relative bg-[#002b3d] text-white overflow-hidden">
+      <section className="relative bg-[#1d1d1d] text-white overflow-hidden">
         {/* Arka plan deseni */}
         <div className="absolute inset-0 opacity-5">
           <div
@@ -131,19 +131,19 @@ export default async function AracBakimPage() {
           />
         </div>
         {/* Kırmızı vurgu çizgisi */}
-        <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#e3000f]" />
+        <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#af1d1f]" />
 
         <div className="relative container mx-auto px-4 py-20 md:py-28">
           <div className="max-w-3xl">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-0.5 bg-[#e3000f]" />
-              <span className="text-[#e3000f] text-xs font-bold uppercase tracking-widest">
+              <div className="w-8 h-0.5 bg-[#af1d1f]" />
+              <span className="text-[#af1d1f] text-xs font-bold uppercase tracking-widest">
                 Profesyonel Oto Pasta & Cila
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-6 leading-none">
               Araç Bakım{" "}
-              <span className="text-[#e3000f]">Ürünleri</span>
+              <span className="text-[#af1d1f]">Ürünleri</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 max-w-xl leading-relaxed mb-8">
               Profesyonel araç polisaj ve koruma ürünleri — 1888&apos;den bu yana
@@ -194,7 +194,7 @@ export default async function AracBakimPage() {
                     >
                       {section.subtitle}
                     </p>
-                    <h2 className="text-2xl md:text-3xl font-black text-[#002b3d] uppercase tracking-tight leading-none mb-2">
+                    <h2 className="text-2xl md:text-3xl font-black text-[#1d1d1d] uppercase tracking-tight leading-none mb-2">
                       {section.title}
                     </h2>
                     <p className="text-sm text-gray-500 max-w-xl">
@@ -207,9 +207,9 @@ export default async function AracBakimPage() {
                 </div>
 
                 {/* Ürün grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                   {sectionProducts.map((product) => (
-                    <ProductCard key={product.sku} product={product as any} />
+                    <ProductCard key={product.sku} product={product as any} variant="compact" />
                   ))}
                 </div>
               </div>
@@ -227,7 +227,7 @@ export default async function AracBakimPage() {
               <p className="text-[10px] font-bold uppercase tracking-widest text-[#f5a623] mb-1">
                 Polisaj Ekipmanları
               </p>
-              <h2 className="text-2xl md:text-3xl font-black text-[#002b3d] uppercase tracking-tight leading-none mb-2">
+              <h2 className="text-2xl md:text-3xl font-black text-[#1d1d1d] uppercase tracking-tight leading-none mb-2">
                 Aksesuarlar
               </h2>
               <p className="text-sm text-gray-500 max-w-xl">
@@ -247,16 +247,16 @@ export default async function AracBakimPage() {
 
             return (
               <div key={accSection.id} className="mb-10">
-                <h3 className="text-sm font-black uppercase tracking-wider text-[#002b3d] mb-4 flex items-center gap-2">
+                <h3 className="text-sm font-black uppercase tracking-wider text-[#1d1d1d] mb-4 flex items-center gap-2">
                   <span className="w-4 h-0.5 bg-[#f5a623] inline-block" />
                   {accSection.title}
                   <span className="text-gray-400 font-normal text-xs ml-1">
                     ({accProducts.length})
                   </span>
                 </h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                   {accProducts.map((product) => (
-                    <ProductCard key={product.sku} product={product as any} />
+                    <ProductCard key={product.sku} product={product as any} variant="compact" />
                   ))}
                 </div>
               </div>
@@ -266,16 +266,16 @@ export default async function AracBakimPage() {
           {/* Makine ekipman */}
           {equipment.length > 0 && (
             <div className="mt-4">
-              <h3 className="text-sm font-black uppercase tracking-wider text-[#002b3d] mb-4 flex items-center gap-2">
+              <h3 className="text-sm font-black uppercase tracking-wider text-[#1d1d1d] mb-4 flex items-center gap-2">
                 <span className="w-4 h-0.5 bg-[#f5a623] inline-block" />
                 Tabanlıklar & Destek Diskler
                 <span className="text-gray-400 font-normal text-xs ml-1">
                   ({equipment.length})
                 </span>
               </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                 {equipment.map((product) => (
-                  <ProductCard key={product.sku} product={product as any} />
+                  <ProductCard key={product.sku} product={product as any} variant="compact" />
                 ))}
               </div>
             </div>
@@ -284,9 +284,9 @@ export default async function AracBakimPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#002b3d] text-white py-16">
+      <section className="bg-[#1d1d1d] text-white py-16">
         <div className="container mx-auto px-4 text-center">
-          <div className="w-8 h-0.5 bg-[#e3000f] mx-auto mb-6" />
+          <div className="w-8 h-0.5 bg-[#af1d1f] mx-auto mb-6" />
           <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight mb-4">
             Ürün seçiminde yardıma mı ihtiyacınız var?
           </h2>
@@ -296,7 +296,7 @@ export default async function AracBakimPage() {
           </p>
           <Link
             href="/iletisim"
-            className="inline-flex items-center gap-2 bg-[#e3000f] hover:bg-red-700 text-white px-8 py-4 font-bold uppercase tracking-widest text-sm transition-colors"
+            className="inline-flex items-center gap-2 bg-[#af1d1f] hover:bg-red-700 text-white px-8 py-4 font-bold uppercase tracking-widest text-sm transition-colors"
           >
             Bizimle İletişime Geçin
             <ArrowRight className="w-4 h-4" />

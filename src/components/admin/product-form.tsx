@@ -36,14 +36,14 @@ export default function ProductForm({ product }: ProductFormProps) {
 
       {/* Error message */}
       {state.error && (
-        <div className="bg-red-50 border border-[#e3000f] p-4 text-sm text-[#e3000f] font-medium">
+        <div className="bg-red-50 border border-[#af1d1f] p-4 text-sm text-[#af1d1f] font-medium">
           {state.error}
         </div>
       )}
 
       {/* Section: Temel Bilgiler */}
       <fieldset className="border border-gray-200 bg-white p-6">
-        <legend className="text-sm font-black uppercase tracking-wider text-[#002b3d] px-2">
+        <legend className="text-sm font-black uppercase tracking-wider text-[#1d1d1d] px-2">
           Temel Bilgiler
         </legend>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
@@ -150,7 +150,7 @@ export default function ProductForm({ product }: ProductFormProps) {
 
       {/* Section: Kategori */}
       <fieldset className="border border-gray-200 bg-white p-6">
-        <legend className="text-sm font-black uppercase tracking-wider text-[#002b3d] px-2">
+        <legend className="text-sm font-black uppercase tracking-wider text-[#1d1d1d] px-2">
           Kategori
         </legend>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
@@ -213,7 +213,7 @@ export default function ProductForm({ product }: ProductFormProps) {
 
       {/* Section: Icerik */}
       <fieldset className="border border-gray-200 bg-white p-6">
-        <legend className="text-sm font-black uppercase tracking-wider text-[#002b3d] px-2">
+        <legend className="text-sm font-black uppercase tracking-wider text-[#1d1d1d] px-2">
           Icerik
         </legend>
         <div className="space-y-4 mt-4">
@@ -272,7 +272,7 @@ export default function ProductForm({ product }: ProductFormProps) {
 
       {/* Section: Teknik Bilgiler */}
       <fieldset className="border border-gray-200 bg-white p-6">
-        <legend className="text-sm font-black uppercase tracking-wider text-[#002b3d] px-2">
+        <legend className="text-sm font-black uppercase tracking-wider text-[#1d1d1d] px-2">
           Teknik Bilgiler
         </legend>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
@@ -340,7 +340,7 @@ export default function ProductForm({ product }: ProductFormProps) {
               name="silicone_free"
               type="checkbox"
               defaultChecked={tf?.silicone_free || false}
-              className="h-4 w-4 border border-gray-300 accent-[#e3000f]"
+              className="h-4 w-4 border border-gray-300 accent-[#af1d1f]"
             />
             <Label
               htmlFor="silicone_free"
@@ -356,7 +356,7 @@ export default function ProductForm({ product }: ProductFormProps) {
               name="filler_free"
               type="checkbox"
               defaultChecked={tf?.filler_free || false}
-              className="h-4 w-4 border border-gray-300 accent-[#e3000f]"
+              className="h-4 w-4 border border-gray-300 accent-[#af1d1f]"
             />
             <Label
               htmlFor="filler_free"
@@ -373,7 +373,7 @@ export default function ProductForm({ product }: ProductFormProps) {
         <button
           type="submit"
           disabled={isPending}
-          className="inline-flex items-center gap-2 bg-[#e3000f] hover:bg-red-700 disabled:opacity-50 text-white px-6 py-2.5 font-bold uppercase tracking-widest text-sm transition-colors"
+          className="inline-flex items-center gap-2 bg-[#af1d1f] hover:bg-red-700 disabled:opacity-50 text-white px-6 py-2.5 font-bold uppercase tracking-widest text-sm transition-colors"
         >
           {isPending ? (
             <>

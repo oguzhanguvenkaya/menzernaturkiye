@@ -9,12 +9,12 @@ export default function NewProductPage() {
       <div>
         <Link
           href="/admin/urunler"
-          className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-[#e3000f] transition-colors mb-2"
+          className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-[#af1d1f] transition-colors mb-2"
         >
           <ChevronLeft className="w-3 h-3" />
           Urunlere don
         </Link>
-        <h1 className="text-2xl font-black uppercase tracking-wider text-[#002b3d]">
+        <h1 className="text-2xl font-black uppercase tracking-wider text-[#1d1d1d]">
           Yeni Urun Ekle
         </h1>
         <p className="text-sm text-gray-500 mt-1">

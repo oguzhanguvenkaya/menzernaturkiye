@@ -32,11 +32,11 @@ export default function ProductSearch({ defaultValue }: ProductSearchProps) {
         value={query}
         onChange={(e) => handleSearch(e.target.value)}
         placeholder="Urun adi veya SKU ile ara..."
-        className="w-full border border-gray-200 bg-white pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:border-[#e3000f] transition-colors"
+        className="w-full border border-gray-200 bg-white pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:border-[#af1d1f] transition-colors"
       />
       {isPending && (
         <div className="absolute right-3 top-1/2 -translate-y-1/2">
-          <div className="w-4 h-4 border-2 border-gray-300 border-t-[#e3000f] rounded-full animate-spin" />
+          <div className="w-4 h-4 border-2 border-gray-300 border-t-[#af1d1f] rounded-full animate-spin" />
         </div>
       )}
     </div>

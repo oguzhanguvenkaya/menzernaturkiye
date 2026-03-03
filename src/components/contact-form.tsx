@@ -54,8 +54,8 @@ export function ContactForm() {
     >
       {/* Ad Soyad */}
       <div className="space-y-1.5">
-        <Label htmlFor="contact-name" className="text-[#002b3d] font-bold uppercase tracking-wider text-xs">
-          Ad Soyad <span className="text-[#e3000f]" aria-hidden="true">*</span>
+        <Label htmlFor="contact-name" className="text-[#1d1d1d] font-bold uppercase tracking-wider text-xs">
+          Ad Soyad <span className="text-[#af1d1f]" aria-hidden="true">*</span>
         </Label>
         <Input
           id="contact-name"
@@ -68,12 +68,12 @@ export function ContactForm() {
           aria-describedby={getFieldError("name") ? "contact-name-error" : undefined}
           aria-invalid={!!getFieldError("name")}
           disabled={isPending}
-          className={`h-11 text-sm border-gray-300 focus-visible:ring-[#e3000f] focus-visible:border-[#e3000f] ${
-            getFieldError("name") ? "border-[#e3000f]" : ""
+          className={`h-11 text-sm border-gray-300 focus-visible:ring-[#af1d1f] focus-visible:border-[#af1d1f] ${
+            getFieldError("name") ? "border-[#af1d1f]" : ""
           }`}
         />
         {getFieldError("name") && (
-          <p id="contact-name-error" role="alert" className="text-xs text-[#e3000f] mt-1">
+          <p id="contact-name-error" role="alert" className="text-xs text-[#af1d1f] mt-1">
             {getFieldError("name")}
           </p>
         )}
@@ -81,8 +81,8 @@ export function ContactForm() {
 
       {/* E-posta */}
       <div className="space-y-1.5">
-        <Label htmlFor="contact-email" className="text-[#002b3d] font-bold uppercase tracking-wider text-xs">
-          E-posta <span className="text-[#e3000f]" aria-hidden="true">*</span>
+        <Label htmlFor="contact-email" className="text-[#1d1d1d] font-bold uppercase tracking-wider text-xs">
+          E-posta <span className="text-[#af1d1f]" aria-hidden="true">*</span>
         </Label>
         <Input
           id="contact-email"
@@ -95,12 +95,12 @@ export function ContactForm() {
           aria-describedby={getFieldError("email") ? "contact-email-error" : undefined}
           aria-invalid={!!getFieldError("email")}
           disabled={isPending}
-          className={`h-11 text-sm border-gray-300 focus-visible:ring-[#e3000f] focus-visible:border-[#e3000f] ${
-            getFieldError("email") ? "border-[#e3000f]" : ""
+          className={`h-11 text-sm border-gray-300 focus-visible:ring-[#af1d1f] focus-visible:border-[#af1d1f] ${
+            getFieldError("email") ? "border-[#af1d1f]" : ""
           }`}
         />
         {getFieldError("email") && (
-          <p id="contact-email-error" role="alert" className="text-xs text-[#e3000f] mt-1">
+          <p id="contact-email-error" role="alert" className="text-xs text-[#af1d1f] mt-1">
             {getFieldError("email")}
           </p>
         )}
@@ -108,8 +108,8 @@ export function ContactForm() {
 
       {/* Konu */}
       <div className="space-y-1.5">
-        <Label htmlFor="contact-subject" className="text-[#002b3d] font-bold uppercase tracking-wider text-xs">
-          Konu <span className="text-[#e3000f]" aria-hidden="true">*</span>
+        <Label htmlFor="contact-subject" className="text-[#1d1d1d] font-bold uppercase tracking-wider text-xs">
+          Konu <span className="text-[#af1d1f]" aria-hidden="true">*</span>
         </Label>
         <Input
           id="contact-subject"
@@ -121,12 +121,12 @@ export function ContactForm() {
           aria-describedby={getFieldError("subject") ? "contact-subject-error" : undefined}
           aria-invalid={!!getFieldError("subject")}
           disabled={isPending}
-          className={`h-11 text-sm border-gray-300 focus-visible:ring-[#e3000f] focus-visible:border-[#e3000f] ${
-            getFieldError("subject") ? "border-[#e3000f]" : ""
+          className={`h-11 text-sm border-gray-300 focus-visible:ring-[#af1d1f] focus-visible:border-[#af1d1f] ${
+            getFieldError("subject") ? "border-[#af1d1f]" : ""
           }`}
         />
         {getFieldError("subject") && (
-          <p id="contact-subject-error" role="alert" className="text-xs text-[#e3000f] mt-1">
+          <p id="contact-subject-error" role="alert" className="text-xs text-[#af1d1f] mt-1">
             {getFieldError("subject")}
           </p>
         )}
@@ -134,8 +134,8 @@ export function ContactForm() {
 
       {/* Mesaj */}
       <div className="space-y-1.5">
-        <Label htmlFor="contact-message" className="text-[#002b3d] font-bold uppercase tracking-wider text-xs">
-          Mesaj <span className="text-[#e3000f]" aria-hidden="true">*</span>
+        <Label htmlFor="contact-message" className="text-[#1d1d1d] font-bold uppercase tracking-wider text-xs">
+          Mesaj <span className="text-[#af1d1f]" aria-hidden="true">*</span>
         </Label>
         <Textarea
           id="contact-message"
@@ -147,12 +147,12 @@ export function ContactForm() {
           aria-describedby={getFieldError("message") ? "contact-message-error" : undefined}
           aria-invalid={!!getFieldError("message")}
           disabled={isPending}
-          className={`text-sm resize-none border-gray-300 focus-visible:ring-[#e3000f] focus-visible:border-[#e3000f] min-h-[150px] ${
-            getFieldError("message") ? "border-[#e3000f]" : ""
+          className={`text-sm resize-none border-gray-300 focus-visible:ring-[#af1d1f] focus-visible:border-[#af1d1f] min-h-[150px] ${
+            getFieldError("message") ? "border-[#af1d1f]" : ""
           }`}
         />
         {getFieldError("message") && (
-          <p id="contact-message-error" role="alert" className="text-xs text-[#e3000f] mt-1">
+          <p id="contact-message-error" role="alert" className="text-xs text-[#af1d1f] mt-1">
             {getFieldError("message")}
           </p>
         )}
@@ -160,7 +160,7 @@ export function ContactForm() {
 
       {/* General error (non-field) */}
       {state && !state.success && !state.fieldErrors && (
-        <p role="alert" className="text-sm text-[#e3000f] bg-red-50 border border-red-200 px-4 py-3">
+        <p role="alert" className="text-sm text-[#af1d1f] bg-red-50 border border-red-200 px-4 py-3">
           {state.error}
         </p>
       )}
@@ -170,7 +170,7 @@ export function ContactForm() {
         type="submit"
         disabled={isPending}
         aria-disabled={isPending}
-        className="w-full bg-[#e3000f] hover:bg-red-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold uppercase tracking-widest text-sm px-8 py-4 transition-colors flex items-center justify-center gap-2"
+        className="w-full bg-[#af1d1f] hover:bg-red-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold uppercase tracking-widest text-sm px-8 py-4 transition-colors flex items-center justify-center gap-2"
       >
         {isPending ? (
           <>
@@ -186,7 +186,7 @@ export function ContactForm() {
       </button>
 
       <p className="text-xs text-gray-400 text-center">
-        <span className="text-[#e3000f]">*</span> ile işaretli alanlar zorunludur.
+        <span className="text-[#af1d1f]">*</span> ile işaretli alanlar zorunludur.
       </p>
     </form>
   );

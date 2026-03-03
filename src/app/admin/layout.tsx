@@ -44,14 +44,14 @@ export default function AdminLayout({
   return (
     <div className="min-h-screen bg-[#f8f9fa] flex">
       {/* Sidebar */}
-      <aside className="w-56 bg-[#002b3d] text-white flex flex-col shrink-0">
+      <aside className="w-56 bg-[#1d1d1d] text-white flex flex-col shrink-0">
         <div className="p-4 border-b border-white/10">
           <Link href="/" className="flex items-center gap-2 text-xs text-gray-400 hover:text-white transition-colors mb-2">
             <ChevronLeft className="w-3 h-3" />
             Siteye Dön
           </Link>
           <h2 className="text-lg font-black uppercase tracking-wider">
-            Menzerna<span className="text-[#e3000f]">.</span>
+            Menzerna<span className="text-[#af1d1f]">.</span>
           </h2>
           <p className="text-[10px] text-gray-400 uppercase tracking-widest">
             Yönetim Paneli
@@ -70,7 +70,7 @@ export default function AdminLayout({
                 href={item.href}
                 className={`flex items-center gap-3 px-4 py-2.5 text-sm transition-colors ${
                   isActive
-                    ? "bg-white/10 text-white border-l-2 border-[#e3000f]"
+                    ? "bg-white/10 text-white border-l-2 border-[#af1d1f]"
                     : "text-gray-400 hover:text-white hover:bg-white/5 border-l-2 border-transparent"
                 }`}
               >

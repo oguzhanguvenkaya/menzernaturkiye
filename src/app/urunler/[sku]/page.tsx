@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllProducts, getProductBySku } from "@/db/queries";
 import { ProductCard } from "@/components/product-card";
-import { ProductTabs } from "@/components/product-tabs";
+import { ProductGallery } from "@/components/product-gallery";
+import { SizeSelector } from "@/components/size-selector";
+import { ApplicationSteps } from "@/components/application-steps";
 import type { Product } from "@/lib/types";
-import { CheckCircle2, ChevronRight } from "lucide-react";
+import { groupProductsBySize, extractSizeLabel } from "@/lib/product-utils";
+import {
+  ChevronRight,
+  Shield,
+  Settings,
+  Beaker,
+  Crosshair,
+} from "lucide-react";
 
 export const revalidate = 3600;
 
@@ -28,12 +36,12 @@ export async function generateMetadata({
   const product = (await getProductBySku(sku)) as unknown as Product | undefined;
 
   if (!product) {
-    return { title: "Ürün Bulunamadı" };
+    return { title: "Urun Bulunamadi" };
   }
 
   const description =
     product.content?.short_description ??
-    `${product.product_name} — Menzerna profesyonel polisaj ürünü.`;
+    `${product.product_name} - Menzerna profesyonel polisaj urunu.`;
 
   return {
     title: product.product_name,
@@ -46,9 +54,9 @@ export async function generateMetadata({
   };
 }
 
-// --- Level Bar ---
+// --- Segmented Bar ---
 
-function LevelBar({
+function SegmentedBar({
   value,
   max = 10,
   color,
@@ -59,29 +67,30 @@ function LevelBar({
   color: "red" | "green";
   label: string;
 }) {
-  const clampedValue = Math.min(Math.max(value, 0), max);
-  const percentage = (clampedValue / max) * 100;
-  const barColor = color === "red" ? "bg-[#e3000f]" : "bg-[#009b77]";
-  const trackColor = color === "red" ? "bg-red-100" : "bg-green-100";
-  const textColor = color === "red" ? "text-[#e3000f]" : "text-[#009b77]";
+  const clamped = Math.min(Math.max(value, 0), max);
+  const filledColor = color === "red" ? "bg-[#af1d1f]" : "bg-[#006b52]";
+  const emptyColor = "bg-gray-200";
+  const textColor = color === "red" ? "text-[#af1d1f]" : "text-[#006b52]";
 
   return (
-    <div className="flex items-center gap-3">
-      <span className="text-xs font-black uppercase tracking-wider text-gray-500 w-24 shrink-0">
-        {label}
-      </span>
-      <div
-        className={`flex-1 h-2.5 ${trackColor} rounded-none overflow-hidden`}
-      >
-        <div
-          className={`h-full ${barColor} rounded-none transition-all`}
-          style={{ width: `${percentage}%` }}
-        />
+    <div>
+      <div className="flex justify-between items-center mb-1">
+        <span className="text-xs font-black uppercase tracking-widest">
+          {label}
+        </span>
+        <span className={`text-lg font-black ${textColor}`}>
+          {clamped}
+          <span className="text-xs text-gray-400 font-normal">/{max}</span>
+        </span>
       </div>
-      <span className={`text-sm font-black ${textColor} w-8 text-right shrink-0`}>
-        {clampedValue}
-        <span className="text-gray-300 text-xs font-medium">/{max}</span>
-      </span>
+      <div className="flex gap-0.5">
+        {Array.from({ length: max }, (_, i) => (
+          <div
+            key={i}
+            className={`h-3 flex-1 ${i < clamped ? filledColor : emptyColor}`}
+          />
+        ))}
+      </div>
     </div>
   );
 }
@@ -115,10 +124,49 @@ async function getRelatedProducts(
 
   if (skus.length === 0) return [];
 
-  const results = await Promise.all(
-    skus.map((s) => getProductBySku(s))
-  );
+  const results = await Promise.all(skus.map((s) => getProductBySku(s)));
   return results.filter(Boolean) as unknown as Product[];
+}
+
+// --- Helper: build gallery images ---
+
+function buildGalleryImages(product: Product, primaryProduct?: Product): string[] {
+  const images: string[] = [];
+  if (product.image_url) images.push(product.image_url);
+  const source = primaryProduct || product;
+  const gallery = source.content?.gallery;
+  if (gallery) {
+    for (const url of gallery) {
+      if (!images.includes(url)) images.push(url);
+    }
+  }
+  return images;
+}
+
+// --- Helper: get silicone/filler status ---
+
+function getSiliconFillerStatus(
+  silFree?: boolean,
+  filFree?: boolean
+): string {
+  if (silFree && filFree) return "Icermez";
+  if (silFree) return "Silikon Icermez";
+  if (filFree) return "Dolgu Icermez";
+  return "";
+}
+
+// --- Helper: translate dusting level ---
+
+function translateDustingLevel(level?: string): string {
+  if (!level) return "";
+  const map: Record<string, string> = {
+    Low: "Dusuk",
+    "Very Low": "Cok Dusuk",
+    Medium: "Orta",
+    High: "Yuksek",
+    "Very High": "Cok Yuksek",
+  };
+  return map[level] || level;
 }
 
 // --- Page ---
@@ -129,27 +177,42 @@ export default async function ProductDetailPage({
   params: Promise<{ sku: string }>;
 }) {
   const { sku } = await params;
-  const product = (await getProductBySku(sku)) as unknown as Product | undefined;
+  const allProducts = (await getAllProducts()) as unknown as Product[];
+  const product = allProducts.find((p) => p.sku === sku);
 
   if (!product) {
     notFound();
   }
 
+  // Find size variants
+  const groups = groupProductsBySize(allProducts);
+  const currentGroup = groups.find((g) =>
+    g.variants.some((v) => v.product.sku === sku)
+  );
+  const sizeVariants = currentGroup
+    ? currentGroup.variants.map((v) => ({
+        sku: v.product.sku,
+        sizeLabel: v.sizeLabel || extractSizeLabel(v.product.product_name),
+      }))
+    : [];
+  const primaryProduct = currentGroup?.primary;
+
+  // Use primary product for data when available (richer content)
+  const dataSource = primaryProduct || product;
+
   const {
     product_name,
-    image_url,
     category,
     content,
     template_fields,
     relations,
-    faq,
-  } = product;
+  } = dataSource;
 
+  const scrape = content?.menzerna_scrape;
   const cutLevel = template_fields?.cut_level;
   const finishLevel = template_fields?.finish_level;
   const silFree = template_fields?.silicone_free;
   const filFree = template_fields?.filler_free;
-  const showSilFillBadge = silFree || filFree;
   const machines = getMachines(template_fields?.machine_compatibility);
   const subCat =
     (category as any)?.sub_cat2 ||
@@ -157,7 +220,52 @@ export default async function ProductDetailPage({
     category?.sub_cat ||
     "";
 
+  const galleryImages = buildGalleryImages(product, primaryProduct);
   const relatedProducts = await getRelatedProducts(relations, sku);
+
+  // Subtitle: prefer scrape data
+  const subtitle =
+    scrape?.subtitle_en || scrape?.subtitle || content?.short_description || "";
+
+  // Description: prefer scrape data
+  const description =
+    scrape?.description_en || scrape?.description || content?.full_description || "";
+
+  // Feature cards data
+  const featureCards: { icon: React.ReactNode; label: string; value: string }[] = [];
+
+  const silFillerStatus = getSiliconFillerStatus(silFree, filFree);
+  if (silFillerStatus) {
+    featureCards.push({
+      icon: <Shield className="w-5 h-5" />,
+      label: "Silikon & Dolgu",
+      value: silFillerStatus,
+    });
+  }
+
+  if (template_fields?.grit_removal) {
+    featureCards.push({
+      icon: <Crosshair className="w-5 h-5" />,
+      label: "Zimpara Izi Giderme",
+      value: template_fields.grit_removal,
+    });
+  }
+
+  if (template_fields?.dusting_level) {
+    featureCards.push({
+      icon: <Beaker className="w-5 h-5" />,
+      label: "Tozuma Seviyesi",
+      value: translateDustingLevel(template_fields.dusting_level),
+    });
+  }
+
+  if (machines.length > 0) {
+    featureCards.push({
+      icon: <Settings className="w-5 h-5" />,
+      label: "Makine",
+      value: machines.join(" / "),
+    });
+  }
 
   return (
     <div className="min-h-screen bg-white">
@@ -168,15 +276,18 @@ export default async function ProductDetailPage({
             className="flex items-center gap-1.5 text-xs text-gray-500"
             aria-label="Breadcrumb"
           >
-            <Link href="/" className="hover:text-[#e3000f] transition-colors">
+            <Link
+              href="/"
+              className="hover:text-[#af1d1f] transition-colors"
+            >
               Ana Sayfa
             </Link>
             <ChevronRight className="w-3 h-3 shrink-0" />
             <Link
               href="/urunler"
-              className="hover:text-[#e3000f] transition-colors"
+              className="hover:text-[#af1d1f] transition-colors"
             >
-              Ürünler
+              Urunler
             </Link>
             {subCat && (
               <>
@@ -185,150 +296,182 @@ export default async function ProductDetailPage({
               </>
             )}
             <ChevronRight className="w-3 h-3 shrink-0" />
-            <span className="text-[#002b3d] font-bold truncate max-w-[200px]">
+            <span className="text-[#1d1d1d] font-bold truncate max-w-[200px]">
               {product_name}
             </span>
           </nav>
         </div>
       </div>
 
-      {/* Ana ürün bölümü */}
+      {/* Main product section */}
       <div className="container mx-auto px-4 py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Sol: Görsel */}
-          <div className="relative aspect-square bg-[#f8f9fa] flex items-center justify-center overflow-hidden">
-            {image_url ? (
-              <Image
-                src={image_url}
-                alt={product_name}
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-                className="object-contain p-10"
-              />
-            ) : (
-              <div className="flex flex-col items-center gap-3 text-gray-300">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-20 h-20"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={0.8}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  />
-                </svg>
-                <span className="text-xs uppercase tracking-widest">
-                  Görsel Mevcut Değil
-                </span>
-              </div>
-            )}
+        <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-10 items-start">
+          {/* LEFT COLUMN - Gallery */}
+          <div>
+            <ProductGallery
+              images={galleryImages}
+              productName={product_name}
+            />
           </div>
 
-          {/* Sağ: Bilgiler */}
+          {/* RIGHT COLUMN - Product info */}
           <div className="flex flex-col gap-5">
-            {/* Kategori etiketi */}
-            {subCat && (
-              <span className="text-xs font-black uppercase tracking-widest text-[#e3000f]">
-                {subCat}
-              </span>
-            )}
+            {/* Category + SKU label */}
+            <div className="text-[11px] text-gray-400 font-black uppercase tracking-[0.15em]">
+              {subCat && <span>{subCat}</span>}
+              {subCat && <span className="mx-2">&bull;</span>}
+              <span>SKU: {sku}</span>
+            </div>
 
-            {/* Ürün adı */}
-            <h1 className="text-3xl font-black uppercase text-[#002b3d] leading-tight tracking-tight">
+            {/* Product name + red underline */}
+            <h1 className="text-2xl font-black uppercase text-[#1d1d1d] leading-tight tracking-tight">
               {product_name}
             </h1>
+            <div className="w-16 h-1 bg-[#af1d1f]" />
 
-            {/* Kısa açıklama */}
-            {content?.short_description && (
-              <p className="text-gray-600 leading-relaxed text-sm border-l-2 border-[#e3000f] pl-4">
-                {content.short_description}
+            {/* Subtitle */}
+            {subtitle && (
+              <p className="text-gray-700 leading-relaxed text-base font-semibold">
+                {subtitle}
               </p>
             )}
 
-            {/* Cut / Finish barları */}
+            {/* Description (HTML content) */}
+            {description && (
+              <div
+                className="text-gray-600 leading-relaxed text-sm"
+                dangerouslySetInnerHTML={{
+                  __html: description.replace(/\n/g, "<br>"),
+                }}
+              />
+            )}
+
+            {/* Size selector */}
+            {sizeVariants.length > 1 && (
+              <SizeSelector variants={sizeVariants} currentSku={sku} />
+            )}
+
+            {/* Segmented Cut/Gloss bars */}
             {((cutLevel != null && cutLevel > 0) ||
               (finishLevel != null && finishLevel > 0)) && (
-              <div className="border border-gray-100 bg-[#f8f9fa] p-5 flex flex-col gap-4">
-                <span className="text-xs font-black uppercase tracking-widest text-[#002b3d]">
-                  Performans Seviyeleri
-                </span>
+              <div className="flex flex-col gap-4 p-5 bg-[#f8f9fa] border border-gray-200">
                 {cutLevel != null && cutLevel > 0 && (
-                  <LevelBar
+                  <SegmentedBar
                     value={cutLevel}
                     color="red"
-                    label="Kesme Gücü"
+                    label="Kesicilik (Cut)"
                   />
                 )}
                 {finishLevel != null && finishLevel > 0 && (
-                  <LevelBar
+                  <SegmentedBar
                     value={finishLevel}
                     color="green"
-                    label="Parlama"
+                    label="Parlaklik (Gloss)"
                   />
                 )}
               </div>
             )}
 
-            {/* Özellik rozetleri */}
-            {showSilFillBadge && (
-              <div className="flex flex-wrap gap-2">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-50 border border-green-200 text-green-700 text-xs font-black uppercase tracking-wider">
-                  <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
-                  Silikon &amp; Dolgu İçermez
-                </span>
-              </div>
-            )}
-
-            {/* Uygun Makineler */}
-            {machines.length > 0 && (
-              <div>
-                <h2 className="text-xs font-black uppercase tracking-widest text-[#002b3d] mb-3">
-                  Uygun Makineler
-                </h2>
-                <div className="flex flex-wrap gap-2">
-                  {machines.map((machine, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1.5 border border-[#002b3d]/20 text-xs font-bold text-[#002b3d] uppercase tracking-wide bg-white hover:border-[#002b3d]/40 transition-colors"
-                    >
-                      {machine}
+            {/* Feature cards grid */}
+            {featureCards.length > 0 && (
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                {featureCards.map((card, i) => (
+                  <div
+                    key={i}
+                    className="bg-gray-50 border border-gray-200 p-3 flex flex-col items-center text-center"
+                  >
+                    <div className="text-[#af1d1f] mb-1">{card.icon}</div>
+                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">
+                      {card.label}
                     </span>
-                  ))}
-                </div>
+                    <span className="text-sm font-black text-[#1d1d1d]">
+                      {card.value}
+                    </span>
+                  </div>
+                ))}
               </div>
             )}
-
-            {/* SKU */}
-            <p className="text-xs text-gray-400 font-medium">
-              SKU:{" "}
-              <span className="font-bold text-gray-500 tracking-wider">
-                {sku}
-              </span>
-            </p>
           </div>
         </div>
 
-        {/* Tabs bölümü */}
-        <div className="mt-14 border-t border-gray-100 pt-8">
-          <ProductTabs
-            fullDescription={content?.full_description}
-            whenToUse={content?.when_to_use}
-            targetSurface={content?.target_surface}
-            howToUse={content?.how_to_use}
-            faq={faq ?? undefined}
-          />
-        </div>
+        {/* Application Steps section */}
+        {(scrape?.processing || scrape?.steps || content?.how_to_use) && (
+          <div className="mt-14 border-t border-gray-100 pt-8">
+            <ApplicationSteps
+              processing={scrape?.processing}
+              steps={scrape?.steps}
+              howToUse={content?.how_to_use}
+            />
+          </div>
+        )}
 
-        {/* İlgili ürünler */}
+        {/* Full description section (if not already shown via scrape) */}
+        {content?.full_description && !scrape?.description && !scrape?.description_en && (
+          <div className="mt-14 border-t border-gray-100 pt-8">
+            <h2 className="text-lg font-black uppercase tracking-widest text-[#1d1d1d] mb-4">
+              Urun Aciklamasi
+            </h2>
+            <div
+              className="text-gray-600 leading-relaxed text-sm prose prose-sm max-w-none"
+              dangerouslySetInnerHTML={{
+                __html: content.full_description.replace(/\n/g, "<br>"),
+              }}
+            />
+          </div>
+        )}
+
+        {/* When to use / Target surface */}
+        {(content?.when_to_use || content?.target_surface) && (
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {content?.when_to_use && (
+              <div className="bg-[#1d1d1d] p-6">
+                <h3 className="text-xs font-black uppercase tracking-widest text-white mb-3">
+                  Ne Zaman Kullanilir
+                </h3>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  {content.when_to_use}
+                </p>
+              </div>
+            )}
+            {content?.target_surface && (
+              <div className="bg-gray-50 border border-gray-200 p-6">
+                <h3 className="text-xs font-black uppercase tracking-widest text-[#1d1d1d] mb-3">
+                  Hedef Yuzey
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {content.target_surface}
+                </p>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* FAQ section */}
+        {dataSource.faq && dataSource.faq.length > 0 && (
+          <div className="mt-14 border-t border-gray-100 pt-8">
+            <h2 className="text-lg font-black uppercase tracking-widest text-[#1d1d1d] mb-6">
+              Sikca Sorulan Sorular
+            </h2>
+            <div className="space-y-3">
+              {dataSource.faq.map((item, idx) => (
+                <div key={idx} className="border border-gray-200 p-5">
+                  <h3 className="font-black text-[#1d1d1d] text-sm mb-2">
+                    {item.question}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-sm">
+                    {item.answer}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Related products */}
         {relatedProducts.length > 0 && (
           <div className="mt-16 border-t border-gray-100 pt-10">
-            <h2 className="text-xl font-black uppercase tracking-widest text-[#002b3d] mb-6">
-              İlgili Ürünler
+            <h2 className="text-xl font-black uppercase tracking-widest text-[#1d1d1d] mb-6">
+              Ilgili Urunler
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {relatedProducts.map((rp) => (

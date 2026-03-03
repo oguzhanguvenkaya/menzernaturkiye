@@ -10,14 +10,14 @@ export default async function AdminMesajlarPage() {
     <div>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-black text-[#002b3d] uppercase tracking-wider">
+          <h1 className="text-2xl font-black text-[#1d1d1d] uppercase tracking-wider">
             Mesajlar
           </h1>
           <p className="text-sm text-gray-500 mt-1">
             {messages.length} iletişim mesajı
           </p>
         </div>
-        <div className="w-10 h-10 bg-[#002b3d] flex items-center justify-center">
+        <div className="w-10 h-10 bg-[#1d1d1d] flex items-center justify-center">
           <MessageSquare className="w-5 h-5 text-white" />
         </div>
       </div>
@@ -59,18 +59,18 @@ function MessageCard({ message }: { message: ContactMessage }) {
       <div className="flex items-start justify-between gap-4">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-3 mb-2">
-            <h3 className="font-bold text-[#002b3d] text-sm uppercase tracking-wider">
+            <h3 className="font-bold text-[#1d1d1d] text-sm uppercase tracking-wider">
               {message.name}
             </h3>
             <span className="text-xs text-gray-400">&middot;</span>
             <a
               href={`mailto:${message.email}`}
-              className="text-xs text-[#e3000f] hover:underline"
+              className="text-xs text-[#af1d1f] hover:underline"
             >
               {message.email}
             </a>
           </div>
-          <p className="text-sm font-semibold text-[#002b3d] mb-1">
+          <p className="text-sm font-semibold text-[#1d1d1d] mb-1">
             {message.subject}
           </p>
           <p className="text-sm text-gray-600 leading-relaxed">
@@ -86,7 +86,7 @@ function MessageCard({ message }: { message: ContactMessage }) {
         >
           <button
             type="submit"
-            className="p-2 text-gray-400 hover:text-[#e3000f] hover:bg-red-50 transition-colors"
+            className="p-2 text-gray-400 hover:text-[#af1d1f] hover:bg-red-50 transition-colors"
             title="Mesaji sil"
           >
             <Trash2 className="w-4 h-4" />

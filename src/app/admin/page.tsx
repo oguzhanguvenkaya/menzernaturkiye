@@ -19,14 +19,14 @@ export default async function AdminDashboard() {
       count: stats.products,
       icon: Package,
       href: "/admin/urunler",
-      color: "#e3000f",
+      color: "#af1d1f",
     },
     {
       label: "Mesajlar",
       count: stats.messages,
       icon: MessageSquare,
       href: "/admin/mesajlar",
-      color: "#002b3d",
+      color: "#1d1d1d",
     },
     {
       label: "Sayfalar",
@@ -69,7 +69,7 @@ export default async function AdminDashboard() {
     <div className="space-y-8">
       {/* Page heading */}
       <div>
-        <h1 className="text-2xl font-black uppercase tracking-wider text-[#002b3d]">
+        <h1 className="text-2xl font-black uppercase tracking-wider text-[#1d1d1d]">
           Yonetim Paneli
         </h1>
         <p className="text-sm text-gray-500 mt-1">
@@ -90,7 +90,7 @@ export default async function AdminDashboard() {
                 <p className="text-xs font-bold uppercase tracking-wider text-gray-500">
                   {card.label}
                 </p>
-                <p className="text-3xl font-black text-[#002b3d] mt-2">
+                <p className="text-3xl font-black text-[#1d1d1d] mt-2">
                   {card.count}
                 </p>
               </div>
@@ -101,7 +101,7 @@ export default async function AdminDashboard() {
                 <card.icon className="w-5 h-5 text-white" />
               </div>
             </div>
-            <div className="mt-4 flex items-center gap-1 text-xs font-medium text-gray-400 group-hover:text-[#e3000f] transition-colors">
+            <div className="mt-4 flex items-center gap-1 text-xs font-medium text-gray-400 group-hover:text-[#af1d1f] transition-colors">
               Goruntule
               <ArrowRight className="w-3 h-3" />
             </div>
@@ -111,7 +111,7 @@ export default async function AdminDashboard() {
 
       {/* Quick links */}
       <div>
-        <h2 className="text-sm font-black uppercase tracking-wider text-[#002b3d] mb-4">
+        <h2 className="text-sm font-black uppercase tracking-wider text-[#1d1d1d] mb-4">
           Hizli Erisim
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -119,7 +119,7 @@ export default async function AdminDashboard() {
             <Link
               key={link.href}
               href={link.href}
-              className="flex items-center gap-3 bg-white border border-gray-200 px-4 py-3 hover:border-[#e3000f] hover:text-[#e3000f] transition-colors text-sm font-medium text-[#002b3d]"
+              className="flex items-center gap-3 bg-white border border-gray-200 px-4 py-3 hover:border-[#af1d1f] hover:text-[#af1d1f] transition-colors text-sm font-medium text-[#1d1d1d]"
             >
               <link.icon className="w-4 h-4 shrink-0" />
               {link.label}

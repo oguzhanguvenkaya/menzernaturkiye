@@ -61,37 +61,37 @@ export async function submitContactForm(
       subject: `Yeni İletişim Formu Mesajı: ${subject}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <div style="background-color: #002b3d; padding: 24px; text-align: center;">
+          <div style="background-color: #1d1d1d; padding: 24px; text-align: center;">
             <h1 style="color: #ffffff; margin: 0; font-size: 22px; text-transform: uppercase; letter-spacing: 2px;">
               Menzerna Türkiye
             </h1>
-            <p style="color: #e3000f; margin: 6px 0 0; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;">
+            <p style="color: #af1d1f; margin: 6px 0 0; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;">
               Yeni İletişim Formu Mesajı
             </p>
           </div>
           <div style="background-color: #f8f9fa; padding: 32px;">
             <table style="width: 100%; border-collapse: collapse;">
               <tr>
-                <td style="padding: 10px 0; font-weight: bold; color: #002b3d; width: 120px; vertical-align: top;">Ad Soyad:</td>
+                <td style="padding: 10px 0; font-weight: bold; color: #1d1d1d; width: 120px; vertical-align: top;">Ad Soyad:</td>
                 <td style="padding: 10px 0; color: #333;">${name}</td>
               </tr>
               <tr>
-                <td style="padding: 10px 0; font-weight: bold; color: #002b3d; vertical-align: top;">E-posta:</td>
+                <td style="padding: 10px 0; font-weight: bold; color: #1d1d1d; vertical-align: top;">E-posta:</td>
                 <td style="padding: 10px 0; color: #333;">
-                  <a href="mailto:${email}" style="color: #e3000f; text-decoration: none;">${email}</a>
+                  <a href="mailto:${email}" style="color: #af1d1f; text-decoration: none;">${email}</a>
                 </td>
               </tr>
               <tr>
-                <td style="padding: 10px 0; font-weight: bold; color: #002b3d; vertical-align: top;">Konu:</td>
+                <td style="padding: 10px 0; font-weight: bold; color: #1d1d1d; vertical-align: top;">Konu:</td>
                 <td style="padding: 10px 0; color: #333;">${subject}</td>
               </tr>
               <tr>
-                <td style="padding: 10px 0; font-weight: bold; color: #002b3d; vertical-align: top;">Mesaj:</td>
+                <td style="padding: 10px 0; font-weight: bold; color: #1d1d1d; vertical-align: top;">Mesaj:</td>
                 <td style="padding: 10px 0; color: #333; white-space: pre-wrap;">${message}</td>
               </tr>
             </table>
           </div>
-          <div style="background-color: #002b3d; padding: 16px; text-align: center;">
+          <div style="background-color: #1d1d1d; padding: 16px; text-align: center;">
             <p style="color: #9ca3af; margin: 0; font-size: 12px;">
               Bu e-posta Menzerna Türkiye iletişim formu aracılığıyla gönderilmiştir.
             </p>

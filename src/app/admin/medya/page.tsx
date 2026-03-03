@@ -153,7 +153,7 @@ export default function MedyaPage() {
     <div>
       {/* Page header */}
       <div className="mb-8">
-        <h1 className="text-2xl font-black text-[#002b3d] uppercase tracking-wider">
+        <h1 className="text-2xl font-black text-[#1d1d1d] uppercase tracking-wider">
           Medya Yönetimi
         </h1>
         <p className="text-sm text-gray-500 mt-1">
@@ -174,8 +174,8 @@ export default function MedyaPage() {
       <div
         className={`relative border-2 border-dashed p-8 text-center transition-colors cursor-pointer mb-8 ${
           dragActive
-            ? "border-[#e3000f] bg-red-50"
-            : "border-gray-300 bg-gray-50 hover:border-[#e3000f] hover:bg-gray-100"
+            ? "border-[#af1d1f] bg-red-50"
+            : "border-gray-300 bg-gray-50 hover:border-[#af1d1f] hover:bg-gray-100"
         }`}
         onDragEnter={handleDrag}
         onDragOver={handleDrag}
@@ -192,12 +192,12 @@ export default function MedyaPage() {
         />
 
         <div className="flex flex-col items-center gap-3">
-          <div className="w-14 h-14 bg-[#002b3d] flex items-center justify-center">
+          <div className="w-14 h-14 bg-[#1d1d1d] flex items-center justify-center">
             <ImagePlus className="w-7 h-7 text-white" />
           </div>
 
           <div>
-            <p className="text-sm font-bold text-[#002b3d] uppercase tracking-wider">
+            <p className="text-sm font-bold text-[#1d1d1d] uppercase tracking-wider">
               {dragActive
                 ? "Dosyayı bırakın"
                 : "Görsel yüklemek için tıklayın veya sürükleyin"}
@@ -220,7 +220,7 @@ export default function MedyaPage() {
             </div>
             <div className="w-full bg-gray-200 h-1.5">
               <div
-                className="bg-[#e3000f] h-1.5 transition-all duration-300"
+                className="bg-[#af1d1f] h-1.5 transition-all duration-300"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -231,7 +231,7 @@ export default function MedyaPage() {
       {/* Uploaded files list */}
       {files.length > 0 && (
         <div>
-          <h2 className="text-sm font-black text-[#002b3d] uppercase tracking-wider mb-4">
+          <h2 className="text-sm font-black text-[#1d1d1d] uppercase tracking-wider mb-4">
             Yüklenen Görseller ({files.length})
           </h2>
 
@@ -257,7 +257,7 @@ export default function MedyaPage() {
                     type="text"
                     readOnly
                     value={file.url}
-                    className="w-full text-xs bg-gray-50 border border-gray-200 px-2 py-1.5 text-gray-700 font-mono truncate focus:outline-none focus:border-[#e3000f]"
+                    className="w-full text-xs bg-gray-50 border border-gray-200 px-2 py-1.5 text-gray-700 font-mono truncate focus:outline-none focus:border-[#af1d1f]"
                     onClick={(e) => (e.target as HTMLInputElement).select()}
                   />
                 </div>
@@ -266,7 +266,7 @@ export default function MedyaPage() {
                 <div className="flex items-center gap-1 shrink-0">
                   <button
                     onClick={() => handleCopy(file.url)}
-                    className="p-2 text-gray-500 hover:text-[#002b3d] hover:bg-gray-100 transition-colors"
+                    className="p-2 text-gray-500 hover:text-[#1d1d1d] hover:bg-gray-100 transition-colors"
                     title="URL'yi kopyala"
                   >
                     {copiedUrl === file.url ? (
@@ -277,7 +277,7 @@ export default function MedyaPage() {
                   </button>
                   <button
                     onClick={() => handleDelete(file.url)}
-                    className="p-2 text-gray-500 hover:text-[#e3000f] hover:bg-red-50 transition-colors"
+                    className="p-2 text-gray-500 hover:text-[#af1d1f] hover:bg-red-50 transition-colors"
                     title="Görseli sil"
                   >
                     <Trash2 className="w-4 h-4" />

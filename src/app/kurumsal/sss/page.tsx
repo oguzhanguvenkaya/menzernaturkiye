@@ -73,7 +73,7 @@ export default function SSSPage() {
   return (
     <div>
       {/* Banner */}
-      <section className="relative bg-[#002b3d] py-20 md:py-28 overflow-hidden">
+      <section className="relative bg-[#1d1d1d] py-20 md:py-28 overflow-hidden">
         <div
           className="absolute inset-0 opacity-10"
           style={{
@@ -82,7 +82,7 @@ export default function SSSPage() {
           }}
         />
         <div className="relative container mx-auto px-4 text-center">
-          <p className="text-[#e3000f] text-xs font-black uppercase tracking-widest mb-3">
+          <p className="text-[#af1d1f] text-xs font-black uppercase tracking-widest mb-3">
             Kurumsal
           </p>
           <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-white mb-4">
@@ -90,7 +90,7 @@ export default function SSSPage() {
             <br />
             Sorular
           </h1>
-          <div className="w-16 h-1 bg-[#e3000f] mx-auto" />
+          <div className="w-16 h-1 bg-[#af1d1f] mx-auto" />
         </div>
       </section>
 
@@ -99,14 +99,14 @@ export default function SSSPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <div className="flex items-center gap-3 mb-10">
-              <div className="w-9 h-9 bg-[#002b3d] flex items-center justify-center shrink-0">
+              <div className="w-9 h-9 bg-[#1d1d1d] flex items-center justify-center shrink-0">
                 <HelpCircle className="w-4 h-4 text-white" />
               </div>
               <div>
                 <p className="text-[10px] font-black uppercase tracking-widest text-gray-400">
                   {faqItems.length} soru
                 </p>
-                <p className="text-sm font-black uppercase tracking-wider text-[#002b3d]">
+                <p className="text-sm font-black uppercase tracking-wider text-[#1d1d1d]">
                   Tüm Yanıtlar
                 </p>
               </div>
@@ -117,9 +117,9 @@ export default function SSSPage() {
                 <AccordionItem
                   key={item.id}
                   value={item.id}
-                  className="border border-gray-200 data-[state=open]:border-[#e3000f] px-6 transition-colors"
+                  className="border border-gray-200 data-[state=open]:border-[#af1d1f] px-6 transition-colors"
                 >
-                  <AccordionTrigger className="text-sm font-black uppercase tracking-wider text-[#002b3d] hover:no-underline hover:text-[#e3000f] py-5 gap-4">
+                  <AccordionTrigger className="text-sm font-black uppercase tracking-wider text-[#1d1d1d] hover:no-underline hover:text-[#af1d1f] py-5 gap-4">
                     {item.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-sm text-gray-600 leading-relaxed pb-5">
@@ -127,7 +127,7 @@ export default function SSSPage() {
                     {item.link && (
                       <Link
                         href={item.link.href}
-                        className="inline-flex items-center gap-1.5 text-[#e3000f] font-bold text-xs uppercase tracking-wider mt-3 hover:underline"
+                        className="inline-flex items-center gap-1.5 text-[#af1d1f] font-bold text-xs uppercase tracking-wider mt-3 hover:underline"
                       >
                         {item.link.label}
                         <ArrowRight className="w-3 h-3" />
@@ -146,19 +146,19 @@ export default function SSSPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
             <div>
-              <p className="text-3xl font-black text-[#e3000f]">1888</p>
+              <p className="text-3xl font-black text-[#af1d1f]">1888</p>
               <p className="text-xs font-black uppercase tracking-widest text-gray-400 mt-1">
                 Kuruluş Yılı
               </p>
             </div>
             <div>
-              <p className="text-3xl font-black text-[#002b3d]">130+</p>
+              <p className="text-3xl font-black text-[#1d1d1d]">130+</p>
               <p className="text-xs font-black uppercase tracking-widest text-gray-400 mt-1">
                 Yıllık Tecrübe
               </p>
             </div>
             <div>
-              <p className="text-3xl font-black text-[#009b77]">3</p>
+              <p className="text-3xl font-black text-[#006b52]">3</p>
               <p className="text-xs font-black uppercase tracking-widest text-gray-400 mt-1">
                 Ana Sektör
               </p>
@@ -168,7 +168,7 @@ export default function SSSPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#002b3d] py-16 md:py-20">
+      <section className="bg-[#1d1d1d] py-16 md:py-20">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white mb-4">
             Sorunuzu Bulamadınız mı?
@@ -179,7 +179,7 @@ export default function SSSPage() {
           </p>
           <Link
             href="/iletisim"
-            className="inline-flex items-center gap-2 bg-[#e3000f] hover:bg-red-700 text-white px-8 py-4 font-bold uppercase tracking-widest text-sm transition-colors"
+            className="inline-flex items-center gap-2 bg-[#af1d1f] hover:bg-red-700 text-white px-8 py-4 font-bold uppercase tracking-widest text-sm transition-colors"
           >
             Bize Sorun
             <ArrowRight className="w-4 h-4" />

@@ -34,26 +34,26 @@ export function ProductTabs({
       <TabsList className="w-full justify-start rounded-none bg-transparent border-b border-gray-200 h-auto p-0 gap-0">
         <TabsTrigger
           value="aciklama"
-          className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#e3000f] data-[state=active]:bg-transparent data-[state=active]:text-[#e3000f] data-[state=active]:shadow-none px-5 py-3 text-sm font-bold uppercase tracking-wider text-gray-500 hover:text-[#002b3d] transition-colors"
+          className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#af1d1f] data-[state=active]:bg-transparent data-[state=active]:text-[#af1d1f] data-[state=active]:shadow-none px-5 py-3 text-sm font-bold uppercase tracking-wider text-gray-500 hover:text-[#1d1d1d] transition-colors"
         >
           Açıklama
         </TabsTrigger>
         <TabsTrigger
           value="uygulama"
-          className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#e3000f] data-[state=active]:bg-transparent data-[state=active]:text-[#e3000f] data-[state=active]:shadow-none px-5 py-3 text-sm font-bold uppercase tracking-wider text-gray-500 hover:text-[#002b3d] transition-colors"
+          className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#af1d1f] data-[state=active]:bg-transparent data-[state=active]:text-[#af1d1f] data-[state=active]:shadow-none px-5 py-3 text-sm font-bold uppercase tracking-wider text-gray-500 hover:text-[#1d1d1d] transition-colors"
         >
           Uygulama Adımları
         </TabsTrigger>
         <TabsTrigger
           value="dokuman"
-          className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#e3000f] data-[state=active]:bg-transparent data-[state=active]:text-[#e3000f] data-[state=active]:shadow-none px-5 py-3 text-sm font-bold uppercase tracking-wider text-gray-500 hover:text-[#002b3d] transition-colors"
+          className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#af1d1f] data-[state=active]:bg-transparent data-[state=active]:text-[#af1d1f] data-[state=active]:shadow-none px-5 py-3 text-sm font-bold uppercase tracking-wider text-gray-500 hover:text-[#1d1d1d] transition-colors"
         >
           Dokümanlar
         </TabsTrigger>
         {faq && faq.length > 0 && (
           <TabsTrigger
             value="sss"
-            className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#e3000f] data-[state=active]:bg-transparent data-[state=active]:text-[#e3000f] data-[state=active]:shadow-none px-5 py-3 text-sm font-bold uppercase tracking-wider text-gray-500 hover:text-[#002b3d] transition-colors"
+            className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#af1d1f] data-[state=active]:bg-transparent data-[state=active]:text-[#af1d1f] data-[state=active]:shadow-none px-5 py-3 text-sm font-bold uppercase tracking-wider text-gray-500 hover:text-[#1d1d1d] transition-colors"
           >
             SSS
           </TabsTrigger>
@@ -72,7 +72,7 @@ export function ProductTabs({
           )}
           {whenToUse && (
             <div>
-              <h4 className="text-xs font-black uppercase tracking-widest text-[#002b3d] mb-2">
+              <h4 className="text-xs font-black uppercase tracking-widest text-[#1d1d1d] mb-2">
                 Ne Zaman Kullanılır
               </h4>
               <p className="text-gray-600 leading-relaxed">{whenToUse}</p>
@@ -80,7 +80,7 @@ export function ProductTabs({
           )}
           {targetSurface && (
             <div>
-              <h4 className="text-xs font-black uppercase tracking-widest text-[#002b3d] mb-2">
+              <h4 className="text-xs font-black uppercase tracking-widest text-[#1d1d1d] mb-2">
                 Uygulanacak Yüzeyler
               </h4>
               <p className="text-gray-600 leading-relaxed">{targetSurface}</p>
@@ -102,7 +102,7 @@ export function ProductTabs({
               const isNumbered = /^\d+[\.\)]\s/.test(trimmed);
               return isNumbered ? (
                 <div key={idx} className="flex gap-4">
-                  <span className="flex-shrink-0 w-7 h-7 bg-[#e3000f] text-white text-xs font-black flex items-center justify-center">
+                  <span className="flex-shrink-0 w-7 h-7 bg-[#af1d1f] text-white text-xs font-black flex items-center justify-center">
                     {trimmed.match(/^(\d+)/)?.[1]}
                   </span>
                   <p className="text-gray-600 leading-relaxed pt-0.5">
@@ -144,7 +144,7 @@ export function ProductTabs({
                 value={`faq-${idx}`}
                 className="border-b border-gray-200"
               >
-                <AccordionTrigger className="text-sm font-bold text-[#002b3d] uppercase tracking-wide py-4 hover:no-underline hover:text-[#e3000f] text-left">
+                <AccordionTrigger className="text-sm font-bold text-[#1d1d1d] uppercase tracking-wide py-4 hover:no-underline hover:text-[#af1d1f] text-left">
                   {item.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600 leading-relaxed pb-4">

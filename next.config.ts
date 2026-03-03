@@ -23,6 +23,14 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "www.mtskimya.com",
       },
+      {
+        protocol: "https",
+        hostname: "mgpolishing.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.mgpolishing.com",
+      },
     ],
   },
 };

@@ -36,14 +36,14 @@ export default async function AdminAyarlarPage() {
     <div>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-black text-[#002b3d] uppercase tracking-wider">
+          <h1 className="text-2xl font-black text-[#1d1d1d] uppercase tracking-wider">
             Ayarlar
           </h1>
           <p className="text-sm text-gray-500 mt-1">
             Site genelinde kullanilan ayarlar
           </p>
         </div>
-        <div className="w-10 h-10 bg-[#002b3d] flex items-center justify-center">
+        <div className="w-10 h-10 bg-[#1d1d1d] flex items-center justify-center">
           <Settings className="w-5 h-5 text-white" />
         </div>
       </div>
@@ -51,7 +51,7 @@ export default async function AdminAyarlarPage() {
       <form action={saveSettingsAction}>
         <div className="bg-white border border-gray-200">
           <div className="p-5 border-b border-gray-100">
-            <h2 className="text-sm font-black text-[#002b3d] uppercase tracking-wider">
+            <h2 className="text-sm font-black text-[#1d1d1d] uppercase tracking-wider">
               Iletisim Bilgileri
             </h2>
           </div>
@@ -69,7 +69,7 @@ export default async function AdminAyarlarPage() {
 
         <div className="bg-white border border-gray-200 mt-6">
           <div className="p-5 border-b border-gray-100">
-            <h2 className="text-sm font-black text-[#002b3d] uppercase tracking-wider">
+            <h2 className="text-sm font-black text-[#1d1d1d] uppercase tracking-wider">
               Sosyal Medya
             </h2>
           </div>
@@ -88,7 +88,7 @@ export default async function AdminAyarlarPage() {
         <div className="mt-6">
           <button
             type="submit"
-            className="bg-[#e3000f] hover:bg-red-700 text-white px-6 py-2.5 font-bold uppercase tracking-widest text-sm transition-colors inline-flex items-center gap-2"
+            className="bg-[#af1d1f] hover:bg-red-700 text-white px-6 py-2.5 font-bold uppercase tracking-widest text-sm transition-colors inline-flex items-center gap-2"
           >
             <Save className="w-4 h-4" />
             Kaydet
@@ -121,7 +121,7 @@ function SettingField({
         name={name}
         type="text"
         defaultValue={value}
-        className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#e3000f] transition-colors bg-white"
+        className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#af1d1f] transition-colors bg-white"
         placeholder={label}
       />
     </div>

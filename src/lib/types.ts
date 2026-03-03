@@ -5,6 +5,32 @@ export interface Category {
   sub_cat2?: string;
 }
 
+export interface MenzernaScrape {
+  subtitle?: string;
+  subtitle_en?: string;
+  description?: string;
+  description_en?: string;
+  steps?: {
+    number: number;
+    label: string;
+    label_tr?: string;
+    isActive?: boolean;
+    isHalfActive?: boolean;
+  }[];
+  optimised_for?: {
+    name: string;
+    name_tr?: string;
+  }[];
+  processing?: {
+    rotary?: { start?: string; end?: string };
+    orbital?: string;
+  };
+  compound_type?: string;
+  grease_content?: string;
+  color?: string;
+  suitable_for?: string[];
+}
+
 export interface Product {
   sku: string;
   product_name: string;
@@ -21,6 +47,8 @@ export interface Product {
     target_surface?: string;
     why_this_product?: string;
     gallery?: string[];
+    menzerna_scrape?: MenzernaScrape;
+    downloads?: { label: string; url: string; size: string }[];
   };
   template_fields?: {
     cut_level?: number;
@@ -31,6 +59,10 @@ export interface Product {
     silicone_free?: boolean;
     voc_free?: boolean;
     filler_free?: boolean;
+    grit_removal?: string;
+    dusting_level?: string;
+    made_in?: string;
+    [key: string]: unknown;
   };
   relations?: {
     related_products?: { code: string; name: string; name_tr: string }[];

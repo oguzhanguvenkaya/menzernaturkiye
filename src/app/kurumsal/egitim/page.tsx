@@ -70,7 +70,7 @@ export default function EgitimPage() {
   return (
     <div>
       {/* Banner */}
-      <section className="relative bg-[#002b3d] py-20 md:py-28 overflow-hidden">
+      <section className="relative bg-[#1d1d1d] py-20 md:py-28 overflow-hidden">
         <div
           className="absolute inset-0 opacity-10"
           style={{
@@ -79,13 +79,13 @@ export default function EgitimPage() {
           }}
         />
         <div className="relative container mx-auto px-4 text-center">
-          <p className="text-[#e3000f] text-xs font-black uppercase tracking-widest mb-3">
+          <p className="text-[#af1d1f] text-xs font-black uppercase tracking-widest mb-3">
             Kurumsal
           </p>
           <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-white mb-4">
             Eğitim Programı
           </h1>
-          <div className="w-16 h-1 bg-[#e3000f] mx-auto" />
+          <div className="w-16 h-1 bg-[#af1d1f] mx-auto" />
         </div>
       </section>
 
@@ -93,10 +93,10 @@ export default function EgitimPage() {
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-[#e3000f] text-xs font-black uppercase tracking-widest mb-3">
+            <p className="text-[#af1d1f] text-xs font-black uppercase tracking-widest mb-3">
               Profesyoneller İçin
             </p>
-            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight text-[#002b3d] mb-6">
+            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight text-[#1d1d1d] mb-6">
               Doğru Teknikle Fark Yarat
             </h2>
             <p className="text-gray-600 text-sm leading-relaxed mb-6">
@@ -122,10 +122,10 @@ export default function EgitimPage() {
                 key={h.label}
                 className="bg-[#f8f9fa] border border-gray-200 p-6 text-center"
               >
-                <div className="w-12 h-12 bg-[#002b3d] flex items-center justify-center mx-auto mb-3">
+                <div className="w-12 h-12 bg-[#1d1d1d] flex items-center justify-center mx-auto mb-3">
                   <h.icon className="w-6 h-6 text-white" />
                 </div>
-                <p className="font-black text-sm uppercase tracking-wider text-[#002b3d] mb-1">
+                <p className="font-black text-sm uppercase tracking-wider text-[#1d1d1d] mb-1">
                   {h.label}
                 </p>
                 <p className="text-xs text-gray-500">{h.desc}</p>
@@ -140,15 +140,15 @@ export default function EgitimPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-8">
-              <p className="text-[#e3000f] text-xs font-black uppercase tracking-widest mb-3">
+              <p className="text-[#af1d1f] text-xs font-black uppercase tracking-widest mb-3">
                 Seminer Kaydı
               </p>
-              <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-[#002b3d]">
+              <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-[#1d1d1d]">
                 Ankara Semineri
               </h2>
             </div>
 
-            <div className="relative w-full aspect-video bg-[#002b3d] border border-gray-200 overflow-hidden">
+            <div className="relative w-full aspect-video bg-[#1d1d1d] border border-gray-200 overflow-hidden">
               <iframe
                 src="https://www.youtube.com/embed/VIDEO_ID"
                 title="Menzerna Türkiye — Ankara Polisaj Semineri"
@@ -169,10 +169,10 @@ export default function EgitimPage() {
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <p className="text-[#e3000f] text-xs font-black uppercase tracking-widest mb-3">
+            <p className="text-[#af1d1f] text-xs font-black uppercase tracking-widest mb-3">
               Müfredat
             </p>
-            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight text-[#002b3d]">
+            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight text-[#1d1d1d]">
               Eğitim Konuları
             </h2>
           </div>
@@ -181,10 +181,10 @@ export default function EgitimPage() {
             {trainingTopics.map((topic, idx) => (
               <div
                 key={topic.title}
-                className="bg-white border border-gray-200 hover:border-[#e3000f] p-7 transition-colors group"
+                className="bg-white border border-gray-200 hover:border-[#af1d1f] p-7 transition-colors group"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 bg-[#002b3d] group-hover:bg-[#e3000f] flex items-center justify-center shrink-0 transition-colors">
+                  <div className="w-11 h-11 bg-[#1d1d1d] group-hover:bg-[#af1d1f] flex items-center justify-center shrink-0 transition-colors">
                     <topic.icon className="w-5 h-5 text-white" />
                   </div>
                   <div className="flex-1">
@@ -193,7 +193,7 @@ export default function EgitimPage() {
                         {String(idx + 1).padStart(2, "0")}
                       </span>
                     </div>
-                    <h3 className="text-sm font-black uppercase tracking-wider text-[#002b3d] mb-2">
+                    <h3 className="text-sm font-black uppercase tracking-wider text-[#1d1d1d] mb-2">
                       {topic.title}
                     </h3>
                     <p className="text-xs text-gray-500 leading-relaxed mb-3">
@@ -203,7 +203,7 @@ export default function EgitimPage() {
                       {topic.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="text-[10px] font-bold uppercase tracking-wider text-[#002b3d] bg-[#f8f9fa] border border-gray-200 px-2 py-0.5"
+                          className="text-[10px] font-bold uppercase tracking-wider text-[#1d1d1d] bg-[#f8f9fa] border border-gray-200 px-2 py-0.5"
                         >
                           {tag}
                         </span>
@@ -218,7 +218,7 @@ export default function EgitimPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#002b3d] py-16 md:py-20">
+      <section className="bg-[#1d1d1d] py-16 md:py-20">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white mb-4">
             Eğitime Katılmak İster misiniz?
@@ -231,14 +231,14 @@ export default function EgitimPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/iletisim"
-              className="bg-[#e3000f] hover:bg-red-700 text-white px-8 py-4 font-bold uppercase tracking-widest text-sm transition-colors flex items-center gap-2"
+              className="bg-[#af1d1f] hover:bg-red-700 text-white px-8 py-4 font-bold uppercase tracking-widest text-sm transition-colors flex items-center gap-2"
             >
               İletişime Geç
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/urunler"
-              className="border-2 border-white hover:bg-white hover:text-[#002b3d] text-white px-8 py-4 font-bold uppercase tracking-widest text-sm transition-colors"
+              className="border-2 border-white hover:bg-white hover:text-[#1d1d1d] text-white px-8 py-4 font-bold uppercase tracking-widest text-sm transition-colors"
             >
               Ürünleri İncele
             </Link>

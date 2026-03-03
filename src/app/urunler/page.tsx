@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { getAllProducts } from "@/db/queries";
 import { ProductCard } from "@/components/product-card";
-import { CategorySidebar } from "@/components/category-sidebar";
+import { CategorySidebar, CATEGORY_SLUG_MAP } from "@/components/category-sidebar";
 import type { Product } from "@/lib/types";
 import { Search } from "lucide-react";
 
@@ -14,98 +14,48 @@ export const metadata: Metadata = {
     "Menzerna'nın profesyonel polisaj ürünleri katalogu. Araç bakım, endüstriyel ve marin polisaj ürünleri.",
 };
 
-// Kategori slug -> DB alanlarına eşleştirme tablosu
-const CATEGORY_SLUG_MAP: Record<string, (product: Product) => boolean> = {
-  "polisaj-urunleri": (p) =>
-    p.category?.main_cat?.toLowerCase().includes("polisaj") ||
-    p.category?.sub_cat?.toLowerCase().includes("polisaj") ||
-    false,
-  "pasta-cila": (p) =>
-    p.category?.sub_cat?.toLowerCase().includes("pasta") ||
-    p.category?.sub_cat?.toLowerCase().includes("cila") ||
-    p.category?.sub_cat2?.toLowerCase().includes("pasta") ||
-    (p.category as any)?.sub_cat_2?.toLowerCase().includes("pasta") ||
-    false,
-  "heavy-cut": (p) =>
-    p.category?.sub_cat2?.toLowerCase().includes("heavy") ||
-    (p.category as any)?.sub_cat_2?.toLowerCase().includes("heavy") ||
-    p.product_name?.toLowerCase().includes("heavy") ||
-    (p.template_fields?.cut_level != null && (p.template_fields.cut_level) >= 8) ||
-    false,
-  "medium-cut": (p) =>
-    p.category?.sub_cat2?.toLowerCase().includes("medium") ||
-    (p.category as any)?.sub_cat_2?.toLowerCase().includes("medium") ||
-    p.product_name?.toLowerCase().includes("medium") ||
-    (p.template_fields?.cut_level != null &&
-      p.template_fields.cut_level >= 4 &&
-      p.template_fields.cut_level < 8) ||
-    false,
-  "fine-cut-finish": (p) =>
-    p.category?.sub_cat2?.toLowerCase().includes("finish") ||
-    (p.category as any)?.sub_cat_2?.toLowerCase().includes("finish") ||
-    p.category?.sub_cat2?.toLowerCase().includes("fine") ||
-    p.product_name?.toLowerCase().includes("finish") ||
-    p.product_name?.toLowerCase().includes("fine") ||
-    false,
-  "koruma": (p) =>
-    p.category?.sub_cat2?.toLowerCase().includes("koruma") ||
-    (p.category as any)?.sub_cat_2?.toLowerCase().includes("koruma") ||
-    p.category?.sub_cat?.toLowerCase().includes("koruma") ||
-    p.product_name?.toLowerCase().includes("wax") ||
-    p.product_name?.toLowerCase().includes("sealant") ||
-    p.product_name?.toLowerCase().includes("protection") ||
-    false,
-  "metal-polish": (p) =>
-    p.category?.sub_cat2?.toLowerCase().includes("metal") ||
-    (p.category as any)?.sub_cat_2?.toLowerCase().includes("metal") ||
-    p.product_name?.toLowerCase().includes("metal") ||
-    false,
-  "aksesuarlar": (p) =>
-    p.category?.main_cat?.toLowerCase().includes("aksesuar") ||
-    p.category?.sub_cat?.toLowerCase().includes("pad") ||
-    p.category?.sub_cat?.toLowerCase().includes("sünger") ||
-    p.category?.sub_cat?.toLowerCase().includes("sunger") ||
-    p.category?.sub_cat?.toLowerCase().includes("yün") ||
-    p.category?.sub_cat?.toLowerCase().includes("yun") ||
-    false,
-  "sunger-pad": (p) =>
-    p.category?.sub_cat?.toLowerCase().includes("sünger") ||
-    p.category?.sub_cat?.toLowerCase().includes("sunger") ||
-    p.product_name?.toLowerCase().includes("sünger") ||
-    p.product_name?.toLowerCase().includes("foam") ||
-    false,
-  "yun-pad": (p) =>
-    p.category?.sub_cat?.toLowerCase().includes("yün") ||
-    p.category?.sub_cat?.toLowerCase().includes("yun") ||
-    p.category?.sub_cat?.toLowerCase().includes("wool") ||
-    p.product_name?.toLowerCase().includes("yün") ||
-    p.product_name?.toLowerCase().includes("wool") ||
-    false,
-  "taban": (p) =>
-    p.category?.sub_cat?.toLowerCase().includes("taban") ||
-    p.product_name?.toLowerCase().includes("taban") ||
-    p.product_name?.toLowerCase().includes("backing") ||
-    false,
-  "endustriyel": (p) =>
-    p.category?.main_cat?.toLowerCase().includes("endüstriyel") ||
-    p.category?.main_cat?.toLowerCase().includes("endustriyel") ||
-    p.category?.main_cat?.toLowerCase().includes("industrial") ||
-    false,
-  "marin": (p) =>
-    p.category?.main_cat?.toLowerCase().includes("marin") ||
-    p.category?.main_cat?.toLowerCase().includes("marine") ||
-    false,
-};
+// ---------------------------------------------------------------------------
+// Filtering
+// ---------------------------------------------------------------------------
 
+/**
+ * Resolve a category slug into a label for display.
+ * Falls back to humanizing the slug itself.
+ */
+function slugToLabel(slug: string): string {
+  const filter = CATEGORY_SLUG_MAP[slug];
+  if (filter) return filter.value;
+  return slug.replace(/-/g, " ");
+}
+
+/**
+ * Filter products by a category slug and/or a free-text query.
+ *
+ * The slug is resolved via CATEGORY_SLUG_MAP which provides the exact
+ * DB field (main_cat | sub_cat | sub_cat2) and value to match against.
+ */
 function filterProducts(
   products: Product[],
-  category: string,
-  query: string
+  categorySlug: string,
+  query: string,
 ): Product[] {
   let result = products;
 
-  if (category && CATEGORY_SLUG_MAP[category]) {
-    result = result.filter(CATEGORY_SLUG_MAP[category]);
+  if (categorySlug) {
+    const filter = CATEGORY_SLUG_MAP[categorySlug];
+    if (filter) {
+      result = result.filter((p) => {
+        const cat = p.category as unknown as Record<string, string | undefined>;
+        if (!cat) return false;
+
+        // For sub_cat2 we also check the alternative key sub_cat_2
+        if (filter.field === "sub_cat2") {
+          return cat.sub_cat2 === filter.value || cat.sub_cat_2 === filter.value;
+        }
+
+        return cat[filter.field] === filter.value;
+      });
+    }
   }
 
   if (query) {
@@ -114,13 +64,17 @@ function filterProducts(
       (p) =>
         p.product_name?.toLowerCase().includes(q) ||
         p.sku?.toLowerCase().includes(q) ||
-        p.category?.sub_cat?.toLowerCase().includes(q) ||
-        p.category?.main_cat?.toLowerCase().includes(q)
+        (p.category as any)?.sub_cat?.toLowerCase().includes(q) ||
+        (p.category as any)?.main_cat?.toLowerCase().includes(q),
     );
   }
 
   return result;
 }
+
+// ---------------------------------------------------------------------------
+// Page
+// ---------------------------------------------------------------------------
 
 interface PageProps {
   searchParams: Promise<{ category?: string; q?: string }>;
@@ -137,7 +91,7 @@ export default async function UrunlerPage({ searchParams }: PageProps) {
   return (
     <div className="min-h-screen bg-[#f8f9fa]">
       {/* Sayfa başlığı */}
-      <div className="bg-[#002b3d] text-white py-10">
+      <div className="bg-[#1d1d1d] text-white py-10">
         <div className="container mx-auto px-4">
           <h1 className="text-3xl font-black uppercase tracking-widest mb-1">
             Ürünler
@@ -158,7 +112,7 @@ export default async function UrunlerPage({ searchParams }: PageProps) {
               name="q"
               defaultValue={query}
               placeholder="Ürün ara..."
-              className="w-full pl-10 pr-4 py-2.5 border border-gray-200 bg-white text-sm focus:outline-none focus:border-[#e3000f] transition-colors"
+              className="w-full pl-10 pr-4 py-2.5 border border-gray-200 bg-white text-sm focus:outline-none focus:border-[#af1d1f] transition-colors"
             />
             {category && (
               <input type="hidden" name="category" value={category} />
@@ -168,7 +122,7 @@ export default async function UrunlerPage({ searchParams }: PageProps) {
 
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Sol Sidebar */}
-          <Suspense fallback={<div className="w-full lg:w-56 shrink-0" />}>
+          <Suspense fallback={<div className="w-full lg:w-60 shrink-0" />}>
             <CategorySidebar />
           </Suspense>
 
@@ -177,15 +131,15 @@ export default async function UrunlerPage({ searchParams }: PageProps) {
             {/* Sonuç sayısı */}
             <div className="flex items-center justify-between mb-4">
               <p className="text-sm text-gray-500">
-                <span className="font-bold text-[#002b3d]">
+                <span className="font-bold text-[#1d1d1d]">
                   {filtered.length}
                 </span>{" "}
                 ürün bulundu
                 {category && (
                   <span className="ml-1">
-                    — filtre:{" "}
+                    &mdash; filtre:{" "}
                     <span className="font-bold capitalize">
-                      {category.replace(/-/g, " ")}
+                      {slugToLabel(category)}
                     </span>
                   </span>
                 )}
@@ -193,7 +147,7 @@ export default async function UrunlerPage({ searchParams }: PageProps) {
               {(category || query) && (
                 <a
                   href="/urunler"
-                  className="text-xs font-bold uppercase tracking-wider text-[#e3000f] hover:underline"
+                  className="text-xs font-bold uppercase tracking-wider text-[#af1d1f] hover:underline"
                 >
                   Filtreleri temizle
                 </a>
@@ -210,13 +164,13 @@ export default async function UrunlerPage({ searchParams }: PageProps) {
                 </p>
                 <a
                   href="/urunler"
-                  className="mt-6 text-sm font-bold text-[#e3000f] hover:underline uppercase tracking-wider"
+                  className="mt-6 text-sm font-bold text-[#af1d1f] hover:underline uppercase tracking-wider"
                 >
                   Tüm ürünleri göster
                 </a>
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                 {filtered.map((product) => (
                   <ProductCard key={product.sku} product={product} />
                 ))}

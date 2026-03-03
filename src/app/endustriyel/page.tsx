@@ -117,7 +117,7 @@ export default async function EndustriyelPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Banner */}
-      <section className="relative bg-[#002b3d] text-white overflow-hidden">
+      <section className="relative bg-[#1d1d1d] text-white overflow-hidden">
         {/* Arka plan deseni */}
         <div className="absolute inset-0 opacity-5">
           <div
@@ -128,19 +128,19 @@ export default async function EndustriyelPage() {
             }}
           />
         </div>
-        <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#e3000f]" />
+        <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#af1d1f]" />
 
         <div className="relative container mx-auto px-4 py-20 md:py-28">
           <div className="max-w-3xl">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-0.5 bg-[#e3000f]" />
-              <span className="text-[#e3000f] text-xs font-bold uppercase tracking-widest">
+              <div className="w-8 h-0.5 bg-[#af1d1f]" />
+              <span className="text-[#af1d1f] text-xs font-bold uppercase tracking-widest">
                 Endüstriyel Yüzey İşleme
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-6 leading-none">
               Endüstriyel{" "}
-              <span className="text-[#e3000f]">Polisaj</span>
+              <span className="text-[#af1d1f]">Polisaj</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 max-w-xl leading-relaxed">
               Endüstriyel yüzey işleme çözümleri — 1888&apos;den bu yana metal,
@@ -154,12 +154,12 @@ export default async function EndustriyelPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex items-start gap-4 mb-10">
-            <div className="w-1 self-stretch min-h-[3rem] bg-[#e3000f] shrink-0" />
+            <div className="w-1 self-stretch min-h-[3rem] bg-[#af1d1f] shrink-0" />
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-[#e3000f] mb-1">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-[#af1d1f] mb-1">
                 Uygulama Alanları
               </p>
-              <h2 className="text-2xl md:text-3xl font-black text-[#002b3d] uppercase tracking-tight leading-none mb-2">
+              <h2 className="text-2xl md:text-3xl font-black text-[#1d1d1d] uppercase tracking-tight leading-none mb-2">
                 Hangi Sektöre Hizmet Veriyoruz?
               </h2>
               <p className="text-sm text-gray-500 max-w-xl">
@@ -173,12 +173,12 @@ export default async function EndustriyelPage() {
             {SECTORS.map((sector) => (
               <div
                 key={sector.id}
-                className="group bg-white border border-gray-200 hover:border-[#e3000f] p-6 transition-all hover:shadow-md"
+                className="group bg-white border border-gray-200 hover:border-[#af1d1f] p-6 transition-all hover:shadow-md"
               >
-                <div className="text-[#002b3d] group-hover:text-[#e3000f] transition-colors mb-3">
+                <div className="text-[#1d1d1d] group-hover:text-[#af1d1f] transition-colors mb-3">
                   {sector.icon}
                 </div>
-                <h3 className="text-sm font-black uppercase tracking-wide text-[#002b3d] group-hover:text-[#e3000f] transition-colors mb-1.5">
+                <h3 className="text-sm font-black uppercase tracking-wide text-[#1d1d1d] group-hover:text-[#af1d1f] transition-colors mb-1.5">
                   {sector.title}
                 </h3>
                 <p className="text-xs text-gray-500 leading-relaxed">
@@ -194,20 +194,20 @@ export default async function EndustriyelPage() {
       <section className="py-16 bg-[#f8f9fa] border-t border-gray-200">
         <div className="container mx-auto px-4">
           <div className="flex items-start gap-4 mb-8">
-            <div className="w-1 self-stretch min-h-[3rem] bg-[#009b77] shrink-0" />
+            <div className="w-1 self-stretch min-h-[3rem] bg-[#006b52] shrink-0" />
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-[#009b77] mb-1">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-[#006b52] mb-1">
                 Görsel Rehber
               </p>
-              <h2 className="text-2xl md:text-3xl font-black text-[#002b3d] uppercase tracking-tight leading-none">
+              <h2 className="text-2xl md:text-3xl font-black text-[#1d1d1d] uppercase tracking-tight leading-none">
                 Endüstriyel Polisaj Uygulaması
               </h2>
             </div>
           </div>
 
-          <div className="aspect-video bg-[#002b3d] flex items-center justify-center max-w-3xl relative overflow-hidden">
+          <div className="aspect-video bg-[#1d1d1d] flex items-center justify-center max-w-3xl relative overflow-hidden">
             {/* Video yerleşim alanı */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#002b3d] to-[#001520]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#1d1d1d] to-[#001520]" />
             <div className="relative flex flex-col items-center gap-4 text-white">
               <div className="w-16 h-16 border-2 border-white/50 flex items-center justify-center">
                 <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
@@ -227,12 +227,12 @@ export default async function EndustriyelPage() {
       <section className="py-16 bg-white border-t border-gray-200">
         <div className="container mx-auto px-4">
           <div className="flex items-start gap-4 mb-10">
-            <div className="w-1 self-stretch min-h-[3rem] bg-[#002b3d] shrink-0" />
+            <div className="w-1 self-stretch min-h-[3rem] bg-[#1d1d1d] shrink-0" />
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-[#002b3d] mb-1">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-[#1d1d1d] mb-1">
                 Ürün Kataloğu
               </p>
-              <h2 className="text-2xl md:text-3xl font-black text-[#002b3d] uppercase tracking-tight leading-none mb-2">
+              <h2 className="text-2xl md:text-3xl font-black text-[#1d1d1d] uppercase tracking-tight leading-none mb-2">
                 Endüstriyel Polisaj Ürünleri
               </h2>
               <p className="text-sm text-gray-500 max-w-xl">
@@ -246,9 +246,9 @@ export default async function EndustriyelPage() {
           </div>
 
           {industrialProducts.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
               {industrialProducts.map((product) => (
-                <ProductCard key={product.sku} product={product as any} />
+                <ProductCard key={product.sku} product={product as any} variant="compact" />
               ))}
             </div>
           ) : (
@@ -270,7 +270,7 @@ export default async function EndustriyelPage() {
               <p className="text-[10px] font-bold uppercase tracking-widest text-[#f5a623] mb-1">
                 Teknik Bilgi
               </p>
-              <h2 className="text-2xl font-black text-[#002b3d] uppercase tracking-tight leading-none">
+              <h2 className="text-2xl font-black text-[#1d1d1d] uppercase tracking-tight leading-none">
                 Ürün Renk Kodları & Kullanım Alanları
               </h2>
             </div>
@@ -279,7 +279,7 @@ export default async function EndustriyelPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
-                <tr className="bg-[#002b3d] text-white">
+                <tr className="bg-[#1d1d1d] text-white">
                   <th className="text-left px-4 py-3 text-xs font-bold uppercase tracking-wider">
                     Renk
                   </th>
@@ -307,7 +307,7 @@ export default async function EndustriyelPage() {
                     key={i}
                     className={`border-b border-gray-200 ${i % 2 === 0 ? "bg-white" : "bg-gray-50"}`}
                   >
-                    <td className="px-4 py-3 text-[#002b3d] font-bold text-xs">{row.renk}</td>
+                    <td className="px-4 py-3 text-[#1d1d1d] font-bold text-xs">{row.renk}</td>
                     <td className="px-4 py-3 text-gray-700 text-xs">{row.ozellik}</td>
                     <td className="px-4 py-3 text-gray-500 text-xs">{row.yuzeyler}</td>
                   </tr>
@@ -319,9 +319,9 @@ export default async function EndustriyelPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#002b3d] text-white py-16">
+      <section className="bg-[#1d1d1d] text-white py-16">
         <div className="container mx-auto px-4 text-center">
-          <div className="w-8 h-0.5 bg-[#e3000f] mx-auto mb-6" />
+          <div className="w-8 h-0.5 bg-[#af1d1f] mx-auto mb-6" />
           <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight mb-4">
             Endüstriyel polisaj çözümleri için bizimle iletişime geçin
           </h2>
@@ -331,7 +331,7 @@ export default async function EndustriyelPage() {
           </p>
           <Link
             href="/iletisim"
-            className="inline-flex items-center gap-2 bg-[#e3000f] hover:bg-red-700 text-white px-8 py-4 font-bold uppercase tracking-widest text-sm transition-colors"
+            className="inline-flex items-center gap-2 bg-[#af1d1f] hover:bg-red-700 text-white px-8 py-4 font-bold uppercase tracking-widest text-sm transition-colors"
           >
             İletişime Geçin
             <ArrowRight className="w-4 h-4" />

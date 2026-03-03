@@ -26,7 +26,7 @@ function extractBaseName(name: string): string {
   return result;
 }
 
-function extractSizeLabel(name: string): string {
+export function extractSizeLabel(name: string): string {
   const volumeMatch = name.match(sizePattern);
   if (volumeMatch) {
     let label = volumeMatch[1].trim();

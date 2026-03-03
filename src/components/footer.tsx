@@ -12,18 +12,20 @@ import {
 
 export function Footer() {
   return (
-    <footer className="bg-[#001f2c] text-gray-400 mt-auto">
+    <footer className="bg-[#111111] text-gray-400 mt-auto">
       {/* Kırmızı üst çizgi */}
-      <div className="h-1 bg-[#e3000f]" />
+      <div className="h-1 bg-[#af1d1f]" />
 
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Marka */}
           <div>
             <Link href="/" className="inline-block mb-4">
-              <span className="text-2xl font-black text-white tracking-tight uppercase">
-                Menzerna<span className="text-[#e3000f]">.</span>
-              </span>
+              <img
+                src="/logo.svg"
+                alt="Menzerna"
+                className="h-8 w-auto brightness-0 invert"
+              />
             </Link>
             <p className="text-sm leading-relaxed mb-6">
               1888&apos;den bu yana polisaj mükemmelliği. Menzerna&apos;nın
@@ -35,7 +37,7 @@ export function Footer() {
                 href="https://facebook.com/mgpolisaj"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-[#e3000f] hover:text-white transition-colors"
+                className="w-9 h-9 bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-[#af1d1f] hover:text-white transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-4 h-4" />
@@ -44,21 +46,21 @@ export function Footer() {
                 href="https://instagram.com/mgpolisaj"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-[#e3000f] hover:text-white transition-colors"
+                className="w-9 h-9 bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-[#af1d1f] hover:text-white transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4" />
               </a>
               <a
                 href="#"
-                className="w-9 h-9 bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-[#e3000f] hover:text-white transition-colors"
+                className="w-9 h-9 bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-[#af1d1f] hover:text-white transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
               <a
                 href="#"
-                className="w-9 h-9 bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-[#e3000f] hover:text-white transition-colors"
+                className="w-9 h-9 bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-[#af1d1f] hover:text-white transition-colors"
                 aria-label="YouTube"
               >
                 <Youtube className="w-4 h-4" />
@@ -157,19 +159,19 @@ export function Footer() {
             </h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-2.5 text-sm">
-                <Phone className="w-4 h-4 mt-0.5 text-[#e3000f] shrink-0" />
+                <Phone className="w-4 h-4 mt-0.5 text-[#af1d1f] shrink-0" />
                 <span>+90 (312) 000 00 00</span>
               </li>
               <li className="flex items-start gap-2.5 text-sm">
-                <Mail className="w-4 h-4 mt-0.5 text-[#e3000f] shrink-0" />
+                <Mail className="w-4 h-4 mt-0.5 text-[#af1d1f] shrink-0" />
                 <span>info@mgpolisaj.com</span>
               </li>
               <li className="flex items-start gap-2.5 text-sm">
-                <MapPin className="w-4 h-4 mt-0.5 text-[#e3000f] shrink-0" />
+                <MapPin className="w-4 h-4 mt-0.5 text-[#af1d1f] shrink-0" />
                 <span>Ankara, Türkiye</span>
               </li>
               <li className="flex items-start gap-2.5 text-sm">
-                <Clock className="w-4 h-4 mt-0.5 text-[#e3000f] shrink-0" />
+                <Clock className="w-4 h-4 mt-0.5 text-[#af1d1f] shrink-0" />
                 <span>Pzt - Cuma: 09:00 - 18:00</span>
               </li>
             </ul>

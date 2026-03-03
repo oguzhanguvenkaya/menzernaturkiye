@@ -28,7 +28,7 @@ export default function DeleteProductButton({
     <button
       onClick={handleDelete}
       disabled={isPending}
-      className="inline-flex items-center px-3 py-1.5 text-xs font-bold uppercase tracking-wider border border-red-200 bg-white hover:bg-red-50 text-[#e3000f] disabled:opacity-50 transition-colors"
+      className="inline-flex items-center px-3 py-1.5 text-xs font-bold uppercase tracking-wider border border-red-200 bg-white hover:bg-red-50 text-[#af1d1f] disabled:opacity-50 transition-colors"
     >
       {isPending ? (
         <Loader2 className="w-3.5 h-3.5 animate-spin" />

@@ -41,10 +41,10 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-sm">
         <div className="bg-white border border-gray-200 p-8">
           <div className="text-center mb-8">
-            <div className="w-12 h-12 bg-[#002b3d] flex items-center justify-center mx-auto mb-4">
+            <div className="w-12 h-12 bg-[#1d1d1d] flex items-center justify-center mx-auto mb-4">
               <Lock className="w-6 h-6 text-white" />
             </div>
-            <h1 className="text-xl font-black text-[#002b3d] uppercase tracking-wider">
+            <h1 className="text-xl font-black text-[#1d1d1d] uppercase tracking-wider">
               Admin Panel
             </h1>
             <p className="text-sm text-gray-500 mt-1">
@@ -65,7 +65,7 @@ export default function AdminLoginPage() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#e3000f] transition-colors"
+                className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#af1d1f] transition-colors"
                 placeholder="Admin şifresini girin"
                 required
                 autoFocus
@@ -73,13 +73,13 @@ export default function AdminLoginPage() {
             </div>
 
             {error && (
-              <p className="text-sm text-[#e3000f] font-medium">{error}</p>
+              <p className="text-sm text-[#af1d1f] font-medium">{error}</p>
             )}
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#e3000f] hover:bg-red-700 disabled:opacity-50 text-white py-2.5 font-bold uppercase tracking-widest text-sm transition-colors"
+              className="w-full bg-[#af1d1f] hover:bg-red-700 disabled:opacity-50 text-white py-2.5 font-bold uppercase tracking-widest text-sm transition-colors"
             >
               {loading ? "Giriş yapılıyor..." : "Giriş Yap"}
             </button>

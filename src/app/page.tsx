@@ -373,17 +373,17 @@ export default function HomePage() {
               <h3 className="text-2xl md:text-3xl font-bold text-[#1d1d1d] mb-6">
                 Size nasıl yardımcı olabiliriz?
               </h3>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
                 <Link
                   href="/iletisim"
-                  className="inline-flex items-center gap-2 bg-[#af1d1f] text-white px-8 py-3.5 font-bold uppercase tracking-wider text-sm hover:bg-[#8b1618] transition-colors"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#af1d1f] text-white px-8 py-3.5 font-bold uppercase tracking-wider text-sm hover:bg-[#8b1618] transition-colors"
                 >
                   İletişim Formu
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <a
                   href="tel:+902326835043"
-                  className="inline-flex items-center gap-2 bg-[#1d1d1d] text-white px-8 py-3.5 font-bold uppercase tracking-wider text-sm hover:bg-[#333] transition-colors"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#1d1d1d] text-white px-8 py-3.5 font-bold uppercase tracking-wider text-sm hover:bg-[#333] transition-colors"
                 >
                   <Phone className="w-4 h-4" />
                   0232 683 50 43

@@ -24,7 +24,7 @@ export function Footer() {
                 />
                 <div className="w-px h-7 bg-gray-300" />
                 <span className="text-base font-semibold text-[#1d1d1d] tracking-wide uppercase">
-                  Türkiye
+                  Türkiye Distribütörü
                 </span>
               </Link>
               <p className="text-base text-gray-600 font-medium mb-1">

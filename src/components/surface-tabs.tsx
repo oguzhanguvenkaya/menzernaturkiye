@@ -47,7 +47,7 @@ function TabContent({ tab }: { tab: (typeof TABS)[number] }) {
   return (
     <div className="grid md:grid-cols-12 gap-6 md:gap-10 items-center">
       {/* Sol: Görsel — 5/12 */}
-      <div className="md:col-span-5 relative aspect-[4/5] md:aspect-auto md:h-[420px] bg-gray-100 overflow-hidden">
+      <div className="md:col-span-5 relative aspect-[4/3] md:aspect-auto md:h-[420px] bg-gray-100 overflow-hidden">
         <Image
           src={tab.image}
           alt={tab.title}
@@ -123,10 +123,12 @@ export function SurfaceTabs() {
             <div key={t.id} className="border-b border-gray-200">
               <button
                 onClick={() => setMobileOpen(mobileOpen === i ? null : i)}
-                className="w-full flex items-center justify-between py-4 text-left"
+                className={`w-full flex items-center justify-between px-4 py-4 text-left ${
+                  mobileOpen === i ? "bg-[#f3f3f3]" : "bg-white"
+                }`}
               >
                 <span
-                  className={`text-[18px] font-bold ${
+                  className={`text-[18px] font-black ${
                     mobileOpen === i ? "text-[#af1d1f]" : "text-[#1d1d1d]"
                   }`}
                 >

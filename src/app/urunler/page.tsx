@@ -193,8 +193,8 @@ export default async function UrunlerPage({ searchParams }: PageProps) {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* Sol Sidebar */}
-          <Suspense fallback={<div className="w-full lg:w-60 shrink-0" />}>
+          {/* Sol: Kategori sidebar (desktop) + trigger buton (mobil) */}
+          <Suspense fallback={null}>
             <CategorySidebar />
           </Suspense>
 

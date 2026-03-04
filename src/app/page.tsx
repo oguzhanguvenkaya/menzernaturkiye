@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Phone } from "lucide-react";
 import { NewsCarousel } from "@/components/news-carousel";
+import { FeatureCarousel } from "@/components/feature-carousel";
 
 const featureCards = [
   {
@@ -145,34 +146,8 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* 3. FEATURE CARDS — menzerna.com exact style */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 md:gap-x-10 lg:gap-x-12 gap-y-10 md:gap-y-12 mt-12 md:mt-16">
-            {featureCards.map((card) => (
-              <div key={card.title} className="group">
-                {/* Icon circle — 81px, bg #f5f5f5, border 2px white, box-shadow */}
-                <div className="w-[81px] h-[81px] rounded-full bg-[#f5f5f5] border-2 border-white flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-[#af1d1f] shadow-[3px_3px_5px_rgba(228,228,228,0.56)] group-hover:shadow-[3px_-3px_5px_rgba(175,29,31,0.2)]">
-                  {/* Light icon (default) */}
-                  <img
-                    src={card.icon}
-                    alt=""
-                    className="w-[45px] h-[45px] block group-hover:hidden"
-                  />
-                  {/* White icon (hover) */}
-                  <img
-                    src={card.iconWhite}
-                    alt=""
-                    className="w-[45px] h-[45px] hidden group-hover:block"
-                  />
-                </div>
-                <h3 className="text-[22px] leading-[29px] md:text-[22px] md:leading-[30px] xl:text-[24px] xl:leading-[32px] font-bold text-[#1d1d1d] mb-4">
-                  {card.title}
-                </h3>
-                <p className="text-[16px] leading-[24px] md:text-[19px] md:leading-[27px] xl:text-[20px] xl:leading-[28px] text-[#1d1d1d]">
-                  {card.desc}
-                </p>
-              </div>
-            ))}
-          </div>
+          {/* 3. FEATURE CARDS */}
+          <FeatureCarousel cards={featureCards} />
         </div>
       </section>
 

@@ -44,7 +44,7 @@ export function Footer() {
               {/* Sosyal medya — tek sıra */}
               <div className="flex items-center gap-3">
                 <a
-                  href="https://facebook.com/mgpolisaj"
+                  href="https://www.facebook.com/menzernatr/?locale=tr_TR"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-9 h-9 flex items-center justify-center border border-gray-200 text-gray-400 hover:text-[#af1d1f] hover:border-[#af1d1f] transition-colors"
@@ -53,7 +53,7 @@ export function Footer() {
                   <Facebook className="w-[18px] h-[18px]" />
                 </a>
                 <a
-                  href="https://instagram.com/mgpolisaj"
+                  href="https://www.instagram.com/menzernaturkiye/?hl=en"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-9 h-9 flex items-center justify-center border border-gray-200 text-gray-400 hover:text-[#af1d1f] hover:border-[#af1d1f] transition-colors"
@@ -62,14 +62,18 @@ export function Footer() {
                   <Instagram className="w-[18px] h-[18px]" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/company/mg-polishing/?originalSubdomain=tr"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-9 h-9 flex items-center justify-center border border-gray-200 text-gray-400 hover:text-[#af1d1f] hover:border-[#af1d1f] transition-colors"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="w-[18px] h-[18px]" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.youtube.com/@mgpolishing"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-9 h-9 flex items-center justify-center border border-gray-200 text-gray-400 hover:text-[#af1d1f] hover:border-[#af1d1f] transition-colors"
                   aria-label="YouTube"
                 >

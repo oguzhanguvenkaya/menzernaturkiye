@@ -5,38 +5,38 @@ import { ContactForm } from "@/components/contact-form";
 export const metadata: Metadata = {
   title: "İletişim",
   description:
-    "MG Polisaj ile iletişime geçin. Menzerna Türkiye yetkili distribütörü — Ankara, Türkiye.",
+    "MG Polisaj ile iletişime geçin. Menzerna Türkiye yetkili distribütörü — İzmir, Türkiye.",
 };
 
 const contactDetails = [
   {
     icon: Building2,
     label: "Firma",
-    value: "MG Polisaj",
+    value: "MG Polisaj Otomotiv İth. İhr. A.Ş.",
   },
   {
     icon: Phone,
     label: "Telefon",
-    value: "+90 (312) 000 00 00",
-    href: "tel:+903120000000",
+    value: "0232 683 50 43",
+    href: "tel:+902326835043",
   },
   {
     icon: Mail,
     label: "E-posta",
-    value: "info@mgpolisaj.com",
-    href: "mailto:info@mgpolisaj.com",
+    value: "info@menzernaturkiye.com",
+    href: "mailto:info@menzernaturkiye.com",
   },
   {
     icon: MapPin,
     label: "Adres",
-    value: "Ankara, Türkiye",
-    href: "https://maps.google.com/?q=Ankara,+Türkiye",
+    value: "İzmir, Türkiye",
+    href: "https://maps.google.com/?q=İzmir,+Türkiye",
     target: "_blank",
   },
   {
     icon: Clock,
     label: "Çalışma Saatleri",
-    value: "Pazartesi - Cuma: 09:00 - 18:00",
+    value: "Pazartesi - Cuma: 08:30 - 17:30 / Cumartesi: 09:00 - 13:00",
   },
 ];
 
@@ -130,7 +130,7 @@ export default function IletisimPage() {
                   </p>
                 </div>
                 <a
-                  href="https://maps.google.com/?q=Ankara,+Türkiye"
+                  href="https://maps.google.com/?q=İzmir,+Türkiye"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Ankara konumunu Google Maps'te aç"
@@ -138,8 +138,8 @@ export default function IletisimPage() {
                 >
                   <div className="relative w-full aspect-video">
                     <iframe
-                      title="MG Polisaj Konumu — Ankara, Türkiye"
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d195862.74699895327!2d32.6563827!3d39.9035807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d347d520732db5%3A0xbdc57b0ca9b0a0d6!2sAnkara!5e0!3m2!1str!2str!4v1711000000000!5m2!1str!2str"
+                      title="MG Polisaj Konumu — İzmir, Türkiye"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d195884.26474655!2d27.0423!3d38.4237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bbd862a762cacd%3A0x628cbba1a59ce8fe!2zxLB6bWly!5e0!3m2!1str!2str!4v1711000000000!5m2!1str!2str"
                       style={{ border: 0 }}
                       className="w-full h-full"
                       allowFullScreen

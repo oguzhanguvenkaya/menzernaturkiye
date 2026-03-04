@@ -1,8 +1,14 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
-import { getProductById } from "@/db/queries";
+import { getProductById, getAllProducts } from "@/db/queries";
 import ProductForm from "@/components/admin/product-form";
+import {
+  groupProductsBySize,
+  extractSizeLabel,
+  getGroupGalleryImages,
+} from "@/lib/product-utils";
+import type { Product } from "@/lib/types";
 
 export default async function EditProductPage({
   params,
@@ -15,6 +21,43 @@ export default async function EditProductPage({
   if (!product) {
     notFound();
   }
+
+  // Build gallery and size variants for GalleryManager
+  const allProducts = (await getAllProducts()) as unknown as Product[];
+  const groups = groupProductsBySize(allProducts);
+  const productGroup = groups.find((g) =>
+    g.variants.some((v) => v.product.sku === product.sku)
+  );
+
+  // Gallery: product image + content.gallery + variant images (deduplicated)
+  const gallery = productGroup
+    ? getGroupGalleryImages(productGroup)
+    : (() => {
+        const imgs: string[] = [];
+        if (product.image_url) imgs.push(product.image_url);
+        const g = (product.content as any)?.gallery;
+        if (Array.isArray(g)) {
+          for (const url of g) {
+            if (url && !imgs.includes(url)) imgs.push(url);
+          }
+        }
+        return imgs;
+      })();
+
+  // Size variants for the group
+  const sizeVariants = productGroup
+    ? productGroup.variants.map((v) => ({
+        sku: v.product.sku,
+        sizeLabel: v.sizeLabel || extractSizeLabel(v.product.product_name),
+        imageUrl: v.product.image_url || null,
+      }))
+    : [
+        {
+          sku: product.sku,
+          sizeLabel: extractSizeLabel(product.product_name),
+          imageUrl: product.image_url || null,
+        },
+      ];
 
   return (
     <div className="space-y-6">
@@ -36,7 +79,11 @@ export default async function EditProductPage({
       </div>
 
       {/* Form */}
-      <ProductForm product={product} />
+      <ProductForm
+        product={product}
+        gallery={gallery}
+        sizeVariants={sizeVariants}
+      />
     </div>
   );
 }

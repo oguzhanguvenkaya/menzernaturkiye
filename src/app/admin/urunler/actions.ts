@@ -6,6 +6,8 @@ import {
   createProduct,
   updateProduct,
   deleteProduct,
+  getProductById,
+  getProductBySku,
 } from "@/db/queries";
 
 export async function deleteProductAction(id: string) {
@@ -24,7 +26,6 @@ export async function saveProductAction(
   const product_name = formData.get("product_name") as string;
   const barcode = (formData.get("barcode") as string) || null;
   const brand = (formData.get("brand") as string) || "MENZERNA";
-  const image_url = (formData.get("image_url") as string) || null;
 
   // Kategori (JSONB)
   const main_cat = formData.get("main_cat") as string;
@@ -36,17 +37,43 @@ export async function saveProductAction(
     ...(sub_cat2 ? { sub_cat2 } : {}),
   };
 
-  // Content (JSONB)
+  // Content — MERGE with existing data to preserve gallery, menzerna_scrape, downloads etc.
   const short_description =
     (formData.get("short_description") as string) || undefined;
   const full_description =
     (formData.get("full_description") as string) || undefined;
   const how_to_use = (formData.get("how_to_use") as string) || undefined;
+
+  let existingContent: Record<string, unknown> = {};
+  if (id) {
+    const existing = await getProductById(id);
+    if (existing?.content) {
+      existingContent = existing.content as Record<string, unknown>;
+    }
+  }
+
+  // Parse gallery from form (if provided by GalleryManager)
+  const galleryJson = formData.get("gallery_json") as string | null;
+  let gallery: string[] | undefined;
+  if (galleryJson) {
+    try {
+      gallery = JSON.parse(galleryJson);
+    } catch {
+      // keep existing
+    }
+  }
+
   const content = {
-    ...(short_description ? { short_description } : {}),
-    ...(full_description ? { full_description } : {}),
-    ...(how_to_use ? { how_to_use } : {}),
+    ...existingContent,
+    ...(short_description !== undefined ? { short_description } : {}),
+    ...(full_description !== undefined ? { full_description } : {}),
+    ...(how_to_use !== undefined ? { how_to_use } : {}),
+    ...(gallery !== undefined ? { gallery } : {}),
   };
+
+  // image_url — first image from gallery, or explicit field
+  const explicitImageUrl = formData.get("image_url") as string | null;
+  const image_url = explicitImageUrl || (gallery && gallery.length > 0 ? gallery[0] : null);
 
   // Template fields (JSONB)
   const cut_level = formData.get("cut_level")
@@ -99,6 +126,22 @@ export async function saveProductAction(
         template_fields,
       });
     }
+
+    // Handle variant image assignments
+    const variantImagesJson = formData.get("variant_images_json") as string | null;
+    if (variantImagesJson) {
+      try {
+        const variantImages: Record<string, string> = JSON.parse(variantImagesJson);
+        for (const [variantSku, imgUrl] of Object.entries(variantImages)) {
+          const variantProduct = await getProductBySku(variantSku);
+          if (variantProduct) {
+            await updateProduct(variantProduct.id, { image_url: imgUrl });
+          }
+        }
+      } catch {
+        // ignore parse errors for variant images
+      }
+    }
   } catch (err: any) {
     return {
       success: false,
@@ -108,5 +151,8 @@ export async function saveProductAction(
 
   revalidatePath("/admin/urunler");
   revalidatePath("/urunler");
+  revalidatePath("/arac-bakim");
+  revalidatePath("/endustriyel");
+  revalidatePath("/marin");
   redirect("/admin/urunler");
 }

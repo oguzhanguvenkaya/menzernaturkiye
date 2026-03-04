@@ -3,6 +3,12 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { getAllProducts } from "@/db/queries";
 import { ProductCard } from "@/components/product-card";
+import {
+  groupProductsBySize,
+  buildGroupCardData,
+  type ProductGroup,
+} from "@/lib/product-utils";
+import type { Product } from "@/lib/types";
 
 export const revalidate = 3600;
 
@@ -94,26 +100,42 @@ const ACCESSORY_SECTIONS = [
   },
 ];
 
-export default async function AracBakimPage() {
-  const allProducts = await getAllProducts();
+/** Filter groups where ANY variant matches a section filter */
+function filterGroupsBySection(
+  groups: ProductGroup[],
+  sectionFilter: (sub_cat: string, sub_cat2: string) => boolean
+): ProductGroup[] {
+  return groups.filter((g) =>
+    g.variants.some((v) => {
+      const cat = v.product.category as { main_cat: string; sub_cat: string; sub_cat2?: string };
+      return sectionFilter(cat?.sub_cat ?? "", cat?.sub_cat2 ?? "");
+    })
+  );
+}
 
-  // Araç bakım ürünleri — main_cat: "DIŞ YÜZEY"
+export default async function AracBakimPage() {
+  const allProducts = (await getAllProducts()) as unknown as Product[];
+
+  // Araç bakım ürünleri — main_cat: "DIŞ YÜZEY" → group by size
   const carProducts = allProducts.filter((p) => {
     const cat = p.category as { main_cat: string; sub_cat: string; sub_cat2?: string };
     return cat?.main_cat === "DIŞ YÜZEY";
   });
+  const carGroups = groupProductsBySize(carProducts);
 
-  // Aksesuar ürünleri — main_cat: "AKSESUAR"
+  // Aksesuar ürünleri — main_cat: "AKSESUAR" → group by size
   const accessories = allProducts.filter((p) => {
     const cat = p.category as { main_cat: string; sub_cat: string; sub_cat2?: string };
     return cat?.main_cat === "AKSESUAR";
   });
+  const accGroups = groupProductsBySize(accessories);
 
-  // Makine ekipmanlar — main_cat: "MAKİNE-EKİPMAN"
+  // Makine ekipmanlar — main_cat: "MAKİNE-EKİPMAN" → group by size
   const equipment = allProducts.filter((p) => {
     const cat = p.category as { main_cat: string; sub_cat: string; sub_cat2?: string };
     return cat?.main_cat === "MAKİNE-EKİPMAN";
   });
+  const equipGroups = groupProductsBySize(equipment);
 
   return (
     <div className="min-h-screen">
@@ -167,18 +189,15 @@ export default async function AracBakimPage() {
       {/* Ürün Kategorileri */}
       <div className="bg-[#f8f9fa]">
         {CAR_SECTIONS.map((section) => {
-          const sectionProducts = carProducts.filter((p) => {
-            const cat = p.category as { main_cat: string; sub_cat: string; sub_cat2?: string };
-            return section.filter(cat?.sub_cat ?? "", cat?.sub_cat2 ?? "");
-          });
+          const sectionGroups = filterGroupsBySection(carGroups, section.filter);
 
-          if (sectionProducts.length === 0) return null;
+          if (sectionGroups.length === 0) return null;
 
           return (
             <section
               key={section.id}
               id={section.id}
-              className="py-14 border-b border-gray-200 last:border-b-0"
+              className="scroll-mt-[120px] py-14 border-b border-gray-200 last:border-b-0"
             >
               <div className="container mx-auto px-4">
                 {/* Bölüm başlığı */}
@@ -202,14 +221,18 @@ export default async function AracBakimPage() {
                     </p>
                   </div>
                   <span className="hidden sm:block text-sm font-bold text-gray-400 self-center">
-                    {sectionProducts.length} ürün
+                    {sectionGroups.length} ürün
                   </span>
                 </div>
 
                 {/* Ürün grid */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                  {sectionProducts.map((product) => (
-                    <ProductCard key={product.sku} product={product as any} variant="compact" />
+                  {sectionGroups.map((group) => (
+                    <ProductCard
+                      key={group.primary.sku}
+                      data={buildGroupCardData(group, { showBars: false })}
+                      variant="compact"
+                    />
                   ))}
                 </div>
               </div>
@@ -238,12 +261,14 @@ export default async function AracBakimPage() {
           </div>
 
           {ACCESSORY_SECTIONS.map((accSection) => {
-            const accProducts = accessories.filter((p) => {
-              const cat = p.category as { main_cat: string; sub_cat: string; sub_cat2?: string };
-              return accSection.filter(cat?.sub_cat2 ?? "");
-            });
+            const sectionAccGroups = accGroups.filter((g) =>
+              g.variants.some((v) => {
+                const cat = v.product.category as { main_cat: string; sub_cat: string; sub_cat2?: string };
+                return accSection.filter(cat?.sub_cat2 ?? "");
+              })
+            );
 
-            if (accProducts.length === 0) return null;
+            if (sectionAccGroups.length === 0) return null;
 
             return (
               <div key={accSection.id} className="mb-10">
@@ -251,12 +276,16 @@ export default async function AracBakimPage() {
                   <span className="w-4 h-0.5 bg-[#f5a623] inline-block" />
                   {accSection.title}
                   <span className="text-gray-400 font-normal text-xs ml-1">
-                    ({accProducts.length})
+                    ({sectionAccGroups.length})
                   </span>
                 </h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                  {accProducts.map((product) => (
-                    <ProductCard key={product.sku} product={product as any} variant="compact" />
+                  {sectionAccGroups.map((group) => (
+                    <ProductCard
+                      key={group.primary.sku}
+                      data={buildGroupCardData(group, { showBars: false })}
+                      variant="compact"
+                    />
                   ))}
                 </div>
               </div>
@@ -264,18 +293,22 @@ export default async function AracBakimPage() {
           })}
 
           {/* Makine ekipman */}
-          {equipment.length > 0 && (
+          {equipGroups.length > 0 && (
             <div className="mt-4">
               <h3 className="text-sm font-black uppercase tracking-wider text-[#1d1d1d] mb-4 flex items-center gap-2">
                 <span className="w-4 h-0.5 bg-[#f5a623] inline-block" />
                 Tabanlıklar & Destek Diskler
                 <span className="text-gray-400 font-normal text-xs ml-1">
-                  ({equipment.length})
+                  ({equipGroups.length})
                 </span>
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                {equipment.map((product) => (
-                  <ProductCard key={product.sku} product={product as any} variant="compact" />
+                {equipGroups.map((group) => (
+                  <ProductCard
+                    key={group.primary.sku}
+                    data={buildGroupCardData(group, { showBars: false })}
+                    variant="compact"
+                  />
                 ))}
               </div>
             </div>

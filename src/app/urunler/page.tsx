@@ -1,9 +1,19 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { getAllProducts } from "@/db/queries";
-import { ProductCard } from "@/components/product-card";
-import { CategorySidebar, CATEGORY_SLUG_MAP } from "@/components/category-sidebar";
+import { ProductCard, type ProductCardData } from "@/components/product-card";
+import { CategorySidebar } from "@/components/category-sidebar";
+import { CATEGORY_SLUG_MAP } from "@/lib/categories";
 import type { Product } from "@/lib/types";
+import {
+  groupProductsBySize,
+  getProductBadge,
+  getDefaultVariantSku,
+  getCardVariants,
+  getGroupGalleryImages,
+  extractSizeLabel,
+  type ProductGroup,
+} from "@/lib/product-utils";
 import { Search } from "lucide-react";
 
 export const revalidate = 3600;
@@ -15,61 +25,111 @@ export const metadata: Metadata = {
 };
 
 // ---------------------------------------------------------------------------
+// Category ordering — products follow this order when no filter selected
+// ---------------------------------------------------------------------------
+
+const CATEGORY_ORDER: string[] = [
+  "Kalın Pastalar",
+  "İnce Pastalar",
+  "Hare Gidericiler",
+  "Boya Korumalar",
+  "Metal ve Krom Parlatıcılar",
+  "Keçeler",
+  "Rotary Süngerler",
+  "Orbital Süngerler",
+  "Ped Destek Diskleri Tabanlıklar",
+  "Kesici Cilalar",
+  "Parlatıcı Cilalar",
+  "MARİN",
+  "MAKİNE-EKİPMAN",
+];
+
+function getCategoryOrderIndex(product: Product): number {
+  const cat = product.category as unknown as Record<string, string | undefined>;
+  if (!cat) return 999;
+
+  // Check sub_cat2 first, then sub_cat, then main_cat
+  for (const field of ["sub_cat2", "sub_cat_2", "sub_cat", "main_cat"]) {
+    const val = cat[field];
+    if (val) {
+      const idx = CATEGORY_ORDER.indexOf(val);
+      if (idx >= 0) return idx;
+    }
+  }
+  return 999;
+}
+
+// ---------------------------------------------------------------------------
 // Filtering
 // ---------------------------------------------------------------------------
 
-/**
- * Resolve a category slug into a label for display.
- * Falls back to humanizing the slug itself.
- */
 function slugToLabel(slug: string): string {
   const filter = CATEGORY_SLUG_MAP[slug];
   if (filter) return filter.value;
   return slug.replace(/-/g, " ");
 }
 
-/**
- * Filter products by a category slug and/or a free-text query.
- *
- * The slug is resolved via CATEGORY_SLUG_MAP which provides the exact
- * DB field (main_cat | sub_cat | sub_cat2) and value to match against.
- */
-function filterProducts(
-  products: Product[],
+function filterGroups(
+  groups: ProductGroup[],
   categorySlug: string,
   query: string,
-): Product[] {
-  let result = products;
+): ProductGroup[] {
+  let result = groups;
 
   if (categorySlug) {
     const filter = CATEGORY_SLUG_MAP[categorySlug];
     if (filter) {
-      result = result.filter((p) => {
-        const cat = p.category as unknown as Record<string, string | undefined>;
-        if (!cat) return false;
-
-        // For sub_cat2 we also check the alternative key sub_cat_2
-        if (filter.field === "sub_cat2") {
-          return cat.sub_cat2 === filter.value || cat.sub_cat_2 === filter.value;
-        }
-
-        return cat[filter.field] === filter.value;
+      result = result.filter((g) => {
+        // Check if ANY variant matches
+        return g.variants.some((v) => {
+          const cat = v.product.category as unknown as Record<string, string | undefined>;
+          if (!cat) return false;
+          if (filter.field === "sub_cat2") {
+            return cat.sub_cat2 === filter.value || cat.sub_cat_2 === filter.value;
+          }
+          return cat[filter.field] === filter.value;
+        });
       });
     }
   }
 
   if (query) {
     const q = query.toLowerCase();
-    result = result.filter(
-      (p) =>
-        p.product_name?.toLowerCase().includes(q) ||
-        p.sku?.toLowerCase().includes(q) ||
-        (p.category as any)?.sub_cat?.toLowerCase().includes(q) ||
-        (p.category as any)?.main_cat?.toLowerCase().includes(q),
+    result = result.filter((g) =>
+      g.variants.some(
+        (v) =>
+          v.product.product_name?.toLowerCase().includes(q) ||
+          v.product.sku?.toLowerCase().includes(q) ||
+          (v.product.category as any)?.sub_cat?.toLowerCase().includes(q) ||
+          (v.product.category as any)?.main_cat?.toLowerCase().includes(q),
+      ),
     );
   }
 
   return result;
+}
+
+// ---------------------------------------------------------------------------
+// Build card data from a product group
+// ---------------------------------------------------------------------------
+
+function buildCardData(group: ProductGroup): ProductCardData {
+  const primary = group.primary;
+  const cat = primary.category as unknown as Record<string, string | undefined>;
+  const subCat = cat?.sub_cat2 || cat?.sub_cat_2 || cat?.sub_cat || "";
+
+  return {
+    sku: primary.sku,
+    productName: group.baseName || primary.product_name,
+    imageUrl: primary.image_url || null,
+    subCat,
+    badge: getProductBadge(primary),
+    cutLevel: primary.template_fields?.cut_level ?? null,
+    finishLevel: primary.template_fields?.finish_level ?? null,
+    variants: getCardVariants(group),
+    defaultSku: getDefaultVariantSku(group),
+    gallery: getGroupGalleryImages(group),
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -86,18 +146,30 @@ export default async function UrunlerPage({ searchParams }: PageProps) {
   const query = params.q ?? "";
 
   const allProducts = (await getAllProducts()) as unknown as Product[];
-  const filtered = filterProducts(allProducts, category, query);
+
+  // Group products by base name (size variants)
+  const groups = groupProductsBySize(allProducts);
+
+  // Sort groups by category order
+  groups.sort((a, b) => {
+    const orderA = getCategoryOrderIndex(a.primary);
+    const orderB = getCategoryOrderIndex(b.primary);
+    return orderA - orderB;
+  });
+
+  // Filter
+  const filtered = filterGroups(groups, category, query);
 
   return (
     <div className="min-h-screen bg-[#f8f9fa]">
       {/* Sayfa başlığı */}
-      <div className="bg-[#1d1d1d] text-white py-10">
+      <div className="bg-white border-b border-gray-200 py-10">
         <div className="container mx-auto px-4">
-          <h1 className="text-3xl font-black uppercase tracking-widest mb-1">
-            Ürünler
+          <h1 className="text-3xl font-black uppercase tracking-widest mb-1 text-[#1d1d1d]">
+            Ürünlerimiz
           </h1>
-          <p className="text-sm text-gray-400">
-            Profesyonel polisaj ve araç bakım ürünleri katalogu
+          <p className="text-sm text-gray-500">
+            Menzerna&apos;nın profesyonel polisaj çözümlerini keşfedin.
           </p>
         </div>
       </div>
@@ -171,8 +243,11 @@ export default async function UrunlerPage({ searchParams }: PageProps) {
               </div>
             ) : (
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                {filtered.map((product) => (
-                  <ProductCard key={product.sku} product={product} />
+                {filtered.map((group) => (
+                  <ProductCard
+                    key={group.primary.sku}
+                    data={buildCardData(group)}
+                  />
                 ))}
               </div>
             )}

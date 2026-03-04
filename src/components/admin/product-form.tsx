@@ -1,25 +1,29 @@
 "use client";
 
 import { useActionState } from "react";
-import Image from "next/image";
 import { saveProductAction } from "@/app/admin/urunler/actions";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Save, Loader2, ImageIcon } from "lucide-react";
+import { Save, Loader2 } from "lucide-react";
 import type { Product } from "@/db/schema";
+import GalleryManager, { type SizeVariantInfo } from "./gallery-manager";
 
 interface ProductFormProps {
   product?: Product;
+  gallery?: string[];
+  sizeVariants?: SizeVariantInfo[];
 }
 
 const MAIN_CATEGORIES = [
-  { value: "Araç Bakım", label: "Arac Bakim" },
-  { value: "Endüstriyel Polisaj", label: "Endustriyel Polisaj" },
-  { value: "Marin", label: "Marin" },
+  { value: "DIŞ YÜZEY", label: "Araç Bakım (DIŞ YÜZEY)" },
+  { value: "ENDÜSTRİYEL", label: "Endüstriyel" },
+  { value: "MARİN", label: "Marin" },
+  { value: "AKSESUAR", label: "Aksesuar" },
+  { value: "MAKİNE-EKİPMAN", label: "Makine-Ekipman" },
 ];
 
-export default function ProductForm({ product }: ProductFormProps) {
+export default function ProductForm({ product, gallery = [], sizeVariants = [] }: ProductFormProps) {
   const [state, formAction, isPending] = useActionState(saveProductAction, {
     success: false,
     error: "",
@@ -112,39 +116,16 @@ export default function ProductForm({ product }: ProductFormProps) {
             />
           </div>
 
-          <div className="space-y-1.5 md:col-span-2">
-            <Label
-              htmlFor="image_url"
-              className="text-xs font-bold uppercase tracking-wider text-gray-600"
-            >
-              Gorsel URL
-            </Label>
-            <Input
-              id="image_url"
-              name="image_url"
-              defaultValue={product?.image_url || ""}
-              placeholder="https://..."
-              className="rounded-none"
-            />
-            {product?.image_url && (
-              <div className="mt-2 inline-flex items-center gap-3 bg-gray-50 border border-gray-200 p-2">
-                <Image
-                  src={product.image_url}
-                  alt="Urun gorseli"
-                  width={64}
-                  height={64}
-                  className="object-contain"
-                />
-                <span className="text-xs text-gray-500">Mevcut gorsel</span>
-              </div>
-            )}
-            {!product?.image_url && (
-              <div className="mt-2 inline-flex items-center gap-2 text-xs text-gray-400">
-                <ImageIcon className="w-4 h-4" />
-                Gorsel onizleme icin URL girin
-              </div>
-            )}
-          </div>
+        </div>
+      </fieldset>
+
+      {/* Section: Gorseller */}
+      <fieldset className="border border-gray-200 bg-white p-6">
+        <legend className="text-sm font-black uppercase tracking-wider text-[#1d1d1d] px-2">
+          Gorseller
+        </legend>
+        <div className="mt-4">
+          <GalleryManager images={gallery} sizeVariants={sizeVariants} />
         </div>
       </fieldset>
 

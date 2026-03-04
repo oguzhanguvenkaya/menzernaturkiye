@@ -3,6 +3,8 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { getAllProducts } from "@/db/queries";
 import { ProductCard } from "@/components/product-card";
+import { groupProductsBySize, buildGroupCardData } from "@/lib/product-utils";
+import type { Product } from "@/lib/types";
 
 export const revalidate = 3600;
 
@@ -66,13 +68,14 @@ const FEATURES = [
 ];
 
 export default async function MarinPage() {
-  const allProducts = await getAllProducts();
+  const allProducts = (await getAllProducts()) as unknown as Product[];
 
-  // Marin ürünleri — main_cat: "MARİN"
+  // Marin ürünleri — main_cat: "MARİN" → group by size
   const marinProducts = allProducts.filter((p) => {
     const cat = p.category as { main_cat: string };
     return cat?.main_cat === "MARİN";
   });
+  const marinGroups = groupProductsBySize(marinProducts);
 
   return (
     <div className="min-h-screen">
@@ -212,10 +215,14 @@ export default async function MarinPage() {
             </div>
           </div>
 
-          {marinProducts.length > 0 ? (
+          {marinGroups.length > 0 ? (
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-              {marinProducts.map((product) => (
-                <ProductCard key={product.sku} product={product as any} variant="compact" />
+              {marinGroups.map((group) => (
+                <ProductCard
+                  key={group.primary.sku}
+                  data={buildGroupCardData(group, { showBars: false })}
+                  variant="compact"
+                />
               ))}
             </div>
           ) : (

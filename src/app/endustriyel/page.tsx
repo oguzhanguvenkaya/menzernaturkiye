@@ -3,6 +3,9 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { getAllProducts } from "@/db/queries";
 import { ProductCard } from "@/components/product-card";
+import { SurfaceTabs } from "@/components/surface-tabs";
+import { groupProductsBySize, buildGroupCardData } from "@/lib/product-utils";
+import type { Product } from "@/lib/types";
 
 export const revalidate = 3600;
 
@@ -106,13 +109,14 @@ const SECTORS = [
 ];
 
 export default async function EndustriyelPage() {
-  const allProducts = await getAllProducts();
+  const allProducts = (await getAllProducts()) as unknown as Product[];
 
-  // Endüstriyel ürünler — main_cat: "ENDÜSTRİYEL"
+  // Endüstriyel ürünler — main_cat: "ENDÜSTRİYEL" → group by size
   const industrialProducts = allProducts.filter((p) => {
     const cat = p.category as { main_cat: string };
     return cat?.main_cat === "ENDÜSTRİYEL";
   });
+  const industrialGroups = groupProductsBySize(industrialProducts);
 
   return (
     <div className="min-h-screen">
@@ -190,6 +194,9 @@ export default async function EndustriyelPage() {
         </div>
       </section>
 
+      {/* Yüzey Tabları */}
+      <SurfaceTabs />
+
       {/* Video Placeholder */}
       <section className="py-16 bg-[#f8f9fa] border-t border-gray-200">
         <div className="container mx-auto px-4">
@@ -241,14 +248,18 @@ export default async function EndustriyelPage() {
               </p>
             </div>
             <span className="hidden sm:block text-sm font-bold text-gray-400 self-center ml-auto">
-              {industrialProducts.length} ürün
+              {industrialGroups.length} ürün
             </span>
           </div>
 
-          {industrialProducts.length > 0 ? (
+          {industrialGroups.length > 0 ? (
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-              {industrialProducts.map((product) => (
-                <ProductCard key={product.sku} product={product as any} variant="compact" />
+              {industrialGroups.map((group) => (
+                <ProductCard
+                  key={group.primary.sku}
+                  data={buildGroupCardData(group, { showBars: false })}
+                  variant="compact"
+                />
               ))}
             </div>
           ) : (

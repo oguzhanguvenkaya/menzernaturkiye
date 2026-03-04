@@ -1,6 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Plus, Package } from "lucide-react";
+
+const CATEGORY_LABELS: Record<string, { label: string; color: string }> = {
+  "DIŞ YÜZEY":     { label: "Araç Bakım",     color: "bg-red-50 text-[#af1d1f]" },
+  "ENDÜSTRİYEL":   { label: "Endüstriyel",     color: "bg-amber-50 text-amber-700" },
+  "MARİN":         { label: "Marin",            color: "bg-teal-50 text-teal-700" },
+  "AKSESUAR":      { label: "Aksesuar",         color: "bg-blue-50 text-blue-700" },
+  "MAKİNE-EKİPMAN": { label: "Makine-Ekipman", color: "bg-gray-100 text-gray-600" },
+};
 import { getAllProducts } from "@/db/queries";
 import {
   Table,
@@ -121,9 +129,20 @@ export default async function AdminProductsPage({
                       {product.sku}
                     </TableCell>
                     <TableCell>
-                      <span className="inline-block bg-gray-100 text-gray-700 text-xs px-2 py-1 font-medium">
-                        {cat?.main_cat || "-"}
-                      </span>
+                      {(() => {
+                        const mainCat = cat?.main_cat || "";
+                        const info = CATEGORY_LABELS[mainCat];
+                        return (
+                          <span className={`inline-block text-xs px-2 py-1 font-bold ${info?.color || "bg-gray-100 text-gray-700"}`}>
+                            {info?.label || mainCat || "-"}
+                          </span>
+                        );
+                      })()}
+                      {cat?.sub_cat2 && (
+                        <span className="block text-[10px] text-gray-400 mt-0.5">
+                          {cat.sub_cat2}
+                        </span>
+                      )}
                     </TableCell>
                     <TableCell className="text-right">
                       <div className="flex items-center justify-end gap-2">

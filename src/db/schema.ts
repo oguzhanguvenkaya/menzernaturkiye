@@ -29,6 +29,9 @@ export const products = pgTable("products", {
     when_to_use?: string;
     target_surface?: string;
     why_this_product?: string;
+    gallery?: string[];
+    menzerna_scrape?: Record<string, unknown>;
+    downloads?: { label: string; url: string; size: string }[];
   }>(),
   template_fields: jsonb("template_fields").$type<{
     cut_level?: number;

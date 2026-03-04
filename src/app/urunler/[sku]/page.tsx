@@ -1,17 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getAllProducts, getProductBySku } from "@/db/queries";
 import { ProductCard } from "@/components/product-card";
 import { ProductGallery } from "@/components/product-gallery";
 import { SizeSelector } from "@/components/size-selector";
-import { ApplicationSteps } from "@/components/application-steps";
+import { ProductTabs } from "@/components/product-tabs";
 import type { Product } from "@/lib/types";
-import { groupProductsBySize, extractSizeLabel } from "@/lib/product-utils";
+import {
+  groupProductsBySize,
+  extractSizeLabel,
+  productToCardData,
+} from "@/lib/product-utils";
 import {
   ChevronRight,
   Shield,
-  Settings,
+  Settings as SettingsIcon,
   Beaker,
   Crosshair,
 } from "lucide-react";
@@ -36,12 +41,12 @@ export async function generateMetadata({
   const product = (await getProductBySku(sku)) as unknown as Product | undefined;
 
   if (!product) {
-    return { title: "Urun Bulunamadi" };
+    return { title: "Ürün Bulunamadı" };
   }
 
   const description =
     product.content?.short_description ??
-    `${product.product_name} - Menzerna profesyonel polisaj urunu.`;
+    `${product.product_name} - Menzerna profesyonel polisaj ürünü.`;
 
   return {
     title: product.product_name,
@@ -69,7 +74,6 @@ function SegmentedBar({
 }) {
   const clamped = Math.min(Math.max(value, 0), max);
   const filledColor = color === "red" ? "bg-[#af1d1f]" : "bg-[#006b52]";
-  const emptyColor = "bg-gray-200";
   const textColor = color === "red" ? "text-[#af1d1f]" : "text-[#006b52]";
 
   return (
@@ -87,7 +91,7 @@ function SegmentedBar({
         {Array.from({ length: max }, (_, i) => (
           <div
             key={i}
-            className={`h-3 flex-1 ${i < clamped ? filledColor : emptyColor}`}
+            className={`h-3 flex-1 ${i < clamped ? filledColor : "bg-gray-200"}`}
           />
         ))}
       </div>
@@ -95,18 +99,13 @@ function SegmentedBar({
   );
 }
 
-// --- Helper: normalize machine_compatibility ---
+// --- Helpers ---
 
 function getMachines(value: string[] | string | undefined): string[] {
   if (!value) return [];
   if (Array.isArray(value)) return value;
-  return value
-    .split(/[,;\/]+/)
-    .map((s) => s.trim())
-    .filter(Boolean);
+  return value.split(/[,;\/]+/).map((s) => s.trim()).filter(Boolean);
 }
-
-// --- Helper: get related products ---
 
 async function getRelatedProducts(
   relations: Product["relations"],
@@ -121,52 +120,83 @@ async function getRelatedProducts(
   ]
     .filter((s) => s && s !== currentSku)
     .slice(0, 4);
-
   if (skus.length === 0) return [];
-
   const results = await Promise.all(skus.map((s) => getProductBySku(s)));
   return results.filter(Boolean) as unknown as Product[];
 }
 
-// --- Helper: build gallery images ---
-
-function buildGalleryImages(product: Product, primaryProduct?: Product): string[] {
+function buildGalleryImages(
+  product: Product,
+  primaryProduct: Product | undefined,
+  allVariants: { product: Product }[],
+): string[] {
   const images: string[] = [];
-  if (product.image_url) images.push(product.image_url);
-  const source = primaryProduct || product;
-  const gallery = source.content?.gallery;
-  if (gallery) {
-    for (const url of gallery) {
-      if (!images.includes(url)) images.push(url);
+  const seen = new Set<string>();
+
+  function add(url: string | undefined | null) {
+    if (url && !seen.has(url)) {
+      seen.add(url);
+      images.push(url);
     }
   }
+
+  // 1. Current product main image first
+  add(product.image_url);
+
+  // 2. Current product's own gallery
+  const ownGallery = product.content?.gallery;
+  if (ownGallery) ownGallery.forEach(add);
+
+  // 3. Primary product (richest content) — main + gallery
+  if (primaryProduct && primaryProduct.sku !== product.sku) {
+    add(primaryProduct.image_url);
+    const primaryGallery = primaryProduct.content?.gallery;
+    if (primaryGallery) primaryGallery.forEach(add);
+  }
+
+  // 4. Other variants' main images
+  for (const v of allVariants) {
+    if (v.product.sku !== product.sku) {
+      add(v.product.image_url);
+    }
+  }
+
   return images;
 }
 
-// --- Helper: get silicone/filler status ---
-
-function getSiliconFillerStatus(
-  silFree?: boolean,
-  filFree?: boolean
-): string {
-  if (silFree && filFree) return "Icermez";
-  if (silFree) return "Silikon Icermez";
-  if (filFree) return "Dolgu Icermez";
+function getSiliconFillerStatus(silFree?: boolean, filFree?: boolean): string {
+  if (silFree && filFree) return "İçermez";
+  if (silFree) return "Silikon İçermez";
+  if (filFree) return "Dolgu İçermez";
   return "";
 }
-
-// --- Helper: translate dusting level ---
 
 function translateDustingLevel(level?: string): string {
   if (!level) return "";
   const map: Record<string, string> = {
-    Low: "Dusuk",
-    "Very Low": "Cok Dusuk",
-    Medium: "Orta",
-    High: "Yuksek",
-    "Very High": "Cok Yuksek",
+    Low: "Düşük", "Very Low": "Çok Düşük", Medium: "Orta",
+    High: "Yüksek", "Very High": "Çok Yüksek",
   };
   return map[level] || level;
+}
+
+// --- Optimised For / Accessories matching ---
+
+interface OptimisedItem {
+  name: string;
+  name_tr?: string;
+  url?: string;
+}
+
+function findMatchingProduct(
+  item: OptimisedItem,
+  allProducts: Product[]
+): Product | null {
+  // Try matching by name in product_name
+  const nameLower = (item.name_tr || item.name).toLowerCase();
+  return allProducts.find((p) =>
+    p.product_name.toLowerCase().includes(nameLower)
+  ) || null;
 }
 
 // --- Page ---
@@ -196,17 +226,9 @@ export default async function ProductDetailPage({
       }))
     : [];
   const primaryProduct = currentGroup?.primary;
-
-  // Use primary product for data when available (richer content)
   const dataSource = primaryProduct || product;
 
-  const {
-    product_name,
-    category,
-    content,
-    template_fields,
-    relations,
-  } = dataSource;
+  const { product_name, category, content, template_fields, relations } = dataSource;
 
   const scrape = content?.menzerna_scrape;
   const cutLevel = template_fields?.cut_level;
@@ -215,80 +237,35 @@ export default async function ProductDetailPage({
   const filFree = template_fields?.filler_free;
   const machines = getMachines(template_fields?.machine_compatibility);
   const subCat =
-    (category as any)?.sub_cat2 ||
-    (category as any)?.sub_cat_2 ||
-    category?.sub_cat ||
-    "";
+    (category as any)?.sub_cat2 || (category as any)?.sub_cat_2 || category?.sub_cat || "";
 
-  const galleryImages = buildGalleryImages(product, primaryProduct);
+  const groupVariants = currentGroup?.variants || [{ product, sizeLabel: "" }];
+  const galleryImages = buildGalleryImages(product, primaryProduct, groupVariants);
   const relatedProducts = await getRelatedProducts(relations, sku);
 
-  // Subtitle: prefer scrape data
-  const subtitle =
-    scrape?.subtitle_en || scrape?.subtitle || content?.short_description || "";
+  const subtitle = scrape?.subtitle || scrape?.subtitle_en || content?.short_description || "";
+  const shortDesc = scrape?.description || scrape?.description_en || "";
 
-  // Description: prefer scrape data
-  const description =
-    scrape?.description_en || scrape?.description || content?.full_description || "";
-
-  // Feature cards data
+  // Feature cards
   const featureCards: { icon: React.ReactNode; label: string; value: string }[] = [];
-
   const silFillerStatus = getSiliconFillerStatus(silFree, filFree);
-  if (silFillerStatus) {
-    featureCards.push({
-      icon: <Shield className="w-5 h-5" />,
-      label: "Silikon & Dolgu",
-      value: silFillerStatus,
-    });
-  }
+  if (silFillerStatus) featureCards.push({ icon: <Shield className="w-5 h-5" />, label: "Silikon & Dolgu", value: silFillerStatus });
+  if (template_fields?.grit_removal) featureCards.push({ icon: <Crosshair className="w-5 h-5" />, label: "Zımpara İzi Giderme", value: template_fields.grit_removal });
+  if (template_fields?.dusting_level) featureCards.push({ icon: <Beaker className="w-5 h-5" />, label: "Tozuma Seviyesi", value: translateDustingLevel(template_fields.dusting_level) });
+  if (machines.length > 0) featureCards.push({ icon: <SettingsIcon className="w-5 h-5" />, label: "Makine", value: machines.join(" / ") });
 
-  if (template_fields?.grit_removal) {
-    featureCards.push({
-      icon: <Crosshair className="w-5 h-5" />,
-      label: "Zimpara Izi Giderme",
-      value: template_fields.grit_removal,
-    });
-  }
+  const downloads = content?.downloads as { label: string; url: string; size: string }[] | undefined;
 
-  if (template_fields?.dusting_level) {
-    featureCards.push({
-      icon: <Beaker className="w-5 h-5" />,
-      label: "Tozuma Seviyesi",
-      value: translateDustingLevel(template_fields.dusting_level),
-    });
-  }
-
-  if (machines.length > 0) {
-    featureCards.push({
-      icon: <Settings className="w-5 h-5" />,
-      label: "Makine",
-      value: machines.join(" / "),
-    });
-  }
+  // Optimised for / recommended accessories
+  const optimisedFor = scrape?.optimised_for || [];
 
   return (
     <div className="min-h-screen bg-white">
       {/* Breadcrumb */}
       <div className="bg-[#f8f9fa] border-b border-gray-200">
         <div className="container mx-auto px-4 py-3">
-          <nav
-            className="flex items-center gap-1.5 text-xs text-gray-500"
-            aria-label="Breadcrumb"
-          >
-            <Link
-              href="/"
-              className="hover:text-[#af1d1f] transition-colors"
-            >
-              Ana Sayfa
-            </Link>
-            <ChevronRight className="w-3 h-3 shrink-0" />
-            <Link
-              href="/urunler"
-              className="hover:text-[#af1d1f] transition-colors"
-            >
-              Urunler
-            </Link>
+          <nav className="flex items-center gap-1.5 text-xs text-gray-500" aria-label="Breadcrumb">
+            <Link href="/urunler" className="hover:text-[#af1d1f] transition-colors">Ürünler</Link>
             {subCat && (
               <>
                 <ChevronRight className="w-3 h-3 shrink-0" />
@@ -296,28 +273,23 @@ export default async function ProductDetailPage({
               </>
             )}
             <ChevronRight className="w-3 h-3 shrink-0" />
-            <span className="text-[#1d1d1d] font-bold truncate max-w-[200px]">
-              {product_name}
-            </span>
+            <span className="text-[#1d1d1d] font-bold truncate max-w-[200px]">{product_name}</span>
           </nav>
         </div>
       </div>
 
       {/* Main product section */}
       <div className="container mx-auto px-4 py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-10 items-start">
-          {/* LEFT COLUMN - Gallery */}
+        <div className="grid grid-cols-1 lg:grid-cols-[42%_58%] gap-10 items-start">
+          {/* LEFT COLUMN - Gallery (smaller) */}
           <div>
-            <ProductGallery
-              images={galleryImages}
-              productName={product_name}
-            />
+            <ProductGallery images={galleryImages} productName={product_name} />
           </div>
 
           {/* RIGHT COLUMN - Product info */}
           <div className="flex flex-col gap-5">
-            {/* Category + SKU label */}
-            <div className="text-[11px] text-gray-400 font-black uppercase tracking-[0.15em]">
+            {/* Category + SKU (no badge) */}
+            <div className="text-[11px] text-gray-400 font-bold uppercase tracking-[0.15em]">
               {subCat && <span>{subCat}</span>}
               {subCat && <span className="mx-2">&bull;</span>}
               <span>SKU: {sku}</span>
@@ -331,18 +303,14 @@ export default async function ProductDetailPage({
 
             {/* Subtitle */}
             {subtitle && (
-              <p className="text-gray-700 leading-relaxed text-base font-semibold">
-                {subtitle}
-              </p>
+              <p className="text-gray-700 leading-relaxed text-base font-semibold">{subtitle}</p>
             )}
 
-            {/* Description (HTML content) */}
-            {description && (
+            {/* Short description */}
+            {shortDesc && (
               <div
                 className="text-gray-600 leading-relaxed text-sm"
-                dangerouslySetInnerHTML={{
-                  __html: description.replace(/\n/g, "<br>"),
-                }}
+                dangerouslySetInnerHTML={{ __html: shortDesc.replace(/\n/g, "<br>") }}
               />
             )}
 
@@ -352,23 +320,41 @@ export default async function ProductDetailPage({
             )}
 
             {/* Segmented Cut/Gloss bars */}
-            {((cutLevel != null && cutLevel > 0) ||
-              (finishLevel != null && finishLevel > 0)) && (
+            {((cutLevel != null && cutLevel > 0) || (finishLevel != null && finishLevel > 0)) && (
               <div className="flex flex-col gap-4 p-5 bg-[#f8f9fa] border border-gray-200">
                 {cutLevel != null && cutLevel > 0 && (
-                  <SegmentedBar
-                    value={cutLevel}
-                    color="red"
-                    label="Kesicilik (Cut)"
-                  />
+                  <SegmentedBar value={cutLevel} color="red" label="Kesicilik (Cut)" />
                 )}
                 {finishLevel != null && finishLevel > 0 && (
-                  <SegmentedBar
-                    value={finishLevel}
-                    color="green"
-                    label="Parlaklik (Gloss)"
-                  />
+                  <SegmentedBar value={finishLevel} color="green" label="Parlaklık (Gloss)" />
                 )}
+              </div>
+            )}
+
+            {/* Application Steps (compact inline) */}
+            {scrape?.steps && scrape.steps.length > 0 && (
+              <div className="flex flex-wrap gap-2">
+                {scrape.steps.map((step) => {
+                  const stepColors: Record<number, string> = { 1: "#af1d1f", 2: "#d97706", 3: "#006b52", 4: "#2563eb" };
+                  const color = stepColors[step.number] || "#6b7280";
+                  const isActive = step.isActive;
+                  const isHalf = step.isHalfActive;
+                  return (
+                    <div key={step.number} className="flex flex-col items-center gap-1">
+                      <div
+                        className={`w-16 h-8 flex items-center justify-center text-[10px] font-black uppercase tracking-wider border-2 ${
+                          isActive ? "text-white" : isHalf ? "bg-white" : "bg-gray-100 text-gray-400 border-gray-300"
+                        }`}
+                        style={isActive ? { backgroundColor: color, borderColor: color } : isHalf ? { borderColor: color, color } : {}}
+                      >
+                        Adım {step.number}
+                      </div>
+                      <span className="text-[9px] text-gray-500 font-bold text-center leading-tight">
+                        {step.label_tr || step.label}
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
             )}
 
@@ -376,17 +362,10 @@ export default async function ProductDetailPage({
             {featureCards.length > 0 && (
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {featureCards.map((card, i) => (
-                  <div
-                    key={i}
-                    className="bg-gray-50 border border-gray-200 p-3 flex flex-col items-center text-center"
-                  >
+                  <div key={i} className="bg-gray-50 border border-gray-200 p-3 flex flex-col items-center text-center">
                     <div className="text-[#af1d1f] mb-1">{card.icon}</div>
-                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">
-                      {card.label}
-                    </span>
-                    <span className="text-sm font-black text-[#1d1d1d]">
-                      {card.value}
-                    </span>
+                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">{card.label}</span>
+                    <span className="text-sm font-black text-[#1d1d1d]">{card.value}</span>
                   </div>
                 ))}
               </div>
@@ -394,88 +373,79 @@ export default async function ProductDetailPage({
           </div>
         </div>
 
-        {/* Application Steps section */}
-        {(scrape?.processing || scrape?.steps || content?.how_to_use) && (
-          <div className="mt-14 border-t border-gray-100 pt-8">
-            <ApplicationSteps
-              processing={scrape?.processing}
-              steps={scrape?.steps}
-              howToUse={content?.how_to_use}
-            />
-          </div>
-        )}
-
-        {/* Full description section (if not already shown via scrape) */}
-        {content?.full_description && !scrape?.description && !scrape?.description_en && (
-          <div className="mt-14 border-t border-gray-100 pt-8">
-            <h2 className="text-lg font-black uppercase tracking-widest text-[#1d1d1d] mb-4">
-              Urun Aciklamasi
+        {/* Önerilen Aksesuarlar */}
+        {optimisedFor.length > 0 && (
+          <div className="mt-12 border-t border-gray-200 pt-12">
+            <h2 className="text-2xl font-black text-[#1d1d1d] uppercase tracking-widest mb-8">
+              Önerilen Aksesuarlar
             </h2>
-            <div
-              className="text-gray-600 leading-relaxed text-sm prose prose-sm max-w-none"
-              dangerouslySetInnerHTML={{
-                __html: content.full_description.replace(/\n/g, "<br>"),
-              }}
-            />
-          </div>
-        )}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              {optimisedFor.map((item, idx) => {
+                const matched = findMatchingProduct(item, allProducts);
+                const displayName = item.name_tr || item.name;
 
-        {/* When to use / Target surface */}
-        {(content?.when_to_use || content?.target_surface) && (
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {content?.when_to_use && (
-              <div className="bg-[#1d1d1d] p-6">
-                <h3 className="text-xs font-black uppercase tracking-widest text-white mb-3">
-                  Ne Zaman Kullanilir
-                </h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  {content.when_to_use}
-                </p>
-              </div>
-            )}
-            {content?.target_surface && (
-              <div className="bg-gray-50 border border-gray-200 p-6">
-                <h3 className="text-xs font-black uppercase tracking-widest text-[#1d1d1d] mb-3">
-                  Hedef Yuzey
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {content.target_surface}
-                </p>
-              </div>
-            )}
-          </div>
-        )}
+                if (matched) {
+                  return (
+                    <Link key={idx} href={`/urunler/${matched.sku}`}>
+                      <div className="bg-gray-50 border border-gray-200 p-4 flex flex-col items-center text-center hover:border-[#af1d1f] transition-colors">
+                        <div className="w-16 h-16 flex items-center justify-center mb-3">
+                          {matched.image_url ? (
+                            <Image
+                              src={matched.image_url}
+                              alt={displayName}
+                              width={64}
+                              height={64}
+                              className="max-w-full max-h-full object-contain"
+                            />
+                          ) : (
+                            <div className="w-16 h-16 bg-gray-200 flex items-center justify-center">
+                              <SettingsIcon className="w-8 h-8 text-gray-400" />
+                            </div>
+                          )}
+                        </div>
+                        <span className="text-xs font-bold text-[#1d1d1d] leading-tight">{displayName}</span>
+                      </div>
+                    </Link>
+                  );
+                }
 
-        {/* FAQ section */}
-        {dataSource.faq && dataSource.faq.length > 0 && (
-          <div className="mt-14 border-t border-gray-100 pt-8">
-            <h2 className="text-lg font-black uppercase tracking-widest text-[#1d1d1d] mb-6">
-              Sikca Sorulan Sorular
-            </h2>
-            <div className="space-y-3">
-              {dataSource.faq.map((item, idx) => (
-                <div key={idx} className="border border-gray-200 p-5">
-                  <h3 className="font-black text-[#1d1d1d] text-sm mb-2">
-                    {item.question}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm">
-                    {item.answer}
-                  </p>
-                </div>
-              ))}
+                return (
+                  <div key={idx}>
+                    <div className="bg-gray-50 border border-gray-200 p-4 flex flex-col items-center text-center hover:border-[#af1d1f] transition-colors">
+                      <div className="w-16 h-16 bg-gray-200 flex items-center justify-center mb-3">
+                        <SettingsIcon className="w-8 h-8 text-gray-400" />
+                      </div>
+                      <span className="text-xs font-bold text-[#1d1d1d] leading-tight">{displayName}</span>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         )}
+
+        {/* Tabs Section */}
+        <div className="mt-16 border-t border-gray-200 pt-12">
+          <ProductTabs
+            fullDescription={content?.full_description}
+            whenToUse={content?.when_to_use}
+            targetSurface={content?.target_surface}
+            whyThisProduct={content?.why_this_product}
+            howToUse={content?.how_to_use}
+            faq={dataSource.faq}
+            downloads={downloads}
+          />
+        </div>
 
         {/* Related products */}
         {relatedProducts.length > 0 && (
           <div className="mt-16 border-t border-gray-100 pt-10">
             <h2 className="text-xl font-black uppercase tracking-widest text-[#1d1d1d] mb-6">
-              Ilgili Urunler
+              İlgili Ürünler
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {relatedProducts.map((rp) => (
-                <ProductCard key={rp.sku} product={rp} />
+                <ProductCard key={rp.sku} data={productToCardData(rp)} variant="compact" />
               ))}
             </div>
           </div>

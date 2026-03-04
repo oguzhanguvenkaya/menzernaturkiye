@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none" stroke="#af1d1f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Factory building -->
+  <path d="M3 40 L3 22 L10 22 L10 14 L17 14 L17 22 L24 12 L24 22 L31 12 L31 22 L42 22 L42 40 Z" />
+  <!-- Chimney -->
+  <rect x="6" y="8" width="4" height="6" rx="0.5" />
+  <!-- Smoke -->
+  <path d="M8 8 Q6 4 8 2" stroke-width="1.4" />
+  <path d="M10 7 Q8 3 10 1" stroke-width="1.4" />
+  <!-- Door -->
+  <rect x="19" y="31" width="7" height="9" rx="1" />
+  <!-- Windows -->
+  <rect x="8" y="28" width="5" height="5" rx="0.5" stroke-width="1.5" />
+  <rect x="33" y="28" width="5" height="5" rx="0.5" stroke-width="1.5" />
+</svg>

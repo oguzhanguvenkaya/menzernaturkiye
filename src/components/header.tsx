@@ -76,15 +76,15 @@ export function Header() {
       <div className="bg-white border-b border-gray-200 shadow-sm">
         <div className="container mx-auto px-4 flex items-center justify-between h-20">
           {/* Left: Logo + Türkiye */}
-          <Link href="/" className="flex items-center gap-3 shrink-0">
+          <Link href="/" className="flex items-center gap-2.5 shrink-0 min-w-0">
             <img
               src="/logo.svg"
               alt="Menzerna"
-              className="h-10 w-auto"
+              className="h-10 w-auto shrink-0"
             />
-            <div className="w-px h-7 bg-gray-300" />
-            <span className="text-[15px] font-semibold text-[#1d1d1d] tracking-wide uppercase">
-              Türkiye Distribütörü
+            <div className="w-px h-7 bg-gray-300 shrink-0" />
+            <span className="text-[13px] md:text-[15px] font-semibold text-[#1d1d1d] tracking-wide uppercase leading-tight">
+              Türkiye<br />Distribütörü
             </span>
           </Link>
 
@@ -181,10 +181,10 @@ export function Header() {
             {/* Header row with logo + close */}
             <div className="flex items-center justify-between px-5 py-4 border-b border-gray-700">
               <Link href="/" className="flex items-center gap-2.5" onClick={() => setMobileOpen(false)}>
-                <img src="/logo.svg" alt="Menzerna" className="h-8 w-auto brightness-0 invert" />
-                <div className="w-px h-5 bg-gray-600" />
-                <span className="text-sm font-semibold text-white tracking-wide uppercase">
-                  Türkiye Distribütörü
+                <img src="/logo.svg" alt="Menzerna" className="h-8 w-auto brightness-0 invert shrink-0" />
+                <div className="w-px h-5 bg-gray-600 shrink-0" />
+                <span className="text-[13px] font-semibold text-white tracking-wide uppercase leading-tight">
+                  Türkiye<br />Distribütörü
                 </span>
               </Link>
               <button

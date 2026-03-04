@@ -78,10 +78,10 @@ export function SurfaceTabs() {
       <div className="container mx-auto px-4">
         {/* Başlık */}
         <div className="mb-8 md:mb-10">
-          <p className="text-[16px] md:text-[18px] font-bold uppercase tracking-widest text-[#af1d1f] mb-2">
+          <p className="text-[16px] md:text-[18px] font-black uppercase tracking-widest text-[#af1d1f] mb-2">
             Her Malzeme İçin Premium Polisaj Sonuçları
           </p>
-          <h2 className="text-[32px] md:text-[42px] lg:text-[52px] font-normal text-[#1d1d1d] leading-[1.15]">
+          <h2 className="text-[32px] md:text-[42px] lg:text-[52px] font-medium text-[#1d1d1d] leading-[1.15]">
             Her Yüzey İçin Doğru Polisaj Pastası
           </h2>
         </div>

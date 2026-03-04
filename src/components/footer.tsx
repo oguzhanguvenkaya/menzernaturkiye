@@ -20,11 +20,11 @@ export function Footer() {
                 <img
                   src="/logo.svg"
                   alt="Menzerna"
-                  className="h-10 w-auto"
+                  className="h-10 w-auto shrink-0"
                 />
-                <div className="w-px h-7 bg-gray-300" />
-                <span className="text-base font-semibold text-[#1d1d1d] tracking-wide uppercase">
-                  Türkiye Distribütörü
+                <div className="w-px h-7 bg-gray-300 shrink-0" />
+                <span className="text-[13px] font-semibold text-[#1d1d1d] tracking-wide uppercase leading-tight">
+                  Türkiye<br />Distribütörü
                 </span>
               </Link>
               <p className="text-base text-gray-600 font-medium mb-1">

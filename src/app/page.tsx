@@ -43,7 +43,7 @@ const featureCards = [
 
 const categoryCards = [
   {
-    image: "/images/hero-industrial-polishing.png",
+    image: "/images/hero-industrial.png",
     tag: "Endüstriyel Polisaj",
     title: "Polisajda Mükemmellik",
     desc: "Menzerna, birçok farklı yüzeyin endüstriyel işlenmesi için polisaj pastaları ve emülsiyonları geliştirir ve üretir.",
@@ -59,7 +59,7 @@ const categoryCards = [
     href: "/arac-bakim",
   },
   {
-    image: "/images/hero-marine.jpg",
+    image: "/images/hero-marine.png",
     tag: "Tekne Cilası",
     title: "İlham Veren Tekne Cilaları",
     desc: "Menzerna, her türlü jel kaplama için profesyonel tekne cilaları sunar: Yüzey hazırlığı, çizik giderme ve mat lekelerin giderilmesi.",
@@ -402,11 +402,11 @@ export default function HomePage() {
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <a
-                  href="tel:+905352517411"
+                  href="tel:+902326835043"
                   className="inline-flex items-center gap-2 bg-[#1d1d1d] text-white px-8 py-3.5 font-bold uppercase tracking-wider text-sm hover:bg-[#333] transition-colors"
                 >
                   <Phone className="w-4 h-4" />
-                  +90 (535) 251 74 11
+                  0232 683 50 43
                 </a>
               </div>
             </div>

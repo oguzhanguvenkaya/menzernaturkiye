@@ -94,13 +94,57 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
 
   return (
     <div className="flex flex-col md:flex-row gap-3">
-      {/* Thumbnail strip + nav arrows — mobile: horizontal below, desktop: vertical left */}
+      {/* Thumbnail strip + nav arrows — mobile: horizontal below with side arrows, desktop: vertical left */}
       {images.length > 1 && (
         <div className="flex flex-col md:flex-col items-center gap-1.5 shrink-0 order-2 md:order-1">
-          {/* Thumbnails */}
+          {/* Mobile: arrows + thumbnails row */}
+          <div className="flex md:hidden items-center gap-1 w-full">
+            <button
+              type="button"
+              onClick={goToPrev}
+              className="shrink-0 text-gray-400 hover:text-[#af1d1f] transition-colors"
+              aria-label="Onceki gorsel"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <div
+              ref={thumbContainerRef}
+              className="flex gap-2 shrink-0 overflow-x-auto overflow-y-hidden scrollbar-thin pb-1 flex-1 min-w-0 md:hidden"
+            >
+              {images.map((imgUrl, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setSelectedIndex(idx)}
+                  className={`w-14 h-14 shrink-0 border-2 p-1 bg-white flex items-center justify-center transition-all ${
+                    idx === selectedIndex
+                      ? "border-[#af1d1f] shadow-md"
+                      : "border-gray-200 hover:border-gray-400"
+                  }`}
+                >
+                  <Image
+                    src={imgUrl}
+                    alt={`${productName} - ${idx + 1}`}
+                    width={72}
+                    height={72}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </button>
+              ))}
+            </div>
+            <button
+              type="button"
+              onClick={goToNext}
+              className="shrink-0 text-gray-400 hover:text-[#af1d1f] transition-colors"
+              aria-label="Sonraki gorsel"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Desktop: vertical thumbnails */}
           <div
             ref={thumbContainerRef}
-            className="flex md:flex-col gap-2 shrink-0 overflow-x-auto md:overflow-x-hidden overflow-y-hidden md:overflow-y-auto md:max-h-[min(65vh,460px)] scrollbar-thin pb-1 md:pb-0 md:pr-0.5"
+            className="hidden md:flex md:flex-col gap-2 shrink-0 overflow-x-hidden overflow-y-auto md:max-h-[min(65vh,460px)] scrollbar-thin md:pr-0.5"
           >
             {images.map((imgUrl, idx) => (
               <button
@@ -168,28 +212,6 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
             draggable={false}
           />
         ))}
-
-        {/* Mobile nav arrows — overlay on left/right of main image */}
-        {images.length > 1 && (
-          <>
-            <button
-              type="button"
-              onClick={goToPrev}
-              className="md:hidden absolute left-2 top-1/2 -translate-y-1/2 z-10 w-7 h-7 flex items-center justify-center rounded-full bg-white/80 text-gray-600 shadow-sm backdrop-blur-sm"
-              aria-label="Onceki gorsel"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <button
-              type="button"
-              onClick={goToNext}
-              className="md:hidden absolute right-2 top-1/2 -translate-y-1/2 z-10 w-7 h-7 flex items-center justify-center rounded-full bg-white/80 text-gray-600 shadow-sm backdrop-blur-sm"
-              aria-label="Sonraki gorsel"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </>
-        )}
 
         {/* Dot indicators — mobile only */}
         {images.length > 1 && (

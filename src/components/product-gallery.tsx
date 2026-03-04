@@ -94,7 +94,7 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
 
   return (
     <div className="flex flex-col md:flex-row gap-3">
-      {/* Thumbnail strip + nav arrows at bottom — mobile: horizontal, desktop: vertical */}
+      {/* Thumbnail strip + nav arrows — mobile: horizontal below, desktop: vertical left */}
       {images.length > 1 && (
         <div className="flex flex-col md:flex-col items-center gap-1.5 shrink-0 order-2 md:order-1">
           {/* Thumbnails */}
@@ -123,16 +123,15 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
             ))}
           </div>
 
-          {/* Nav arrows — side by side at bottom, changes active image */}
-          <div className="flex gap-1">
+          {/* Desktop nav arrows */}
+          <div className="hidden md:flex gap-1">
             <button
               type="button"
               onClick={goToPrev}
               className="w-8 h-8 flex items-center justify-center text-[#af1d1f] hover:bg-red-50 border border-gray-200 transition-colors"
               aria-label="Onceki gorsel"
             >
-              <ChevronUp className="w-4 h-4 hidden md:block" />
-              <ChevronLeft className="w-4 h-4 md:hidden" />
+              <ChevronUp className="w-4 h-4" />
             </button>
             <button
               type="button"
@@ -140,8 +139,7 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
               className="w-8 h-8 flex items-center justify-center text-[#af1d1f] hover:bg-red-50 border border-gray-200 transition-colors"
               aria-label="Sonraki gorsel"
             >
-              <ChevronDown className="w-4 h-4 hidden md:block" />
-              <ChevronRight className="w-4 h-4 md:hidden" />
+              <ChevronDown className="w-4 h-4" />
             </button>
           </div>
         </div>
@@ -171,14 +169,36 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
           />
         ))}
 
-        {/* Dot indicators — mobile only (thumbnails visible on desktop) */}
+        {/* Mobile nav arrows — overlay on left/right of main image */}
+        {images.length > 1 && (
+          <>
+            <button
+              type="button"
+              onClick={goToPrev}
+              className="md:hidden absolute left-2 top-1/2 -translate-y-1/2 z-10 w-7 h-7 flex items-center justify-center rounded-full bg-white/80 text-gray-600 shadow-sm backdrop-blur-sm"
+              aria-label="Onceki gorsel"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <button
+              type="button"
+              onClick={goToNext}
+              className="md:hidden absolute right-2 top-1/2 -translate-y-1/2 z-10 w-7 h-7 flex items-center justify-center rounded-full bg-white/80 text-gray-600 shadow-sm backdrop-blur-sm"
+              aria-label="Sonraki gorsel"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </>
+        )}
+
+        {/* Dot indicators — mobile only */}
         {images.length > 1 && (
           <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 md:hidden">
             {images.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setSelectedIndex(idx)}
-                className={`w-2 h-2 transition-all ${
+                className={`w-2 h-2 rounded-full transition-all ${
                   idx === selectedIndex
                     ? "bg-[#af1d1f] scale-125"
                     : "bg-gray-300 hover:bg-gray-500"

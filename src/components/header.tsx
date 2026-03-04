@@ -45,12 +45,12 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full">
       {/* Top bar — red left section + dark right section */}
-      <div className="flex w-full h-[46px]">
+      <div className="flex w-full h-2 md:h-[46px]">
         {/* Red accent section (left ~20%) */}
         <div className="bg-[#af1d1f] w-[20%] hidden md:block" />
-        {/* Dark section with contact links on far right */}
+        {/* Dark section — ince şerit mobilde, full bar masaüstünde */}
         <div className="bg-[#1d1d1d] flex-1 flex items-center justify-end text-white">
-          <div className="container mx-auto px-4 flex items-center justify-end gap-6 text-[15px] leading-[21px] md:justify-end">
+          <div className="container mx-auto px-4 hidden md:flex items-center justify-end gap-6 text-[15px] leading-[21px]">
             <Link
               href="/iletisim"
               className="flex items-center gap-1.5 hover:text-[#af1d1f] transition-colors"
@@ -84,7 +84,7 @@ export function Header() {
             />
             <div className="w-px h-7 bg-gray-300" />
             <span className="text-[15px] font-semibold text-[#1d1d1d] tracking-wide uppercase">
-              Türkiye
+              Türkiye Distribütörü
             </span>
           </Link>
 
@@ -184,7 +184,7 @@ export function Header() {
                 <img src="/logo.svg" alt="Menzerna" className="h-8 w-auto brightness-0 invert" />
                 <div className="w-px h-5 bg-gray-600" />
                 <span className="text-sm font-semibold text-white tracking-wide uppercase">
-                  Türkiye
+                  Türkiye Distribütörü
                 </span>
               </Link>
               <button

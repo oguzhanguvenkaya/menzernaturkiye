@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Phone } from "lucide-react";
+import { NewsCarousel } from "@/components/news-carousel";
 
 const featureCards = [
   {
@@ -288,8 +289,8 @@ export default function HomePage() {
               Haberlerimiz
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {[
+          <NewsCarousel
+            items={[
               {
                 image: "https://www.menzerna.com/fileadmin/_processed_/2/1/csm_1767948586407_16f6f8a65d.png",
                 title: "Yeni Menzerna kurumsal filmi yayında!",
@@ -308,29 +309,8 @@ export default function HomePage() {
                 day: "08",
                 month: "Kas",
               },
-            ].map((news) => (
-              <div key={news.title} className="group">
-                <div className="relative overflow-hidden mb-4">
-                  <img
-                    src={news.image}
-                    alt={news.title}
-                    className="w-full h-auto object-cover"
-                  />
-                  <div className="absolute top-0 left-0 bg-[#af1d1f] text-white text-center px-3 py-2 leading-tight">
-                    <span className="block text-[20px] font-bold">{news.day}</span>
-                    <span className="block text-[13px] font-bold uppercase">{news.month}</span>
-                  </div>
-                </div>
-                <h3 className="text-[19px] md:text-[22px] font-bold text-[#1d1d1d] mb-3 leading-[1.3]">
-                  {news.title}
-                </h3>
-                <span className="inline-flex items-center text-[#1d1d1d] text-[16px] font-bold group-hover:text-[#af1d1f] transition-colors">
-                  Devamını Oku
-                  <span className="ml-2 text-[20px]">&rarr;</span>
-                </span>
-              </div>
-            ))}
-          </div>
+            ]}
+          />
         </div>
       </section>
 

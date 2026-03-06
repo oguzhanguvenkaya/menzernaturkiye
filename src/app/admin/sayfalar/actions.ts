@@ -23,9 +23,15 @@ export async function savePageContentAction(formData: FormData) {
   });
 
   revalidatePath("/admin/sayfalar");
+  revalidatePath("/arac-bakim");
+  revalidatePath("/endustriyel");
+  revalidatePath("/marin");
 }
 
 export async function deletePageContentAction(id: string) {
   await deletePageContent(id);
   revalidatePath("/admin/sayfalar");
+  revalidatePath("/arac-bakim");
+  revalidatePath("/endustriyel");
+  revalidatePath("/marin");
 }

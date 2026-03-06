@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { getAllProducts } from "@/db/queries";
+import { getAllProducts, getPageContents } from "@/db/queries";
 import { ProductCard } from "@/components/product-card";
 import {
   groupProductsBySize,
@@ -115,6 +115,8 @@ function filterGroupsBySection(
 
 export default async function AracBakimPage() {
   const allProducts = (await getAllProducts()) as unknown as Product[];
+  const heroContents = await getPageContents("arac-bakim");
+  const heroImage = heroContents.find((c) => c.section === "hero")?.image_url;
 
   // Araç bakım ürünleri — main_cat: "DIŞ YÜZEY" → group by size
   const carProducts = allProducts.filter((p) => {
@@ -141,17 +143,27 @@ export default async function AracBakimPage() {
     <div className="min-h-screen">
       {/* Hero Banner */}
       <section className="relative bg-[#1d1d1d] text-white overflow-hidden">
-        {/* Arka plan deseni */}
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                "repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)",
-              backgroundSize: "20px 20px",
-            }}
-          />
-        </div>
+        {/* Arka plan gorseli veya deseni */}
+        {heroImage ? (
+          <>
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${heroImage})` }}
+            />
+            <div className="absolute inset-0 bg-black/60" />
+          </>
+        ) : (
+          <div className="absolute inset-0 opacity-5">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage:
+                  "repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)",
+                backgroundSize: "20px 20px",
+              }}
+            />
+          </div>
+        )}
         {/* Kırmızı vurgu çizgisi */}
         <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#af1d1f]" />
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { getAllProducts } from "@/db/queries";
+import { getAllProducts, getPageContents } from "@/db/queries";
 import { ProductCard } from "@/components/product-card";
 import { groupProductsBySize, buildGroupCardData } from "@/lib/product-utils";
 import type { Product } from "@/lib/types";
@@ -69,6 +69,8 @@ const FEATURES = [
 
 export default async function MarinPage() {
   const allProducts = (await getAllProducts()) as unknown as Product[];
+  const heroContents = await getPageContents("marin");
+  const heroImage = heroContents.find((c) => c.section === "hero")?.image_url;
 
   // Marin ürünleri — main_cat: "MARİN" → group by size
   const marinProducts = allProducts.filter((p) => {
@@ -81,21 +83,31 @@ export default async function MarinPage() {
     <div className="min-h-screen">
       {/* Hero Banner */}
       <section className="relative bg-[#1d1d1d] text-white overflow-hidden">
-        {/* Dalga efekti arka plan */}
-        <div className="absolute inset-0 opacity-10">
-          <svg
-            className="absolute bottom-0 left-0 w-full"
-            viewBox="0 0 1440 200"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M0 100C240 100 240 40 480 40C720 40 720 160 960 160C1200 160 1200 60 1440 60V200H0V100Z"
-              fill="white"
+        {/* Arka plan gorseli veya dalga deseni */}
+        {heroImage ? (
+          <>
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${heroImage})` }}
             />
-          </svg>
-        </div>
+            <div className="absolute inset-0 bg-black/60" />
+          </>
+        ) : (
+          <div className="absolute inset-0 opacity-10">
+            <svg
+              className="absolute bottom-0 left-0 w-full"
+              viewBox="0 0 1440 200"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M0 100C240 100 240 40 480 40C720 40 720 160 960 160C1200 160 1200 60 1440 60V200H0V100Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        )}
         <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#006b52]" />
 
         <div className="relative container mx-auto px-4 py-20 md:py-28">

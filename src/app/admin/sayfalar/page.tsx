@@ -1,9 +1,11 @@
 import { getAllPageContents } from "@/db/queries";
 import { FileText } from "lucide-react";
 import { SayfalarClient } from "./sayfalar-client";
+import { HeroImageManager } from "@/components/admin/hero-image-manager";
 
 export default async function AdminSayfalarPage() {
   const contents = await getAllPageContents();
+  const heroContents = contents.filter((c) => c.section === "hero");
 
   return (
     <div>
@@ -20,6 +22,8 @@ export default async function AdminSayfalarPage() {
           <FileText className="w-5 h-5 text-white" />
         </div>
       </div>
+
+      <HeroImageManager heroContents={heroContents} />
 
       <SayfalarClient contents={contents} />
     </div>

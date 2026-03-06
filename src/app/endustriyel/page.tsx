@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { getAllProducts } from "@/db/queries";
+import { getAllProducts, getPageContents } from "@/db/queries";
 import { ProductCard } from "@/components/product-card";
 import { SurfaceTabs } from "@/components/surface-tabs";
 import { groupProductsBySize, buildGroupCardData } from "@/lib/product-utils";
@@ -110,6 +110,8 @@ const SECTORS = [
 
 export default async function EndustriyelPage() {
   const allProducts = (await getAllProducts()) as unknown as Product[];
+  const heroContents = await getPageContents("endustriyel");
+  const heroImage = heroContents.find((c) => c.section === "hero")?.image_url;
 
   // Endüstriyel ürünler — main_cat: "ENDÜSTRİYEL" → group by size
   const industrialProducts = allProducts.filter((p) => {
@@ -122,16 +124,26 @@ export default async function EndustriyelPage() {
     <div className="min-h-screen">
       {/* Hero Banner */}
       <section className="relative bg-[#1d1d1d] text-white overflow-hidden">
-        {/* Arka plan deseni */}
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                "repeating-linear-gradient(0deg, #fff 0, #fff 1px, transparent 0, transparent 40px), repeating-linear-gradient(90deg, #fff 0, #fff 1px, transparent 0, transparent 40px)",
-            }}
-          />
-        </div>
+        {/* Arka plan gorseli veya deseni */}
+        {heroImage ? (
+          <>
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${heroImage})` }}
+            />
+            <div className="absolute inset-0 bg-black/60" />
+          </>
+        ) : (
+          <div className="absolute inset-0 opacity-5">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage:
+                  "repeating-linear-gradient(0deg, #fff 0, #fff 1px, transparent 0, transparent 40px), repeating-linear-gradient(90deg, #fff 0, #fff 1px, transparent 0, transparent 40px)",
+              }}
+            />
+          </div>
+        )}
         <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#af1d1f]" />
 
         <div className="relative container mx-auto px-4 py-20 md:py-28">

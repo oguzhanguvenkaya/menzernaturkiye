@@ -3,6 +3,17 @@
 import { revalidatePath } from "next/cache";
 import { upsertPageContent, deletePageContent } from "@/db/queries";
 
+const REVALIDATE_PATHS = [
+  "/admin/sayfalar",
+  "/",
+  "/arac-bakim",
+  "/endustriyel",
+  "/marin",
+  "/kurumsal/hakkimizda",
+  "/kurumsal/egitim",
+  "/kurumsal/sss",
+];
+
 export async function savePageContentAction(formData: FormData) {
   const id = formData.get("id") as string | null;
   const slug = formData.get("slug") as string;
@@ -22,16 +33,14 @@ export async function savePageContentAction(formData: FormData) {
     order_index,
   });
 
-  revalidatePath("/admin/sayfalar");
-  revalidatePath("/arac-bakim");
-  revalidatePath("/endustriyel");
-  revalidatePath("/marin");
+  for (const path of REVALIDATE_PATHS) {
+    revalidatePath(path);
+  }
 }
 
 export async function deletePageContentAction(id: string) {
   await deletePageContent(id);
-  revalidatePath("/admin/sayfalar");
-  revalidatePath("/arac-bakim");
-  revalidatePath("/endustriyel");
-  revalidatePath("/marin");
+  for (const path of REVALIDATE_PATHS) {
+    revalidatePath(path);
+  }
 }

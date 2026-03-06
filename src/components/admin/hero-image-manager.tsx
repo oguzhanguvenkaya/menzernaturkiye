@@ -6,16 +6,54 @@ import { Upload, Trash2, Loader2, ImageIcon } from "lucide-react";
 import { savePageContentAction } from "@/app/admin/sayfalar/actions";
 import type { PageContent } from "@/db/schema";
 
-interface CategoryHeroConfig {
+interface ImageSlotConfig {
   slug: string;
+  section: string;
   label: string;
   accent: string;
 }
 
-const CATEGORIES: CategoryHeroConfig[] = [
-  { slug: "arac-bakim", label: "Arac Bakim", accent: "#af1d1f" },
-  { slug: "endustriyel", label: "Endustriyel", accent: "#af1d1f" },
-  { slug: "marin", label: "Marin", accent: "#006b52" },
+interface ImageGroupConfig {
+  title: string;
+  description: string;
+  slots: ImageSlotConfig[];
+  columns?: number;
+}
+
+const IMAGE_GROUPS: ImageGroupConfig[] = [
+  {
+    title: "Anasayfa Gorselleri",
+    description: "Ana sayfadaki hero banner, fabrika ve kategori kart gorsellerini yonetin.",
+    columns: 2,
+    slots: [
+      { slug: "anasayfa", section: "hero-left", label: "Hero Sol (Endustriyel)", accent: "#af1d1f" },
+      { slug: "anasayfa", section: "hero-right", label: "Hero Sag (Arac Cila)", accent: "#af1d1f" },
+      { slug: "anasayfa", section: "factory", label: "Fabrika Gorseli", accent: "#1d1d1d" },
+      { slug: "anasayfa", section: "cat-endustriyel", label: "Kategori: Endustriyel", accent: "#af1d1f" },
+      { slug: "anasayfa", section: "cat-arac", label: "Kategori: Arac Bakim", accent: "#af1d1f" },
+      { slug: "anasayfa", section: "cat-marin", label: "Kategori: Marin", accent: "#006b52" },
+    ],
+  },
+  {
+    title: "Kategori Sayfalari",
+    description: "Kategori sayfalarinin ust kisimlarindaki arka plan gorsellerini yonetin.",
+    columns: 3,
+    slots: [
+      { slug: "arac-bakim", section: "hero", label: "Arac Bakim", accent: "#af1d1f" },
+      { slug: "endustriyel", section: "hero", label: "Endustriyel", accent: "#af1d1f" },
+      { slug: "marin", section: "hero", label: "Marin", accent: "#006b52" },
+    ],
+  },
+  {
+    title: "Kurumsal Sayfalar",
+    description: "Hakkimizda, Egitim ve SSS sayfalarinin banner gorsellerini yonetin.",
+    columns: 3,
+    slots: [
+      { slug: "hakkimizda", section: "hero", label: "Hakkimizda", accent: "#af1d1f" },
+      { slug: "egitim", section: "hero", label: "Egitim Programi", accent: "#af1d1f" },
+      { slug: "sss", section: "hero", label: "SSS", accent: "#af1d1f" },
+    ],
+  },
 ];
 
 interface HeroImageManagerProps {
@@ -24,37 +62,48 @@ interface HeroImageManagerProps {
 
 export function HeroImageManager({ heroContents }: HeroImageManagerProps) {
   return (
-    <div className="mb-10">
-      <h2 className="text-sm font-black text-[#1d1d1d] uppercase tracking-wider mb-4">
-        Kategori Hero Gorselleri
-      </h2>
-      <p className="text-xs text-gray-500 mb-6">
-        Kategori sayfalarinin ust kisimlarindaki arka plan gorsellerini buradan yonetin.
-      </p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {CATEGORIES.map((cat) => {
-          const existing = heroContents.find(
-            (c) => c.slug === cat.slug && c.section === "hero"
-          );
-          return (
-            <HeroCard key={cat.slug} category={cat} content={existing} />
-          );
-        })}
-      </div>
+    <div className="space-y-10 mb-10">
+      {IMAGE_GROUPS.map((group) => (
+        <div key={group.title}>
+          <h2 className="text-sm font-black text-[#1d1d1d] uppercase tracking-wider mb-1">
+            {group.title}
+          </h2>
+          <p className="text-xs text-gray-500 mb-4">
+            {group.description}
+          </p>
+          <div className={`grid grid-cols-1 gap-4 ${
+            group.columns === 2 ? "md:grid-cols-2" : "md:grid-cols-3"
+          }`}>
+            {group.slots.map((slot) => {
+              const existing = heroContents.find(
+                (c) => c.slug === slot.slug && c.section === slot.section
+              );
+              return (
+                <ImageCard
+                  key={`${slot.slug}-${slot.section}`}
+                  slot={slot}
+                  content={existing}
+                />
+              );
+            })}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
 
-function HeroCard({
-  category,
+function ImageCard({
+  slot,
   content,
 }: {
-  category: CategoryHeroConfig;
+  slot: ImageSlotConfig;
   content?: PageContent;
 }) {
   const [uploading, setUploading] = useState(false);
   const [imageUrl, setImageUrl] = useState(content?.image_url || "");
   const [saving, setSaving] = useState(false);
+  const [contentId, setContentId] = useState(content?.id || "");
   const fileRef = useRef<HTMLInputElement>(null);
 
   async function handleUpload(file: File) {
@@ -70,7 +119,6 @@ function HeroCard({
       if (!res.ok) throw new Error("Upload basarisiz");
       const { url } = await res.json();
       setImageUrl(url);
-      // Auto-save to DB
       await saveToDb(url);
     } catch (e) {
       console.error(e);
@@ -84,10 +132,10 @@ function HeroCard({
     setSaving(true);
     try {
       const fd = new FormData();
-      if (content?.id) fd.append("id", content.id);
-      fd.append("slug", category.slug);
-      fd.append("section", "hero");
-      fd.append("title", category.label + " Hero");
+      if (contentId) fd.append("id", contentId);
+      fd.append("slug", slot.slug);
+      fd.append("section", slot.section);
+      fd.append("title", slot.label);
       fd.append("image_url", url);
       fd.append("order_index", "0");
       await savePageContentAction(fd);
@@ -100,7 +148,6 @@ function HeroCard({
     if (!imageUrl) return;
     setSaving(true);
     try {
-      // Delete from blob
       await fetch("/api/admin/upload", {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
@@ -108,7 +155,6 @@ function HeroCard({
         credentials: "include",
       });
       setImageUrl("");
-      // Save empty to DB
       await saveToDb("");
     } catch (e) {
       console.error(e);
@@ -132,13 +178,10 @@ function HeroCard({
 
   return (
     <div className="bg-white border border-gray-200 overflow-hidden">
-      <div
-        className="h-1"
-        style={{ backgroundColor: category.accent }}
-      />
+      <div className="h-1" style={{ backgroundColor: slot.accent }} />
       <div className="p-4">
         <h3 className="text-xs font-black uppercase tracking-wider text-[#1d1d1d] mb-3">
-          {category.label}
+          {slot.label}
         </h3>
 
         {imageUrl ? (
@@ -146,7 +189,7 @@ function HeroCard({
             <div className="aspect-[16/7] relative bg-gray-100 overflow-hidden">
               <Image
                 src={imageUrl}
-                alt={category.label}
+                alt={slot.label}
                 fill
                 className="object-cover"
               />

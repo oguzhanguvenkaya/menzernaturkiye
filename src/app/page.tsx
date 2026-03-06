@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ArrowRight, Phone } from "lucide-react";
 import { NewsCarousel } from "@/components/news-carousel";
 import { FeatureCarousel } from "@/components/feature-carousel";
+import { getPageContents } from "@/db/queries";
 
 const featureCards = [
   {
@@ -43,9 +44,10 @@ const featureCards = [
   },
 ];
 
-const categoryCards = [
+const categoryCardsBase = [
   {
     image: "/images/hero-industrial.png",
+    section: "cat-endustriyel",
     tag: "Endüstriyel Polisaj",
     title: "Polisajda Mükemmellik",
     desc: "Menzerna, birçok farklı yüzeyin endüstriyel işlenmesi için polisaj pastaları ve emülsiyonları geliştirir ve üretir.",
@@ -54,6 +56,7 @@ const categoryCards = [
   },
   {
     image: "/images/hero-car-polishing.png",
+    section: "cat-arac",
     tag: "Araç Cilası",
     title: "İlham Veren Araç Cilaları",
     desc: "Yüksek parlaklıkta otomotiv cilası: Menzerna, dört yaygın polisaj aşaması için otomotiv cilaları sunar.",
@@ -62,6 +65,7 @@ const categoryCards = [
   },
   {
     image: "/images/hero-marine.png",
+    section: "cat-marin",
     tag: "Tekne Cilası",
     title: "İlham Veren Tekne Cilaları",
     desc: "Menzerna, her türlü jel kaplama için profesyonel tekne cilaları sunar: Yüzey hazırlığı, çizik giderme ve mat lekelerin giderilmesi.",
@@ -77,7 +81,10 @@ const stats = [
   { number: "70", label: "Ülke" },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const pageContents = await getPageContents("anasayfa");
+  const getImage = (section: string) =>
+    pageContents.find((c) => c.section === section)?.image_url;
   return (
     <div>
       {/* 1. HERO BANNER — 2-column static layout, full viewport height */}
@@ -86,7 +93,7 @@ export default function HomePage() {
           {/* Left — Endüstriyel Polisaj */}
           <Link href="/endustriyel" className="group relative block h-[350px] md:h-full overflow-hidden">
             <img
-              src="https://www.menzerna.com/fileadmin/_processed_/7/6/csm_Menzerna_IndustriellesPolieren_ef4ba9af14.jpg"
+              src={getImage("hero-left") || "https://www.menzerna.com/fileadmin/_processed_/7/6/csm_Menzerna_IndustriellesPolieren_ef4ba9af14.jpg"}
               alt="Endüstriyel Polisaj"
               className="absolute inset-0 w-full h-full object-cover"
             />
@@ -104,7 +111,7 @@ export default function HomePage() {
           {/* Right — Araç Cilaları */}
           <Link href="/arac-bakim" className="group relative block h-[350px] md:h-full overflow-hidden">
             <img
-              src="https://www.menzerna.com/fileadmin/_processed_/7/e/csm_Professionelle_Autopolituren_Menzerna_1dd33b6b56.jpg"
+              src={getImage("hero-right") || "https://www.menzerna.com/fileadmin/_processed_/7/e/csm_Professionelle_Autopolituren_Menzerna_1dd33b6b56.jpg"}
               alt="Menzerna Araç Cilaları"
               className="absolute inset-0 w-full h-full object-cover"
             />
@@ -157,7 +164,7 @@ export default function HomePage() {
           {/* Image left */}
           <div className="relative h-[400px] lg:h-auto min-h-[400px]">
             <Image
-              src="/images/factory.png"
+              src={getImage("factory") || "/images/factory.png"}
               alt="Menzerna Fabrika"
               fill
               className="object-cover"
@@ -208,11 +215,14 @@ export default function HomePage() {
       {/* 5. THREE-COLUMN CATEGORY SHOWCASE (full-bleed) */}
       <section className="pb-0">
         <div className="grid grid-cols-1 md:grid-cols-3">
-          {categoryCards.map((card, i) => (
+          {categoryCardsBase.map((card) => ({
+            ...card,
+            image: getImage(card.section) || card.image,
+          })).map((card, i) => (
             <div
               key={card.title}
               className={`group relative h-[300px] md:h-[550px] overflow-hidden${
-                i < categoryCards.length - 1 ? " border-r border-white" : ""
+                i < categoryCardsBase.length - 1 ? " border-r border-white" : ""
               }`}
             >
               {/* Background image — fades out on hover */}

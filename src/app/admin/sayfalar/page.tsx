@@ -5,7 +5,7 @@ import { HeroImageManager } from "@/components/admin/hero-image-manager";
 
 export default async function AdminSayfalarPage() {
   const contents = await getAllPageContents();
-  const heroContents = contents.filter((c) => c.section === "hero");
+  const heroContents = contents.filter((c) => c.image_url !== null);
 
   return (
     <div>

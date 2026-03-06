@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { FaqAccordion } from "@/components/faq-accordion";
+import { getPageContents } from "@/db/queries";
 
 export const metadata: Metadata = {
   title: "Sıkça Sorulan Sorular",
@@ -324,18 +325,31 @@ const faqCategories = [
 // Toplam soru sayısı
 const totalQuestions = faqCategories.reduce((sum, cat) => sum + cat.items.length, 0);
 
-export default function SSSPage() {
+export default async function SSSPage() {
+  const heroContents = await getPageContents("sss");
+  const heroImage = heroContents.find((c) => c.section === "hero")?.image_url;
+
   return (
     <div>
       {/* Banner */}
       <section className="relative bg-[#1d1d1d] py-20 md:py-28 overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.15) 39px, rgba(255,255,255,0.15) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.15) 39px, rgba(255,255,255,0.15) 40px)",
-          }}
-        />
+        {heroImage ? (
+          <>
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${heroImage})` }}
+            />
+            <div className="absolute inset-0 bg-black/60" />
+          </>
+        ) : (
+          <div
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage:
+                "repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.15) 39px, rgba(255,255,255,0.15) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.15) 39px, rgba(255,255,255,0.15) 40px)",
+            }}
+          />
+        )}
         <div className="relative container mx-auto px-4 text-center">
           <p className="text-[#af1d1f] text-xs font-black uppercase tracking-widest mb-3">
             Araç Bakımı

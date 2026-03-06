@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { getPageContents } from "@/db/queries";
+import { parseImageSettings } from "@/lib/image-settings";
 
 export const metadata: Metadata = {
   title: "Sıkça Sorulan Sorular",
@@ -327,7 +328,9 @@ const totalQuestions = faqCategories.reduce((sum, cat) => sum + cat.items.length
 
 export default async function SSSPage() {
   const heroContents = await getPageContents("sss");
-  const heroImage = heroContents.find((c) => c.section === "hero")?.image_url;
+  const heroEntry = heroContents.find((c) => c.section === "hero");
+  const heroImage = heroEntry?.image_url;
+  const heroSettings = parseImageSettings(heroEntry?.body);
 
   return (
     <div>
@@ -336,10 +339,17 @@ export default async function SSSPage() {
         {heroImage ? (
           <>
             <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${heroImage})` }}
+              className="absolute inset-0 bg-cover"
+              style={{
+                backgroundImage: `url(${heroImage})`,
+                backgroundPosition: heroSettings.position,
+                filter: `brightness(${heroSettings.brightness}%)`,
+              }}
             />
-            <div className="absolute inset-0 bg-black/60" />
+            <div
+              className="absolute inset-0"
+              style={{ backgroundColor: `rgba(0,0,0,${heroSettings.overlay / 100})` }}
+            />
           </>
         ) : (
           <div

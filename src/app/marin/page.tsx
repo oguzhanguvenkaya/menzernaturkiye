@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { getAllProducts, getPageContents } from "@/db/queries";
+import { parseImageSettings } from "@/lib/image-settings";
 import { ProductCard } from "@/components/product-card";
 import { groupProductsBySize, buildGroupCardData } from "@/lib/product-utils";
 import type { Product } from "@/lib/types";
@@ -70,7 +71,9 @@ const FEATURES = [
 export default async function MarinPage() {
   const allProducts = (await getAllProducts()) as unknown as Product[];
   const heroContents = await getPageContents("marin");
-  const heroImage = heroContents.find((c) => c.section === "hero")?.image_url;
+  const heroEntry = heroContents.find((c) => c.section === "hero");
+  const heroImage = heroEntry?.image_url;
+  const heroSettings = parseImageSettings(heroEntry?.body);
 
   // Marin ürünleri — main_cat: "MARİN" → group by size
   const marinProducts = allProducts.filter((p) => {
@@ -87,10 +90,17 @@ export default async function MarinPage() {
         {heroImage ? (
           <>
             <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${heroImage})` }}
+              className="absolute inset-0 bg-cover"
+              style={{
+                backgroundImage: `url(${heroImage})`,
+                backgroundPosition: heroSettings.position,
+                filter: `brightness(${heroSettings.brightness}%)`,
+              }}
             />
-            <div className="absolute inset-0 bg-black/60" />
+            <div
+              className="absolute inset-0"
+              style={{ backgroundColor: `rgba(0,0,0,${heroSettings.overlay / 100})` }}
+            />
           </>
         ) : (
           <div className="absolute inset-0 opacity-10">

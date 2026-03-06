@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { getAllProducts, getPageContents } from "@/db/queries";
+import { parseImageSettings } from "@/lib/image-settings";
 import { ProductCard } from "@/components/product-card";
 import { SurfaceTabs } from "@/components/surface-tabs";
 import { groupProductsBySize, buildGroupCardData } from "@/lib/product-utils";
@@ -111,7 +112,9 @@ const SECTORS = [
 export default async function EndustriyelPage() {
   const allProducts = (await getAllProducts()) as unknown as Product[];
   const heroContents = await getPageContents("endustriyel");
-  const heroImage = heroContents.find((c) => c.section === "hero")?.image_url;
+  const heroEntry = heroContents.find((c) => c.section === "hero");
+  const heroImage = heroEntry?.image_url;
+  const heroSettings = parseImageSettings(heroEntry?.body);
 
   // Endüstriyel ürünler — main_cat: "ENDÜSTRİYEL" → group by size
   const industrialProducts = allProducts.filter((p) => {
@@ -128,10 +131,17 @@ export default async function EndustriyelPage() {
         {heroImage ? (
           <>
             <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${heroImage})` }}
+              className="absolute inset-0 bg-cover"
+              style={{
+                backgroundImage: `url(${heroImage})`,
+                backgroundPosition: heroSettings.position,
+                filter: `brightness(${heroSettings.brightness}%)`,
+              }}
             />
-            <div className="absolute inset-0 bg-black/60" />
+            <div
+              className="absolute inset-0"
+              style={{ backgroundColor: `rgba(0,0,0,${heroSettings.overlay / 100})` }}
+            />
           </>
         ) : (
           <div className="absolute inset-0 opacity-5">

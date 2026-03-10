@@ -180,6 +180,16 @@ function translateDustingLevel(level?: string): string {
   return map[level] || level;
 }
 
+// --- Short product name for display ---
+
+function shortenProductName(name: string): string {
+  return name
+    .replace(/^MENZERNA\s+/i, "")
+    .replace(/\s*[-–—]\s*[\d.,]+\s*(ml|lt|litre|kg|gr|g|l)\b.*$/i, "")
+    .replace(/\s*[-–—]\s*\d+\s*mm.*$/i, "")
+    .trim();
+}
+
 // --- Optimised For / Accessories matching ---
 
 interface OptimisedItem {
@@ -397,7 +407,7 @@ export default async function ProductDetailPage({
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
               {optimisedFor.map((item, idx) => {
                 const matched = findMatchingProduct(item, allProducts);
-                const displayName = item.name_tr || item.name;
+                const displayName = shortenProductName(item.name_tr || item.name);
 
                 if (matched) {
                   return (

@@ -77,7 +77,7 @@ export default async function EgitimPage() {
   return (
     <div>
       {/* Banner */}
-      <section className="relative bg-[#1d1d1d] py-20 md:py-28 overflow-hidden">
+      <section className="relative bg-[#1d1d1d] text-white overflow-hidden">
         {heroImage ? (
           <>
             <div
@@ -94,22 +94,31 @@ export default async function EgitimPage() {
             />
           </>
         ) : (
-          <div
-            className="absolute inset-0 opacity-10"
-            style={{
-              backgroundImage:
-                "repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.15) 39px, rgba(255,255,255,0.15) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.15) 39px, rgba(255,255,255,0.15) 40px)",
-            }}
-          />
+          <div className="absolute inset-0 opacity-5">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage:
+                  "repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)",
+                backgroundSize: "20px 20px",
+              }}
+            />
+          </div>
         )}
-        <div className="relative container mx-auto px-4 text-center">
-          <p className="text-[#af1d1f] text-xs font-black uppercase tracking-widest mb-3">
-            Kurumsal
-          </p>
-          <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-white mb-4">
-            Eğitim Programı
-          </h1>
-          <div className="w-16 h-1 bg-[#af1d1f] mx-auto" />
+        <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#af1d1f]" />
+
+        <div className="relative container mx-auto px-4 py-20 md:py-28">
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-0.5 bg-[#af1d1f]" />
+              <span className="text-[#af1d1f] text-xs font-bold uppercase tracking-widest">
+                Kurumsal
+              </span>
+            </div>
+            <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-6 leading-none">
+              Eğitim Programı
+            </h1>
+          </div>
         </div>
       </section>
 

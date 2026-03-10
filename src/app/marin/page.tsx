@@ -103,34 +103,30 @@ export default async function MarinPage() {
             />
           </>
         ) : (
-          <div className="absolute inset-0 opacity-10">
-            <svg
-              className="absolute bottom-0 left-0 w-full"
-              viewBox="0 0 1440 200"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M0 100C240 100 240 40 480 40C720 40 720 160 960 160C1200 160 1200 60 1440 60V200H0V100Z"
-                fill="white"
-              />
-            </svg>
+          <div className="absolute inset-0 opacity-5">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage:
+                  "repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)",
+                backgroundSize: "20px 20px",
+              }}
+            />
           </div>
         )}
-        <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#006b52]" />
+        <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#af1d1f]" />
 
         <div className="relative container mx-auto px-4 py-20 md:py-28">
           <div className="max-w-3xl">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-0.5 bg-[#006b52]" />
-              <span className="text-[#006b52] text-xs font-bold uppercase tracking-widest">
+              <div className="w-8 h-0.5 bg-[#af1d1f]" />
+              <span className="text-[#af1d1f] text-xs font-bold uppercase tracking-widest">
                 Tekne & Jelkot Bakımı
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-6 leading-none">
               Marin{" "}
-              <span className="text-[#006b52]">Bakım</span>
+              <span className="text-[#af1d1f]">Bakım</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 max-w-xl leading-relaxed">
               Jelkot yüzeyler için özel formüle edilmiş polisaj ürünleri — denizin
@@ -144,9 +140,9 @@ export default async function MarinPage() {
       <section className="py-16 bg-[#f8f9fa]">
         <div className="container mx-auto px-4">
           <div className="flex items-start gap-4 mb-8">
-            <div className="w-1 self-stretch min-h-[3rem] bg-[#006b52] shrink-0" />
+            <div className="w-1 self-stretch min-h-[3rem] bg-[#af1d1f] shrink-0" />
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-[#006b52] mb-1">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-[#af1d1f] mb-1">
                 Uygulama Rehberi
               </p>
               <h2 className="text-2xl md:text-3xl font-black text-[#1d1d1d] uppercase tracking-tight leading-none">
@@ -157,19 +153,19 @@ export default async function MarinPage() {
 
           <div className="max-w-3xl">
             <div className="aspect-video bg-[#1d1d1d] flex items-center justify-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#1d1d1d] via-[#003d56] to-[#006b52]/20" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1d1d1d] via-[#1d1d1d] to-[#af1d1f]/20" />
               {/* Dalga animasyonu */}
               <div className="absolute bottom-0 left-0 right-0 h-16 opacity-30">
                 <svg viewBox="0 0 1200 80" className="w-full h-full" preserveAspectRatio="none">
                   <path
                     d="M0 40C200 40 200 10 400 10C600 10 600 70 800 70C1000 70 1000 20 1200 20V80H0V40Z"
-                    fill="#006b52"
+                    fill="#af1d1f"
                   />
                 </svg>
               </div>
               <div className="relative flex flex-col items-center gap-4 text-white">
-                <div className="w-16 h-16 border-2 border-[#006b52]/50 flex items-center justify-center">
-                  <svg className="w-8 h-8 text-[#006b52] ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <div className="w-16 h-16 border-2 border-[#af1d1f]/50 flex items-center justify-center">
+                  <svg className="w-8 h-8 text-[#af1d1f] ml-1" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
@@ -202,7 +198,7 @@ export default async function MarinPage() {
                   key={feature.title}
                   className="flex items-start gap-4 border border-gray-100 p-5 bg-[#f8f9fa]"
                 >
-                  <div className="text-[#006b52] shrink-0 mt-0.5">{feature.icon}</div>
+                  <div className="text-[#af1d1f] shrink-0 mt-0.5">{feature.icon}</div>
                   <div>
                     <h3 className="text-sm font-black uppercase tracking-wide text-[#1d1d1d] mb-1">
                       {feature.title}
@@ -222,9 +218,9 @@ export default async function MarinPage() {
       <section className="py-16 bg-[#f8f9fa] border-t border-gray-200">
         <div className="container mx-auto px-4">
           <div className="flex items-start gap-4 mb-10">
-            <div className="w-1 self-stretch min-h-[3rem] bg-[#006b52] shrink-0" />
+            <div className="w-1 self-stretch min-h-[3rem] bg-[#af1d1f] shrink-0" />
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-[#006b52] mb-1">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-[#af1d1f] mb-1">
                 Marin Ürün Serisi
               </p>
               <h2 className="text-2xl md:text-3xl font-black text-[#1d1d1d] uppercase tracking-tight leading-none mb-2">
@@ -295,7 +291,7 @@ export default async function MarinPage() {
                 desc: "Artık ürünü temiz mikrofiber bezle silin. Pırıl pırıl jelkot yüzeyinizin tadını çıkarın.",
               },
             ].map((s) => (
-              <div key={s.step} className="relative pl-6 border-l-2 border-[#006b52]">
+              <div key={s.step} className="relative pl-6 border-l-2 border-[#af1d1f]">
                 <div className="text-4xl font-black text-gray-100 absolute -left-2 top-0 select-none leading-none">
                   {s.step}
                 </div>
@@ -314,7 +310,7 @@ export default async function MarinPage() {
       {/* CTA */}
       <section className="bg-[#1d1d1d] text-white py-16">
         <div className="container mx-auto px-4 text-center">
-          <div className="w-8 h-0.5 bg-[#006b52] mx-auto mb-6" />
+          <div className="w-8 h-0.5 bg-[#af1d1f] mx-auto mb-6" />
           <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight mb-4">
             Marin bakım ürünleri hakkında bilgi alın
           </h2>
@@ -324,7 +320,7 @@ export default async function MarinPage() {
           </p>
           <Link
             href="/iletisim"
-            className="inline-flex items-center gap-2 bg-[#006b52] hover:bg-[#007a5e] text-white px-8 py-4 font-bold uppercase tracking-widest text-sm transition-colors"
+            className="inline-flex items-center gap-2 bg-[#af1d1f] hover:bg-[#8b1618] text-white px-8 py-4 font-bold uppercase tracking-widest text-sm transition-colors"
           >
             Bilgi Al
             <ArrowRight className="w-4 h-4" />

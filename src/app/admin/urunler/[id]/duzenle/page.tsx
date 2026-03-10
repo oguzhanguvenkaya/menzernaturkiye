@@ -44,6 +44,40 @@ export default async function EditProductPage({
         return imgs;
       })();
 
+  // All products for recommended picker (lightweight)
+  const allProductsForPicker = allProducts
+    .filter((p) => p.sku !== product.sku)
+    .map((p) => ({
+      sku: p.sku,
+      name: p.product_name,
+      imageUrl: p.image_url || null,
+    }));
+
+  // Current recommended products from optimised_for
+  const scrape = (product.content as any)?.menzerna_scrape;
+  const optimisedFor: { name?: string; name_tr?: string; sku?: string }[] =
+    scrape?.optimised_for || [];
+  const recommendedProducts = optimisedFor
+    .map((item) => {
+      // Try matching by SKU first, then by name
+      const match = item.sku
+        ? allProducts.find((p) => p.sku === item.sku)
+        : allProducts.find((p) =>
+            p.product_name
+              .toLowerCase()
+              .includes((item.name_tr || item.name || "").toLowerCase())
+          );
+      if (match) {
+        return {
+          sku: match.sku,
+          name: match.product_name,
+          imageUrl: match.image_url || null,
+        };
+      }
+      return null;
+    })
+    .filter(Boolean) as { sku: string; name: string; imageUrl: string | null }[];
+
   // Size variants for the group
   const sizeVariants = productGroup
     ? productGroup.variants.map((v) => ({
@@ -83,6 +117,8 @@ export default async function EditProductPage({
         product={product}
         gallery={gallery}
         sizeVariants={sizeVariants}
+        allProducts={allProductsForPicker}
+        recommendedProducts={recommendedProducts}
       />
     </div>
   );

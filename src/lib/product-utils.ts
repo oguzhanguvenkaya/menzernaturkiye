@@ -91,7 +91,7 @@ export function getProductBadge(product: Product): BadgeType {
 // ---------------------------------------------------------------------------
 
 const sizePattern = /\s*[-–—]\s*([\d.,]+\s*(?:ml|lt|litre|liter|kg|gr|g|l|cc)\b)/i;
-const mmSizePattern = /\s*[-–—]?\s*([\d.,]+)\s*mm(?:\s*\/\s*[\d.,]+\s*inc\b|\s*\/\s*[\d.,]+'*"?)?/i;
+const mmSizePattern = /\s*[-–—]?\s*((?:[\d.,]+\/)?[\d.,]+)\s*mm(?:\s*\/\s*[\d.,]+\s*inc\b|\s*\/\s*[\d.,]+'*"?)?/i;
 
 function extractBaseName(name: string): string {
   let result = name.replace(sizePattern, "").trim();

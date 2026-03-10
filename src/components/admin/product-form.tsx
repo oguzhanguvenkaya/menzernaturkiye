@@ -8,11 +8,16 @@ import { Textarea } from "@/components/ui/textarea";
 import { Save, Loader2 } from "lucide-react";
 import type { Product } from "@/db/schema";
 import GalleryManager, { type SizeVariantInfo } from "./gallery-manager";
+import RecommendedProductsPicker, {
+  type RecommendedProduct,
+} from "./recommended-products-picker";
 
 interface ProductFormProps {
   product?: Product;
   gallery?: string[];
   sizeVariants?: SizeVariantInfo[];
+  allProducts?: RecommendedProduct[];
+  recommendedProducts?: RecommendedProduct[];
 }
 
 const MAIN_CATEGORIES = [
@@ -23,7 +28,13 @@ const MAIN_CATEGORIES = [
   { value: "MAKİNE-EKİPMAN", label: "Makine-Ekipman" },
 ];
 
-export default function ProductForm({ product, gallery = [], sizeVariants = [] }: ProductFormProps) {
+export default function ProductForm({
+  product,
+  gallery = [],
+  sizeVariants = [],
+  allProducts = [],
+  recommendedProducts = [],
+}: ProductFormProps) {
   const [state, formAction, isPending] = useActionState(saveProductAction, {
     success: false,
     error: "",
@@ -347,6 +358,20 @@ export default function ProductForm({ product, gallery = [], sizeVariants = [] }
             </Label>
           </div>
         </div>
+      </fieldset>
+
+      {/* Section: Onerilen Aksesuarlar */}
+      <fieldset className="border border-gray-200 bg-white p-6">
+        <legend className="text-sm font-black uppercase tracking-wider text-[#1d1d1d] px-2">
+          Onerilen Aksesuarlar
+        </legend>
+        <p className="text-xs text-gray-500 mt-2 mb-3">
+          Urun detay sayfasinda &quot;Onerilen Aksesuarlar&quot; bolumunde gorunecek urunleri secin.
+        </p>
+        <RecommendedProductsPicker
+          allProducts={allProducts}
+          initialSelected={recommendedProducts}
+        />
       </fieldset>
 
       {/* Submit */}

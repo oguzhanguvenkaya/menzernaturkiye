@@ -63,12 +63,34 @@ export async function saveProductAction(
     }
   }
 
+  // Parse recommended products (optimised_for)
+  const recommendedJson = formData.get("recommended_products_json") as string | null;
+  let optimisedFor: { name: string; name_tr: string; sku: string }[] | undefined;
+  if (recommendedJson) {
+    try {
+      optimisedFor = JSON.parse(recommendedJson);
+    } catch {
+      // keep existing
+    }
+  }
+
+  // Merge menzerna_scrape with optimised_for
+  const existingScrape =
+    (existingContent.menzerna_scrape as Record<string, unknown>) || {};
+  const updatedScrape =
+    optimisedFor !== undefined
+      ? { ...existingScrape, optimised_for: optimisedFor }
+      : existingScrape;
+
   const content = {
     ...existingContent,
     ...(short_description !== undefined ? { short_description } : {}),
     ...(full_description !== undefined ? { full_description } : {}),
     ...(how_to_use !== undefined ? { how_to_use } : {}),
     ...(gallery !== undefined ? { gallery } : {}),
+    ...(Object.keys(updatedScrape).length > 0
+      ? { menzerna_scrape: updatedScrape }
+      : {}),
   };
 
   // image_url — first image from gallery, or explicit field

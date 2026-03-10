@@ -55,7 +55,7 @@ export const CATEGORIES: CategoryNode[] = [
         ],
       },
       { label: "Ped Destek Diskleri Tabanlıklar", slug: "ped-destek-diskleri", filterField: "sub_cat", filterValue: "Ped Destek Diskleri Tabanlıklar" },
-      { label: "Yardımcı Ürünler", slug: "yardimci-urunler", filterField: "main_cat", filterValue: "MAKİNE-EKİPMAN" },
+      { label: "Yardımcı Ürünler", slug: "yardimci-urunler", filterField: "sub_cat", filterValue: "Yardımcı Ürünler" },
     ],
   },
   {

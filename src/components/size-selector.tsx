@@ -10,7 +10,7 @@ interface SizeSelectorProps {
 export function SizeSelector({ variants, currentSku }: SizeSelectorProps) {
   const router = useRouter();
 
-  if (variants.length <= 1) return null;
+  if (variants.length < 1) return null;
 
   return (
     <div>

@@ -31,6 +31,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "www.mgpolishing.com",
       },
+      {
+        protocol: "https",
+        hostname: "u6ukhqk0z5jj.merlincdn.net",
+      },
     ],
   },
 };

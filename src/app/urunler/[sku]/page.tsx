@@ -185,6 +185,7 @@ function translateDustingLevel(level?: string): string {
 interface OptimisedItem {
   name: string;
   name_tr?: string;
+  sku?: string;
   url?: string;
 }
 
@@ -192,7 +193,12 @@ function findMatchingProduct(
   item: OptimisedItem,
   allProducts: Product[]
 ): Product | null {
-  // Try matching by name in product_name
+  // Try matching by SKU first (from admin panel)
+  if (item.sku) {
+    const bySku = allProducts.find((p) => p.sku === item.sku);
+    if (bySku) return bySku;
+  }
+  // Fallback to name matching
   const nameLower = (item.name_tr || item.name).toLowerCase();
   return allProducts.find((p) =>
     p.product_name.toLowerCase().includes(nameLower)
@@ -230,12 +236,16 @@ export default async function ProductDetailPage({
 
   const { product_name, category, content, template_fields, relations } = dataSource;
 
+  // Ürüne özel fiziksel özellikler: mevcut ürünün kendi template_fields'ından al
+  // (boyut değişince tabanlık, makine uyumluluğu gibi alanlar doğru gösterilsin)
+  const ownFields = product.template_fields;
+
   const scrape = content?.menzerna_scrape;
   const cutLevel = template_fields?.cut_level;
   const finishLevel = template_fields?.finish_level;
   const silFree = template_fields?.silicone_free;
   const filFree = template_fields?.filler_free;
-  const machines = getMachines(template_fields?.machine_compatibility);
+  const machines = getMachines(ownFields?.machine_compatibility || template_fields?.machine_compatibility);
   const subCat =
     (category as any)?.sub_cat2 || (category as any)?.sub_cat_2 || category?.sub_cat || "";
 
@@ -252,12 +262,17 @@ export default async function ProductDetailPage({
   if (silFillerStatus) featureCards.push({ icon: <Shield className="w-5 h-5" />, label: "Silikon & Dolgu", value: silFillerStatus });
   if (template_fields?.grit_removal) featureCards.push({ icon: <Crosshair className="w-5 h-5" />, label: "Zımpara İzi Giderme", value: template_fields.grit_removal });
   if (template_fields?.dusting_level) featureCards.push({ icon: <Beaker className="w-5 h-5" />, label: "Tozuma Seviyesi", value: translateDustingLevel(template_fields.dusting_level) });
-  if (machines.length > 0) featureCards.push({ icon: <SettingsIcon className="w-5 h-5" />, label: "Makine", value: machines.join(" / ") });
+  if (machines.length > 0) featureCards.push({ icon: <SettingsIcon className="w-5 h-5" />, label: "Uygun Makina", value: machines.join(" / ") });
+  const backingPlate = (ownFields?.suitable_backing_plate || template_fields?.suitable_backing_plate) as string | undefined;
+  if (backingPlate) featureCards.push({ icon: <Crosshair className="w-5 h-5" />, label: "Uygun Tabanlık", value: backingPlate });
 
   const downloads = content?.downloads as { label: string; url: string; size: string }[] | undefined;
 
   // Optimised for / recommended accessories
-  const optimisedFor = scrape?.optimised_for || [];
+  // Önce mevcut ürünün kendi optimised_for'unu kontrol et, yoksa primary'den al
+  const ownScrape = product.content?.menzerna_scrape as Record<string, unknown> | undefined;
+  const ownOptimisedFor = ownScrape?.optimised_for as OptimisedItem[] | undefined;
+  const optimisedFor = (ownOptimisedFor && ownOptimisedFor.length > 0 ? ownOptimisedFor : scrape?.optimised_for) || [];
 
   return (
     <div className="min-h-screen bg-white">
@@ -315,7 +330,7 @@ export default async function ProductDetailPage({
             )}
 
             {/* Size selector */}
-            {sizeVariants.length > 1 && (
+            {sizeVariants.length >= 1 && (
               <SizeSelector variants={sizeVariants} currentSku={sku} />
             )}
 

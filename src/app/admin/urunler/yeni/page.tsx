@@ -1,8 +1,16 @@
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import ProductForm from "@/components/admin/product-form";
+import { getAllProducts } from "@/db/queries";
+import type { Product } from "@/lib/types";
 
-export default function NewProductPage() {
+export default async function NewProductPage() {
+  const allProducts = (await getAllProducts()) as unknown as Product[];
+  const allProductsForPicker = allProducts.map((p) => ({
+    sku: p.sku,
+    name: p.product_name,
+    imageUrl: p.image_url || null,
+  }));
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -23,7 +31,7 @@ export default function NewProductPage() {
       </div>
 
       {/* Form */}
-      <ProductForm />
+      <ProductForm allProducts={allProductsForPicker} />
     </div>
   );
 }

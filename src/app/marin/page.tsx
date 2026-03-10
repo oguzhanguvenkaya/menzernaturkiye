@@ -203,7 +203,7 @@ export default async function MarinPage() {
                     <h3 className="text-sm font-black uppercase tracking-wide text-[#1d1d1d] mb-1">
                       {feature.title}
                     </h3>
-                    <p className="text-xs text-gray-500 leading-relaxed">
+                    <p className="text-sm text-gray-500 leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
@@ -226,7 +226,7 @@ export default async function MarinPage() {
               <h2 className="text-2xl md:text-3xl font-black text-[#1d1d1d] uppercase tracking-tight leading-none mb-2">
                 Tekne Bakım Ürünleri
               </h2>
-              <p className="text-sm text-gray-500 max-w-xl">
+              <p className="text-base text-gray-500 max-w-xl">
                 Jelkot ve GRP (cam elyaf takviyeli plastik) tekneler için özel
                 geliştirilen polisaj ve koruma ürünleri.
               </p>
@@ -299,7 +299,7 @@ export default async function MarinPage() {
                   <h3 className="text-sm font-black uppercase tracking-wide text-[#1d1d1d] mb-2">
                     {s.title}
                   </h3>
-                  <p className="text-xs text-gray-500 leading-relaxed">{s.desc}</p>
+                  <p className="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
                 </div>
               </div>
             ))}

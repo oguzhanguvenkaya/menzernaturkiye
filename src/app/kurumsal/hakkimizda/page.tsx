@@ -31,13 +31,13 @@ const values = [
   },
   {
     icon: Award,
-    title: "Yetkinlik",
+    title: "Uzmanlık",
     description:
       "Araç bakım, endüstriyel ve marin sektörlerinde kanıtlanmış teknik uzmanlık.",
   },
   {
     icon: Scale,
-    title: "Adillik",
+    title: "Şeffaflık",
     description:
       "Müşteri, iş ortağı ve çevreye karşı dürüst, şeffaf ve adil ilişki anlayışı.",
   },
@@ -55,7 +55,7 @@ const values = [
   },
   {
     icon: TrendingDown,
-    title: "Maliyet Etkinliği",
+    title: "Maliyet Tasarrufu",
     description:
       "Yüksek konsantrasyonlu formüller sayesinde daha az ürünle daha fazla yüzey işleme kapasitesi.",
   },
@@ -148,25 +148,30 @@ export default async function HakkimizdaPage() {
               </h2>
               <div className="space-y-4 text-gray-600 text-sm leading-relaxed">
                 <p>
-                  Menzerna, 1888 yılında Almanya&apos;nın Öhringen şehrinde
-                  kurulmuş, dünya genelinde profesyonel polisaj ürünleri
-                  alanında lider bir markadır. 130 yılı aşkın tecrübesiyle
-                  Menzerna, endüstrinin en zorlu yüzey işleme gereksinimlerine
-                  çözüm sunan formüller geliştirmektedir.
+                  Menzerna, 1888&apos;den bu yana otomotiv profesyonelleri için
+                  pasta, cila ve polisaj çözümleri geliştirerek yüzey
+                  iyileştirme standartlarını belirler. Bir asrı aşan
+                  tecrübemizle ürettiğimiz yüksek kaliteli katı parlatma
+                  bileşikleri, parlatma emülsiyonları ile otomobil ve marin
+                  polisaj ürünleri, premium markaların aradığı yüksek parlaklık
+                  ve kalıcı sonuçları hedefler.
                 </p>
                 <p>
-                  Ürün yelpazesi; katı polisaj pastası, polisaj emülsiyonu ve
-                  sıvı araç ile tekne cilası olmak üzere geniş bir ürün
-                  gamını kapsamaktadır. Her formül, Alman mühendislik
-                  standardında laboratuvar ortamında geliştirilerek sektörün
-                  beklentilerini karşılayacak şekilde optimize edilmektedir.
+                  Kalın pasta, ince pasta, hare/hologram giderici ve boya koruma
+                  ürünleri dahil farklı uygulama ihtiyaçlarına yönelik ürün
+                  seçeneklerimizle; her boya tipi ve her işlem adımı için doğru
+                  çözümü sunarız. Geliştirdiğimiz ileri formüller, polisaj
+                  sırasında hızlı kesim, kontrollü çalışma, düşük tozlanma ve
+                  kolay silme karakteriyle süreci verimli hale getirir.
                 </p>
                 <p>
-                  Menzerna&apos;nın uzmanlık alanları arasında otomotiv, ağır
-                  sanayi ve marin sektörleri bulunmaktadır. Araç üreticilerinden
-                  tersanelere, oto detay uzmanlarından endüstriyel yüzey işleme
-                  tesislerine kadar geniş bir müşteri portföyüne hizmet
-                  sunulmaktadır.
+                  Menzerna, yalnızca ürün sağlayıcısı değil; aynı zamanda
+                  endüstriyel işletmeler için bir parlatma işlemi çözüm
+                  ortağıdır. 200&apos;ü aşkın yenilikçi formülasyon ile
+                  endüstriyel parlatmanın geniş uygulama alanlarını kapsar;
+                  Almanya&apos;nın Ötigheim merkezli üretim gücünü dünya
+                  genelindeki şube ve bayi ağıyla sanayi ve profesyonel
+                  uygulamacılara ulaştırır.
                 </p>
               </div>
             </div>
@@ -178,7 +183,7 @@ export default async function HakkimizdaPage() {
                   Kuruluş Yılı
                 </p>
                 <p className="text-5xl font-black text-[#af1d1f]">1888</p>
-                <p className="text-sm text-gray-500 mt-1">Öhringen, Almanya</p>
+                <p className="text-sm text-gray-500 mt-1">Ötigheim, Almanya</p>
               </div>
               <div className="grid grid-cols-1 gap-3">
                 {sectors.map((s) => (
@@ -208,7 +213,7 @@ export default async function HakkimizdaPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <p className="text-[#af1d1f] text-xs font-black uppercase tracking-widest mb-3">
-              Temel Değerlerimiz
+              İlkelerimiz
             </p>
             <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight text-[#1d1d1d]">
               Bizi Biz Yapan İlkeler
@@ -252,22 +257,26 @@ export default async function HakkimizdaPage() {
                 </h2>
                 <div className="space-y-4 text-gray-600 text-sm leading-relaxed">
                   <p>
-                    MG Polisaj, Menzerna markasının Türkiye&apos;deki tek yetkili
-                    distribütörüdür. Ankara merkezli olarak faaliyet gösteren
-                    şirketimiz, Menzerna&apos;nın yüksek kaliteli polisaj
-                    ürünlerini Türkiye genelindeki profesyonel kullanıcılara
-                    ulaştırmaktadır.
+                    MG Polisaj, 2015 yılında kurulmuş olup Türkiye&apos;de
+                    profesyonel araç polisaj ve parlatma çözümleri alanında,
+                    global markaların yetkili distribütörlüğünü ve toptan kanal
+                    yönetimini üstlenen bir şirkettir. Operasyonumuz; marka
+                    yönetimi, bayi ağı geliştirme ve satış kanallarının
+                    sürdürülebilir büyümesi odağında ilerler.
                   </p>
                   <p>
-                    Oto detay atölyeleri, boyahaneler, endüstriyel yüzey işleme
-                    tesisleri ve marin bakım merkezlerine ürün temini ile teknik
-                    destek sağlayan MG Polisaj; aynı zamanda kullanıcı eğitimi
-                    ve uygulama rehberliği sunmaktadır.
+                    MG Polisaj, Türkiye pazarında güçlü bir organizasyon yapısı
+                    kurmuş; satış ve pazarlama yönetimi, bölge satış ekipleri,
+                    satış destek, dijital kanallar ve muhasebe operasyonları ile
+                    depo/lojistik süreçlerini entegre şekilde yönetmektedir.
                   </p>
                   <p>
-                    Türkiye genelinde yetkili satıcı ağı aracılığıyla geniş bir
-                    coğrafi kapsama hizmet sunulmakta; sektör profesyonellerine
-                    doğru ürün ve teknik bilgiyle destek sağlanmaktadır.
+                    Menzerna ürünleri Türkiye&apos;de MG Polisaj
+                    distribütörlüğünde; detailing stüdyoları, oto yıkama
+                    merkezleri, otomotiv boya/kaporta atölyeleri, yetkili araç
+                    satış merkezleri, otomobil yedek parça üreticileri,
+                    fabrikalar ve amatör araç sahiplerinin uygulama ihtiyaçlarına
+                    uygun şekilde sunulmaktadır.
                   </p>
                 </div>
               </div>
@@ -283,6 +292,7 @@ export default async function HakkimizdaPage() {
                       Ankara, Türkiye
                     </p>
                   </div>
+                  <p className="text-xs text-gray-500 mt-1">Kuruluş: 2015</p>
                   <p className="text-sm text-gray-400 mt-3 leading-relaxed">
                     Türkiye genelinde yetkili satıcı ağı ile hizmet
                     vermekteyiz.
@@ -301,6 +311,30 @@ export default async function HakkimizdaPage() {
                   <div className="w-12 h-0.5 bg-[#af1d1f] mt-3" />
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Rakamlar Bandı */}
+      <section className="bg-[#1d1d1d] py-14 md:py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 text-center">
+            <div>
+              <p className="text-4xl font-black text-[#af1d1f]">81</p>
+              <p className="text-sm text-gray-400 mt-2">İlde Yaygın Erişim</p>
+            </div>
+            <div>
+              <p className="text-4xl font-black text-[#af1d1f]">110+</p>
+              <p className="text-sm text-gray-400 mt-2">Ana Bayi</p>
+            </div>
+            <div>
+              <p className="text-4xl font-black text-[#af1d1f]">150+</p>
+              <p className="text-sm text-gray-400 mt-2">Satış Noktası</p>
+            </div>
+            <div>
+              <p className="text-4xl font-black text-[#af1d1f]">30.000+</p>
+              <p className="text-sm text-gray-400 mt-2">Aylık Profesyonel & Amatör Kullanıcı</p>
             </div>
           </div>
         </div>

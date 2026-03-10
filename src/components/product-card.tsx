@@ -206,7 +206,7 @@ export function ProductCard({ data, variant = "full" }: ProductCardProps) {
             </span>
           )}
           <Link href={`/urunler/${selectedSku}`}>
-            <h3 className="text-xs font-bold text-[#1d1d1d] uppercase leading-tight group-hover:text-[#af1d1f] transition-colors line-clamp-2">
+            <h3 className="text-sm font-bold text-[#1d1d1d] uppercase leading-tight group-hover:text-[#af1d1f] transition-colors line-clamp-2">
               {productName}
             </h3>
           </Link>

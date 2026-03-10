@@ -238,7 +238,7 @@ export default async function AracBakimPage() {
                     <h2 className="text-2xl md:text-3xl font-black text-[#1d1d1d] uppercase tracking-tight leading-none mb-2">
                       {section.title}
                     </h2>
-                    <p className="text-sm text-gray-500 max-w-xl">
+                    <p className="text-base text-gray-500 max-w-xl">
                       {section.description}
                     </p>
                   </div>
@@ -275,7 +275,7 @@ export default async function AracBakimPage() {
               <h2 className="text-2xl md:text-3xl font-black text-[#1d1d1d] uppercase tracking-tight leading-none mb-2">
                 Aksesuarlar
               </h2>
-              <p className="text-sm text-gray-500 max-w-xl">
+              <p className="text-base text-gray-500 max-w-xl">
                 Doğru ped ve keçe seçimi, polisaj sonucunu doğrudan etkiler. Her
                 pasta türü için uygun aksesuar kombinasyonları.
               </p>

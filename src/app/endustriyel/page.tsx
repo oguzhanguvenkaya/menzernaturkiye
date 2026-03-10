@@ -188,7 +188,7 @@ export default async function EndustriyelPage() {
               <h2 className="text-2xl md:text-3xl font-black text-[#1d1d1d] uppercase tracking-tight leading-none mb-2">
                 Hangi Sektöre Hizmet Veriyoruz?
               </h2>
-              <p className="text-sm text-gray-500 max-w-xl">
+              <p className="text-base text-gray-500 max-w-xl">
                 Menzerna endüstriyel ürünleri birbirinden farklı sektörlerde
                 güvenle kullanılmaktadır.
               </p>
@@ -207,7 +207,7 @@ export default async function EndustriyelPage() {
                 <h3 className="text-sm font-black uppercase tracking-wide text-[#1d1d1d] group-hover:text-[#af1d1f] transition-colors mb-1.5">
                   {sector.title}
                 </h3>
-                <p className="text-xs text-gray-500 leading-relaxed">
+                <p className="text-sm text-gray-500 leading-relaxed">
                   {sector.description}
                 </p>
               </div>
@@ -264,7 +264,7 @@ export default async function EndustriyelPage() {
               <h2 className="text-2xl md:text-3xl font-black text-[#1d1d1d] uppercase tracking-tight leading-none mb-2">
                 Endüstriyel Polisaj Ürünleri
               </h2>
-              <p className="text-sm text-gray-500 max-w-xl">
+              <p className="text-base text-gray-500 max-w-xl">
                 Katı pasta formülasyonları; metal, plastik, ahşap ve kompozit
                 yüzeylerde üstün parlatma performansı sunar.
               </p>

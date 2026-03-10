@@ -334,7 +334,7 @@ export default async function ProductDetailPage({
             {/* Short description */}
             {shortDesc && (
               <div
-                className="text-gray-600 leading-relaxed text-sm"
+                className="text-gray-600 leading-relaxed text-base"
                 dangerouslySetInnerHTML={{ __html: shortDesc.replace(/\n/g, "<br>") }}
               />
             )}

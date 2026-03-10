@@ -107,7 +107,7 @@ export default async function EgitimPage() {
         )}
         <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#af1d1f]" />
 
-        <div className="relative container mx-auto px-4 py-20 md:py-28 min-h-[280px] md:min-h-[320px] flex items-center">
+        <div className="relative container mx-auto px-4 py-20 md:py-28 min-h-[498px] md:min-h-[471px] flex items-center">
           <div className="max-w-3xl">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-0.5 bg-[#af1d1f]" />

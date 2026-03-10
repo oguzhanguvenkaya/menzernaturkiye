@@ -159,6 +159,7 @@ export async function saveProductAction(
           const variantProduct = await getProductBySku(variantSku);
           if (variantProduct) {
             await updateProduct(variantProduct.id, { image_url: imgUrl });
+            revalidatePath(`/urunler/${variantSku}`);
           }
         }
       } catch {
@@ -174,6 +175,7 @@ export async function saveProductAction(
 
   revalidatePath("/admin/urunler");
   revalidatePath("/urunler");
+  revalidatePath(`/urunler/${sku}`);
   revalidatePath("/arac-bakim");
   revalidatePath("/endustriyel");
   revalidatePath("/marin");

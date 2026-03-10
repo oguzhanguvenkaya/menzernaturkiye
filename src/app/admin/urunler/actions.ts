@@ -44,13 +44,9 @@ export async function saveProductAction(
     (formData.get("full_description") as string) || undefined;
   const how_to_use = (formData.get("how_to_use") as string) || undefined;
 
-  let existingContent: Record<string, unknown> = {};
-  if (id) {
-    const existing = await getProductById(id);
-    if (existing?.content) {
-      existingContent = existing.content as Record<string, unknown>;
-    }
-  }
+  const existingProduct = id ? await getProductById(id) : null;
+  const existingContent: Record<string, unknown> =
+    (existingProduct?.content as Record<string, unknown>) || {};
 
   // Parse gallery from form (if provided by GalleryManager)
   const galleryJson = formData.get("gallery_json") as string | null;
@@ -109,7 +105,12 @@ export async function saveProductAction(
     : undefined;
   const silicone_free = formData.get("silicone_free") === "on";
   const filler_free = formData.get("filler_free") === "on";
+  // Merge with existing template_fields to preserve fields not in the form
+  const existingTemplateFields: Record<string, unknown> =
+    (existingProduct?.template_fields as Record<string, unknown>) || {};
+
   const template_fields = {
+    ...existingTemplateFields,
     ...(cut_level !== undefined ? { cut_level } : {}),
     ...(finish_level !== undefined ? { finish_level } : {}),
     ...(volume_ml !== undefined ? { volume_ml } : {}),

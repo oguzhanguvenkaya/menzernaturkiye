@@ -409,41 +409,36 @@ export default async function ProductDetailPage({
                 const matched = findMatchingProduct(item, allProducts);
                 const displayName = shortenProductName(item.name_tr || item.name);
 
+                const cardImage = matched?.image_url ? (
+                  <Image
+                    src={matched.image_url}
+                    alt={displayName}
+                    width={64}
+                    height={64}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                ) : (
+                  <SettingsIcon className="w-8 h-8 text-gray-400" />
+                );
+
+                const card = (
+                  <div className="bg-gray-50 border border-gray-200 p-4 flex flex-col items-center text-center hover:border-[#af1d1f] transition-colors h-full">
+                    <div className="w-16 h-16 flex items-center justify-center mb-3">
+                      {cardImage}
+                    </div>
+                    <span className="text-xs font-bold text-[#1d1d1d] leading-tight line-clamp-2">{displayName}</span>
+                  </div>
+                );
+
                 if (matched) {
                   return (
                     <Link key={idx} href={`/urunler/${matched.sku}`}>
-                      <div className="bg-gray-50 border border-gray-200 p-4 flex flex-col items-center text-center hover:border-[#af1d1f] transition-colors">
-                        <div className="w-16 h-16 flex items-center justify-center mb-3">
-                          {matched.image_url ? (
-                            <Image
-                              src={matched.image_url}
-                              alt={displayName}
-                              width={64}
-                              height={64}
-                              className="max-w-full max-h-full object-contain"
-                            />
-                          ) : (
-                            <div className="w-16 h-16 bg-gray-200 flex items-center justify-center">
-                              <SettingsIcon className="w-8 h-8 text-gray-400" />
-                            </div>
-                          )}
-                        </div>
-                        <span className="text-xs font-bold text-[#1d1d1d] leading-tight">{displayName}</span>
-                      </div>
+                      {card}
                     </Link>
                   );
                 }
 
-                return (
-                  <div key={idx}>
-                    <div className="bg-gray-50 border border-gray-200 p-4 flex flex-col items-center text-center hover:border-[#af1d1f] transition-colors">
-                      <div className="w-16 h-16 bg-gray-200 flex items-center justify-center mb-3">
-                        <SettingsIcon className="w-8 h-8 text-gray-400" />
-                      </div>
-                      <span className="text-xs font-bold text-[#1d1d1d] leading-tight">{displayName}</span>
-                    </div>
-                  </div>
-                );
+                return <div key={idx}>{card}</div>;
               })}
             </div>
           </div>

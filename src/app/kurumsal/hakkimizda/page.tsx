@@ -282,28 +282,29 @@ export default async function HakkimizdaPage() {
               </div>
 
               <div className="lg:col-span-2 space-y-4">
-                <div className="bg-[#1d1d1d] text-white p-7">
-                  <p className="text-xs font-black uppercase tracking-widest text-gray-400 mb-2">
+                <div className="bg-[#f8f9fa] border border-gray-200 p-7">
+                  <p className="text-xs font-black uppercase tracking-widest text-[#af1d1f] mb-2">
                     Merkez
                   </p>
                   <div className="flex items-center gap-2 mb-1">
                     <MapPin className="w-4 h-4 text-[#af1d1f] shrink-0" />
-                    <p className="font-black text-lg uppercase tracking-wider">
-                      Ankara, Türkiye
+                    <p className="font-black text-lg uppercase tracking-wider text-[#1d1d1d]">
+                      İzmir, Türkiye
                     </p>
                   </div>
                   <p className="text-xs text-gray-500 mt-1">Kuruluş: 2015</p>
-                  <p className="text-sm text-gray-400 mt-3 leading-relaxed">
+                  <p className="text-sm text-gray-600 mt-3 leading-relaxed">
                     Türkiye genelinde yetkili satıcı ağı ile hizmet
                     vermekteyiz.
                   </p>
+                  <div className="w-12 h-0.5 bg-[#af1d1f] mt-3" />
                 </div>
-                <div className="border border-gray-200 p-6">
-                  <p className="text-xs font-black uppercase tracking-widest text-gray-400 mb-3">
+                <div className="bg-[#f8f9fa] border border-gray-200 p-7">
+                  <p className="text-xs font-black uppercase tracking-widest text-[#af1d1f] mb-3">
                     Yetki Belgesi
                   </p>
                   <p className="text-sm font-black text-[#1d1d1d] uppercase tracking-wider">
-                    Menzerna GmbH
+                    Menzerna Polishing Compounds GmbH &amp; Co. KG
                   </p>
                   <p className="text-xs text-gray-500 mt-1">
                     Resmi Türkiye Distribütörü
@@ -317,24 +318,28 @@ export default async function HakkimizdaPage() {
       </section>
 
       {/* Rakamlar Bandı */}
-      <section className="bg-[#1d1d1d] py-14 md:py-20">
+      <section className="bg-[#f8f9fa] py-14 md:py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 text-center">
-            <div>
+          <div className="text-center mb-10">
+            <p className="text-[#af1d1f] text-xs font-black uppercase tracking-widest mb-3">Rakamlarla MG Polisaj</p>
+            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-[#1d1d1d]">Türkiye Genelinde Güçlü Dağıtım Ağı</h2>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white p-8 border border-gray-200 text-center">
               <p className="text-4xl font-black text-[#af1d1f]">81</p>
-              <p className="text-sm text-gray-400 mt-2">İlde Yaygın Erişim</p>
+              <p className="text-sm text-gray-600 mt-2">İlde Yaygın Erişim</p>
             </div>
-            <div>
+            <div className="bg-white p-8 border border-gray-200 text-center">
               <p className="text-4xl font-black text-[#af1d1f]">110+</p>
-              <p className="text-sm text-gray-400 mt-2">Ana Bayi</p>
+              <p className="text-sm text-gray-600 mt-2">Ana Bayi</p>
             </div>
-            <div>
+            <div className="bg-white p-8 border border-gray-200 text-center">
               <p className="text-4xl font-black text-[#af1d1f]">150+</p>
-              <p className="text-sm text-gray-400 mt-2">Satış Noktası</p>
+              <p className="text-sm text-gray-600 mt-2">Satış Noktası</p>
             </div>
-            <div>
+            <div className="bg-white p-8 border border-gray-200 text-center">
               <p className="text-4xl font-black text-[#af1d1f]">30.000+</p>
-              <p className="text-sm text-gray-400 mt-2">Aylık Profesyonel & Amatör Kullanıcı</p>
+              <p className="text-sm text-gray-600 mt-2">Aylık Profesyonel & Amatör Kullanıcı</p>
             </div>
           </div>
         </div>
@@ -350,17 +355,17 @@ export default async function HakkimizdaPage() {
             Ürün kataloğumuzu inceleyin veya bizimle iletişime geçerek
             ihtiyacınıza uygun çözümü birlikte belirleyelim.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mx-[10px] sm:mx-0">
             <Link
               href="/iletisim"
-              className="bg-[#af1d1f] hover:bg-red-700 text-white px-8 py-4 font-bold uppercase tracking-widest text-sm transition-colors flex items-center gap-2"
+              className="bg-[#af1d1f] hover:bg-red-700 text-white px-8 py-4 font-bold uppercase tracking-widest text-sm transition-colors flex items-center justify-center gap-2 w-full sm:w-auto"
             >
               İletişim
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/urunler"
-              className="border-2 border-white hover:bg-white hover:text-[#1d1d1d] text-white px-8 py-4 font-bold uppercase tracking-widest text-sm transition-colors"
+              className="border-2 border-white hover:bg-white hover:text-[#1d1d1d] text-white px-8 py-4 font-bold uppercase tracking-widest text-sm transition-colors text-center w-full sm:w-auto"
             >
               Ürünleri Keşfet
             </Link>

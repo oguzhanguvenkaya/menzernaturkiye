@@ -44,6 +44,7 @@
     "server",
     "shared",
     "script",
+    "scripts",
     "dist",
     "migrations",
     "vite-plugin-meta-images.ts",

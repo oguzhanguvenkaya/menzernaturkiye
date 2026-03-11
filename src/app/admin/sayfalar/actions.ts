@@ -14,7 +14,7 @@ const REVALIDATE_PATHS = [
   "/kurumsal/sss",
 ];
 
-export async function savePageContentAction(formData: FormData) {
+async function savePageContentInternal(formData: FormData) {
   const id = formData.get("id") as string | null;
   const slug = formData.get("slug") as string;
   const section = formData.get("section") as string;
@@ -23,7 +23,7 @@ export async function savePageContentAction(formData: FormData) {
   const image_url = (formData.get("image_url") as string) || undefined;
   const order_index = Number(formData.get("order_index")) || 0;
 
-  await upsertPageContent({
+  const result = await upsertPageContent({
     ...(id ? { id } : {}),
     slug,
     section,
@@ -36,6 +36,17 @@ export async function savePageContentAction(formData: FormData) {
   for (const path of REVALIDATE_PATHS) {
     revalidatePath(path);
   }
+
+  return result;
+}
+
+export async function savePageContentAction(formData: FormData) {
+  await savePageContentInternal(formData);
+}
+
+export async function savePageContentWithIdAction(formData: FormData) {
+  const result = await savePageContentInternal(formData);
+  return { id: result.id };
 }
 
 export async function deletePageContentAction(id: string) {

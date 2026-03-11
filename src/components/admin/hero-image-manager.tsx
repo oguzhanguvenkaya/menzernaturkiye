@@ -3,7 +3,7 @@
 import { useState, useRef, useCallback } from "react";
 import Image from "next/image";
 import { Upload, Trash2, Loader2, ImageIcon, Settings2 } from "lucide-react";
-import { savePageContentAction } from "@/app/admin/sayfalar/actions";
+import { savePageContentWithIdAction } from "@/app/admin/sayfalar/actions";
 import type { PageContent } from "@/db/schema";
 import { parseImageSettings, type ImageSettings } from "@/lib/image-settings";
 
@@ -151,7 +151,10 @@ function ImageCard({
       fd.append("image_url", url);
       fd.append("body", JSON.stringify(s));
       fd.append("order_index", "0");
-      await savePageContentAction(fd);
+      const result = await savePageContentWithIdAction(fd);
+      if (result?.id && !contentId) {
+        setContentId(result.id);
+      }
     } finally {
       setSaving(false);
     }
@@ -161,9 +164,14 @@ function ImageCard({
     (newSettings: ImageSettings) => {
       if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current);
       saveTimeoutRef.current = setTimeout(() => {
-        if (imageUrl) saveToDb(imageUrl, newSettings);
+        if (imageUrl) {
+          saveToDb(imageUrl, newSettings).catch((e) => {
+            console.error("Ayar kaydedilemedi:", e);
+          });
+        }
       }, 600);
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [imageUrl, contentId]
   );
 

@@ -51,7 +51,7 @@ export default function IletisimPage() {
             İletişim
           </h1>
           <p className="mt-4 text-gray-300 text-base md:text-lg max-w-xl mx-auto">
-            Sorularınız için bize ulaşın. En kısa sürede yanıt vereceğiz.
+            Ürün, bayi ve teknik destek talepleriniz için bize ulaşın.
           </p>
         </div>
       </section>

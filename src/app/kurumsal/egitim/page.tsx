@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   Car,
-  Factory,
+  Layers,
   PackageSearch,
   Settings2,
   ArrowRight,
@@ -21,18 +21,18 @@ export const metadata: Metadata = {
 
 const trainingTopics = [
   {
+    icon: Layers,
+    title: "Yüzey Tanıma ve Analiz",
+    description:
+      "Kaplama ve boya teknolojileri bilgileri, farklı araç boya türlerini ve verniklerini tanıma, analiz etme.",
+    tags: ["Temel", "Teknik"],
+  },
+  {
     icon: Car,
     title: "Araç Polisaj Teknikleri",
     description:
       "Tek adım ve çok adımlı polisaj yöntemleri, boya derinliği ölçümü, paint correction teknikleri ve son kat koruma uygulamaları.",
     tags: ["Başlangıç", "Orta Seviye", "İleri"],
-  },
-  {
-    icon: Factory,
-    title: "Endüstriyel Polisaj Uygulamaları",
-    description:
-      "Metal, alüminyum, paslanmaz çelik ve plastik yüzeylerde mekanik yüzey işleme yöntemleri ve doğru pasta seçimi.",
-    tags: ["Endüstriyel", "Teknik"],
   },
   {
     icon: PackageSearch,
@@ -43,7 +43,7 @@ const trainingTopics = [
   },
   {
     icon: Settings2,
-    title: "Makine ve Pad Eşleştirme",
+    title: "Ürün & Makine & Pad Eşleştirme",
     description:
       "Rotary ve DA (dual action) makine kullanımı, pad sertlik seçimi, hız ayarları ve farklı yüzey tiplerinde doğru kombinasyon.",
     tags: ["Ekipman", "Teknik"],
@@ -210,33 +210,31 @@ export default async function EgitimPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {trainingTopics.map((topic, idx) => (
               <div
                 key={topic.title}
-                className="bg-white border border-gray-200 hover:border-[#af1d1f] p-7 transition-colors group"
+                className="bg-white border border-gray-200 hover:border-[#af1d1f] p-8 md:p-10 transition-colors group"
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 bg-[#1d1d1d] group-hover:bg-[#af1d1f] flex items-center justify-center shrink-0 transition-colors">
-                    <topic.icon className="w-5 h-5 text-white" />
+                <div className="flex items-start gap-5">
+                  <div className="w-14 h-14 bg-[#1d1d1d] group-hover:bg-[#af1d1f] flex items-center justify-center shrink-0 transition-colors">
+                    <topic.icon className="w-7 h-7 text-white" />
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="text-[10px] font-black text-gray-300 uppercase tracking-widest">
-                        {String(idx + 1).padStart(2, "0")}
-                      </span>
-                    </div>
-                    <h3 className="text-sm font-black uppercase tracking-wider text-[#1d1d1d] mb-2">
+                    <span className="text-xs font-black text-gray-300 uppercase tracking-widest">
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="text-base md:text-lg font-black uppercase tracking-wider text-[#1d1d1d] mt-1 mb-3">
                       {topic.title}
                     </h3>
-                    <p className="text-xs text-gray-500 leading-relaxed mb-3">
+                    <p className="text-sm text-gray-500 leading-relaxed mb-4">
                       {topic.description}
                     </p>
-                    <div className="flex flex-wrap gap-1.5">
+                    <div className="flex flex-wrap gap-2">
                       {topic.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="text-[10px] font-bold uppercase tracking-wider text-[#1d1d1d] bg-[#f8f9fa] border border-gray-200 px-2 py-0.5"
+                          className="text-[11px] font-bold uppercase tracking-wider text-[#1d1d1d] bg-[#f8f9fa] border border-gray-200 px-3 py-1"
                         >
                           {tag}
                         </span>

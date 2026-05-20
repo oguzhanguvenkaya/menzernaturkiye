@@ -11,3 +11,21 @@ vite.config.ts.*
 attached_assets/
 *.json.bak
 tsconfig.tsbuildinfo
+
+# Data exports & backups (yerel iş dosyaları, repo'ya girmemeli)
+*.xlsx
+contact_messages.json
+image-backup.json
+image-updates.json
+menzerna-full-catalog.json
+products-export.json
+products.json
+scraped-*.json
+
+# Geçici / OS artifacts
+*.textClipping
+.playwright-cli/
+
+# Geçici ürün görselleri (yerel upload öncesi)
+/22828251001_1.webp
+/22828261001_1.webp
